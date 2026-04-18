@@ -7,5 +7,5 @@ node_modules/
 dist/
 build/
 *.log
-.gates/runs/
+.gates/runs/*
 !.gates/runs/.gitkeep

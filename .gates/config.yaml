@@ -1,0 +1,36 @@
+version: 1
+project:
+  name: talks-2026
+  stack:
+    - markdown
+    - nextjs
+    - typescript
+specialists:
+  - content
+  - frontend
+  - backend
+indexed_directories:
+  - path: 01-intro-ecommerce
+    specialist: content
+    tags: [palestra, e-commerce, sprint-01]
+  - path: 02-cro
+    specialist: content
+    tags: [palestra, cro, sprint-02]
+  - path: 03-harness
+    specialist: content
+    tags: [palestra, harness, sprint-03]
+  - path: shared/knowledge-base
+    specialist: content
+    tags: [knowledge-base, rag-source]
+  - path: shared/site
+    specialist: frontend
+    tags: [voting-site, nextjs]
+  - path: shared/cases
+    specialist: content
+    tags: [case-studies]
+pr_structure:
+  required_sections:
+    - "## Summary"
+    - "## Changes"
+    - "## Issue coverage"
+  min_body_length: 200
