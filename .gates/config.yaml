@@ -28,6 +28,9 @@ indexed_directories:
   - path: shared/cases
     specialist: content
     tags: [case-studies]
+  - path: slides
+    specialist: frontend
+    tags: [swiftui, macos, deck, sprint-01]
 pr_structure:
   required_sections:
     - "## Summary"

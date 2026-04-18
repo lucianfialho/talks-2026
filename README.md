@@ -29,6 +29,7 @@ Content layers (3 palestras) construídas usando dogfood do ecossistema próprio
 | CLI de controle | [`spec2cli`](https://github.com/lucianfialho/spec2cli) | Se API do site de votação for exposta |
 | Knowledge base | **chat-sdk + AI SDK** (dogfood Vercel stack) | RAG embed próprio, não NotebookLM externo |
 | Lint de código | [`ailint-cli`](https://github.com/lucianfialho/ailint-cli) | Evitar alucinação nos snippets das demos |
+| Deck macOS | [`SlideKit`](https://github.com/mtj0928/SlideKit) (MIT) + scaffolding de [`try-Swift-2026`](https://github.com/mtj0928/try-Swift-2026) | App SwiftUI nativo em `slides/` — ver `slides/NOTICE.md` |
 
 ## Meta-loop
 
@@ -48,13 +49,19 @@ talks-2026/
 │   ├── cases/                   # mmm-research, benchmark 20x (escalados por profundidade)
 │   └── assets/                  # screenshots, gifs, dados
 ├── 01-intro-ecommerce/          # 25/04/2026
-│   ├── script.md                # narrativa blog-post
+│   ├── script.md                # narrativa blog-post (issue #4)
 │   ├── bifurcations.md          # 3 pontos de votação (profundidade técnica)
-│   ├── deck/                    # slides
 │   ├── notes/                   # ensaio, roteiro, cronometragem
-│   └── demos/                   # comandos e snippets das demos ao vivo
+│   └── demos/                   # comandos e snippets das demos ao vivo (issue #6)
 ├── 02-cro/
-└── 03-harness/
+├── 03-harness/
+└── slides/                      # SwiftUI macOS app (Xcode) — deck das 3 palestras
+    ├── NOTICE.md                # Atribuição SlideKit MIT + scaffolding try-Swift-2026
+    ├── TrySwift2026.xcodeproj   # nome interno herdado; display name → "Luciano Talks 2026"
+    └── TrySwift2026/
+        ├── SlideState.swift     # enum de slides da palestra 01 (reescrito)
+        ├── Slides/Talks/01-Ecommerce/   # placeholders até o script (issue #4) pousar
+        └── …
 ```
 
 ## Cronograma 01 (7 dias)
