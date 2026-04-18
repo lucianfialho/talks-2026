@@ -1,0 +1,52 @@
+name: Lint content
+
+on:
+  pull_request:
+    paths:
+      - "**/*.md"
+      - "**/*.mdx"
+  push:
+    branches:
+      - main
+    paths:
+      - "**/*.md"
+      - "**/*.mdx"
+
+jobs:
+  ailint:
+    name: ailint-cli on changed markdown
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Determine changed markdown files
+        id: changed
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            base="${{ github.event.pull_request.base.sha }}"
+            head="${{ github.event.pull_request.head.sha }}"
+          else
+            base="${{ github.event.before }}"
+            head="${{ github.sha }}"
+          fi
+          files=$(git diff --name-only --diff-filter=ACMR "$base" "$head" -- '*.md' '*.mdx' | tr '\n' ' ')
+          echo "files=$files" >> "$GITHUB_OUTPUT"
+          echo "Changed markdown files: $files"
+
+      - name: Run ailint on changed files
+        if: steps.changed.outputs.files != ''
+        run: |
+          echo "Running @ailint/cli on changed markdown files..."
+          npx --yes @ailint/cli check ${{ steps.changed.outputs.files }}
+
+      - name: Skip if no markdown changed
+        if: steps.changed.outputs.files == ''
+        run: echo "No markdown files changed; skipping ailint."
