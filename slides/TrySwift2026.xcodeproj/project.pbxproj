@@ -7,11 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		183FDA942F8A1AC900B0C8A2 /* iPhone13-mini_more.mov in Resources */ = {isa = PBXBuildFile; fileRef = 183FDA932F8A1AC900B0C8A2 /* iPhone13-mini_more.mov */; };
-		183FDA962F8A1F7B00B0C8A2 /* iPhone13-mini_more-customView.mov in Resources */ = {isa = PBXBuildFile; fileRef = 183FDA952F8A1F7B00B0C8A2 /* iPhone13-mini_more-customView.mov */; };
 		186BD13F2F62FEE600180577 /* SlideState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186BD13E2F62FEE600180577 /* SlideState.swift */; };
 		186BD1472F63916700180577 /* SlideContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186BD1462F63916700180577 /* SlideContainer.swift */; };
-		18E532012F6D315A000E575A /* Wave-1.mov in Resources */ = {isa = PBXBuildFile; fileRef = 18E532002F6D315A000E575A /* Wave-1.mov */; };
 		18E532062F6D59D0000E575A /* View+WWDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E532052F6D59D0000E575A /* View+WWDC.swift */; };
 		18F0A1B32F7A000100180577 /* PDFExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F0A1B22F7A000100180577 /* PDFExporter.swift */; };
 		28DB46E20ECA7335B6464EFF /* SlideConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64694C1BA3F741DEB550B59C /* SlideConfiguration.swift */; };
@@ -21,11 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		183FDA932F8A1AC900B0C8A2 /* iPhone13-mini_more.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "iPhone13-mini_more.mov"; sourceTree = "<group>"; };
-		183FDA952F8A1F7B00B0C8A2 /* iPhone13-mini_more-customView.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "iPhone13-mini_more-customView.mov"; sourceTree = "<group>"; };
 		186BD13E2F62FEE600180577 /* SlideState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideState.swift; sourceTree = "<group>"; };
 		186BD1462F63916700180577 /* SlideContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideContainer.swift; sourceTree = "<group>"; };
-		18E532002F6D315A000E575A /* Wave-1.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "Wave-1.mov"; sourceTree = "<group>"; };
 		18E532052F6D59D0000E575A /* View+WWDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+WWDC.swift"; sourceTree = "<group>"; };
 		18F0A1B22F7A000100180577 /* PDFExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFExporter.swift; sourceTree = "<group>"; };
 		2D2C7103B32096139992AAB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -66,9 +60,6 @@
 			isa = PBXGroup;
 			children = (
 				2D2C7103B32096139992AAB0 /* Assets.xcassets */,
-				183FDA932F8A1AC900B0C8A2 /* iPhone13-mini_more.mov */,
-				18E532002F6D315A000E575A /* Wave-1.mov */,
-				183FDA952F8A1F7B00B0C8A2 /* iPhone13-mini_more-customView.mov */,
 				F80B781D97E7D22968922E5D /* TrySwift2026.entitlements */,
 			);
 			path = Resources;
@@ -172,9 +163,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E3F33DB3452082282B951E0 /* Assets.xcassets in Resources */,
-				183FDA962F8A1F7B00B0C8A2 /* iPhone13-mini_more-customView.mov in Resources */,
-				183FDA942F8A1AC900B0C8A2 /* iPhone13-mini_more.mov in Resources */,
-				18E532012F6D315A000E575A /* Wave-1.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
