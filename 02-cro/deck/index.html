@@ -1379,6 +1379,50 @@
 </article>
 
 <!-- ═══════════════════════════════════════════════════════════════════════
+     S04-3 — Volta ao stack (antes do DuckDB)
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s04-3">
+  <header class="slide-header">
+    <span>Ato 2 — O stack</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:32px;">
+    <div style="font-family:var(--f-display);font-size:72px;line-height:1.02;letter-spacing:-0.022em;">
+      O stack que eu <em style="font-style:italic;color:var(--accent)">recomendo</em>
+    </div>
+    <div class="stack-flow" style="flex:1;">
+      <div class="stack-sources">
+        <div class="stack-node">
+          <div class="stack-node-name">gmp-cli</div>
+          <div class="stack-node-desc">GA4 · GSC · Google Ads · GTM · BigQuery</div>
+        </div>
+        <div class="stack-node">
+          <div class="stack-node-name">spec2cli</div>
+          <div class="stack-node-desc">VTEX · Shopify · qualquer OpenAPI</div>
+        </div>
+      </div>
+      <div class="stack-arrow">→</div>
+      <div class="stack-node center" style="border-color:var(--accent);background:color-mix(in oklab,var(--accent) 8%,transparent);">
+        <div class="stack-node-name" style="font-size:36px;">DuckDB</div>
+        <div class="stack-node-desc" style="font-size:22px;"><strong style="color:var(--ink);">Snapshot local</strong><br>isolado de prod · zero setup<br>SQL analítico nativo</div>
+      </div>
+      <div class="stack-arrow">→</div>
+      <div class="stack-node center" style="background:var(--bg-alt);border-color:var(--ink);">
+        <div class="stack-node-name" style="color:var(--ink);font-size:32px;">Claude Code</div>
+        <div class="stack-node-desc" style="font-size:22px;"><strong style="color:var(--accent);">1M tokens</strong><br>Análise · Limpeza · Decisão<br>Skills custom pro seu fluxo</div>
+      </div>
+    </div>
+    <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;">
+      Open source · <strong style="color:var(--ink);">github.com/lucianfialho</strong> · funciona com qualquer warehouse existente
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 2</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
      S03a — DuckDB como camada de consumo
 ═════════════════════════════════════════════════════════════════════════ -->
 <article class="slide" id="s03a">
@@ -1451,8 +1495,14 @@
         <div style="font-family:var(--f-mono);font-size:13px;color:var(--stone);text-align:center;font-weight:600;">1M de contexto</div>
       </div>
     </div>
-    <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.6;border-top:1px solid var(--rule);padding-top:24px;">
-      Se você tem um Data Lake — você ingere o snapshot dele direto no DuckDB. Custo de 1 query de ingestão. Análises ilimitadas sem tocar no lake de novo.
+    <div style="display:flex;gap:32px;border-top:1px solid var(--rule);padding-top:24px;align-items:flex-start;">
+      <div style="flex:1;font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.6;">
+        Se você tem um Data Lake — ingere o snapshot direto no DuckDB. Custo de 1 query de ingestão. Análises ilimitadas sem tocar no lake de novo.
+      </div>
+      <div style="border:1px dashed var(--stone-2);border-radius:4px;padding:16px 24px;min-width:340px;">
+        <div style="font-family:var(--f-mono);font-size:16px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone-2);margin-bottom:8px;">Alternativa sem instalar DuckDB</div>
+        <div style="font-family:var(--f-mono);font-size:18px;color:var(--stone);">Python + <strong style="color:var(--ink);">pandas</strong> — pré-instalado no macOS.<br>Mesmo resultado, zero dependência extra.</div>
+      </div>
     </div>
   </div>
   <footer class="slide-footer">
