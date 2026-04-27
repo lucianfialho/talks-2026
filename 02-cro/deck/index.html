@@ -1141,6 +1141,146 @@
 
 
 <!-- ═══════════════════════════════════════════════════════════════════════
+     S04a — gmp-cli
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s04a">
+  <header class="slide-header">
+    <span>Ato 2 — As ferramentas</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+    <div style="display:flex;align-items:baseline;gap:24px;">
+      <div style="font-family:var(--f-mono);font-size:80px;font-weight:700;color:var(--accent);letter-spacing:-0.02em;">gmp-cli</div>
+      <div style="font-family:var(--f-sans);font-size:var(--fs-body);color:var(--stone);">Google Marketing Platform no terminal</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;flex:1;align-items:start;">
+      <!-- Fontes conectadas -->
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="font-family:var(--f-mono);font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);margin-bottom:4px;">Conecta com</div>
+        <div style="display:flex;align-items:center;gap:14px;padding:16px 20px;border:1px solid var(--rule);border-radius:4px;">
+          <img data-domain="analytics.google.com" style="width:36px;height:36px;object-fit:contain;flex-shrink:0;" alt="GA4">
+          <div>
+            <div style="font-family:var(--f-sans);font-size:24px;font-weight:600;">Google Analytics 4</div>
+            <div style="font-family:var(--f-mono);font-size:16px;color:var(--stone);">eventos · sessões · conversões · funis</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;padding:16px 20px;border:1px solid var(--rule);border-radius:4px;">
+          <img data-domain="search.google.com" style="width:36px;height:36px;object-fit:contain;flex-shrink:0;" alt="GSC">
+          <div>
+            <div style="font-family:var(--f-sans);font-size:24px;font-weight:600;">Search Console</div>
+            <div style="font-family:var(--f-mono);font-size:16px;color:var(--stone);">queries · impressões · CTR · posição</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;padding:16px 20px;border:1px solid var(--rule);border-radius:4px;">
+          <img data-domain="ads.google.com" style="width:36px;height:36px;object-fit:contain;flex-shrink:0;" alt="Google Ads">
+          <div>
+            <div style="font-family:var(--f-sans);font-size:24px;font-weight:600;">Google Ads</div>
+            <div style="font-family:var(--f-mono);font-size:16px;color:var(--stone);">clicks · spend · ROAS · keywords</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;padding:16px 20px;border:1px solid var(--rule);border-radius:4px;">
+          <img data-domain="cloud.google.com" style="width:36px;height:36px;object-fit:contain;flex-shrink:0;" alt="BigQuery">
+          <div>
+            <div style="font-family:var(--f-sans);font-size:24px;font-weight:600;">BigQuery</div>
+            <div style="font-family:var(--f-mono);font-size:16px;color:var(--stone);">GA4 raw · warehouse existente</div>
+          </div>
+        </div>
+      </div>
+      <!-- Exemplo de uso -->
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div style="font-family:var(--f-mono);font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);margin-bottom:4px;">Exemplo</div>
+        <div style="background:var(--bg-alt);border-radius:4px;padding:28px 32px;border-left:3px solid var(--accent);">
+          <div style="font-family:var(--f-mono);font-size:22px;color:var(--accent);line-height:1.7;">
+            gmp ga report \<br>
+            &nbsp;&nbsp;--days 30 \<br>
+            &nbsp;&nbsp;--metrics sessions,conversions \<br>
+            &nbsp;&nbsp;--dims device,channel
+          </div>
+        </div>
+        <div style="background:var(--bg-alt);border-radius:4px;padding:28px 32px;border-left:3px solid var(--accent);">
+          <div style="font-family:var(--f-mono);font-size:22px;color:var(--accent);line-height:1.7;">
+            gmp gsc queries \<br>
+            &nbsp;&nbsp;--site metricasboss.com.br \<br>
+            &nbsp;&nbsp;--days 28
+          </div>
+        </div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;margin-top:8px;">
+          Output vai direto pro DuckDB. Claude Code cruza GA4 + GSC + Ads numa query.
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 2</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S04b — spec2cli
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s04b">
+  <header class="slide-header">
+    <span>Ato 2 — As ferramentas</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+    <div style="display:flex;align-items:baseline;gap:24px;">
+      <div style="font-family:var(--f-mono);font-size:80px;font-weight:700;color:var(--accent);letter-spacing:-0.02em;">spec2cli</div>
+      <div style="font-family:var(--f-sans);font-size:var(--fs-body);color:var(--stone);">Qualquer API vira CLI em segundos</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;flex:1;align-items:start;">
+      <!-- Plataformas -->
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="font-family:var(--f-mono);font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);margin-bottom:4px;">Funciona com qualquer OpenAPI</div>
+        <div style="display:flex;align-items:center;gap:14px;padding:16px 20px;border:1px solid var(--rule);border-radius:4px;">
+          <img data-domain="vtex.com" style="width:36px;height:36px;object-fit:contain;flex-shrink:0;" alt="VTEX">
+          <div>
+            <div style="font-family:var(--f-sans);font-size:24px;font-weight:600;">VTEX</div>
+            <div style="font-family:var(--f-mono);font-size:16px;color:var(--stone);">pedidos · catálogo · SKUs · sessões</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;padding:16px 20px;border:1px solid var(--rule);border-radius:4px;">
+          <img data-domain="shopify.com" style="width:36px;height:36px;object-fit:contain;flex-shrink:0;" alt="Shopify">
+          <div>
+            <div style="font-family:var(--f-sans);font-size:24px;font-weight:600;">Shopify</div>
+            <div style="font-family:var(--f-mono);font-size:16px;color:var(--stone);">orders · products · customers</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;padding:16px 20px;border:1px dashed var(--stone-2);border-radius:4px;">
+          <div style="width:36px;height:36px;border-radius:4px;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;font-family:var(--f-mono);font-size:14px;font-weight:700;color:var(--stone);flex-shrink:0;">API</div>
+          <div>
+            <div style="font-family:var(--f-sans);font-size:24px;font-weight:600;color:var(--stone);">Qualquer plataforma</div>
+            <div style="font-family:var(--f-mono);font-size:16px;color:var(--stone-2);">se tem OpenAPI spec, vira CLI</div>
+          </div>
+        </div>
+      </div>
+      <!-- Como funciona + exemplo -->
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div style="font-family:var(--f-mono);font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);margin-bottom:4px;">Como funciona</div>
+        <div style="background:var(--bg-alt);border-radius:4px;padding:24px 28px;border-left:3px solid var(--accent);">
+          <div style="font-family:var(--f-mono);font-size:20px;color:var(--accent);line-height:1.8;">
+            <span style="color:var(--stone-2)"># aponta pro spec, já funciona</span><br>
+            spec2cli \<br>
+            &nbsp;&nbsp;--spec vtex-openapi.json \<br>
+            &nbsp;&nbsp;orders list \<br>
+            &nbsp;&nbsp;--status invoiced \<br>
+            &nbsp;&nbsp;--date-from 2026-04-01
+          </div>
+        </div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;padding:20px;border:1px solid var(--rule);border-radius:4px;">
+          Sem build. Sem código. Você aponta pro OpenAPI da sua plataforma e já tem um CLI que sabe falar com pedidos, catálogo, clientes. Output vai direto pro DuckDB.
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 2</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
      S04 — Stack sugerido
 ═════════════════════════════════════════════════════════════════════════ -->
 <article class="slide" id="s04">
