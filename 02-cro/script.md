@@ -170,21 +170,21 @@ touch .cro-srm-checked
 /post-test-segments
 ```
 
-*"O lift agregado é 12%. Parece bom. Parece que você tem um vencedor."*
+*"O lift agregado é 25%. Parece bom. Parece que você tem um vencedor claro."*
 
 *"Mas olha o que acontece quando você segmenta por device."*
 
-*"Mobile tem 20% de lift. Desktop não moveu — literalmente zero, dentro do ruído. Tablet, amostra pequena, não é conclusivo."*
+*"Mobile: 79% de lift. Tá voando. Desktop: 14% de lift — menor, mas ok. Tablet: menos 16%. Tablet PIOROU."*
 
-*"Se você implementar pra todo mundo com base nos 12% agregados, o revenue não entrega os 12% prometidos. Você implementou uma mudança que é boa pra mobile e neutra pra desktop. O ganho real é metade do esperado, e o engenheiro que implementou vai parecer que fez algo errado."*
+*"O agregado de 25% esconde que você está ativamente prejudicando usuários de tablet. Você implementa pra todo mundo, o time de mobile comemora, e os usuários de tablet estão tendo uma experiência pior — e ninguém percebe porque o número consolidado ainda é verde."*
 
-*"Esse insight existe no dado. Sempre existiu. Ninguém vai atrás porque a análise padrão para no agregado, e segmentar por device é mais uma query, mais tempo, mais chance de atrasar a decisão. Com Claude Code mais DuckDB é um comando."*
+*"Esse insight existe no dado. Sempre existiu. Ninguém vai atrás porque a análise padrão para no agregado. Com Claude Code mais DuckDB é um comando."*
 
 ### 4B — Heurísticas com agent-browser
 
 [SLIDE: "Quantitativo diz O QUÊ. Heurística diz POR QUÊ."]
 
-*"Mas por que mobile moveu e desktop não? O dado quantitativo não responde isso. Ele te diz o quê aconteceu. Não o porquê."*
+*"Mas por que mobile disparou e tablet piorou? O dado quantitativo não responde isso. Ele te diz o quê aconteceu. Não o porquê."*
 
 *"Uma varredura heurística te dá as hipóteses do porquê. Você pode fazer manualmente — abrir a variante, checar CTA, contraste, hierarquia visual. Ou você pode automatizar."*
 

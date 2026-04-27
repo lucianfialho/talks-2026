@@ -19,9 +19,14 @@ for i, user_id in enumerate(REAL_USERS):
     variant = VARIANTS[i % 2]
     session_duration = random.randint(30, 600)
     num_events = random.randint(2, 15)
+    # control: 4.5% flat across all devices
+    # variant_b: mobile gets big lift (0.09), desktop/tablet flat (0.040)
+    # SRM users (400, converted=0) dilute variant_b ~9% per device
+    # final expected: mobile ~8%, desktop ~3.6%, control ~4.5%
+    # gap is large enough to survive random noise with seed=42
     converted = (
         random.random() < (0.045 if variant == 'control' else
-                           0.054 if device == 'mobile' else 0.046)
+                           0.090 if device == 'mobile' else 0.040)
     )
     ts = start + datetime.timedelta(
         days=random.randint(0, 29),

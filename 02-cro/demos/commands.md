@@ -12,6 +12,18 @@ duckdb cro.db < 02-cro/demos/data/setup-duckdb.sql
 # deve retornar: "Setup completo." com ~8600 usuários
 ```
 
+**Alternativa sem instalar DuckDB — pandas (pré-instalado no macOS):**
+```python
+import pandas as pd
+df = pd.read_csv('02-cro/demos/data/sample-ga4-events.csv')
+sessions = df[df['event_name']=='session_start']
+# bot filter
+hits = sessions.groupby('user_pseudo_id').size()
+bots = hits[hits > 50].index
+df_clean = sessions[~sessions['user_pseudo_id'].isin(bots)]
+# mesma análise — troca duckdb por df_clean.groupby(...).agg(...)
+```
+
 ## Ato 1 — wterm no browser
 
 URL: https://wterm.vercel.app (testar antes — pode ser instância local)
