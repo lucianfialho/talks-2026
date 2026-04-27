@@ -1773,37 +1773,49 @@
       <div style="display:flex;flex-direction:column;gap:16px;">
         <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);">Momentos disponíveis</div>
         <div style="display:flex;flex-direction:column;gap:10px;">
-          <div style="border:2px solid var(--accent);border-radius:4px;padding:14px 18px;background:color-mix(in oklab,var(--accent) 5%,transparent);">
-            <div style="font-family:var(--f-mono);font-size:20px;color:var(--accent);">PreToolUse</div>
-            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);margin-top:4px;">Antes de executar qualquer ferramenta (Bash, Edit, Read)</div>
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:12px 16px;">
+            <div style="font-family:var(--f-mono);font-size:18px;color:var(--stone);">SessionStart</div>
+            <div style="font-family:var(--f-sans);font-size:18px;color:var(--stone-2);margin-top:2px;">Início ou retomada de sessão</div>
           </div>
-          <div style="border:1px solid var(--rule);border-radius:4px;padding:14px 18px;">
-            <div style="font-family:var(--f-mono);font-size:20px;color:var(--stone);">PostToolUse</div>
-            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);margin-top:4px;">Após executar uma ferramenta</div>
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:12px 16px;">
+            <div style="font-family:var(--f-mono);font-size:18px;color:var(--stone);">UserPromptSubmit</div>
+            <div style="font-family:var(--f-sans);font-size:18px;color:var(--stone-2);margin-top:2px;">Antes do Claude processar sua mensagem</div>
           </div>
-          <div style="border:1px solid var(--rule);border-radius:4px;padding:14px 18px;">
-            <div style="font-family:var(--f-mono);font-size:20px;color:var(--stone);">PreCompact</div>
-            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);margin-top:4px;">Antes de compactar o contexto da sessão</div>
+          <div style="border:2px solid var(--accent);border-radius:4px;padding:12px 16px;background:color-mix(in oklab,var(--accent) 5%,transparent);">
+            <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">PreToolUse ← usamos hoje</div>
+            <div style="font-family:var(--f-sans);font-size:18px;color:var(--stone);margin-top:2px;">Antes de executar qualquer ferramenta (Bash, Edit, Read)</div>
+          </div>
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:12px 16px;">
+            <div style="font-family:var(--f-mono);font-size:18px;color:var(--stone);">PostToolUse</div>
+            <div style="font-family:var(--f-sans);font-size:18px;color:var(--stone-2);margin-top:2px;">Após executar uma ferramenta com sucesso</div>
+          </div>
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:12px 16px;">
+            <div style="font-family:var(--f-mono);font-size:18px;color:var(--stone);">Stop</div>
+            <div style="font-family:var(--f-sans);font-size:18px;color:var(--stone-2);margin-top:2px;">Quando Claude termina de responder</div>
+          </div>
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:12px 16px;">
+            <div style="font-family:var(--f-mono);font-size:18px;color:var(--stone);">PreCompact</div>
+            <div style="font-family:var(--f-sans);font-size:18px;color:var(--stone-2);margin-top:2px;">Antes de compactar o contexto da sessão</div>
           </div>
         </div>
+        <div style="font-family:var(--f-mono);font-size:14px;color:var(--stone-2);">28 hooks no total — docs.claude.ai/hooks</div>
       </div>
       <!-- Hook desta palestra -->
       <div style="display:flex;flex-direction:column;gap:16px;">
         <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);">O hook que vamos usar hoje</div>
         <div style="background:var(--bg-alt);border-radius:4px;overflow:hidden;">
           <div style="background:var(--ink);padding:8px 16px;font-family:var(--f-mono);font-size:13px;color:var(--stone-2);">settings.json — PreToolUse</div>
-          <div style="padding:16px 20px;font-family:var(--f-mono);font-size:16px;color:var(--accent);line-height:1.7;">
-            <span style="color:var(--stone-2)">{</span><br>
-            &nbsp;<span style="color:#f0eee6;">"hooks"</span>: {<br>
-            &nbsp;&nbsp;<span style="color:#f0eee6;">"PreToolUse"</span>: [{<br>
-            &nbsp;&nbsp;&nbsp;<span style="color:#f0eee6;">"matcher"</span>: <span style="color:var(--accent);">"Bash"</span>,<br>
-            &nbsp;&nbsp;&nbsp;<span style="color:#f0eee6;">"hooks"</span>: [{<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f0eee6;">"command"</span>:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--accent);">"bash validate.sh"</span><br>
-            &nbsp;&nbsp;&nbsp;}]<br>
-            &nbsp;&nbsp;}]<br>
-            &nbsp;<span style="color:var(--stone-2)">}</span><br>
-            <span style="color:var(--stone-2)">}</span>
+          <div style="padding:16px 20px;font-family:var(--f-mono);font-size:16px;line-height:1.8;color:var(--stone);">
+            <span style="color:var(--stone);">{</span><br>
+            &nbsp;<span style="color:var(--ink);">"hooks"</span><span style="color:var(--stone);">: {</span><br>
+            &nbsp;&nbsp;<span style="color:var(--ink);">"PreToolUse"</span><span style="color:var(--stone);">: [{</span><br>
+            &nbsp;&nbsp;&nbsp;<span style="color:var(--ink);">"matcher"</span><span style="color:var(--stone);">: </span><span style="color:var(--accent);">"Bash"</span><span style="color:var(--stone);">,</span><br>
+            &nbsp;&nbsp;&nbsp;<span style="color:var(--ink);">"hooks"</span><span style="color:var(--stone);">: [{</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--ink);">"command"</span><span style="color:var(--stone);">: </span><span style="color:var(--accent);">"bash validate.sh"</span><br>
+            &nbsp;&nbsp;&nbsp;<span style="color:var(--stone);">}]</span><br>
+            &nbsp;&nbsp;<span style="color:var(--stone);">}]</span><br>
+            &nbsp;<span style="color:var(--stone);">}</span><br>
+            <span style="color:var(--stone);">}</span>
           </div>
         </div>
         <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;">Antes de qualquer Bash rodar, <code style="font-family:var(--f-mono)">validate.sh</code> verifica se SRM check foi feito. Se não foi, bloqueia. <strong style="color:var(--ink);">Não é prompt. É código.</strong></div>
