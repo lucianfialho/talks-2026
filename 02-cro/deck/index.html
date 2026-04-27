@@ -1565,47 +1565,24 @@
   </header>
   <div class="slide-main" style="gap:36px;">
     <div style="font-family:var(--f-display);font-size:64px;line-height:1.02;letter-spacing:-0.022em;">
-      Claude Code no <em style="font-style:italic;color:var(--accent)">browser</em> — sem instalar nada
+      Claude Code + bash — o que isso <em style="font-style:italic;color:var(--accent)">desbloqueia</em>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;flex:1;align-items:start;">
-      <!-- Coluna 1: wterm como principal + npm como alternativa -->
-      <div style="display:flex;flex-direction:column;gap:16px;">
-        <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent);">Demo ao vivo</div>
-        <div style="background:color-mix(in oklab,var(--accent) 6%,transparent);border:2px solid var(--accent);border-radius:4px;padding:24px 28px;display:flex;flex-direction:column;gap:12px;">
-          <div style="font-family:var(--f-mono);font-size:28px;font-weight:700;color:var(--accent);">wterm</div>
-          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;">Claude Code rodando no browser. Sem npm, sem node, sem instalar nada. Abre a URL, já está pronto.</div>
-          <div style="font-family:var(--f-mono);font-size:18px;color:var(--ink);background:var(--bg);padding:10px 16px;border-radius:3px;">github.com/vercel-labs/wterm</div>
-        </div>
-        <div style="border:1px solid var(--rule);border-radius:4px;padding:16px 20px;">
-          <div style="font-family:var(--f-mono);font-size:16px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);margin-bottom:12px;">Quer instalar na sua máquina?</div>
-          <div style="font-family:var(--f-mono);font-size:17px;color:var(--stone);line-height:1.8;">
-            npm i -g @anthropic-ai/claude-code<br>
-            cd meu-projeto/<br>
-            claude
-          </div>
-        </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;flex:1;">
+      <div style="border:1px solid var(--rule);border-radius:4px;padding:28px 32px;display:flex;flex-direction:column;gap:10px;">
+        <div style="font-family:var(--f-mono);font-size:20px;color:var(--accent);">duckdb cro.db &lt; setup.sql</div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Roda SQL direto no terminal — sem IDE, sem planilha, sem copiar CSV</div>
       </div>
-      <!-- Coluna 2: o que você ganha com bash -->
-      <div style="display:flex;flex-direction:column;gap:16px;">
-        <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);">O que o bash desbloqueia</div>
-        <div style="display:flex;flex-direction:column;gap:12px;">
-          <div style="border:1px solid var(--rule);border-radius:4px;padding:16px 20px;display:flex;flex-direction:column;gap:6px;">
-            <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">duckdb cro.db &lt; setup.sql</div>
-            <div style="font-family:var(--f-sans);font-size:20px;color:var(--stone);">Roda SQL direto no terminal, sem IDE</div>
-          </div>
-          <div style="border:1px solid var(--rule);border-radius:4px;padding:16px 20px;display:flex;flex-direction:column;gap:6px;">
-            <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">gmp ga report --days 30</div>
-            <div style="font-family:var(--f-sans);font-size:20px;color:var(--stone);">Puxa dados e joga no contexto diretamente</div>
-          </div>
-          <div style="border:1px solid var(--rule);border-radius:4px;padding:16px 20px;display:flex;flex-direction:column;gap:6px;">
-            <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">bash hooks/validate.sh</div>
-            <div style="font-family:var(--f-sans);font-size:20px;color:var(--stone);">Guardrails como código que o Claude executa</div>
-          </div>
-          <div style="border:1px solid var(--rule);border-radius:4px;padding:16px 20px;display:flex;flex-direction:column;gap:6px;">
-            <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">python3 generate-data.py</div>
-            <div style="font-family:var(--f-sans);font-size:20px;color:var(--stone);">Scripts Python chamados direto pelo agente</div>
-          </div>
-        </div>
+      <div style="border:1px solid var(--rule);border-radius:4px;padding:28px 32px;display:flex;flex-direction:column;gap:10px;">
+        <div style="font-family:var(--f-mono);font-size:20px;color:var(--accent);">gmp ga report --days 30</div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Puxa dados do GA4 e joga no contexto do Claude diretamente</div>
+      </div>
+      <div style="border:1px solid var(--rule);border-radius:4px;padding:28px 32px;display:flex;flex-direction:column;gap:10px;">
+        <div style="font-family:var(--f-mono);font-size:20px;color:var(--accent);">bash hooks/validate.sh</div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Guardrails como código — o Claude executa antes de qualquer análise</div>
+      </div>
+      <div style="border:1px solid var(--rule);border-radius:4px;padding:28px 32px;display:flex;flex-direction:column;gap:10px;">
+        <div style="font-family:var(--f-mono);font-size:20px;color:var(--accent);">python3 generate-data.py</div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Scripts Python chamados pelo agente — sem sair do fluxo</div>
       </div>
     </div>
   </div>
