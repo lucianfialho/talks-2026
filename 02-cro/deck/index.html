@@ -1613,6 +1613,210 @@
 </article>
 
 <!-- ═══════════════════════════════════════════════════════════════════════
+     S04-custom-overview — Skills, Slash Commands e Hooks (overview)
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s04-custom-overview">
+  <header class="slide-header">
+    <span>Ato 2 — Customização</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+    <div style="font-family:var(--f-display);font-size:64px;line-height:1.02;letter-spacing:-0.022em;">
+      Como você <em style="font-style:italic;color:var(--accent)">treina</em> o Claude pro seu fluxo
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px;flex:1;">
+      <div style="border:1px solid var(--rule);border-radius:4px;padding:32px 28px;display:flex;flex-direction:column;gap:16px;">
+        <div style="font-family:var(--f-mono);font-size:22px;font-weight:700;color:var(--accent);">Skills</div>
+        <div style="font-family:var(--f-display);font-size:44px;line-height:1.0;letter-spacing:-0.01em;">Arquivos<br>markdown</div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.55;margin-top:auto;">Você escreve as instruções uma vez. O Claude executa sempre que você chama o skill.</div>
+      </div>
+      <div style="border:1px solid var(--rule);border-radius:4px;padding:32px 28px;display:flex;flex-direction:column;gap:16px;">
+        <div style="font-family:var(--f-mono);font-size:22px;font-weight:700;color:var(--accent);">Slash Commands</div>
+        <div style="font-family:var(--f-display);font-size:44px;line-height:1.0;letter-spacing:-0.01em;">Atalhos<br>de fluxo</div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.55;margin-top:auto;">Skills invocadas com <code style="font-family:var(--f-mono);color:var(--accent);">/nome</code> dentro do Claude. Um comando dispara uma sequência inteira de ações.</div>
+      </div>
+      <div style="border:1px solid var(--rule);border-radius:4px;padding:32px 28px;display:flex;flex-direction:column;gap:16px;">
+        <div style="font-family:var(--f-mono);font-size:22px;font-weight:700;color:var(--accent);">Hooks</div>
+        <div style="font-family:var(--f-display);font-size:44px;line-height:1.0;letter-spacing:-0.01em;">Scripts<br>automáticos</div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.55;margin-top:auto;">Shell scripts que rodam em momentos específicos — antes de uma ação, depois de um commit, no início da sessão.</div>
+      </div>
+    </div>
+    <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);border-top:1px solid var(--rule);padding-top:20px;">
+      Tudo é arquivo. Você commita no Git, compartilha com o time, versiona como código.
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 2</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S04-skills — Skills
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s04-skills">
+  <header class="slide-header">
+    <span>Ato 2 — Skills</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:36px;">
+    <div style="display:flex;align-items:baseline;gap:20px;">
+      <div style="font-family:var(--f-mono);font-size:72px;font-weight:700;color:var(--accent);">Skills</div>
+      <div style="font-family:var(--f-sans);font-size:var(--fs-body);color:var(--stone);">instruções que o Claude aprende uma vez e executa sempre</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;flex:1;align-items:start;">
+      <!-- Estrutura de um skill -->
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);">Estrutura de um skill</div>
+        <div style="background:var(--bg-alt);border-radius:4px;overflow:hidden;">
+          <div style="background:var(--ink);padding:8px 16px;font-family:var(--f-mono);font-size:13px;color:var(--stone-2);">srm-check.md</div>
+          <div style="padding:16px 20px;font-family:var(--f-mono);font-size:17px;color:var(--accent);line-height:1.8;">
+            <span style="color:var(--stone-2)">---</span><br>
+            name: srm-check<br>
+            description: Valida SRM antes<br>
+            &nbsp;&nbsp;de declarar resultado<br>
+            <span style="color:var(--stone-2)">---</span><br><br>
+            <span style="color:#f0eee6;">## Tarefa</span><br>
+            <span style="color:var(--stone-2);">Buscar no DuckDB a distribuição</span><br>
+            <span style="color:var(--stone-2);">de usuários por variante...</span>
+          </div>
+        </div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;">É markdown puro. Frontmatter define o nome e a descrição. O corpo é a instrução que o Claude vai seguir.</div>
+      </div>
+      <!-- Skills desta palestra -->
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);">Skills que vamos usar hoje</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:14px 18px;">
+            <div style="font-family:var(--f-mono);font-size:20px;color:var(--accent);">/srm-check</div>
+            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);margin-top:4px;">Valida distribuição de tráfego antes de qualquer análise</div>
+          </div>
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:14px 18px;">
+            <div style="font-family:var(--f-mono);font-size:20px;color:var(--accent);">/post-test-segments</div>
+            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);margin-top:4px;">Segmentação pós-teste por device, canal, novo/recorrente</div>
+          </div>
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:14px 18px;">
+            <div style="font-family:var(--f-mono);font-size:20px;color:var(--accent);">/cro-weekly-pipeline</div>
+            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);margin-top:4px;">Pipeline completo: puxa → limpa → SRM → segmenta → reporta</div>
+          </div>
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:14px 18px;">
+            <div style="font-family:var(--f-mono);font-size:20px;color:var(--accent);">/heuristic-scan</div>
+            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);margin-top:4px;">11-point checklist visual via agent-browser</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 2</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S04-slash — Slash Commands
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s04-slash">
+  <header class="slide-header">
+    <span>Ato 2 — Slash Commands</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:36px;">
+    <div style="display:flex;align-items:baseline;gap:20px;">
+      <div style="font-family:var(--f-mono);font-size:72px;font-weight:700;color:var(--accent);">/comando</div>
+      <div style="font-family:var(--f-sans);font-size:var(--fs-body);color:var(--stone);">um atalho que dispara uma sequência inteira</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;flex:1;align-items:center;">
+      <!-- Antes vs depois -->
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);">Sem slash command</div>
+        <div style="background:var(--bg-alt);border-radius:4px;padding:20px 24px;border-left:3px solid var(--rule);">
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.7;">
+            "Me ajude a verificar se o teste A/B tem SRM, calcule o chi-quadrado, verifique a distribuição de tráfego entre as variantes usando a tabela events_clean no DuckDB, e me diga se posso declarar vencedor..."
+          </div>
+        </div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Você reescreve toda vez. Sem garantia de consistência.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent);">Com slash command</div>
+        <div style="background:color-mix(in oklab,var(--accent) 6%,transparent);border:1px solid color-mix(in oklab,var(--accent) 25%,transparent);border-radius:4px;padding:20px 24px;border-left:3px solid var(--accent);">
+          <div style="font-family:var(--f-mono);font-size:36px;color:var(--accent);">/srm-check</div>
+        </div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Uma palavra. Sempre a mesma lógica. Sempre o mesmo output estruturado.</div>
+      </div>
+    </div>
+    <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);border-top:1px solid var(--rule);padding-top:20px;">
+      Slash commands são a interface entre você e o Claude. Quanto mais específicos pro seu negócio, mais valor você extrai.
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 2</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S04-hooks — Hooks
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s04-hooks">
+  <header class="slide-header">
+    <span>Ato 2 — Hooks</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:36px;">
+    <div style="display:flex;align-items:baseline;gap:20px;">
+      <div style="font-family:var(--f-mono);font-size:72px;font-weight:700;color:var(--accent);">Hooks</div>
+      <div style="font-family:var(--f-sans);font-size:var(--fs-body);color:var(--stone);">guardrails que rodam antes do Claude agir</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;flex:1;align-items:start;">
+      <!-- Tipos de hook -->
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);">Momentos disponíveis</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="border:2px solid var(--accent);border-radius:4px;padding:14px 18px;background:color-mix(in oklab,var(--accent) 5%,transparent);">
+            <div style="font-family:var(--f-mono);font-size:20px;color:var(--accent);">PreToolUse</div>
+            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);margin-top:4px;">Antes de executar qualquer ferramenta (Bash, Edit, Read)</div>
+          </div>
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:14px 18px;">
+            <div style="font-family:var(--f-mono);font-size:20px;color:var(--stone);">PostToolUse</div>
+            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);margin-top:4px;">Após executar uma ferramenta</div>
+          </div>
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:14px 18px;">
+            <div style="font-family:var(--f-mono);font-size:20px;color:var(--stone);">PreCompact</div>
+            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);margin-top:4px;">Antes de compactar o contexto da sessão</div>
+          </div>
+        </div>
+      </div>
+      <!-- Hook desta palestra -->
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);">O hook que vamos usar hoje</div>
+        <div style="background:var(--bg-alt);border-radius:4px;overflow:hidden;">
+          <div style="background:var(--ink);padding:8px 16px;font-family:var(--f-mono);font-size:13px;color:var(--stone-2);">settings.json — PreToolUse</div>
+          <div style="padding:16px 20px;font-family:var(--f-mono);font-size:16px;color:var(--accent);line-height:1.7;">
+            <span style="color:var(--stone-2)">{</span><br>
+            &nbsp;<span style="color:#f0eee6;">"hooks"</span>: {<br>
+            &nbsp;&nbsp;<span style="color:#f0eee6;">"PreToolUse"</span>: [{<br>
+            &nbsp;&nbsp;&nbsp;<span style="color:#f0eee6;">"matcher"</span>: <span style="color:var(--accent);">"Bash"</span>,<br>
+            &nbsp;&nbsp;&nbsp;<span style="color:#f0eee6;">"hooks"</span>: [{<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f0eee6;">"command"</span>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--accent);">"bash validate.sh"</span><br>
+            &nbsp;&nbsp;&nbsp;}]<br>
+            &nbsp;&nbsp;}]<br>
+            &nbsp;<span style="color:var(--stone-2)">}</span><br>
+            <span style="color:var(--stone-2)">}</span>
+          </div>
+        </div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;">Antes de qualquer Bash rodar, <code style="font-family:var(--f-mono)">validate.sh</code> verifica se SRM check foi feito. Se não foi, bloqueia. <strong style="color:var(--ink);">Não é prompt. É código.</strong></div>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 2</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
      S05 — Bot traffic
 ═════════════════════════════════════════════════════════════════════════ -->
 <article class="slide" id="s05">
