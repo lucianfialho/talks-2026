@@ -1556,6 +1556,73 @@
 </article>
 
 <!-- ═══════════════════════════════════════════════════════════════════════
+     S04-bash — Claude Code: bash, instalação e inicialização
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s04-bash">
+  <header class="slide-header">
+    <span>Ato 2 — Claude Code na prática</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:36px;">
+    <div style="font-family:var(--f-display);font-size:64px;line-height:1.02;letter-spacing:-0.022em;">
+      Do zero ao <em style="font-style:italic;color:var(--accent)">terminal</em> em 3 comandos
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;flex:1;align-items:start;">
+      <!-- Coluna 1: instalação + inicialização -->
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);">Setup</div>
+        <div style="background:var(--bg-alt);border-radius:4px;overflow:hidden;">
+          <div style="background:var(--ink);padding:8px 16px;font-family:var(--f-mono);font-size:14px;color:var(--stone-2);">terminal</div>
+          <div style="padding:20px 24px;display:flex;flex-direction:column;gap:16px;">
+            <div>
+              <div style="font-family:var(--f-mono);font-size:14px;color:var(--stone);margin-bottom:4px;"># instalar</div>
+              <div style="font-family:var(--f-mono);font-size:20px;color:var(--accent);">npm i -g @anthropic-ai/claude-code</div>
+            </div>
+            <div>
+              <div style="font-family:var(--f-mono);font-size:14px;color:var(--stone);margin-bottom:4px;"># entrar na pasta do projeto</div>
+              <div style="font-family:var(--f-mono);font-size:20px;color:var(--accent);">cd meu-projeto/</div>
+            </div>
+            <div>
+              <div style="font-family:var(--f-mono);font-size:14px;color:var(--stone);margin-bottom:4px;"># iniciar</div>
+              <div style="font-family:var(--f-mono);font-size:20px;color:var(--accent);">claude</div>
+            </div>
+          </div>
+        </div>
+        <div style="background:color-mix(in oklab,var(--accent) 6%,transparent);border:1px solid color-mix(in oklab,var(--accent) 20%,transparent);border-radius:4px;padding:14px 20px;font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;">
+          Ou no browser via <strong style="color:var(--ink);">wterm</strong> — zero instalação local.
+        </div>
+      </div>
+      <!-- Coluna 2: o que você ganha com bash -->
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);">O que o bash desbloqueia</div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:16px 20px;display:flex;flex-direction:column;gap:6px;">
+            <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">duckdb cro.db &lt; setup.sql</div>
+            <div style="font-family:var(--f-sans);font-size:20px;color:var(--stone);">Roda SQL direto no terminal, sem IDE</div>
+          </div>
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:16px 20px;display:flex;flex-direction:column;gap:6px;">
+            <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">gmp ga report --days 30</div>
+            <div style="font-family:var(--f-sans);font-size:20px;color:var(--stone);">Puxa dados e joga no contexto diretamente</div>
+          </div>
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:16px 20px;display:flex;flex-direction:column;gap:6px;">
+            <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">bash hooks/validate.sh</div>
+            <div style="font-family:var(--f-sans);font-size:20px;color:var(--stone);">Guardrails como código que o Claude executa</div>
+          </div>
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:16px 20px;display:flex;flex-direction:column;gap:6px;">
+            <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">python3 generate-data.py</div>
+            <div style="font-family:var(--f-sans);font-size:20px;color:var(--stone);">Scripts Python chamados direto pelo agente</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 2</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
      S05 — Bot traffic
 ═════════════════════════════════════════════════════════════════════════ -->
 <article class="slide" id="s05">
