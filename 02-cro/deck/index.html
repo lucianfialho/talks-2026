@@ -1565,44 +1565,44 @@
   </header>
   <div class="slide-main" style="gap:32px;">
     <div style="font-family:var(--f-display);font-size:64px;line-height:1.02;letter-spacing:-0.022em;">
-      Os flags que você vai <em style="font-style:italic;color:var(--accent)">usar todo dia</em>
+      Como eu <em style="font-style:italic;color:var(--accent)">inicializo</em> na prática
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;flex:1;">
-      <!-- Pipe / print mode -->
-      <div style="border:1px solid var(--rule);border-radius:4px;padding:20px 24px;display:flex;flex-direction:column;gap:8px;">
-        <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">cat logs.txt | claude -p "analise"</div>
-        <div style="font-family:var(--f-sans);font-size:20px;font-weight:600;">Print mode + pipe</div>
-        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Passa qualquer arquivo/output pro Claude sem sessão interativa. Ótimo pra scripts e automação.</div>
+    <div style="display:flex;flex-direction:column;gap:16px;flex:1;">
+      <!-- Comando 1: setup completo com plugins -->
+      <div style="background:var(--bg-alt);border-radius:4px;overflow:hidden;">
+        <div style="background:var(--ink);padding:8px 20px;font-family:var(--f-mono);font-size:13px;color:var(--stone-2);">sessão de análise — modo completo</div>
+        <div style="padding:16px 20px;display:flex;flex-direction:column;gap:8px;">
+          <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);line-height:1.6;">
+            claude \<br>
+            &nbsp;&nbsp;--plugin-dir ~/Code/claude-dev-pipeline \<br>
+            &nbsp;&nbsp;--dangerously-skip-permissions \<br>
+            &nbsp;&nbsp;--remote-control \<br>
+            &nbsp;&nbsp;--append-system-prompt <span style="color:#f0eee6;">"no suggarcoat"</span>
+          </div>
+          <div style="display:flex;gap:24px;flex-wrap:wrap;margin-top:4px;">
+            <div style="font-family:var(--f-mono);font-size:14px;color:var(--stone-2);">plugin-dir → skills e hooks do pipeline</div>
+            <div style="font-family:var(--f-mono);font-size:14px;color:var(--stone-2);">skip-permissions → sem confirmações</div>
+            <div style="font-family:var(--f-mono);font-size:14px;color:var(--stone-2);">remote-control → monitoro do celular</div>
+            <div style="font-family:var(--f-mono);font-size:14px;color:var(--stone-2);">append-system-prompt → instrução fixa de tom</div>
+          </div>
+        </div>
       </div>
-      <!-- append-system-prompt -->
-      <div style="border:1px solid var(--rule);border-radius:4px;padding:20px 24px;display:flex;flex-direction:column;gap:8px;">
-        <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">--append-system-prompt "analise em PT-BR"</div>
-        <div style="font-family:var(--f-sans);font-size:20px;font-weight:600;">System prompt customizado</div>
-        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Adiciona instruções ao prompt padrão sem substituí-lo. Mais seguro que --system-prompt.</div>
-      </div>
-      <!-- continue -->
-      <div style="border:1px solid var(--rule);border-radius:4px;padding:20px 24px;display:flex;flex-direction:column;gap:8px;">
-        <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">claude -c / claude -r "nome"</div>
-        <div style="font-family:var(--f-sans);font-size:20px;font-weight:600;">Continue / resume sessão</div>
-        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);"><code>-c</code> retoma a última sessão. <code>-r "nome"</code> retoma por nome — útil pra manter contexto do projeto.</div>
-      </div>
-      <!-- permission-mode -->
-      <div style="border:1px solid var(--rule);border-radius:4px;padding:20px 24px;display:flex;flex-direction:column;gap:8px;">
-        <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">--permission-mode auto</div>
-        <div style="font-family:var(--f-sans);font-size:20px;font-weight:600;">Auto mode</div>
-        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Remove confirmações em pipelines automatizados. Nunca usar em ambiente com dados sensíveis sem revisão.</div>
-      </div>
-      <!-- model -->
-      <div style="border:1px solid var(--rule);border-radius:4px;padding:20px 24px;display:flex;flex-direction:column;gap:8px;">
-        <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">--model claude-haiku-4-5</div>
-        <div style="font-family:var(--f-sans);font-size:20px;font-weight:600;">Troca de modelo</div>
-        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Haiku pra tarefas rápidas e baratas. Sonnet pra análise complexa. Opus pra raciocínio pesado.</div>
-      </div>
-      <!-- max-turns / max-budget -->
-      <div style="border:1px solid var(--rule);border-radius:4px;padding:20px 24px;display:flex;flex-direction:column;gap:8px;">
-        <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">--max-turns 5 --max-budget-usd 2.00</div>
-        <div style="font-family:var(--f-sans);font-size:20px;font-weight:600;">Limites de execução</div>
-        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Controla turnos e custo em pipelines automatizados. Evita loops infinitos e surpresas na fatura.</div>
+      <!-- Comando 2: pipeline não-interativo -->
+      <div style="background:var(--bg-alt);border-radius:4px;overflow:hidden;">
+        <div style="background:var(--ink);padding:8px 20px;font-family:var(--f-mono);font-size:13px;color:var(--stone-2);">pipeline automatizado — não-interativo</div>
+        <div style="padding:16px 20px;display:flex;flex-direction:column;gap:8px;">
+          <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);line-height:1.6;">
+            cat events.csv | claude -p \<br>
+            &nbsp;&nbsp;--append-system-prompt <span style="color:#f0eee6;">"analise os dados de CRO, responda em PT-BR"</span> \<br>
+            &nbsp;&nbsp;--max-turns 5 \<br>
+            &nbsp;&nbsp;--output-format json
+          </div>
+          <div style="display:flex;gap:24px;flex-wrap:wrap;margin-top:4px;">
+            <div style="font-family:var(--f-mono);font-size:14px;color:var(--stone-2);">-p → print mode, sai após resposta</div>
+            <div style="font-family:var(--f-mono);font-size:14px;color:var(--stone-2);">max-turns → evita loop infinito</div>
+            <div style="font-family:var(--f-mono);font-size:14px;color:var(--stone-2);">output-format json → parse fácil no pipeline</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
