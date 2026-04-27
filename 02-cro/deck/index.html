@@ -1048,6 +1048,66 @@
 </article>
 
 <!-- ═══════════════════════════════════════════════════════════════════════
+     S03a — DuckDB como camada de consumo
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s03a">
+  <header class="slide-header">
+    <span>Ato 2 — A arquitetura</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+    <div style="font-family:var(--f-display);font-size:64px;line-height:1.05;letter-spacing:-0.02em;">
+      DuckDB não é só cache.<br>É uma <em style="font-style:italic;color:var(--accent)">camada de proteção</em>.
+    </div>
+    <!-- Diagrama de arquitetura -->
+    <div style="display:flex;align-items:center;gap:0;flex:1;justify-content:center;">
+      <!-- Prod -->
+      <div style="display:flex;flex-direction:column;gap:12px;align-items:center;min-width:240px;">
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:28px 32px;text-align:center;width:100%;">
+          <div style="font-family:var(--f-mono);font-size:20px;font-weight:600;color:var(--stone);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px;">Prod</div>
+          <div style="font-family:var(--f-sans);font-size:22px;color:var(--ink);line-height:1.5;">BigQuery<br>Snowflake<br>Data Lake<br>GA4 raw</div>
+        </div>
+        <div style="font-family:var(--f-mono);font-size:14px;color:#C84B4B;text-align:center;font-weight:600;">NUNCA acessado<br>diretamente pelo Claude</div>
+      </div>
+      <!-- Seta ingestão -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:0 24px;min-width:180px;">
+        <div style="font-family:var(--f-mono);font-size:16px;color:var(--accent);font-weight:600;text-align:center;white-space:nowrap;">gmp-cli / spec2cli</div>
+        <div style="font-size:48px;color:var(--accent);">→</div>
+        <div style="font-family:var(--f-mono);font-size:14px;color:var(--stone);text-align:center;">ingestão<br>agendada</div>
+      </div>
+      <!-- DuckDB -->
+      <div style="display:flex;flex-direction:column;gap:12px;align-items:center;min-width:240px;">
+        <div style="border:2px solid var(--accent);border-radius:4px;padding:28px 32px;text-align:center;background:color-mix(in oklab,var(--accent) 6%,transparent);width:100%;">
+          <div style="font-family:var(--f-mono);font-size:20px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px;">DuckDB local</div>
+          <div style="font-family:var(--f-sans);font-size:22px;color:var(--ink);line-height:1.5;">Snapshot imutável<br>SQL analítico<br>zero custo por query<br>sem acesso a prod</div>
+        </div>
+        <div style="font-family:var(--f-mono);font-size:14px;color:var(--accent);text-align:center;font-weight:600;">a fonte de verdade<br>do Claude Code</div>
+      </div>
+      <!-- Seta análise -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:0 24px;min-width:140px;">
+        <div style="font-size:48px;color:var(--stone-2);">→</div>
+        <div style="font-family:var(--f-mono);font-size:14px;color:var(--stone);text-align:center;">N análises<br>sem custo extra</div>
+      </div>
+      <!-- Claude Code -->
+      <div style="display:flex;flex-direction:column;gap:12px;align-items:center;min-width:200px;">
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:28px 32px;text-align:center;background:var(--bg-alt);width:100%;">
+          <div style="font-family:var(--f-mono);font-size:20px;font-weight:600;color:var(--ink);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px;">Claude Code</div>
+          <div style="font-family:var(--f-sans);font-size:22px;color:var(--ink);line-height:1.5;">Análise<br>Limpeza<br>Decisão</div>
+        </div>
+        <div style="font-family:var(--f-mono);font-size:14px;color:var(--stone);text-align:center;font-weight:600;">1M de contexto</div>
+      </div>
+    </div>
+    <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.6;border-top:1px solid var(--rule);padding-top:24px;">
+      Se você tem um Data Lake — você ingere o snapshot dele direto no DuckDB. Custo de 1 query de ingestão. Análises ilimitadas sem tocar no lake de novo.
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 2</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
      S03 — Contexto: 200k vs 1M
 ═════════════════════════════════════════════════════════════════════════ -->
 <article class="slide" id="s03">
