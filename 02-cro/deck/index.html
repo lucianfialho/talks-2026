@@ -1006,36 +1006,45 @@
   </header>
   <div class="slide-main" style="gap:40px;">
     <div style="font-family:var(--f-display);font-size:64px;line-height:1.05;letter-spacing:-0.02em;">
-      Mas por que <em style="font-style:italic;color:var(--accent)">Claude Code</em> e não ChatGPT?
+      ChatGPT, Claude Desktop ou <em style="font-style:italic;color:var(--accent)">Claude Code</em>?
     </div>
     <div class="why-grid">
       <div class="why-card">
-        <div class="why-tool-name">ChatGPT</div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px;">
+          <img data-domain="openai.com" style="width:28px;height:28px;object-fit:contain;border-radius:4px;flex-shrink:0;" alt="ChatGPT">
+          <div class="why-tool-name">ChatGPT</div>
+        </div>
         <div class="why-items">
-          <div class="why-item"><div class="dot"></div>Você cola texto ou sobe arquivo</div>
-          <div class="why-item"><div class="dot"></div>Não acessa sua máquina, seus arquivos, suas APIs</div>
+          <div class="why-item"><div class="dot"></div>Cola texto ou sobe arquivo</div>
+          <div class="why-item"><div class="dot"></div>Não acessa sua máquina nem suas APIs</div>
           <div class="why-item"><div class="dot"></div>200k de contexto — você samplea o dado</div>
           <div class="why-item"><div class="dot"></div>Cada sessão começa do zero</div>
         </div>
-        <div class="why-verdict">Ferramenta de chat</div>
+        <div class="why-verdict">Chat de texto</div>
       </div>
       <div class="why-card">
-        <div class="why-tool-name">Cursor / Copilot</div>
-        <div class="why-items">
-          <div class="why-item"><div class="dot"></div>IDE com IA — completa código que você escreve</div>
-          <div class="why-item"><div class="dot"></div>Ótimo pra engenharia, não pra análise</div>
-          <div class="why-item"><div class="dot"></div>Não sabe o que é GA4, VTEX, SRM</div>
-          <div class="why-item"><div class="dot"></div>Não roda pipelines autônomos</div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px;">
+          <img data-domain="anthropic.com" style="width:28px;height:28px;object-fit:contain;border-radius:4px;flex-shrink:0;" alt="Claude Desktop">
+          <div class="why-tool-name">Claude Desktop</div>
         </div>
-        <div class="why-verdict">Editor de código</div>
+        <div class="why-items">
+          <div class="why-item"><div class="dot"></div>Interface de chat — igual ao ChatGPT, mais capaz</div>
+          <div class="why-item"><div class="dot"></div>Não acessa sua máquina nem suas APIs</div>
+          <div class="why-item"><div class="dot"></div>200k de contexto — você ainda samplea</div>
+          <div class="why-item"><div class="dot"></div>Sem acesso ao filesystem ou pipelines</div>
+        </div>
+        <div class="why-verdict">Chat mais inteligente</div>
       </div>
       <div class="why-card winner">
-        <div class="why-tool-name">Claude Code</div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px;">
+          <img data-domain="anthropic.com" style="width:28px;height:28px;object-fit:contain;border-radius:4px;flex-shrink:0;" alt="Claude Code">
+          <div class="why-tool-name">Claude Code</div>
+        </div>
         <div class="why-items">
           <div class="why-item"><div class="dot"></div>Roda no terminal, dentro da pasta do projeto</div>
           <div class="why-item"><div class="dot"></div>Lê arquivos, roda scripts, chama APIs</div>
           <div class="why-item"><div class="dot"></div>1M de contexto — dataset completo, sem amostragem</div>
-          <div class="why-item"><div class="dot"></div>Skills custom pro seu negócio</div>
+          <div class="why-item"><div class="dot"></div>Skills e hooks custom pro seu fluxo</div>
         </div>
         <div class="why-verdict">Agente de análise</div>
       </div>
