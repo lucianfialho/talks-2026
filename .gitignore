@@ -9,3 +9,6 @@ build/
 *.log
 .gates/runs/*
 !.gates/runs/.gitkeep
+.gates/hook-log.jsonl
+*.db
+.cro-srm-checked
