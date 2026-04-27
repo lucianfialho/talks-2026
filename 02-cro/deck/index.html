@@ -617,17 +617,17 @@
   .frag-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+    gap: 20px;
     flex: 1;
-    align-items: stretch;
+    align-content: start;
   }
   .frag-card {
     border: 1px solid var(--rule);
     border-radius: 4px;
-    padding: 32px 28px;
+    padding: 24px 24px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
     align-items: flex-start;
   }
   .frag-logo {
@@ -830,8 +830,23 @@
         <div class="frag-tool">Google Tag Manager</div>
         <div class="frag-data">Tags · triggers<br>variables</div>
       </div>
-      <div class="frag-card" style="border-style:dashed;justify-content:center;align-items:center;">
-        <div style="font-family:var(--f-mono);font-size:22px;color:var(--stone-2);text-align:center;">+ ERP · BQ<br>· planilha</div>
+      <div class="frag-card">
+        <img class="frag-logo" data-domain="vwo.com" alt="VWO">
+        <div class="frag-tool">VWO</div>
+        <div class="frag-data">Test results · variants<br>goals · segments</div>
+      </div>
+      <div class="frag-card">
+        <img class="frag-logo" data-domain="abtasty.com" alt="ABTasty">
+        <div class="frag-tool">AB Tasty</div>
+        <div class="frag-data">Experiments · winners<br>uplift · confidence</div>
+      </div>
+      <div class="frag-card">
+        <img class="frag-logo" data-domain="optimizely.com" alt="Optimizely">
+        <div class="frag-tool">Optimizely</div>
+        <div class="frag-data">Variations · metrics<br>statistical significance</div>
+      </div>
+      <div class="frag-card" style="border-style:dashed;justify-content:center;align-items:center;grid-column:span 1;">
+        <div style="font-family:var(--f-mono);font-size:20px;color:var(--stone-2);text-align:center;">+ Convert · BQ<br>· ERP · planilha</div>
       </div>
     </div>
     <div class="frag-verdict">Nenhum deles conversa entre si.</div>
