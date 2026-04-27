@@ -858,6 +858,72 @@
 </article>
 
 <!-- ═══════════════════════════════════════════════════════════════════════
+     S02d — A solução clássica
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s02d">
+  <header class="slide-header">
+    <span>Ato 1 — O problema</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+    <div style="font-family:var(--f-display);font-size:64px;line-height:1.05;letter-spacing:-0.02em;">
+      Como as empresas resolvem isso hoje
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;flex:1;align-items:stretch;">
+      <!-- Plataformas -->
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div class="eyebrow accent">A solução clássica</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div class="frag-card">
+            <img class="frag-logo" data-domain="cloud.google.com" alt="BigQuery">
+            <div class="frag-tool" style="font-size:22px;">BigQuery</div>
+          </div>
+          <div class="frag-card">
+            <img class="frag-logo" data-domain="databricks.com" alt="Databricks">
+            <div class="frag-tool" style="font-size:22px;">Databricks</div>
+          </div>
+          <div class="frag-card">
+            <img class="frag-logo" data-domain="snowflake.com" alt="Snowflake">
+            <div class="frag-tool" style="font-size:22px;">Snowflake</div>
+          </div>
+          <div class="frag-card">
+            <img class="frag-logo" data-domain="getdbt.com" alt="dbt">
+            <div class="frag-tool" style="font-size:22px;">dbt</div>
+          </div>
+        </div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.6;">
+          Centraliza tudo. Dado limpo. Queries em SQL.<br>
+          <strong style="color:var(--ink);">Funciona.</strong>
+        </div>
+      </div>
+      <!-- O custo real -->
+      <div style="border:1px solid var(--rule);border-radius:4px;padding:48px 44px;display:flex;flex-direction:column;gap:28px;">
+        <div class="eyebrow" style="color:#C84B4B;letter-spacing:0.1em;font-size:18px;font-weight:600;font-family:var(--f-mono);text-transform:uppercase;">O custo real</div>
+        <div style="display:flex;flex-direction:column;gap:20px;">
+          <div style="display:flex;align-items:flex-start;gap:20px;padding-bottom:20px;border-bottom:1px solid var(--rule);">
+            <div style="font-family:var(--f-display);font-size:52px;line-height:1;color:#C84B4B;flex-shrink:0;">1</div>
+            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;padding-top:8px;">Engenheiro de dados (ou time inteiro) pra montar e manter o pipeline</div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:20px;padding-bottom:20px;border-bottom:1px solid var(--rule);">
+            <div style="font-family:var(--f-display);font-size:52px;line-height:1;color:#C84B4B;flex-shrink:0;">3</div>
+            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;padding-top:8px;">a 6 meses de setup antes do primeiro dado limpo disponível</div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:20px;">
+            <div style="font-family:var(--f-display);font-size:52px;line-height:1;color:#C84B4B;flex-shrink:0;">∞</div>
+            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;padding-top:8px;">Você ainda precisa de alguém pra escrever as queries quando quiser uma análise nova</div>
+          </div>
+        </div>
+        <div style="margin-top:auto;font-family:var(--f-display);font-style:italic;font-size:36px;line-height:1.1;letter-spacing:-0.01em;color:var(--ink);">E quem não tem time de dados?</div>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 1</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
      S02c — Por que Claude Code?
 ═════════════════════════════════════════════════════════════════════════ -->
 <article class="slide" id="s02c">
