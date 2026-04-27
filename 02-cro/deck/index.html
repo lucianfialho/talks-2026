@@ -5,14 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CRO com Claude Code — Métricas Boss</title>
 <link rel="stylesheet" href="deck-styles.css">
+<script src="config.js"></script>
 <script src="deck-stage.js" defer></script>
 <script>
-  // ── logo.dev token — pegar em https://logo.dev ───────────────────────────
-  const LOGO_TOKEN = 'pk_YOUR_TOKEN_HERE';
   document.addEventListener('DOMContentLoaded', () => {
+    const token = window.LOGO_TOKEN || '';
+    if (!token || token === 'pk_YOUR_TOKEN_HERE') return;
     document.querySelectorAll('img[data-domain]').forEach(img => {
       const size = img.dataset.size || '80';
-      img.src = `https://img.logo.dev/${img.dataset.domain}?token=${LOGO_TOKEN}&size=${size}&format=png`;
+      img.src = `https://img.logo.dev/${img.dataset.domain}?token=${token}&size=${size}&format=png`;
       img.onerror = () => { img.style.display = 'none'; };
     });
   });

@@ -12,3 +12,4 @@ build/
 .gates/hook-log.jsonl
 *.db
 .cro-srm-checked
+02-cro/deck/config.js
