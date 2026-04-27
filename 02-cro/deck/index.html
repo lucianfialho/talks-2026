@@ -1556,33 +1556,53 @@
 </article>
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     S04-bash — Claude Code: bash, instalação e inicialização
+     S04-bash — Claude Code CLI: flags essenciais
 ═════════════════════════════════════════════════════════════════════════ -->
 <article class="slide" id="s04-bash">
   <header class="slide-header">
-    <span>Ato 2 — Claude Code na prática</span>
+    <span>Ato 2 — Claude Code CLI</span>
     <span>Palestra 02</span>
   </header>
-  <div class="slide-main" style="gap:36px;">
+  <div class="slide-main" style="gap:32px;">
     <div style="font-family:var(--f-display);font-size:64px;line-height:1.02;letter-spacing:-0.022em;">
-      Claude Code + bash — o que isso <em style="font-style:italic;color:var(--accent)">desbloqueia</em>
+      Os flags que você vai <em style="font-style:italic;color:var(--accent)">usar todo dia</em>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;flex:1;">
-      <div style="border:1px solid var(--rule);border-radius:4px;padding:28px 32px;display:flex;flex-direction:column;gap:10px;">
-        <div style="font-family:var(--f-mono);font-size:20px;color:var(--accent);">duckdb cro.db &lt; setup.sql</div>
-        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Roda SQL direto no terminal — sem IDE, sem planilha, sem copiar CSV</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;flex:1;">
+      <!-- Pipe / print mode -->
+      <div style="border:1px solid var(--rule);border-radius:4px;padding:20px 24px;display:flex;flex-direction:column;gap:8px;">
+        <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">cat logs.txt | claude -p "analise"</div>
+        <div style="font-family:var(--f-sans);font-size:20px;font-weight:600;">Print mode + pipe</div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Passa qualquer arquivo/output pro Claude sem sessão interativa. Ótimo pra scripts e automação.</div>
       </div>
-      <div style="border:1px solid var(--rule);border-radius:4px;padding:28px 32px;display:flex;flex-direction:column;gap:10px;">
-        <div style="font-family:var(--f-mono);font-size:20px;color:var(--accent);">gmp ga report --days 30</div>
-        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Puxa dados do GA4 e joga no contexto do Claude diretamente</div>
+      <!-- append-system-prompt -->
+      <div style="border:1px solid var(--rule);border-radius:4px;padding:20px 24px;display:flex;flex-direction:column;gap:8px;">
+        <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">--append-system-prompt "analise em PT-BR"</div>
+        <div style="font-family:var(--f-sans);font-size:20px;font-weight:600;">System prompt customizado</div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Adiciona instruções ao prompt padrão sem substituí-lo. Mais seguro que --system-prompt.</div>
       </div>
-      <div style="border:1px solid var(--rule);border-radius:4px;padding:28px 32px;display:flex;flex-direction:column;gap:10px;">
-        <div style="font-family:var(--f-mono);font-size:20px;color:var(--accent);">bash hooks/validate.sh</div>
-        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Guardrails como código — o Claude executa antes de qualquer análise</div>
+      <!-- continue -->
+      <div style="border:1px solid var(--rule);border-radius:4px;padding:20px 24px;display:flex;flex-direction:column;gap:8px;">
+        <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">claude -c / claude -r "nome"</div>
+        <div style="font-family:var(--f-sans);font-size:20px;font-weight:600;">Continue / resume sessão</div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);"><code>-c</code> retoma a última sessão. <code>-r "nome"</code> retoma por nome — útil pra manter contexto do projeto.</div>
       </div>
-      <div style="border:1px solid var(--rule);border-radius:4px;padding:28px 32px;display:flex;flex-direction:column;gap:10px;">
-        <div style="font-family:var(--f-mono);font-size:20px;color:var(--accent);">python3 generate-data.py</div>
-        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Scripts Python chamados pelo agente — sem sair do fluxo</div>
+      <!-- permission-mode -->
+      <div style="border:1px solid var(--rule);border-radius:4px;padding:20px 24px;display:flex;flex-direction:column;gap:8px;">
+        <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">--permission-mode auto</div>
+        <div style="font-family:var(--f-sans);font-size:20px;font-weight:600;">Auto mode</div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Remove confirmações em pipelines automatizados. Nunca usar em ambiente com dados sensíveis sem revisão.</div>
+      </div>
+      <!-- model -->
+      <div style="border:1px solid var(--rule);border-radius:4px;padding:20px 24px;display:flex;flex-direction:column;gap:8px;">
+        <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">--model claude-haiku-4-5</div>
+        <div style="font-family:var(--f-sans);font-size:20px;font-weight:600;">Troca de modelo</div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Haiku pra tarefas rápidas e baratas. Sonnet pra análise complexa. Opus pra raciocínio pesado.</div>
+      </div>
+      <!-- max-turns / max-budget -->
+      <div style="border:1px solid var(--rule);border-radius:4px;padding:20px 24px;display:flex;flex-direction:column;gap:8px;">
+        <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">--max-turns 5 --max-budget-usd 2.00</div>
+        <div style="font-family:var(--f-sans);font-size:20px;font-weight:600;">Limites de execução</div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Controla turnos e custo em pipelines automatizados. Evita loops infinitos e surpresas na fatura.</div>
       </div>
     </div>
   </div>
