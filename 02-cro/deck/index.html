@@ -2005,268 +2005,258 @@
 </article>
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     S05 — Bot traffic
+     S-AB1 — O que é agent-browser
 ═════════════════════════════════════════════════════════════════════════ -->
-<article class="slide" id="s05">
+<article class="slide" id="s-ab1">
   <header class="slide-header">
-    <span>Ato 3A — Bot filtering</span>
+    <span>Ato 3 — agent-browser</span>
     <span>Palestra 02</span>
   </header>
   <div class="slide-main" style="gap:40px;">
-    <div class="eyebrow accent">Problema 1: dado bruto contaminado</div>
-    <div class="bot-table">
-      <div class="bot-row header">
-        <span>user_pseudo_id</span>
-        <span>hits</span>
-        <span>avg_duration</span>
-        <span>status</span>
-      </div>
-      <div class="bot-row">
-        <span class="bot-id">user_003421</span>
-        <span class="bot-hits">7</span>
-        <span class="bot-dur">142s</span>
-        <span class="bot-badge ok">✓ Real</span>
-      </div>
-      <div class="bot-row bot-user">
-        <span class="bot-id suspicious">bot_0115</span>
-        <span class="bot-hits bad">113</span>
-        <span class="bot-dur zero">0s</span>
-        <span class="bot-badge">⚠ Bot</span>
-      </div>
-      <div class="bot-row bot-user">
-        <span class="bot-id suspicious">bot_0048</span>
-        <span class="bot-hits bad">90</span>
-        <span class="bot-dur zero">0s</span>
-        <span class="bot-badge">⚠ Bot</span>
-      </div>
-      <div class="bot-row">
-        <span class="bot-id">user_007188</span>
-        <span class="bot-hits">4</span>
-        <span class="bot-dur">89s</span>
-        <span class="bot-badge ok">✓ Real</span>
-      </div>
-      <div class="bot-row bot-user">
-        <span class="bot-id suspicious">bot_0157</span>
-        <span class="bot-hits bad">107</span>
-        <span class="bot-dur zero">0s</span>
-        <span class="bot-badge">⚠ Bot</span>
-      </div>
-    </div>
-    <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;">
-      <strong style="color:var(--ink);">8.600 usuários brutos → 8.400 limpos.</strong>
-      200 bots removidos. O GA4 não filtra automaticamente.
-    </div>
-  </div>
-  <footer class="slide-footer">
-    <span>@lucianfialho</span>
-    <span>Ato 3</span>
-  </footer>
-</article>
-
-<!-- ═══════════════════════════════════════════════════════════════════════
-     S06 — SRM
-═════════════════════════════════════════════════════════════════════════ -->
-<article class="slide" id="s06">
-  <header class="slide-header">
-    <span>Ato 3B — SRM check</span>
-    <span>Palestra 02</span>
-  </header>
-  <div class="slide-main" style="gap:40px;">
-    <div class="eyebrow accent">Problema 2: Sample Ratio Mismatch</div>
-    <div class="srm-grid">
-      <div class="srm-card">
-        <div class="srm-label">Control</div>
-        <div class="srm-variant">Variante A</div>
-        <div class="srm-pct">47,6%</div>
-        <div class="srm-bar-wrap"><div class="srm-bar-fill" style="width:47.6%;"></div></div>
-        <div class="srm-note">4.000 usuários únicos<br>Distribuição esperada: 50%</div>
-      </div>
-      <div class="srm-card bad">
-        <div class="srm-label">⚠ SRM Detectado</div>
-        <div class="srm-variant">Variante B</div>
-        <div class="srm-pct">52,4%</div>
-        <div class="srm-bar-wrap"><div class="srm-bar-fill" style="width:52.4%;"></div></div>
-        <div class="srm-note">4.400 usuários — 400 extras não deveriam estar aqui.<br>χ² = 19.05 · p &lt; 0.001 · Este teste <strong>não pode ser declarado vencedor.</strong></div>
-      </div>
-    </div>
-  </div>
-  <footer class="slide-footer">
-    <span>@lucianfialho</span>
-    <span>Ato 3</span>
-  </footer>
-</article>
-
-<!-- ═══════════════════════════════════════════════════════════════════════
-     S07 — Immutable by instruction is not enough
-═════════════════════════════════════════════════════════════════════════ -->
-<article class="slide" id="s07">
-  <header class="slide-header">
-    <span>Ato 3C — Guardrails como código</span>
-    <span>Palestra 02</span>
-  </header>
-  <div class="slide-main" style="justify-content:center;">
-    <div class="quote-text">
-      "Immutable by<br>instruction is<br><em style="color:var(--accent)">not enough.</em>"
-    </div>
-    <div class="quote-source">
-      — mmm-research / atomic-gates · 2025
-    </div>
-    <div style="margin-top:64px;font-family:var(--f-sans);font-size:var(--fs-body);color:var(--stone);max-width:800px;line-height:1.6;">
-      Você não fala pro Claude "não analise dado com SRM".<br>
-      Você escreve o <strong style="color:var(--ink);">hook</strong> que bloqueia antes de qualquer análise rodar.
-    </div>
-  </div>
-  <footer class="slide-footer">
-    <span>@lucianfialho</span>
-    <span>Ato 3</span>
-  </footer>
-</article>
-
-<!-- ═══════════════════════════════════════════════════════════════════════
-     S08 — Bifurcação #1
-═════════════════════════════════════════════════════════════════════════ -->
-<article class="slide" id="s08">
-  <header class="slide-header">
-    <span>Bifurcação #1</span>
-    <span>Palestra 02</span>
-  </header>
-  <div class="slide-main" style="gap:48px;">
-    <div style="font-family:var(--f-display);font-size:72px;line-height:1.05;letter-spacing:-0.02em;">
-      Quer ver o pipeline completo<br>rodando ao vivo?
-    </div>
-    <div class="bif-options">
-      <div class="bif-option left">
-        <div class="bif-vote left">Raso — 1 min</div>
-        <div class="bif-label">Mostro o output final</div>
-        <div class="bif-detail">Dado limpo já pronto na tela. Seguimos pro resultado do teste.</div>
-      </div>
-      <div class="bif-option right">
-        <div class="bif-vote right">Fundo — 5 min</div>
-        <div class="bif-label">Pipeline ao vivo, passo a passo</div>
-        <div class="bif-detail">Bruto → bot filter → SRM check → guardrail bloqueando. Terminal aberto, dados reais.</div>
-      </div>
-    </div>
-  </div>
-  <footer class="slide-footer">
-    <span>@lucianfialho</span>
-    <span>Bifurcação 1 / 2</span>
-  </footer>
-</article>
-
-<!-- ═══════════════════════════════════════════════════════════════════════
-     S09 — Segmentação pós-teste
-═════════════════════════════════════════════════════════════════════════ -->
-<article class="slide" id="s09">
-  <header class="slide-header">
-    <span>Ato 4A — Análise pós-teste</span>
-    <span>Palestra 02</span>
-  </header>
-  <div class="slide-main" style="gap:40px;">
-    <div style="display:flex;align-items:baseline;gap:16px;">
-      <div class="eyebrow accent">Lift agregado:</div>
-      <div style="font-family:var(--f-display);font-size:56px;letter-spacing:-0.02em;">25% — mas pra quem?</div>
-    </div>
-    <div class="seg-table">
-      <div class="seg-row header">
-        <span>Device</span>
-        <span>Control CR</span>
-        <span>Variant B CR</span>
-        <span>Lift</span>
-      </div>
-      <div class="seg-row highlight">
-        <span class="seg-device">Mobile</span>
-        <span class="seg-cr">4,23%</span>
-        <span class="seg-cr">7,58%</span>
-        <span class="seg-lift up">+79%</span>
-      </div>
-      <div class="seg-row">
-        <span class="seg-device">Desktop</span>
-        <span class="seg-cr">4,19%</span>
-        <span class="seg-cr">4,79%</span>
-        <span class="seg-lift flat">+14%</span>
-      </div>
-      <div class="seg-row lowlight">
-        <span class="seg-device">Tablet</span>
-        <span class="seg-cr">4,56%</span>
-        <span class="seg-cr">3,84%</span>
-        <span class="seg-lift down">−16%</span>
-      </div>
-    </div>
-    <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;">
-      O agregado esconde que <strong style="color:#C84B4B;">tablet piorou 16%</strong>.
-      Implementar pra todo mundo prejudica usuários de tablet — e o número consolidado ainda fica verde.
-    </div>
-  </div>
-  <footer class="slide-footer">
-    <span>@lucianfialho</span>
-    <span>Ato 4</span>
-  </footer>
-</article>
-
-<!-- ═══════════════════════════════════════════════════════════════════════
-     S10 — Quant vs Qual
-═════════════════════════════════════════════════════════════════════════ -->
-<article class="slide" id="s10">
-  <header class="slide-header">
-    <span>Ato 4B — Heurísticas</span>
-    <span>Palestra 02</span>
-  </header>
-  <div class="slide-main" style="gap:40px;">
-    <div class="split-two">
-      <div class="split-block">
-        <div class="split-eyebrow">Quantitativo</div>
-        <div class="split-title">Diz o<br><em style="font-style:italic;">quê</em></div>
-        <div class="split-items">
-          <div class="split-item">Mobile +79% de lift</div>
-          <div class="split-item">Desktop +14%</div>
-          <div class="split-item">Tablet −16%</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;flex:1;align-items:center;">
+      <div style="display:flex;flex-direction:column;gap:28px;">
+        <div style="font-family:var(--f-display);font-size:80px;line-height:0.95;letter-spacing:-0.03em;">
+          agent-<em style="font-style:italic;color:var(--accent)">browser</em>
+        </div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-body);color:var(--stone);line-height:1.55;">
+          CLI em Rust para automação de browser feito pra agentes de IA. Claude Code abre uma página, navega, interage e analisa — tudo autonomamente.
+        </div>
+        <div style="font-family:var(--f-mono);font-size:20px;color:var(--stone);">
+          npx skills add vercel-labs/agent-browser
         </div>
       </div>
-      <div class="split-block right">
-        <div class="split-eyebrow">Heurística (agent-browser)</div>
-        <div class="split-title">Diz o<br><em style="font-style:italic;color:var(--accent)">porquê</em></div>
-        <div class="split-items">
-          <div class="split-item">CTA moveu pro thumb zone em mobile</div>
-          <div class="split-item">Desktop: form ainda tem 6 campos</div>
-          <div class="split-item">Tablet: tap target abaixo de 44px</div>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:18px 22px;display:flex;flex-direction:column;gap:6px;">
+          <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">Navegação</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Abre URLs, clica, preenche forms, navega entre páginas</div>
+        </div>
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:18px 22px;display:flex;flex-direction:column;gap:6px;">
+          <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">Screenshots + pixel-diff</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Screenshot anotado, comparação visual entre variantes</div>
+        </div>
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:18px 22px;display:flex;flex-direction:column;gap:6px;">
+          <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">Network monitoring</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Captura requests de rede — valida se GTM disparou</div>
+        </div>
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:18px 22px;display:flex;flex-direction:column;gap:6px;">
+          <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">Accessibility tree</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Mapeia todos os elementos interativos com referências (@e1, @e2...)</div>
         </div>
       </div>
     </div>
   </div>
   <footer class="slide-footer">
     <span>@lucianfialho</span>
-    <span>Ato 4</span>
+    <span>Ato 3</span>
   </footer>
 </article>
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     S11 — Bifurcação #2
+     S-AB2 — Plano de mensuração
 ═════════════════════════════════════════════════════════════════════════ -->
-<article class="slide" id="s11">
+<article class="slide" id="s-ab2">
   <header class="slide-header">
-    <span>Bifurcação #2</span>
+    <span>Ato 3 — Plano de mensuração</span>
     <span>Palestra 02</span>
   </header>
-  <div class="slide-main" style="gap:48px;">
-    <div style="font-family:var(--f-display);font-size:72px;line-height:1.05;letter-spacing:-0.02em;">
-      Quer ver o checklist de heurísticas<br>rodando ao vivo numa página real?
-    </div>
-    <div class="bif-options">
-      <div class="bif-option left">
-        <div class="bif-vote left">Raso — 1 min</div>
-        <div class="bif-label">Mostro o output do scan</div>
-        <div class="bif-detail">Resultado já formatado na tela. 11 itens, repo disponível.</div>
+  <div class="slide-main" style="gap:40px;">
+    <div style="display:flex;flex-direction:column;gap:32px;flex:1;">
+      <div style="font-family:var(--f-display);font-size:72px;line-height:1.02;letter-spacing:-0.022em;">
+        De "o que medir" a <em style="font-style:italic;color:var(--accent)">plano pronto</em>
       </div>
-      <div class="bif-option right">
-        <div class="bif-vote right">Fundo — 4 min</div>
-        <div class="bif-label">agent-browser ao vivo</div>
-        <div class="bif-detail">URL real, screenshot desktop + mobile, 5+ itens do checklist rodando em tempo real.</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;flex:1;align-items:start;">
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:24px 22px;display:flex;flex-direction:column;gap:12px;">
+          <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);">1. Abre e analisa</div>
+          <div style="font-family:var(--f-mono);font-size:17px;color:var(--accent);">agent-browser open URL</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;">Captura screenshot, mapeia elementos, identifica CTAs, forms, navegação</div>
+        </div>
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:24px 22px;display:flex;flex-direction:column;gap:12px;">
+          <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);">2. Cruza com GTM</div>
+          <div style="font-family:var(--f-mono);font-size:17px;color:var(--accent);">gmp gtm list-tags</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;">Lista tags ativas. Claude compara com elementos da página — identifica o que não está sendo rastreado</div>
+        </div>
+        <div style="border:2px solid var(--accent);border-radius:4px;padding:24px 22px;display:flex;flex-direction:column;gap:12px;background:color-mix(in oklab,var(--accent) 5%,transparent);">
+          <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent);">3. Gera o plano</div>
+          <div style="font-family:var(--f-mono);font-size:17px;color:var(--ink);">/measurement-plan</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;">Output: eventos a criar, dataLayer keys, triggers GTM e KPIs por objetivo de negócio</div>
+        </div>
       </div>
     </div>
   </div>
   <footer class="slide-footer">
     <span>@lucianfialho</span>
-    <span>Bifurcação 2 / 2</span>
+    <span>Ato 3</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S-AB3 — Hipóteses de A/B test
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s-ab3">
+  <header class="slide-header">
+    <span>Ato 3 — Hipóteses de teste</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;flex:1;align-items:center;">
+      <div style="display:flex;flex-direction:column;gap:28px;">
+        <div style="font-family:var(--f-display);font-size:72px;line-height:1.02;letter-spacing:-0.022em;">
+          Da página à <em style="font-style:italic;color:var(--accent)">hipótese</em><br>em segundos
+        </div>
+        <div style="background:var(--bg-alt);border-radius:4px;padding:20px 24px;border-left:3px solid var(--accent);">
+          <div style="font-family:var(--f-mono);font-size:17px;color:var(--accent);line-height:1.7;">
+            agent-browser open https://loja.com/checkout<br>
+            agent-browser screenshot --annotate<br>
+            agent-browser snapshot -i<br>
+            /generate-ab-hypothesis
+          </div>
+        </div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.55;">
+          Claude analisa o screenshot anotado + accessibility tree e gera hipóteses com: elemento específico, comportamento esperado, métrica de sucesso e tamanho de amostra estimado.
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);">Output gerado</div>
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:20px 24px;display:flex;flex-direction:column;gap:10px;">
+          <div style="font-family:var(--f-display);font-size:22px;font-weight:600;">H1 — CTA acima da dobra</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Mover botão "Comprar" para thumb zone em mobile deve aumentar CR em +15-25% em mobile. Métrica: purchase / session por device.</div>
+        </div>
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:20px 24px;display:flex;flex-direction:column;gap:10px;">
+          <div style="font-family:var(--f-display);font-size:22px;font-weight:600;">H2 — Redução de campos</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Form tem 7 campos. Remover 3 opcionais deve reduzir abandono em +20%. Métrica: form_submit / form_start.</div>
+        </div>
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:20px 24px;display:flex;flex-direction:column;gap:10px;">
+          <div style="font-family:var(--f-display);font-size:22px;font-weight:600;">H3 — Contraste do botão</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Ratio atual: 3.2:1 (falha WCAG AA). Aumentar para 4.5:1 deve melhorar clicks em +8%. Impacto maior em usuários 55+.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 3</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S-AB4 — Validação de GTM
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s-ab4">
+  <header class="slide-header">
+    <span>Ato 3 — Validação GTM</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+    <div style="display:flex;flex-direction:column;gap:36px;flex:1;">
+      <div style="font-family:var(--f-display);font-size:72px;line-height:1.02;letter-spacing:-0.022em;">
+        GTM disparou? <em style="font-style:italic;color:var(--accent)">Confirma agora.</em>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;flex:1;align-items:start;">
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);">O fluxo de validação</div>
+          <div style="background:var(--bg-alt);border-radius:4px;overflow:hidden;">
+            <div style="background:var(--ink);padding:8px 16px;font-family:var(--f-mono);font-size:13px;color:var(--stone-2);">terminal</div>
+            <div style="padding:16px 20px;font-family:var(--f-mono);font-size:17px;color:var(--accent);line-height:1.8;">
+              <span style="color:var(--stone);"># abre página e monitora requests</span><br>
+              agent-browser open https://loja.com<br>
+              agent-browser network start<br>
+              <br>
+              <span style="color:var(--stone);"># clica no botão de compra</span><br>
+              agent-browser click @e12<br>
+              <br>
+              <span style="color:var(--stone);"># verifica se GTM disparou</span><br>
+              agent-browser network stop<br>
+              agent-browser list-network-requests
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);">O que Claude verifica</div>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="border:1px solid var(--rule);border-radius:4px;padding:16px 20px;display:flex;gap:12px;align-items:flex-start;">
+              <div style="font-family:var(--f-mono);font-size:22px;color:#3A8B5A;flex-shrink:0;">✓</div>
+              <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Request pra Google Analytics com evento <code style="font-family:var(--f-mono)">purchase</code> disparado</div>
+            </div>
+            <div style="border:1px solid var(--rule);border-radius:4px;padding:16px 20px;display:flex;gap:12px;align-items:flex-start;">
+              <div style="font-family:var(--f-mono);font-size:22px;color:#3A8B5A;flex-shrink:0;">✓</div>
+              <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">DataLayer contém <code style="font-family:var(--f-mono)">transaction_id</code> e <code style="font-family:var(--f-mono)">revenue</code></div>
+            </div>
+            <div style="border:1px solid var(--rule);border-radius:4px;padding:16px 20px;display:flex;gap:12px;align-items:flex-start;">
+              <div style="font-family:var(--f-mono);font-size:22px;color:#C84B4B;flex-shrink:0;">✗</div>
+              <div style="font-family:var(--f-sans);font-size:var(--stone-2);line-height:1.5;font-size:var(--fs-small);">Tag de Meta Ads não disparou — trigger está configurado só pra desktop</div>
+            </div>
+            <div style="border:1px solid var(--rule);border-radius:4px;padding:16px 20px;display:flex;gap:12px;align-items:flex-start;">
+              <div style="font-family:var(--f-mono);font-size:22px;color:#C84B4B;flex-shrink:0;">✗</div>
+              <div style="font-family:var(--f-sans);font-size:var(--stone-2);line-height:1.5;font-size:var(--fs-small);">add_to_cart ausente no DL — produto X não tem variante configurada</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 3</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S-AB5 — O ciclo completo
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s-ab5">
+  <header class="slide-header">
+    <span>Ato 3 — O ciclo</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+    <div style="display:flex;flex-direction:column;gap:36px;flex:1;">
+      <div style="font-family:var(--f-display);font-size:72px;line-height:1.02;letter-spacing:-0.022em;">
+        O ciclo <em style="font-style:italic;color:var(--accent)">completo</em> de CRO
+      </div>
+      <div style="display:flex;align-items:center;gap:0;flex:1;justify-content:center;">
+        <!-- Step 1 -->
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:28px 24px;text-align:center;min-width:200px;display:flex;flex-direction:column;gap:10px;">
+          <div style="font-family:var(--f-mono);font-size:16px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.08em;">1. Hipótese</div>
+          <div style="font-family:var(--f-sans);font-size:20px;font-weight:600;">agent-browser</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Analisa página, gera hipóteses visuais</div>
+        </div>
+        <div style="font-family:var(--f-mono);font-size:36px;color:var(--accent);padding:0 16px;">→</div>
+        <!-- Step 2 -->
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:28px 24px;text-align:center;min-width:200px;display:flex;flex-direction:column;gap:10px;">
+          <div style="font-family:var(--f-mono);font-size:16px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.08em;">2. Mensuração</div>
+          <div style="font-family:var(--f-sans);font-size:20px;font-weight:600;">GTM + gmp-cli</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Valida tracking, cria plano de mensuração</div>
+        </div>
+        <div style="font-family:var(--f-mono);font-size:36px;color:var(--accent);padding:0 16px;">→</div>
+        <!-- Step 3 -->
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:28px 24px;text-align:center;min-width:200px;display:flex;flex-direction:column;gap:10px;">
+          <div style="font-family:var(--f-mono);font-size:16px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.08em;">3. Teste</div>
+          <div style="font-family:var(--f-sans);font-size:20px;font-weight:600;">VWO / ABTasty</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Roda o experimento</div>
+        </div>
+        <div style="font-family:var(--f-mono);font-size:36px;color:var(--accent);padding:0 16px;">→</div>
+        <!-- Step 4 -->
+        <div style="border:2px solid var(--accent);border-radius:4px;padding:28px 24px;text-align:center;min-width:200px;display:flex;flex-direction:column;gap:10px;background:color-mix(in oklab,var(--accent) 5%,transparent);">
+          <div style="font-family:var(--f-mono);font-size:16px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.08em;">4. Análise</div>
+          <div style="font-family:var(--f-sans);font-size:20px;font-weight:600;">DuckDB + skills</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">/srm-check + /post-test-segments</div>
+        </div>
+        <div style="font-family:var(--f-mono);font-size:36px;color:var(--accent);padding:0 16px;">→</div>
+        <!-- Step 5 -->
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:28px 24px;text-align:center;min-width:160px;display:flex;flex-direction:column;gap:10px;">
+          <div style="font-family:var(--f-mono);font-size:16px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.08em;">5. Decisão</div>
+          <div style="font-family:var(--f-sans);font-size:20px;font-weight:600;">Próxima hipótese</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Loop</div>
+        </div>
+      </div>
+      <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);border-top:1px solid var(--rule);padding-top:20px;">
+        Cada etapa tem uma skill. O ciclo inteiro pode ser agendado com <code style="font-family:var(--f-mono);color:var(--accent);">/schedule</code>.
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 3</span>
   </footer>
 </article>
 
