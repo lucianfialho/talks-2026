@@ -1063,38 +1063,61 @@
     <div style="display:flex;align-items:center;gap:0;flex:1;justify-content:center;">
       <!-- Prod -->
       <div style="display:flex;flex-direction:column;gap:12px;align-items:center;min-width:240px;">
-        <div style="border:1px solid var(--rule);border-radius:4px;padding:28px 32px;text-align:center;width:100%;">
-          <div style="font-family:var(--f-mono);font-size:20px;font-weight:600;color:var(--stone);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px;">Prod</div>
-          <div style="font-family:var(--f-sans);font-size:22px;color:var(--ink);line-height:1.5;">BigQuery<br>Snowflake<br>Data Lake<br>GA4 raw</div>
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:24px 28px;width:100%;">
+          <div style="font-family:var(--f-mono);font-size:18px;font-weight:600;color:var(--stone);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px;text-align:center;">Prod</div>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <img data-domain="cloud.google.com" style="width:28px;height:28px;object-fit:contain;border-radius:4px;flex-shrink:0;" alt="BigQuery">
+              <span style="font-family:var(--f-sans);font-size:20px;color:var(--ink);">BigQuery</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <img data-domain="snowflake.com" style="width:28px;height:28px;object-fit:contain;border-radius:4px;flex-shrink:0;" alt="Snowflake">
+              <span style="font-family:var(--f-sans);font-size:20px;color:var(--ink);">Snowflake</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <img data-domain="databricks.com" style="width:28px;height:28px;object-fit:contain;border-radius:4px;flex-shrink:0;" alt="Databricks">
+              <span style="font-family:var(--f-sans);font-size:20px;color:var(--ink);">Data Lake</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <img data-domain="analytics.google.com" style="width:28px;height:28px;object-fit:contain;border-radius:4px;flex-shrink:0;" alt="GA4">
+              <span style="font-family:var(--f-sans);font-size:20px;color:var(--ink);">GA4 raw</span>
+            </div>
+          </div>
         </div>
-        <div style="font-family:var(--f-mono);font-size:14px;color:#C84B4B;text-align:center;font-weight:600;">NUNCA acessado<br>diretamente pelo Claude</div>
+        <div style="font-family:var(--f-mono);font-size:13px;color:#C84B4B;text-align:center;font-weight:600;">NUNCA acessado<br>diretamente pelo Claude</div>
       </div>
       <!-- Seta ingestão -->
-      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:0 24px;min-width:180px;">
-        <div style="font-family:var(--f-mono);font-size:16px;color:var(--accent);font-weight:600;text-align:center;white-space:nowrap;">gmp-cli / spec2cli</div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:0 20px;min-width:160px;">
+        <div style="font-family:var(--f-mono);font-size:15px;color:var(--accent);font-weight:600;text-align:center;">gmp-cli<br>spec2cli</div>
         <div style="font-size:48px;color:var(--accent);">→</div>
-        <div style="font-family:var(--f-mono);font-size:14px;color:var(--stone);text-align:center;">ingestão<br>agendada</div>
+        <div style="font-family:var(--f-mono);font-size:13px;color:var(--stone);text-align:center;">ingestão<br>agendada</div>
       </div>
       <!-- DuckDB -->
-      <div style="display:flex;flex-direction:column;gap:12px;align-items:center;min-width:240px;">
-        <div style="border:2px solid var(--accent);border-radius:4px;padding:28px 32px;text-align:center;background:color-mix(in oklab,var(--accent) 6%,transparent);width:100%;">
-          <div style="font-family:var(--f-mono);font-size:20px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px;">DuckDB local</div>
-          <div style="font-family:var(--f-sans);font-size:22px;color:var(--ink);line-height:1.5;">Snapshot imutável<br>SQL analítico<br>zero custo por query<br>sem acesso a prod</div>
+      <div style="display:flex;flex-direction:column;gap:12px;align-items:center;min-width:220px;">
+        <div style="border:2px solid var(--accent);border-radius:4px;padding:24px 28px;background:color-mix(in oklab,var(--accent) 6%,transparent);width:100%;">
+          <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px;">
+            <img data-domain="duckdb.org" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" alt="DuckDB">
+            <div style="font-family:var(--f-mono);font-size:18px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.06em;">DuckDB local</div>
+          </div>
+          <div style="font-family:var(--f-sans);font-size:19px;color:var(--ink);line-height:1.6;text-align:center;">Snapshot imutável<br>SQL analítico<br>zero custo / query<br>sem acesso a prod</div>
         </div>
-        <div style="font-family:var(--f-mono);font-size:14px;color:var(--accent);text-align:center;font-weight:600;">a fonte de verdade<br>do Claude Code</div>
+        <div style="font-family:var(--f-mono);font-size:13px;color:var(--accent);text-align:center;font-weight:600;">a fonte de verdade<br>do Claude Code</div>
       </div>
       <!-- Seta análise -->
-      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:0 24px;min-width:140px;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:0 20px;min-width:120px;">
         <div style="font-size:48px;color:var(--stone-2);">→</div>
-        <div style="font-family:var(--f-mono);font-size:14px;color:var(--stone);text-align:center;">N análises<br>sem custo extra</div>
+        <div style="font-family:var(--f-mono);font-size:13px;color:var(--stone);text-align:center;">N análises<br>sem custo extra</div>
       </div>
       <!-- Claude Code -->
-      <div style="display:flex;flex-direction:column;gap:12px;align-items:center;min-width:200px;">
-        <div style="border:1px solid var(--rule);border-radius:4px;padding:28px 32px;text-align:center;background:var(--bg-alt);width:100%;">
-          <div style="font-family:var(--f-mono);font-size:20px;font-weight:600;color:var(--ink);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px;">Claude Code</div>
-          <div style="font-family:var(--f-sans);font-size:22px;color:var(--ink);line-height:1.5;">Análise<br>Limpeza<br>Decisão</div>
+      <div style="display:flex;flex-direction:column;gap:12px;align-items:center;min-width:180px;">
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:24px 28px;background:var(--bg-alt);width:100%;">
+          <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px;">
+            <img data-domain="anthropic.com" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" alt="Claude">
+            <div style="font-family:var(--f-mono);font-size:18px;font-weight:600;color:var(--ink);text-transform:uppercase;letter-spacing:0.06em;">Claude Code</div>
+          </div>
+          <div style="font-family:var(--f-sans);font-size:19px;color:var(--ink);line-height:1.6;text-align:center;">Análise<br>Limpeza<br>Decisão</div>
         </div>
-        <div style="font-family:var(--f-mono);font-size:14px;color:var(--stone);text-align:center;font-weight:600;">1M de contexto</div>
+        <div style="font-family:var(--f-mono);font-size:13px;color:var(--stone);text-align:center;font-weight:600;">1M de contexto</div>
       </div>
     </div>
     <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.6;border-top:1px solid var(--rule);padding-top:24px;">
