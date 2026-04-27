@@ -1898,6 +1898,60 @@
 </article>
 
 <!-- ═══════════════════════════════════════════════════════════════════════
+     S04-hooks-refs — Onde encontrar mais hooks
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s04-hooks-refs">
+  <header class="slide-header">
+    <span>Ato 2 — Hooks: referências</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+    <div style="font-family:var(--f-display);font-size:64px;line-height:1.02;letter-spacing:-0.022em;">
+      Onde encontrar mais <em style="font-style:italic;color:var(--accent)">hooks</em>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;flex:1;">
+      <!-- awesome-claude-code-hooks -->
+      <div style="border:2px solid var(--accent);border-radius:4px;padding:36px 32px;display:flex;flex-direction:column;gap:20px;background:color-mix(in oklab,var(--accent) 5%,transparent);">
+        <div style="display:flex;align-items:center;gap:16px;">
+          <img src="https://github.com/lucianfialho.png" style="width:64px;height:64px;border-radius:50%;object-fit:cover;" alt="lucianfialho">
+          <div>
+            <div style="font-family:var(--f-sans);font-size:26px;font-weight:600;">Lucian Fialho</div>
+            <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">@lucianfialho</div>
+          </div>
+        </div>
+        <div style="font-family:var(--f-mono);font-size:22px;color:var(--accent);font-weight:700;">awesome-claude-code-hooks</div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.55;flex:1;">
+          Lista curada de hooks para Claude Code — PreToolUse, SessionStart, UserPromptSubmit e mais. Contribuições abertas.
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;padding-top:20px;border-top:1px solid color-mix(in oklab,var(--accent) 25%,transparent);">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://github.com/lucianfialho/awesome-claude-code-hooks" style="width:200px;height:200px;border-radius:4px;" alt="QR">
+          <div style="font-family:var(--f-mono);font-size:15px;color:var(--stone);text-align:center;">github.com/lucianfialho/<strong style="color:var(--ink);">awesome-claude-code-hooks</strong></div>
+        </div>
+      </div>
+      <!-- Conceito: hooks são código -->
+      <div style="border:1px solid var(--rule);border-radius:4px;padding:36px 32px;display:flex;flex-direction:column;gap:24px;justify-content:center;">
+        <div style="font-family:var(--f-display);font-size:80px;line-height:0.95;letter-spacing:-0.025em;">
+          Hooks são<br><em style="font-style:italic;color:var(--accent)">código.</em>
+        </div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-body);color:var(--stone);line-height:1.6;">
+          Shell scripts. Qualquer linguagem. Qualquer lógica. Se você sabe escrever um script bash, você sabe escrever um hook.
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:8px;">
+          <div style="font-family:var(--f-mono);font-size:18px;color:var(--stone);">PreToolUse → valida antes</div>
+          <div style="font-family:var(--f-mono);font-size:18px;color:var(--stone);">UserPromptSubmit → adiciona contexto</div>
+          <div style="font-family:var(--f-mono);font-size:18px;color:var(--stone);">Stop → notifica quando termina</div>
+          <div style="font-family:var(--f-mono);font-size:18px;color:var(--stone);">SessionStart → inicializa ambiente</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 2</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
      S05 — Bot traffic
 ═════════════════════════════════════════════════════════════════════════ -->
 <article class="slide" id="s05">
