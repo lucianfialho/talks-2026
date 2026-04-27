@@ -1565,31 +1565,24 @@
   </header>
   <div class="slide-main" style="gap:36px;">
     <div style="font-family:var(--f-display);font-size:64px;line-height:1.02;letter-spacing:-0.022em;">
-      Do zero ao <em style="font-style:italic;color:var(--accent)">terminal</em> em 3 comandos
+      Claude Code no <em style="font-style:italic;color:var(--accent)">browser</em> — sem instalar nada
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;flex:1;align-items:start;">
-      <!-- Coluna 1: instalação + inicialização -->
+      <!-- Coluna 1: wterm como principal + npm como alternativa -->
       <div style="display:flex;flex-direction:column;gap:16px;">
-        <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);">Setup</div>
-        <div style="background:var(--bg-alt);border-radius:4px;overflow:hidden;">
-          <div style="background:var(--ink);padding:8px 16px;font-family:var(--f-mono);font-size:14px;color:var(--stone-2);">terminal</div>
-          <div style="padding:20px 24px;display:flex;flex-direction:column;gap:16px;">
-            <div>
-              <div style="font-family:var(--f-mono);font-size:14px;color:var(--stone);margin-bottom:4px;"># instalar</div>
-              <div style="font-family:var(--f-mono);font-size:20px;color:var(--accent);">npm i -g @anthropic-ai/claude-code</div>
-            </div>
-            <div>
-              <div style="font-family:var(--f-mono);font-size:14px;color:var(--stone);margin-bottom:4px;"># entrar na pasta do projeto</div>
-              <div style="font-family:var(--f-mono);font-size:20px;color:var(--accent);">cd meu-projeto/</div>
-            </div>
-            <div>
-              <div style="font-family:var(--f-mono);font-size:14px;color:var(--stone);margin-bottom:4px;"># iniciar</div>
-              <div style="font-family:var(--f-mono);font-size:20px;color:var(--accent);">claude</div>
-            </div>
-          </div>
+        <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent);">Demo ao vivo</div>
+        <div style="background:color-mix(in oklab,var(--accent) 6%,transparent);border:2px solid var(--accent);border-radius:4px;padding:24px 28px;display:flex;flex-direction:column;gap:12px;">
+          <div style="font-family:var(--f-mono);font-size:28px;font-weight:700;color:var(--accent);">wterm</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;">Claude Code rodando no browser. Sem npm, sem node, sem instalar nada. Abre a URL, já está pronto.</div>
+          <div style="font-family:var(--f-mono);font-size:18px;color:var(--ink);background:var(--bg);padding:10px 16px;border-radius:3px;">github.com/vercel-labs/wterm</div>
         </div>
-        <div style="background:color-mix(in oklab,var(--accent) 6%,transparent);border:1px solid color-mix(in oklab,var(--accent) 20%,transparent);border-radius:4px;padding:14px 20px;font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;">
-          Ou no browser via <strong style="color:var(--ink);">wterm</strong> — zero instalação local.
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:16px 20px;">
+          <div style="font-family:var(--f-mono);font-size:16px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);margin-bottom:12px;">Quer instalar na sua máquina?</div>
+          <div style="font-family:var(--f-mono);font-size:17px;color:var(--stone);line-height:1.8;">
+            npm i -g @anthropic-ai/claude-code<br>
+            cd meu-projeto/<br>
+            claude
+          </div>
         </div>
       </div>
       <!-- Coluna 2: o que você ganha com bash -->
