@@ -1,0 +1,13 @@
+{
+  "description": "Hook PreToolUse para validação de pré-condições em análises CRO",
+  "trigger": "Qualquer comando Bash que contenha palavras-chave de análise de teste A/B",
+  "checks": [
+    "cro.db existe na pasta do projeto",
+    "SRM check foi executado nesta sessão (.cro-srm-checked sentinela)"
+  ],
+  "behavior": {
+    "cro.db ausente": "BLOQUEIA com mensagem de setup",
+    "SRM não executado": "AVISA mas não bloqueia"
+  },
+  "demo_note": "Este hook materializa 'Immutable by instruction is not enough' — guardrail em código, não em prompt"
+}
