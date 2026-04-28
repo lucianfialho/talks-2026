@@ -2368,28 +2368,34 @@
     <span>Palestra 02</span>
   </header>
   <div class="slide-main" style="gap:40px;">
-    <div class="cta-grid">
-      <div class="qr-box">
-        <div class="qr-placeholder">
-          <!-- QR pattern placeholder -->
-          <div class="qr-cell on"></div><div class="qr-cell on"></div><div class="qr-cell on"></div><div class="qr-cell on"></div><div class="qr-cell on"></div>
-          <div class="qr-cell on"></div><div class="qr-cell"></div><div class="qr-cell on"></div><div class="qr-cell"></div><div class="qr-cell on"></div>
-          <div class="qr-cell on"></div><div class="qr-cell on"></div><div class="qr-cell"></div><div class="qr-cell on"></div><div class="qr-cell on"></div>
-          <div class="qr-cell on"></div><div class="qr-cell"></div><div class="qr-cell on"></div><div class="qr-cell"></div><div class="qr-cell on"></div>
-          <div class="qr-cell on"></div><div class="qr-cell on"></div><div class="qr-cell on"></div><div class="qr-cell on"></div><div class="qr-cell on"></div>
+    <div style="font-family:var(--f-display);font-size:72px;line-height:1.02;letter-spacing:-0.022em;">
+      Ficou interessado? <em style="font-style:italic;color:var(--accent)">Me segue.</em>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;flex:1;align-items:stretch;">
+      <!-- Newsletter -->
+      <div style="border:2px solid var(--accent);border-radius:4px;padding:36px 32px;display:flex;flex-direction:column;gap:20px;background:color-mix(in oklab,var(--accent) 5%,transparent);">
+        <div style="font-family:var(--f-mono);font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);">Newsletter — Skunkworks</div>
+        <div style="font-family:var(--f-display);font-size:44px;line-height:1.0;letter-spacing:-0.015em;">Experimentos com Claude Code — toda semana</div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;flex:1;">Benchmarks, casos reais, ferramentas novas. O que eu testo antes de palestrar.</div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;padding-top:16px;border-top:1px solid color-mix(in oklab,var(--accent) 25%,transparent);">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=https://lucianfialho.substack.com/" style="width:200px;height:200px;border-radius:4px;" alt="QR Newsletter">
+          <div style="font-family:var(--f-mono);font-size:16px;color:var(--stone);text-align:center;font-weight:600;">lucianfialho.substack.com</div>
         </div>
-        <div class="qr-url">lucianfialho.com/cro</div>
       </div>
-      <div class="cta-info">
-        <div class="cta-item main">
-          <div class="cta-item-tag">Skills gratuitas</div>
-          <div class="cta-item-name">github.com/lucianfialho<br>/cro-skills</div>
-          <div class="cta-item-desc">4 skills em markdown + hook de validação + dataset de demo. git clone, funciona agora.</div>
+      <!-- LinkedIn -->
+      <div style="border:1px solid var(--rule);border-radius:4px;padding:36px 32px;display:flex;flex-direction:column;gap:20px;">
+        <div style="font-family:var(--f-mono);font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--stone);">LinkedIn</div>
+        <div style="display:flex;align-items:center;gap:16px;">
+          <img src="https://github.com/lucianfialho.png" style="width:64px;height:64px;border-radius:50%;object-fit:cover;" alt="Lucian Fialho">
+          <div>
+            <div style="font-family:var(--f-sans);font-size:26px;font-weight:600;">Lucian Fialho</div>
+            <div style="font-family:var(--f-mono);font-size:16px;color:var(--stone);">Métricas Boss</div>
+          </div>
         </div>
-        <div class="cta-item">
-          <div class="cta-item-tag">Beta</div>
-          <div class="cta-item-name">analytics-copilot</div>
-          <div class="cta-item-desc">Stack pré-montado, sem configurar nada. Link na newsletter — mesmo QR.</div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;flex:1;">Analytics, CRO e experimentos com Claude Code. Conexões relevantes bem-vindas.</div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--rule);">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=https://www.linkedin.com/in/lucianfialho/" style="width:200px;height:200px;border-radius:4px;" alt="QR LinkedIn">
+          <div style="font-family:var(--f-mono);font-size:16px;color:var(--stone);text-align:center;font-weight:600;">linkedin.com/in/lucianfialho</div>
         </div>
       </div>
     </div>
