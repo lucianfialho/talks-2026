@@ -1,0 +1,22 @@
+id: 02-cro
+title: "Palestra 02 — CRO com Claude Code"
+tags:
+  - cro
+  - script
+  - demo
+  - bifurcations
+  - duckdb
+covers:
+  - script-outline.md
+  - script.md
+  - bifurcations.md
+  - demos/commands.md
+  - notes/rehearsal-log.md
+  - demos/data/
+  - demos/hooks/
+  - demos/skills/
+specialist: frontend-dev
+touched_by_issues:
+  - 11
+last_updated: 2026-04-27
+status: filled

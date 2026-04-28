@@ -1,0 +1,2432 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CRO com Claude Code — Métricas Boss</title>
+<link rel="stylesheet" href="deck-styles.css">
+<script src="config.js"></script>
+<script src="deck-stage.js" defer></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const token = window.LOGO_TOKEN || '';
+    if (!token || token === 'pk_YOUR_TOKEN_HERE') return;
+    document.querySelectorAll('img[data-domain]').forEach(img => {
+      const size = img.dataset.size || '80';
+      img.src = `https://img.logo.dev/${img.dataset.domain}?token=${token}&size=${size}&format=png`;
+      img.onerror = () => { img.style.display = 'none'; };
+    });
+  });
+</script>
+<style>
+  .slide-main { flex: 1; display: flex; flex-direction: column; }
+
+  /* ── Cover ── */
+  .cover-tag {
+    font-family: var(--f-mono);
+    font-size: var(--fs-micro);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 48px;
+  }
+  .cover-title {
+    font-family: var(--f-display);
+    font-size: 108px;
+    line-height: 1.01;
+    letter-spacing: -0.025em;
+    max-width: 1480px;
+    margin-bottom: 64px;
+  }
+  .cover-meta {
+    font-family: var(--f-mono);
+    font-size: var(--fs-small);
+    color: var(--stone);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── Big stat ── */
+  .stat-hero {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-size: 480px;
+    line-height: 0.82;
+    letter-spacing: -0.05em;
+    color: var(--accent);
+  }
+  .stat-unit {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-size: 120px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+  }
+  .stat-label {
+    font-family: var(--f-sans);
+    font-size: var(--fs-lead);
+    color: var(--stone);
+    margin-top: 32px;
+    line-height: 1.4;
+  }
+
+  /* ── Context comparison ── */
+  .ctx-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    flex: 1;
+    align-items: stretch;
+  }
+  .ctx-card {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 64px 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .ctx-card.highlight {
+    border-color: var(--accent);
+    background: color-mix(in oklab, var(--accent) 5%, transparent);
+  }
+  .ctx-name {
+    font-family: var(--f-mono);
+    font-size: 22px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--stone);
+  }
+  .ctx-card.highlight .ctx-name { color: var(--accent); }
+  .ctx-tokens {
+    font-family: var(--f-display);
+    font-size: 120px;
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+  }
+  .ctx-sub {
+    font-family: var(--f-sans);
+    font-size: var(--fs-small);
+    color: var(--stone);
+    line-height: 1.5;
+    margin-top: auto;
+  }
+  .ctx-bar {
+    height: 8px;
+    border-radius: 2px;
+    background: var(--rule);
+    margin-top: 24px;
+  }
+  .ctx-bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    background: var(--stone-2);
+  }
+  .ctx-card.highlight .ctx-bar-fill { background: var(--accent); }
+
+  /* ── Stack diagram ── */
+  .stack-flow {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex: 1;
+    justify-content: center;
+  }
+  .stack-node {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 32px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 220px;
+    text-align: center;
+  }
+  .stack-node.center {
+    border-color: var(--accent);
+    background: color-mix(in oklab, var(--accent) 6%, transparent);
+    padding: 40px 48px;
+    min-width: 280px;
+  }
+  .stack-node-name {
+    font-family: var(--f-mono);
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .stack-node-desc {
+    font-family: var(--f-sans);
+    font-size: var(--fs-small);
+    color: var(--stone);
+    line-height: 1.4;
+  }
+  .stack-arrow {
+    font-family: var(--f-mono);
+    font-size: 48px;
+    color: var(--stone-2);
+    flex-shrink: 0;
+  }
+  .stack-sources {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* ── Bot slide ── */
+  .bot-table {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .bot-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    padding: 28px 40px;
+    border-bottom: 1px solid var(--rule);
+    align-items: center;
+    gap: 24px;
+  }
+  .bot-row:last-child { border-bottom: none; }
+  .bot-row.header {
+    background: var(--bg-alt);
+    font-family: var(--f-mono);
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--stone);
+  }
+  .bot-row.bot-user { background: color-mix(in oklab, #E05252 5%, transparent); }
+  .bot-id {
+    font-family: var(--f-mono);
+    font-size: var(--fs-small);
+    font-weight: 600;
+  }
+  .bot-id.suspicious { color: #C84B4B; }
+  .bot-hits {
+    font-family: var(--f-display);
+    font-size: 48px;
+    color: var(--ink);
+  }
+  .bot-hits.bad { color: #C84B4B; }
+  .bot-dur { font-family: var(--f-mono); font-size: var(--fs-small); color: var(--stone); }
+  .bot-dur.zero { color: #C84B4B; font-weight: 600; }
+  .bot-badge {
+    font-family: var(--f-mono);
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 6px 14px;
+    border-radius: 3px;
+    background: color-mix(in oklab, #C84B4B 12%, transparent);
+    color: #C84B4B;
+    width: fit-content;
+  }
+  .bot-badge.ok {
+    background: color-mix(in oklab, #4B9E6B 12%, transparent);
+    color: #3A8B5A;
+  }
+
+  /* ── SRM ── */
+  .srm-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    flex: 1;
+    align-items: stretch;
+  }
+  .srm-card {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 56px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .srm-card.bad { border-color: #C84B4B; background: color-mix(in oklab, #C84B4B 4%, transparent); }
+  .srm-label {
+    font-family: var(--f-mono);
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--stone);
+  }
+  .srm-card.bad .srm-label { color: #C84B4B; }
+  .srm-variant {
+    font-family: var(--f-display);
+    font-size: 64px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .srm-pct {
+    font-family: var(--f-mono);
+    font-size: 100px;
+    font-weight: 600;
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+  }
+  .srm-card.bad .srm-pct { color: #C84B4B; }
+  .srm-bar-wrap {
+    height: 16px;
+    background: var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .srm-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: var(--stone-2);
+  }
+  .srm-card.bad .srm-bar-fill { background: #C84B4B; }
+  .srm-note {
+    font-family: var(--f-sans);
+    font-size: var(--fs-small);
+    color: var(--stone);
+    line-height: 1.5;
+    margin-top: auto;
+  }
+  .srm-card.bad .srm-note { color: #C84B4B; font-weight: 500; }
+
+  /* ── Quote slide ── */
+  .quote-text {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-size: 96px;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    max-width: 1400px;
+  }
+  .quote-source {
+    font-family: var(--f-mono);
+    font-size: var(--fs-small);
+    color: var(--stone);
+    letter-spacing: 0.04em;
+    margin-top: 48px;
+  }
+
+  /* ── Bifurcação ── */
+  .bif-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    flex: 1;
+  }
+  .bif-option {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 56px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .bif-option.right { border-color: var(--accent); background: color-mix(in oklab, var(--accent) 5%, transparent); }
+  .bif-vote {
+    font-family: var(--f-mono);
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--stone);
+  }
+  .bif-option.right .bif-vote { color: var(--accent); }
+  .bif-label {
+    font-family: var(--f-display);
+    font-size: 60px;
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+  }
+  .bif-detail {
+    font-family: var(--f-sans);
+    font-size: var(--fs-small);
+    line-height: 1.5;
+    color: var(--stone);
+    margin-top: auto;
+  }
+
+  /* ── Device table ── */
+  .seg-table {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .seg-row {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr 1.2fr;
+    padding: 32px 40px;
+    border-bottom: 1px solid var(--rule);
+    align-items: center;
+    gap: 24px;
+  }
+  .seg-row:last-child { border-bottom: none; }
+  .seg-row.header {
+    background: var(--bg-alt);
+    font-family: var(--f-mono);
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--stone);
+  }
+  .seg-device {
+    font-family: var(--f-display);
+    font-size: 52px;
+    letter-spacing: -0.01em;
+  }
+  .seg-cr {
+    font-family: var(--f-mono);
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .seg-lift {
+    font-family: var(--f-display);
+    font-size: 64px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .seg-lift.up { color: #3A8B5A; }
+  .seg-lift.flat { color: var(--stone); }
+  .seg-lift.down { color: #C84B4B; }
+  .seg-insight {
+    font-family: var(--f-mono);
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 6px 14px;
+    border-radius: 3px;
+    width: fit-content;
+  }
+  .seg-insight.up { background: color-mix(in oklab,#3A8B5A 12%,transparent); color:#3A8B5A; }
+  .seg-insight.flat { background: var(--bg-alt); color: var(--stone); }
+  .seg-insight.down { background: color-mix(in oklab,#C84B4B 12%,transparent); color:#C84B4B; }
+  .seg-row.highlight { background: color-mix(in oklab, #3A8B5A 4%, transparent); }
+  .seg-row.lowlight { background: color-mix(in oklab, #C84B4B 4%, transparent); }
+
+  /* ── Quant vs qual ── */
+  .split-two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    flex: 1;
+    align-items: center;
+  }
+  .split-block {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 56px 48px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    height: 100%;
+    justify-content: center;
+  }
+  .split-block.right { border-color: var(--accent); background: color-mix(in oklab, var(--accent) 4%, transparent); }
+  .split-eyebrow {
+    font-family: var(--f-mono);
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--stone);
+  }
+  .split-block.right .split-eyebrow { color: var(--accent); }
+  .split-title {
+    font-family: var(--f-display);
+    font-size: 80px;
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+  }
+  .split-items {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .split-item {
+    font-family: var(--f-sans);
+    font-size: var(--fs-small);
+    color: var(--stone);
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    line-height: 1.5;
+  }
+  .split-item::before { content: '—'; color: var(--stone-2); flex-shrink: 0; }
+
+  /* ── Skills grid ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    flex: 1;
+  }
+  .skill-card {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 48px 44px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .skill-cmd {
+    font-family: var(--f-mono);
+    font-size: 40px;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .skill-name {
+    font-family: var(--f-display);
+    font-size: 52px;
+    line-height: 1.0;
+    letter-spacing: -0.015em;
+  }
+  .skill-desc {
+    font-family: var(--f-sans);
+    font-size: var(--fs-small);
+    color: var(--stone);
+    line-height: 1.5;
+    margin-top: auto;
+  }
+
+  /* ── Automation ── */
+  .auto-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    flex: 1;
+    align-items: stretch;
+  }
+  .auto-card {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 56px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .auto-cmd {
+    font-family: var(--f-mono);
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--bg-alt);
+    padding: 20px 28px;
+    border-radius: 3px;
+    border-left: 3px solid var(--accent);
+  }
+  .auto-title {
+    font-family: var(--f-display);
+    font-size: 64px;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+  }
+  .auto-desc {
+    font-family: var(--f-sans);
+    font-size: var(--fs-small);
+    color: var(--stone);
+    line-height: 1.55;
+    margin-top: auto;
+  }
+
+  /* ── CTA ── */
+  .cta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    flex: 1;
+    align-items: center;
+  }
+  .qr-box {
+    background: var(--bg-alt);
+    border-radius: 4px;
+    aspect-ratio: 1;
+    max-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 48px;
+  }
+  .qr-placeholder {
+    width: 360px; height: 360px;
+    background: var(--ink);
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 6px;
+    padding: 24px;
+  }
+  .qr-cell { background: var(--bg); border-radius: 1px; }
+  .qr-cell.on { background: var(--ink); }
+  .qr-url {
+    font-family: var(--f-mono);
+    font-size: var(--fs-small);
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+  }
+  .cta-info { display: flex; flex-direction: column; gap: 32px; }
+  .cta-item {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 32px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .cta-item.main { border-color: var(--accent); }
+  .cta-item-tag {
+    font-family: var(--f-mono);
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--stone);
+  }
+  .cta-item.main .cta-item-tag { color: var(--accent); }
+  .cta-item-name {
+    font-family: var(--f-display);
+    font-size: 40px;
+    font-style: italic;
+    line-height: 1.1;
+  }
+  .cta-item-desc {
+    font-family: var(--f-sans);
+    font-size: var(--fs-small);
+    color: var(--stone);
+    line-height: 1.5;
+  }
+
+  /* ── Dado fragmentado ── */
+  .frag-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    flex: 1;
+    align-content: start;
+  }
+  .frag-card {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 24px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .frag-logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+  .frag-logo-fallback {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    background: var(--bg-alt);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--f-mono);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--stone);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+  }
+  .frag-tool {
+    font-family: var(--f-sans);
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  .frag-data {
+    font-family: var(--f-mono);
+    font-size: 16px;
+    color: var(--stone);
+    line-height: 1.5;
+    margin-top: auto;
+  }
+  .frag-verdict {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-size: 64px;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--accent);
+    margin-top: 8px;
+  }
+
+  /* ── Por que Claude Code ── */
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+    flex: 1;
+    align-items: stretch;
+  }
+  .why-card {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 48px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .why-card.winner {
+    border-color: var(--accent);
+    background: color-mix(in oklab, var(--accent) 5%, transparent);
+  }
+  .why-tool-name {
+    font-family: var(--f-mono);
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--stone);
+  }
+  .why-card.winner .why-tool-name { color: var(--accent); }
+  .why-items {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 8px;
+    flex: 1;
+  }
+  .why-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-family: var(--f-sans);
+    font-size: 22px;
+    color: var(--stone);
+    line-height: 1.45;
+  }
+  .why-item .dot { flex-shrink: 0; margin-top: 7px; width: 6px; height: 6px; border-radius: 50%; background: var(--stone-2); }
+  .why-card.winner .why-item { color: var(--ink); }
+  .why-card.winner .why-item .dot { background: var(--accent); }
+  .why-verdict {
+    font-family: var(--f-display);
+    font-size: 40px;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    margin-top: auto;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+  }
+  .why-card.winner .why-verdict { border-color: var(--accent); color: var(--accent); }
+
+  /* ── Obrigado ── */
+  .obrigado-title {
+    font-family: var(--f-display);
+    font-size: 180px;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+  }
+</style>
+</head>
+<body>
+<deck-stage>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S01 — COVER
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s01">
+  <header class="slide-header">
+    <span>Métricas Boss · 2026</span>
+    <span>Palestra 02 — CRO</span>
+  </header>
+  <div class="slide-main" style="justify-content:center; gap:40px;">
+    <div class="cover-tag">CRO × Claude Code · 50 min</div>
+    <div class="cover-title">
+      Como usar o<br><em style="font-style:italic;color:var(--accent)">Claude Code</em><br>para análise de dados
+    </div>
+    <div class="cover-meta">Lucian Fialho — Métricas Boss</div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>metricasboss.com.br</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S02 — Pergunta abertura
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s02">
+  <header class="slide-header">
+    <span>Ato 1 — O problema</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="justify-content:center; gap:48px;">
+    <div style="font-family:var(--f-display);font-size:96px;line-height:1.05;letter-spacing:-0.025em;max-width:1300px;">
+      Quantas horas da semana você passou <em style="font-style:italic;color:var(--accent)">preparando dado</em> antes de conseguir analisar de verdade?
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 1</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S02b — Dado fragmentado
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s02b">
+  <header class="slide-header">
+    <span>Ato 1 — O problema</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:36px;">
+    <div class="eyebrow accent">O seu stack de CRO hoje</div>
+    <div class="frag-grid">
+      <div class="frag-card">
+        <img class="frag-logo" data-domain="analytics.google.com" alt="GA4">
+        <div class="frag-tool">Google Analytics 4</div>
+        <div class="frag-data">Sessions · events<br>conversions · funnels</div>
+      </div>
+      <div class="frag-card">
+        <img class="frag-logo" data-domain="ads.google.com" alt="Google Ads">
+        <div class="frag-tool">Google Ads</div>
+        <div class="frag-data">Clicks · impressions<br>spend · ROAS</div>
+      </div>
+      <div class="frag-card">
+        <img class="frag-logo" data-domain="meta.com" alt="Meta Ads">
+        <div class="frag-tool">Meta Ads</div>
+        <div class="frag-data">Reach · CPM<br>attributed conversions</div>
+      </div>
+      <div class="frag-card">
+        <img class="frag-logo" data-domain="search.google.com" alt="GSC">
+        <div class="frag-tool">Search Console</div>
+        <div class="frag-data">Queries · impressions<br>CTR · position</div>
+      </div>
+      <div class="frag-card">
+        <img class="frag-logo" data-domain="vtex.com" alt="VTEX">
+        <div class="frag-tool">VTEX / Shopify</div>
+        <div class="frag-data">Orders · revenue<br>SKUs · sessions</div>
+      </div>
+      <div class="frag-card">
+        <img class="frag-logo" data-domain="hotjar.com" alt="Hotjar">
+        <div class="frag-tool">Hotjar</div>
+        <div class="frag-data">Heatmaps · recordings<br>surveys</div>
+      </div>
+      <div class="frag-card">
+        <img class="frag-logo" data-domain="tagmanager.google.com" alt="GTM">
+        <div class="frag-tool">Google Tag Manager</div>
+        <div class="frag-data">Tags · triggers<br>variables</div>
+      </div>
+      <div class="frag-card">
+        <img class="frag-logo" data-domain="vwo.com" alt="VWO">
+        <div class="frag-tool">VWO</div>
+        <div class="frag-data">Test results · variants<br>goals · segments</div>
+      </div>
+      <div class="frag-card">
+        <img class="frag-logo" data-domain="abtasty.com" alt="ABTasty">
+        <div class="frag-tool">AB Tasty</div>
+        <div class="frag-data">Experiments · winners<br>uplift · confidence</div>
+      </div>
+      <div class="frag-card">
+        <img class="frag-logo" data-domain="optimizely.com" alt="Optimizely">
+        <div class="frag-tool">Optimizely</div>
+        <div class="frag-data">Variations · metrics<br>statistical significance</div>
+      </div>
+      <div class="frag-card" style="border-style:dashed;justify-content:center;align-items:center;grid-column:span 1;">
+        <div style="font-family:var(--f-mono);font-size:20px;color:var(--stone-2);text-align:center;">+ Convert · BQ<br>· ERP · planilha</div>
+      </div>
+    </div>
+    <div class="frag-verdict">Nenhum deles conversa entre si.</div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 1</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S02d — A solução clássica
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s02d">
+  <header class="slide-header">
+    <span>Ato 1 — O problema</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+    <div style="font-family:var(--f-display);font-size:64px;line-height:1.05;letter-spacing:-0.02em;">
+      Como as empresas resolvem isso hoje
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;flex:1;align-items:stretch;">
+      <!-- Plataformas -->
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div class="eyebrow accent">A solução clássica</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div class="frag-card">
+            <img class="frag-logo" data-domain="cloud.google.com" alt="BigQuery">
+            <div class="frag-tool" style="font-size:22px;">BigQuery</div>
+          </div>
+          <div class="frag-card">
+            <img class="frag-logo" data-domain="databricks.com" alt="Databricks">
+            <div class="frag-tool" style="font-size:22px;">Databricks</div>
+          </div>
+          <div class="frag-card">
+            <img class="frag-logo" data-domain="snowflake.com" alt="Snowflake">
+            <div class="frag-tool" style="font-size:22px;">Snowflake</div>
+          </div>
+          <div class="frag-card">
+            <img class="frag-logo" data-domain="getdbt.com" alt="dbt">
+            <div class="frag-tool" style="font-size:22px;">dbt</div>
+          </div>
+        </div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.6;">
+          Centraliza tudo. Dado limpo. Queries em SQL.<br>
+          <strong style="color:var(--ink);">Funciona.</strong>
+        </div>
+      </div>
+      <!-- O custo real -->
+      <div style="border:1px solid var(--rule);border-radius:4px;padding:48px 44px;display:flex;flex-direction:column;gap:28px;">
+        <div class="eyebrow" style="color:#C84B4B;letter-spacing:0.1em;font-size:18px;font-weight:600;font-family:var(--f-mono);text-transform:uppercase;">O custo real</div>
+        <div style="display:flex;flex-direction:column;gap:20px;">
+          <div style="display:flex;align-items:flex-start;gap:20px;padding-bottom:20px;border-bottom:1px solid var(--rule);">
+            <div style="font-family:var(--f-display);font-size:52px;line-height:1;color:#C84B4B;flex-shrink:0;">1</div>
+            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;padding-top:8px;">Engenheiro de dados (ou time inteiro) pra montar e manter o pipeline</div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:20px;padding-bottom:20px;border-bottom:1px solid var(--rule);">
+            <div style="font-family:var(--f-display);font-size:52px;line-height:1;color:#C84B4B;flex-shrink:0;">3</div>
+            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;padding-top:8px;">a 6 meses de setup antes do primeiro dado limpo disponível</div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:20px;">
+            <div style="font-family:var(--f-display);font-size:52px;line-height:1;color:#C84B4B;flex-shrink:0;">∞</div>
+            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;padding-top:8px;">Você ainda precisa de alguém pra escrever as queries quando quiser uma análise nova</div>
+          </div>
+        </div>
+        <div style="margin-top:auto;font-family:var(--f-display);font-style:italic;font-size:36px;line-height:1.1;letter-spacing:-0.01em;color:var(--ink);">E quem não tem time de dados?</div>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 1</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S02e — Não vamos acabar com o warehouse
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s02e">
+  <header class="slide-header">
+    <span>Ato 1 — O problema</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+    <div style="font-family:var(--f-display);font-size:72px;line-height:1.02;letter-spacing:-0.022em;max-width:1200px;">
+      Não estamos acabando com o warehouse.<br>
+      Estamos acabando com a <em style="font-style:italic;color:var(--accent)">fila de tickets</em>.
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;flex:1;align-items:stretch;">
+      <!-- Antes -->
+      <div style="border:1px solid var(--rule);border-radius:4px;padding:44px 40px;display:flex;flex-direction:column;gap:24px;">
+        <div style="font-family:var(--f-mono);font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--stone);">Antes</div>
+        <div style="display:flex;flex-direction:column;gap:16px;flex:1;">
+          <div style="display:flex;align-items:center;gap:16px;">
+            <div style="font-family:var(--f-mono);font-size:14px;font-weight:600;color:var(--stone);background:var(--bg-alt);padding:6px 12px;border-radius:3px;white-space:nowrap;">analista</div>
+            <div style="font-family:var(--f-mono);font-size:22px;color:var(--stone-2);">→</div>
+            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">abre ticket com a pergunta</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px;">
+            <div style="font-family:var(--f-mono);font-size:14px;font-weight:600;color:var(--stone);background:var(--bg-alt);padding:6px 12px;border-radius:3px;white-space:nowrap;">eng. dados</div>
+            <div style="font-family:var(--f-mono);font-size:22px;color:var(--stone-2);">→</div>
+            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">escreve a query em SQL</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px;">
+            <div style="font-family:var(--f-mono);font-size:14px;font-weight:600;color:#C84B4B;background:color-mix(in oklab,#C84B4B 8%,transparent);padding:6px 12px;border-radius:3px;white-space:nowrap;">3–5 dias</div>
+            <div style="font-family:var(--f-mono);font-size:22px;color:var(--stone-2);">→</div>
+            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">analista recebe a resposta</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px;">
+            <div style="font-family:var(--f-mono);font-size:14px;font-weight:600;color:var(--stone);background:var(--bg-alt);padding:6px 12px;border-radius:3px;white-space:nowrap;">analista</div>
+            <div style="font-family:var(--f-mono);font-size:22px;color:var(--stone-2);">→</div>
+            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">percebe que precisava de outro filtro e abre novo ticket</div>
+          </div>
+        </div>
+      </div>
+      <!-- Depois -->
+      <div style="border:1px solid var(--accent);border-radius:4px;padding:44px 40px;background:color-mix(in oklab,var(--accent) 4%,transparent);display:flex;flex-direction:column;gap:24px;">
+        <div style="font-family:var(--f-mono);font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);">Depois</div>
+        <div style="display:flex;flex-direction:column;gap:16px;flex:1;">
+          <div style="display:flex;align-items:center;gap:16px;">
+            <div style="font-family:var(--f-mono);font-size:14px;font-weight:600;color:var(--accent);background:color-mix(in oklab,var(--accent) 10%,transparent);padding:6px 12px;border-radius:3px;white-space:nowrap;">analista</div>
+            <div style="font-family:var(--f-mono);font-size:22px;color:var(--stone-2);">→</div>
+            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">pergunta em linguagem natural</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px;">
+            <div style="font-family:var(--f-mono);font-size:14px;font-weight:600;color:var(--accent);background:color-mix(in oklab,var(--accent) 10%,transparent);padding:6px 12px;border-radius:3px;white-space:nowrap;">Claude Code</div>
+            <div style="font-family:var(--f-mono);font-size:22px;color:var(--stone-2);">→</div>
+            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">gera e executa SQL no seu BQ / DuckDB</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px;">
+            <div style="font-family:var(--f-mono);font-size:14px;font-weight:600;color:var(--accent);background:color-mix(in oklab,var(--accent) 10%,transparent);padding:6px 12px;border-radius:3px;white-space:nowrap;">20 segundos</div>
+            <div style="font-family:var(--f-mono);font-size:22px;color:var(--stone-2);">→</div>
+            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">resposta, interpretação, próximo passo</div>
+          </div>
+        </div>
+        <div style="margin-top:auto;font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;padding-top:20px;border-top:1px solid color-mix(in oklab,var(--accent) 25%,transparent);">
+          <strong style="color:var(--ink);">SQL é a linguagem mais representada nos dados de treino dos LLMs.</strong><br>
+          Claude Code sabe BigQuery, Snowflake, dbt nativamente. O warehouse continua lá — a fila de tickets vai embora.
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 1</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S02c — Por que Claude Code?
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s02c">
+  <header class="slide-header">
+    <span>Ato 1 — Por que Claude Code?</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+    <div style="font-family:var(--f-display);font-size:64px;line-height:1.05;letter-spacing:-0.02em;">
+      ChatGPT, Claude Desktop ou <em style="font-style:italic;color:var(--accent)">Claude Code</em>?
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px;">
+          <img data-domain="openai.com" style="width:28px;height:28px;object-fit:contain;border-radius:4px;flex-shrink:0;" alt="ChatGPT">
+          <div class="why-tool-name">ChatGPT</div>
+        </div>
+        <div class="why-items">
+          <div class="why-item"><div class="dot"></div>Cola texto ou sobe arquivo</div>
+          <div class="why-item"><div class="dot"></div>Não acessa sua máquina nem suas APIs</div>
+          <div class="why-item"><div class="dot"></div>128k de contexto — você samplea o dado</div>
+          <div class="why-item"><div class="dot"></div>Cada sessão começa do zero</div>
+        </div>
+        <div class="why-verdict">Chat de texto</div>
+      </div>
+      <div class="why-card">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px;">
+          <img data-domain="anthropic.com" style="width:28px;height:28px;object-fit:contain;border-radius:4px;flex-shrink:0;" alt="Claude Desktop">
+          <div class="why-tool-name">Claude Desktop + MCP</div>
+        </div>
+        <div class="why-items">
+          <div class="why-item"><div class="dot"></div>Pode fazer análise — com MCP configurado manualmente por tool</div>
+          <div class="why-item"><div class="dot"></div>MCP injeta schema de TODOS os tools no contexto da sessão</div>
+          <div class="why-item"><div class="dot"></div>~20x mais tokens por análise vs CLI — custo por acidente de arquitetura</div>
+          <div class="why-item"><div class="dot"></div>Sem skills, hooks ou loop agêntico nativo</div>
+        </div>
+        <div class="why-verdict">Funciona, mas caro</div>
+      </div>
+      <div class="why-card winner">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px;">
+          <img data-domain="anthropic.com" style="width:28px;height:28px;object-fit:contain;border-radius:4px;flex-shrink:0;" alt="Claude Code">
+          <div class="why-tool-name">Claude Code</div>
+        </div>
+        <div class="why-items">
+          <div class="why-item"><div class="dot"></div>Roda no terminal, dentro da pasta do projeto</div>
+          <div class="why-item"><div class="dot"></div>Lê arquivos, roda scripts, chama APIs</div>
+          <div class="why-item"><div class="dot"></div>1M de contexto — dataset completo, sem amostragem</div>
+          <div class="why-item"><div class="dot"></div>Skills e hooks custom pro seu fluxo</div>
+        </div>
+        <div class="why-verdict">Agente de análise</div>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 1</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S04 — Stack sugerido
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s04">
+  <header class="slide-header">
+    <span>Ato 2 — O stack</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:32px;">
+    <div style="font-family:var(--f-display);font-size:72px;line-height:1.02;letter-spacing:-0.022em;">
+      O stack que eu <em style="font-style:italic;color:var(--accent)">recomendo</em>
+    </div>
+    <div class="stack-flow" style="flex:1;">
+      <div class="stack-sources">
+        <div class="stack-node">
+          <div class="stack-node-name">gmp-cli</div>
+          <div class="stack-node-desc">GA4 · GSC · Google Ads · GTM · BigQuery</div>
+        </div>
+        <div class="stack-node">
+          <div class="stack-node-name">spec2cli</div>
+          <div class="stack-node-desc">VTEX · Shopify · qualquer OpenAPI</div>
+        </div>
+      </div>
+      <div class="stack-arrow">→</div>
+      <div class="stack-node center">
+        <div class="stack-node-name" style="font-size:36px;">DuckDB</div>
+        <div class="stack-node-desc" style="font-size:22px;"><strong style="color:var(--ink);">Snapshot local</strong><br>isolado de prod · zero setup<br>SQL analítico nativo</div>
+      </div>
+      <div class="stack-arrow">→</div>
+      <div class="stack-node center" style="background:var(--bg-alt);border-color:var(--ink);">
+        <div class="stack-node-name" style="color:var(--ink);font-size:32px;">Claude Code</div>
+        <div class="stack-node-desc" style="font-size:22px;"><strong style="color:var(--accent);">1M tokens</strong><br>Análise · Limpeza · Decisão<br>Skills custom pro seu fluxo</div>
+      </div>
+    </div>
+    <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;">
+      Open source · <strong style="color:var(--ink);">github.com/lucianfialho</strong> · funciona com qualquer warehouse existente
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 2</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S04a — gmp-cli
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s04a">
+  <header class="slide-header">
+    <span>Ato 2 — As ferramentas</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+    <div style="display:flex;align-items:baseline;gap:24px;">
+      <div style="font-family:var(--f-mono);font-size:80px;font-weight:700;color:var(--accent);letter-spacing:-0.02em;">gmp-cli</div>
+      <div style="font-family:var(--f-sans);font-size:var(--fs-body);color:var(--stone);">Google Marketing Platform no terminal</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;flex:1;align-items:start;">
+      <!-- Fontes conectadas -->
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="font-family:var(--f-mono);font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);margin-bottom:4px;">Conecta com</div>
+        <div style="display:flex;align-items:center;gap:14px;padding:16px 20px;border:1px solid var(--rule);border-radius:4px;">
+          <img data-domain="analytics.google.com" style="width:36px;height:36px;object-fit:contain;flex-shrink:0;" alt="GA4">
+          <div>
+            <div style="font-family:var(--f-sans);font-size:24px;font-weight:600;">Google Analytics 4</div>
+            <div style="font-family:var(--f-mono);font-size:16px;color:var(--stone);">eventos · sessões · conversões · funis</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;padding:16px 20px;border:1px solid var(--rule);border-radius:4px;">
+          <img data-domain="search.google.com" style="width:36px;height:36px;object-fit:contain;flex-shrink:0;" alt="GSC">
+          <div>
+            <div style="font-family:var(--f-sans);font-size:24px;font-weight:600;">Search Console</div>
+            <div style="font-family:var(--f-mono);font-size:16px;color:var(--stone);">queries · impressões · CTR · posição</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;padding:16px 20px;border:1px solid var(--rule);border-radius:4px;">
+          <img data-domain="ads.google.com" style="width:36px;height:36px;object-fit:contain;flex-shrink:0;" alt="Google Ads">
+          <div>
+            <div style="font-family:var(--f-sans);font-size:24px;font-weight:600;">Google Ads</div>
+            <div style="font-family:var(--f-mono);font-size:16px;color:var(--stone);">clicks · spend · ROAS · keywords</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;padding:16px 20px;border:1px solid var(--rule);border-radius:4px;">
+          <img data-domain="cloud.google.com" style="width:36px;height:36px;object-fit:contain;flex-shrink:0;" alt="BigQuery">
+          <div>
+            <div style="font-family:var(--f-sans);font-size:24px;font-weight:600;">BigQuery</div>
+            <div style="font-family:var(--f-mono);font-size:16px;color:var(--stone);">GA4 raw · warehouse existente</div>
+          </div>
+        </div>
+      </div>
+      <!-- Exemplo de uso -->
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div style="font-family:var(--f-mono);font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);margin-bottom:4px;">Exemplo</div>
+        <div style="background:var(--bg-alt);border-radius:4px;padding:28px 32px;border-left:3px solid var(--accent);">
+          <div style="font-family:var(--f-mono);font-size:22px;color:var(--accent);line-height:1.7;">
+            gmp ga report \<br>
+            &nbsp;&nbsp;--days 30 \<br>
+            &nbsp;&nbsp;--metrics sessions,conversions \<br>
+            &nbsp;&nbsp;--dims device,channel
+          </div>
+        </div>
+        <div style="background:var(--bg-alt);border-radius:4px;padding:28px 32px;border-left:3px solid var(--accent);">
+          <div style="font-family:var(--f-mono);font-size:22px;color:var(--accent);line-height:1.7;">
+            gmp gsc queries \<br>
+            &nbsp;&nbsp;--site metricasboss.com.br \<br>
+            &nbsp;&nbsp;--days 28
+          </div>
+        </div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;margin-top:8px;">
+          Output vai direto pro DuckDB. Claude Code cruza GA4 + GSC + Ads numa query.
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 2</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S04a2 — Newsletter deep dive: gmp-cli benchmark
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s04a2">
+  <header class="slide-header">
+    <span>Ato 2 — Quer ir mais fundo?</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="justify-content:center;gap:48px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;flex:1;">
+      <!-- Card do artigo -->
+      <div style="border:1px solid var(--rule);border-radius:4px;overflow:hidden;">
+        <div style="background:var(--bg-alt);padding:12px 20px;border-bottom:1px solid var(--rule);">
+          <div style="font-family:var(--f-mono);font-size:16px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--stone);">Skunkworks · Newsletter</div>
+        </div>
+        <div style="padding:36px 40px;display:flex;flex-direction:column;gap:20px;">
+          <div style="font-family:var(--f-display);font-size:52px;line-height:1.05;letter-spacing:-0.015em;">
+            MCP vs CLI Token Benchmark: Google Analytics
+          </div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.55;">
+            Um benchmark replicável para comparação de custos de tokens entre o Google Analytics MCP vs <strong style="color:var(--ink);">gmp-cli</strong>
+          </div>
+          <div style="font-family:var(--f-mono);font-size:18px;color:var(--stone);letter-spacing:0.02em;padding-top:8px;border-top:1px solid var(--rule);">
+            Lucian Fialho · Abr 06, 2026
+          </div>
+        </div>
+      </div>
+      <!-- Mensagem -->
+      <div style="display:flex;flex-direction:column;gap:32px;align-items:flex-start;">
+        <div style="font-family:var(--f-display);font-size:72px;line-height:1.02;letter-spacing:-0.022em;">
+          O benchmark que gerou<br>
+          <em style="font-style:italic;color:var(--accent);">o número.</em>
+        </div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.55;">
+          Comparação replicável entre Google Analytics MCP e gmp-cli. Metodologia aberta, dados reais, resultado: CLI consome até 20x menos tokens pras mesmas análises.
+        </div>
+        <div style="font-family:var(--f-mono);font-size:var(--fs-small);color:var(--accent);font-weight:600;letter-spacing:0.04em;">
+          lucianfialho.substack.com →
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 2</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S04-2 — Stack sugerido (repeat)
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s04-2">
+  <header class="slide-header">
+    <span>Ato 2 — O stack</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:32px;">
+    <div style="font-family:var(--f-display);font-size:72px;line-height:1.02;letter-spacing:-0.022em;">
+      O stack que eu <em style="font-style:italic;color:var(--accent)">recomendo</em>
+    </div>
+    <div class="stack-flow" style="flex:1;">
+      <div class="stack-sources">
+        <div class="stack-node">
+          <div class="stack-node-name">gmp-cli</div>
+          <div class="stack-node-desc">GA4 · GSC · Google Ads · GTM · BigQuery</div>
+        </div>
+        <div class="stack-node">
+          <div class="stack-node-name">spec2cli</div>
+          <div class="stack-node-desc">VTEX · Shopify · qualquer OpenAPI</div>
+        </div>
+      </div>
+      <div class="stack-arrow">→</div>
+      <div class="stack-node center">
+        <div class="stack-node-name" style="font-size:36px;">DuckDB</div>
+        <div class="stack-node-desc" style="font-size:22px;"><strong style="color:var(--ink);">Snapshot local</strong><br>isolado de prod · zero setup<br>SQL analítico nativo</div>
+      </div>
+      <div class="stack-arrow">→</div>
+      <div class="stack-node center" style="background:var(--bg-alt);border-color:var(--ink);">
+        <div class="stack-node-name" style="color:var(--ink);font-size:32px;">Claude Code</div>
+        <div class="stack-node-desc" style="font-size:22px;"><strong style="color:var(--accent);">1M tokens</strong><br>Análise · Limpeza · Decisão<br>Skills custom pro seu fluxo</div>
+      </div>
+    </div>
+    <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;">
+      Open source · <strong style="color:var(--ink);">github.com/lucianfialho</strong> · funciona com qualquer warehouse existente
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 2</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S04b — spec2cli
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s04b">
+  <header class="slide-header">
+    <span>Ato 2 — As ferramentas</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+    <div style="display:flex;align-items:baseline;gap:24px;">
+      <div style="font-family:var(--f-mono);font-size:80px;font-weight:700;color:var(--accent);letter-spacing:-0.02em;">spec2cli</div>
+      <div style="font-family:var(--f-sans);font-size:var(--fs-body);color:var(--stone);">Qualquer API vira CLI em segundos</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;flex:1;align-items:start;">
+      <!-- Nuvem de logos -->
+      <div style="display:flex;flex-direction:column;gap:16px;flex:1;justify-content:center;">
+        <div style="font-family:var(--f-mono);font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);">Se tem OpenAPI URL → vira CLI</div>
+        <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:24px;border:1px solid var(--rule);border-radius:4px;background:var(--bg-alt);">
+          <img data-domain="vtex.com"         data-size="80" style="width:52px;height:52px;object-fit:contain;border-radius:6px;" alt="VTEX">
+          <img data-domain="shopify.com"       data-size="80" style="width:44px;height:44px;object-fit:contain;border-radius:6px;" alt="Shopify">
+          <img data-domain="hubspot.com"       data-size="80" style="width:48px;height:48px;object-fit:contain;border-radius:6px;" alt="HubSpot">
+          <img data-domain="vwo.com"           data-size="80" style="width:40px;height:40px;object-fit:contain;border-radius:6px;" alt="VWO">
+          <img data-domain="abtasty.com"       data-size="80" style="width:44px;height:44px;object-fit:contain;border-radius:6px;" alt="ABTasty">
+          <img data-domain="optimizely.com"    data-size="80" style="width:40px;height:40px;object-fit:contain;border-radius:6px;" alt="Optimizely">
+          <img data-domain="amplitude.com"     data-size="80" style="width:44px;height:44px;object-fit:contain;border-radius:6px;" alt="Amplitude">
+          <img data-domain="mixpanel.com"      data-size="80" style="width:40px;height:40px;object-fit:contain;border-radius:6px;" alt="Mixpanel">
+          <img data-domain="salesforce.com"    data-size="80" style="width:52px;height:52px;object-fit:contain;border-radius:6px;" alt="Salesforce">
+          <img data-domain="klaviyo.com"       data-size="80" style="width:40px;height:40px;object-fit:contain;border-radius:6px;" alt="Klaviyo">
+          <img data-domain="stripe.com"        data-size="80" style="width:44px;height:44px;object-fit:contain;border-radius:6px;" alt="Stripe">
+          <img data-domain="zendesk.com"       data-size="80" style="width:40px;height:40px;object-fit:contain;border-radius:6px;" alt="Zendesk">
+          <img data-domain="intercom.com"      data-size="80" style="width:40px;height:40px;object-fit:contain;border-radius:6px;" alt="Intercom">
+          <img data-domain="convert.com"       data-size="80" style="width:36px;height:36px;object-fit:contain;border-radius:6px;" alt="Convert">
+          <div style="font-family:var(--f-mono);font-size:28px;color:var(--stone-2);font-weight:600;">···</div>
+        </div>
+      </div>
+      <!-- Como funciona + exemplo -->
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div style="font-family:var(--f-mono);font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);margin-bottom:4px;">O fluxo</div>
+        <div style="background:var(--bg-alt);border-radius:4px;padding:20px 24px;border-left:3px solid var(--accent);">
+          <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);line-height:1.8;">
+            <span style="color:var(--stone-2)"># só precisa da URL do spec</span><br>
+            spec2cli \<br>
+            &nbsp;&nbsp;--spec https://api.vtex.com/openapi \<br>
+            &nbsp;&nbsp;orders list \<br>
+            &nbsp;&nbsp;--status invoiced \<br>
+            &nbsp;&nbsp;--date-from 2026-04-01
+          </div>
+        </div>
+        <div style="background:color-mix(in oklab,var(--accent) 6%,transparent);border:1px solid color-mix(in oklab,var(--accent) 20%,transparent);border-radius:4px;padding:20px 24px;">
+          <div style="font-family:var(--f-display);font-style:italic;font-size:32px;line-height:1.2;letter-spacing:-0.01em;color:var(--ink);">
+            "Se tem OpenAPI URL, é só apontar.<br>Sem instalar SDK. Sem escrever código."
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 2</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S04c — Newsletter deep dive: spec2cli + contexto
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s04c">
+  <header class="slide-header">
+    <span>Ato 2 — Quer ir mais fundo?</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="justify-content:center;gap:48px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;flex:1;">
+      <!-- Card do artigo -->
+      <div style="border:1px solid var(--rule);border-radius:4px;overflow:hidden;">
+        <div style="background:var(--bg-alt);padding:12px 20px;border-bottom:1px solid var(--rule);">
+          <div style="font-family:var(--f-mono);font-size:16px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--stone);">Skunkworks · Newsletter</div>
+        </div>
+        <div style="padding:36px 40px;display:flex;flex-direction:column;gap:20px;">
+          <div style="font-family:var(--f-display);font-size:52px;line-height:1.05;letter-spacing:-0.015em;">
+            Como consumir qualquer API no Claude Code sem estourar o contexto
+          </div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.55;">
+            Como o CLI discovery reduz em <strong style="color:var(--ink);">18x o custo de tokens</strong> na hora de apontar o Claude pra uma API externa
+          </div>
+          <div style="font-family:var(--f-mono);font-size:18px;color:var(--stone);letter-spacing:0.02em;padding-top:8px;border-top:1px solid var(--rule);">
+            Lucian Fialho · Abr 27, 2026
+          </div>
+        </div>
+      </div>
+      <!-- Mensagem + QR -->
+      <div style="display:flex;flex-direction:column;gap:32px;align-items:flex-start;">
+        <div style="font-family:var(--f-display);font-size:72px;line-height:1.02;letter-spacing:-0.022em;">
+          Escrevi o experimento completo.<br>
+          <em style="font-style:italic;color:var(--accent);">Está na newsletter.</em>
+        </div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.55;">
+          MCPs consomem 1.3–21x mais tokens que CLI pras mesmas ações. A causa é arquitetural — o schema completo vai pro contexto antes de qualquer ação útil.
+        </div>
+        <div style="font-family:var(--f-mono);font-size:var(--fs-small);color:var(--accent);font-weight:600;letter-spacing:0.04em;">
+          lucianfialho.substack.com →
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 2</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S04-3 — Volta ao stack (antes do DuckDB)
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s04-3">
+  <header class="slide-header">
+    <span>Ato 2 — O stack</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:32px;">
+    <div style="font-family:var(--f-display);font-size:72px;line-height:1.02;letter-spacing:-0.022em;">
+      O stack que eu <em style="font-style:italic;color:var(--accent)">recomendo</em>
+    </div>
+    <div class="stack-flow" style="flex:1;">
+      <div class="stack-sources">
+        <div class="stack-node">
+          <div class="stack-node-name">gmp-cli</div>
+          <div class="stack-node-desc">GA4 · GSC · Google Ads · GTM · BigQuery</div>
+        </div>
+        <div class="stack-node">
+          <div class="stack-node-name">spec2cli</div>
+          <div class="stack-node-desc">VTEX · Shopify · qualquer OpenAPI</div>
+        </div>
+      </div>
+      <div class="stack-arrow">→</div>
+      <div class="stack-node center" style="border-color:var(--accent);background:color-mix(in oklab,var(--accent) 8%,transparent);">
+        <div class="stack-node-name" style="font-size:36px;">DuckDB</div>
+        <div class="stack-node-desc" style="font-size:22px;"><strong style="color:var(--ink);">Snapshot local</strong><br>isolado de prod · zero setup<br>SQL analítico nativo</div>
+      </div>
+      <div class="stack-arrow">→</div>
+      <div class="stack-node center" style="background:var(--bg-alt);border-color:var(--ink);">
+        <div class="stack-node-name" style="color:var(--ink);font-size:32px;">Claude Code</div>
+        <div class="stack-node-desc" style="font-size:22px;"><strong style="color:var(--accent);">1M tokens</strong><br>Análise · Limpeza · Decisão<br>Skills custom pro seu fluxo</div>
+      </div>
+    </div>
+    <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;">
+      Open source · <strong style="color:var(--ink);">github.com/lucianfialho</strong> · funciona com qualquer warehouse existente
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 2</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S03a — DuckDB como camada de consumo
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s03a">
+  <header class="slide-header">
+    <span>Ato 2 — A arquitetura</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+    <div style="font-family:var(--f-display);font-size:64px;line-height:1.05;letter-spacing:-0.02em;">
+      DuckDB não é só cache.<br>É uma <em style="font-style:italic;color:var(--accent)">camada de proteção</em>.
+    </div>
+    <!-- Diagrama de arquitetura -->
+    <div style="display:flex;align-items:center;gap:0;flex:1;justify-content:center;">
+      <!-- Prod -->
+      <div style="display:flex;flex-direction:column;gap:12px;align-items:center;min-width:240px;">
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:24px 28px;width:100%;">
+          <div style="font-family:var(--f-mono);font-size:18px;font-weight:600;color:var(--stone);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px;text-align:center;">Prod</div>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <img data-domain="cloud.google.com" style="width:28px;height:28px;object-fit:contain;border-radius:4px;flex-shrink:0;" alt="BigQuery">
+              <span style="font-family:var(--f-sans);font-size:20px;color:var(--ink);">BigQuery</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <img data-domain="snowflake.com" style="width:28px;height:28px;object-fit:contain;border-radius:4px;flex-shrink:0;" alt="Snowflake">
+              <span style="font-family:var(--f-sans);font-size:20px;color:var(--ink);">Snowflake</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <img data-domain="databricks.com" style="width:28px;height:28px;object-fit:contain;border-radius:4px;flex-shrink:0;" alt="Databricks">
+              <span style="font-family:var(--f-sans);font-size:20px;color:var(--ink);">Data Lake</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <img data-domain="analytics.google.com" style="width:28px;height:28px;object-fit:contain;border-radius:4px;flex-shrink:0;" alt="GA4">
+              <span style="font-family:var(--f-sans);font-size:20px;color:var(--ink);">GA4 raw</span>
+            </div>
+          </div>
+        </div>
+        <div style="font-family:var(--f-mono);font-size:13px;color:#C84B4B;text-align:center;font-weight:600;">NUNCA acessado<br>diretamente pelo Claude</div>
+      </div>
+      <!-- Seta ingestão -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:0 20px;min-width:160px;">
+        <div style="font-family:var(--f-mono);font-size:15px;color:var(--accent);font-weight:600;text-align:center;">gmp-cli<br>spec2cli</div>
+        <div style="font-size:48px;color:var(--accent);">→</div>
+        <div style="font-family:var(--f-mono);font-size:13px;color:var(--stone);text-align:center;">ingestão<br>agendada</div>
+      </div>
+      <!-- DuckDB -->
+      <div style="display:flex;flex-direction:column;gap:12px;align-items:center;min-width:220px;">
+        <div style="border:2px solid var(--accent);border-radius:4px;padding:24px 28px;background:color-mix(in oklab,var(--accent) 6%,transparent);width:100%;">
+          <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px;">
+            <img data-domain="duckdb.org" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" alt="DuckDB">
+            <div style="font-family:var(--f-mono);font-size:18px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.06em;">DuckDB local</div>
+          </div>
+          <div style="font-family:var(--f-sans);font-size:19px;color:var(--ink);line-height:1.6;text-align:center;">Snapshot imutável<br>SQL analítico<br>zero custo / query<br>sem acesso a prod</div>
+        </div>
+        <div style="font-family:var(--f-mono);font-size:13px;color:var(--accent);text-align:center;font-weight:600;">a fonte de verdade<br>do Claude Code</div>
+      </div>
+      <!-- Seta análise -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:0 20px;min-width:120px;">
+        <div style="font-size:48px;color:var(--stone-2);">→</div>
+        <div style="font-family:var(--f-mono);font-size:13px;color:var(--stone);text-align:center;">N análises<br>sem custo extra</div>
+      </div>
+      <!-- Claude Code -->
+      <div style="display:flex;flex-direction:column;gap:12px;align-items:center;min-width:180px;">
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:24px 28px;background:var(--bg-alt);width:100%;">
+          <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px;">
+            <img data-domain="anthropic.com" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" alt="Claude">
+            <div style="font-family:var(--f-mono);font-size:18px;font-weight:600;color:var(--ink);text-transform:uppercase;letter-spacing:0.06em;">Claude Code</div>
+          </div>
+          <div style="font-family:var(--f-sans);font-size:19px;color:var(--ink);line-height:1.6;text-align:center;">Análise<br>Limpeza<br>Decisão</div>
+        </div>
+        <div style="font-family:var(--f-mono);font-size:13px;color:var(--stone);text-align:center;font-weight:600;">1M de contexto</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:32px;border-top:1px solid var(--rule);padding-top:24px;align-items:flex-start;">
+      <div style="flex:1;font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.6;">
+        Se você tem um Data Lake — ingere o snapshot direto no DuckDB. Custo de 1 query de ingestão. Análises ilimitadas sem tocar no lake de novo.
+      </div>
+      <div style="border:1px dashed var(--stone-2);border-radius:4px;padding:16px 24px;min-width:340px;">
+        <div style="font-family:var(--f-mono);font-size:16px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone-2);margin-bottom:8px;">Alternativa sem instalar DuckDB</div>
+        <div style="font-family:var(--f-mono);font-size:18px;color:var(--stone);">Python + <strong style="color:var(--ink);">pandas</strong> — pré-instalado no macOS.<br>Mesmo resultado, zero dependência extra.</div>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 2</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S04-claude — Claude Code: o agente no topo do stack
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s04-claude">
+  <header class="slide-header">
+    <span>Ato 2 — Claude Code</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="justify-content:center;gap:40px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;flex:1;">
+      <div style="display:flex;flex-direction:column;gap:32px;">
+        <div style="font-family:var(--f-display);font-size:96px;line-height:0.95;letter-spacing:-0.03em;">
+          Claude<br><em style="font-style:italic;color:var(--accent)">Code</em>
+        </div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-body);color:var(--stone);line-height:1.5;">
+          Agente de análise no topo do stack.<br>Lê os dados do DuckDB, interpreta, age.
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div style="display:flex;align-items:flex-start;gap:20px;padding-bottom:20px;border-bottom:1px solid var(--rule);">
+          <div style="font-family:var(--f-mono);font-size:28px;color:var(--accent);flex-shrink:0;width:40px;">01</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;">Roda no terminal, dentro da pasta do projeto. Acessa arquivos, executa scripts.</div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:20px;padding-bottom:20px;border-bottom:1px solid var(--rule);">
+          <div style="font-family:var(--f-mono);font-size:28px;color:var(--accent);flex-shrink:0;width:40px;">02</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;">Skills custom — você escreve em markdown, ele aprende o seu fluxo específico.</div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:20px;padding-bottom:20px;border-bottom:1px solid var(--rule);">
+          <div style="font-family:var(--f-mono);font-size:28px;color:var(--accent);flex-shrink:0;width:40px;">03</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;">Hooks de validação — guardrails como código, não como instrução.</div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:20px;">
+          <div style="font-family:var(--f-mono);font-size:28px;color:var(--accent);flex-shrink:0;width:40px;">04</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;">/schedule e /loop — transforma análise pontual em agente recorrente.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 2</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S04-bash — Claude Code CLI: flags essenciais
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s04-bash">
+  <header class="slide-header">
+    <span>Ato 2 — Claude Code CLI</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:32px;">
+    <div style="font-family:var(--f-display);font-size:64px;line-height:1.02;letter-spacing:-0.022em;">
+      Como eu <em style="font-style:italic;color:var(--accent)">inicializo</em> na prática
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px;flex:1;">
+      <!-- Comando 1: setup completo com plugins -->
+      <div style="background:var(--bg-alt);border-radius:4px;overflow:hidden;">
+        <div style="background:var(--ink);padding:8px 20px;font-family:var(--f-mono);font-size:13px;color:var(--stone-2);">sessão de análise — modo completo</div>
+        <div style="padding:16px 20px;display:flex;flex-direction:column;gap:8px;">
+          <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);line-height:1.6;">
+            claude \<br>
+            &nbsp;&nbsp;--plugin-dir ~/Code/claude-dev-pipeline \<br>
+            &nbsp;&nbsp;--dangerously-skip-permissions \<br>
+            &nbsp;&nbsp;--remote-control \<br>
+            &nbsp;&nbsp;--append-system-prompt <span style="color:#f0eee6;">"no suggarcoat"</span>
+          </div>
+          <div style="display:flex;gap:24px;flex-wrap:wrap;margin-top:4px;">
+            <div style="font-family:var(--f-mono);font-size:14px;color:var(--stone-2);">plugin-dir → skills e hooks do pipeline</div>
+            <div style="font-family:var(--f-mono);font-size:14px;color:var(--stone-2);">skip-permissions → sem confirmações</div>
+            <div style="font-family:var(--f-mono);font-size:14px;color:var(--stone-2);">remote-control → monitoro do celular</div>
+            <div style="font-family:var(--f-mono);font-size:14px;color:var(--stone-2);">append-system-prompt → instrução fixa de tom</div>
+          </div>
+        </div>
+      </div>
+      <!-- Comando 2: pipeline não-interativo -->
+      <div style="background:var(--bg-alt);border-radius:4px;overflow:hidden;">
+        <div style="background:var(--ink);padding:8px 20px;font-family:var(--f-mono);font-size:13px;color:var(--stone-2);">pipeline automatizado — não-interativo</div>
+        <div style="padding:16px 20px;display:flex;flex-direction:column;gap:8px;">
+          <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);line-height:1.6;">
+            cat events.csv | claude -p \<br>
+            &nbsp;&nbsp;--append-system-prompt <span style="color:#f0eee6;">"analise os dados de CRO, responda em PT-BR"</span> \<br>
+            &nbsp;&nbsp;--max-turns 5 \<br>
+            &nbsp;&nbsp;--output-format json
+          </div>
+          <div style="display:flex;gap:24px;flex-wrap:wrap;margin-top:4px;">
+            <div style="font-family:var(--f-mono);font-size:14px;color:var(--stone-2);">-p → print mode, sai após resposta</div>
+            <div style="font-family:var(--f-mono);font-size:14px;color:var(--stone-2);">max-turns → evita loop infinito</div>
+            <div style="font-family:var(--f-mono);font-size:14px;color:var(--stone-2);">output-format json → parse fácil no pipeline</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 2</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S04-custom-overview — Skills, Slash Commands e Hooks (overview)
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s04-custom-overview">
+  <header class="slide-header">
+    <span>Ato 2 — Customização</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+    <div style="font-family:var(--f-display);font-size:64px;line-height:1.02;letter-spacing:-0.022em;">
+      Como você <em style="font-style:italic;color:var(--accent)">treina</em> o Claude pro seu fluxo
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px;flex:1;">
+      <div style="border:1px solid var(--rule);border-radius:4px;padding:32px 28px;display:flex;flex-direction:column;gap:16px;">
+        <div style="font-family:var(--f-mono);font-size:22px;font-weight:700;color:var(--accent);">Skills</div>
+        <div style="font-family:var(--f-display);font-size:44px;line-height:1.0;letter-spacing:-0.01em;">Arquivos<br>markdown</div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.55;margin-top:auto;">Você escreve as instruções uma vez. O Claude executa sempre que você chama o skill.</div>
+      </div>
+      <div style="border:1px solid var(--rule);border-radius:4px;padding:32px 28px;display:flex;flex-direction:column;gap:16px;">
+        <div style="font-family:var(--f-mono);font-size:22px;font-weight:700;color:var(--accent);">Slash Commands</div>
+        <div style="font-family:var(--f-display);font-size:44px;line-height:1.0;letter-spacing:-0.01em;">Atalhos<br>de fluxo</div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.55;margin-top:auto;">Skills invocadas com <code style="font-family:var(--f-mono);color:var(--accent);">/nome</code> dentro do Claude. Um comando dispara uma sequência inteira de ações.</div>
+      </div>
+      <div style="border:1px solid var(--rule);border-radius:4px;padding:32px 28px;display:flex;flex-direction:column;gap:16px;">
+        <div style="font-family:var(--f-mono);font-size:22px;font-weight:700;color:var(--accent);">Hooks</div>
+        <div style="font-family:var(--f-display);font-size:44px;line-height:1.0;letter-spacing:-0.01em;">Scripts<br>automáticos</div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.55;margin-top:auto;">Shell scripts que rodam em momentos específicos — antes de uma ação, depois de um commit, no início da sessão.</div>
+      </div>
+    </div>
+    <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);border-top:1px solid var(--rule);padding-top:20px;">
+      Tudo é arquivo. Você commita no Git, compartilha com o time, versiona como código.
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 2</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S04-skills — Skills
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s04-skills">
+  <header class="slide-header">
+    <span>Ato 2 — Skills</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:36px;">
+    <div style="display:flex;align-items:baseline;gap:20px;">
+      <div style="font-family:var(--f-mono);font-size:72px;font-weight:700;color:var(--accent);">Skills</div>
+      <div style="font-family:var(--f-sans);font-size:var(--fs-body);color:var(--stone);">instruções que o Claude aprende uma vez e executa sempre</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;flex:1;align-items:start;">
+      <!-- Estrutura de um skill -->
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);">Estrutura de um skill</div>
+        <div style="background:var(--bg-alt);border-radius:4px;overflow:hidden;">
+          <div style="background:var(--ink);padding:8px 16px;font-family:var(--f-mono);font-size:13px;color:var(--stone-2);">srm-check.md</div>
+          <div style="padding:16px 20px;font-family:var(--f-mono);font-size:17px;color:var(--accent);line-height:1.8;">
+            <span style="color:var(--stone-2)">---</span><br>
+            name: srm-check<br>
+            description: Valida SRM antes<br>
+            &nbsp;&nbsp;de declarar resultado<br>
+            <span style="color:var(--stone-2)">---</span><br><br>
+            <span style="color:#f0eee6;">## Tarefa</span><br>
+            <span style="color:var(--stone-2);">Buscar no DuckDB a distribuição</span><br>
+            <span style="color:var(--stone-2);">de usuários por variante...</span>
+          </div>
+        </div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;">É markdown puro. Frontmatter define o nome e a descrição. O corpo é a instrução que o Claude vai seguir.</div>
+      </div>
+      <!-- Skills desta palestra -->
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);">Skills que vamos usar hoje</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:14px 18px;">
+            <div style="font-family:var(--f-mono);font-size:20px;color:var(--accent);">/srm-check</div>
+            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);margin-top:4px;">Valida distribuição de tráfego antes de qualquer análise</div>
+          </div>
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:14px 18px;">
+            <div style="font-family:var(--f-mono);font-size:20px;color:var(--accent);">/post-test-segments</div>
+            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);margin-top:4px;">Segmentação pós-teste por device, canal, novo/recorrente</div>
+          </div>
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:14px 18px;">
+            <div style="font-family:var(--f-mono);font-size:20px;color:var(--accent);">/cro-weekly-pipeline</div>
+            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);margin-top:4px;">Pipeline completo: puxa → limpa → SRM → segmenta → reporta</div>
+          </div>
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:14px 18px;">
+            <div style="font-family:var(--f-mono);font-size:20px;color:var(--accent);">/heuristic-scan</div>
+            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);margin-top:4px;">11-point checklist visual via agent-browser</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 2</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S04-skills-refs — Onde encontrar mais skills
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s04-skills-refs">
+  <header class="slide-header">
+    <span>Ato 2 — Skills: referências</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+    <div style="font-family:var(--f-display);font-size:64px;line-height:1.02;letter-spacing:-0.022em;">
+      Onde encontrar mais <em style="font-style:italic;color:var(--accent)">skills</em>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px;flex:1;">
+      <!-- Jesse @obra -->
+      <div style="border:1px solid var(--rule);border-radius:4px;padding:28px 24px;display:flex;flex-direction:column;gap:16px;align-items:flex-start;">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <img src="https://avatars.githubusercontent.com/u/45416?v=4" style="width:56px;height:56px;border-radius:50%;object-fit:cover;" alt="obra">
+          <div>
+            <div style="font-family:var(--f-sans);font-size:22px;font-weight:600;">Jesse Storimer</div>
+            <div style="font-family:var(--f-mono);font-size:16px;color:var(--accent);">@obra</div>
+          </div>
+        </div>
+        <div style="font-family:var(--f-mono);font-size:18px;color:var(--ink);font-weight:600;">superpowers</div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;">Skills para brainstorming, code review, TDD, debugging e execução de planos. O ecossistema mais completo de skills disponível.</div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding-top:16px;border-top:1px solid var(--rule);width:100%;">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://github.com/obra/superpowers" style="width:100%;max-width:260px;height:auto;border-radius:4px;" alt="QR">
+          <div style="font-family:var(--f-mono);font-size:14px;color:var(--stone);text-align:center;">github.com/obra/<strong style="color:var(--ink);">superpowers</strong></div>
+        </div>
+      </div>
+      <!-- Matt Pocock -->
+      <div style="border:1px solid var(--rule);border-radius:4px;padding:28px 24px;display:flex;flex-direction:column;gap:16px;align-items:flex-start;">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <img src="https://avatars.githubusercontent.com/u/28293365?v=4" style="width:56px;height:56px;border-radius:50%;object-fit:cover;" alt="mattpocock">
+          <div>
+            <div style="font-family:var(--f-sans);font-size:22px;font-weight:600;">Matt Pocock</div>
+            <div style="font-family:var(--f-mono);font-size:16px;color:var(--accent);">@mattpocock</div>
+          </div>
+        </div>
+        <div style="font-family:var(--f-mono);font-size:18px;color:var(--ink);font-weight:600;">skills</div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;">Skills focadas em TypeScript e desenvolvimento frontend. Boa referência de como estruturar skills técnicas de qualidade.</div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding-top:16px;border-top:1px solid var(--rule);width:100%;">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://github.com/mattpocock/skills" style="width:100%;max-width:260px;height:auto;border-radius:4px;" alt="QR">
+          <div style="font-family:var(--f-mono);font-size:14px;color:var(--stone);text-align:center;">github.com/mattpocock/<strong style="color:var(--ink);">skills</strong></div>
+        </div>
+      </div>
+      <!-- Anthropic oficial -->
+      <div style="border:1px solid var(--accent);border-radius:4px;padding:28px 24px;display:flex;flex-direction:column;gap:16px;align-items:flex-start;background:color-mix(in oklab,var(--accent) 5%,transparent);">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <img data-domain="anthropic.com" style="width:56px;height:56px;border-radius:50%;object-fit:cover;" alt="Anthropic">
+          <div>
+            <div style="font-family:var(--f-sans);font-size:22px;font-weight:600;">Anthropic</div>
+            <div style="font-family:var(--f-mono);font-size:16px;color:var(--accent);">oficial</div>
+          </div>
+        </div>
+        <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);font-weight:600;">claude-plugins-official</div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;">Diretório oficial de plugins e skills mantido pela Anthropic. Instale via <code style="font-family:var(--f-mono);color:var(--ink);">claude plugin marketplace</code>.</div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding-top:16px;border-top:1px solid color-mix(in oklab,var(--accent) 25%,transparent);width:100%;">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://github.com/anthropics/claude-plugins-official" style="width:100%;max-width:260px;height:auto;border-radius:4px;" alt="QR">
+          <div style="font-family:var(--f-mono);font-size:14px;color:var(--stone);text-align:center;">github.com/anthropics/<strong style="color:var(--ink);">claude-plugins-official</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 2</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S04-inception — Skill creator: a skill que cria skills
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s04-inception">
+  <header class="slide-header">
+    <span>Ato 2 — Meta-skills</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:0;flex-direction:row;">
+    <!-- Lado esquerdo: conceito -->
+    <div style="flex:1;display:flex;flex-direction:column;gap:28px;justify-content:center;padding-right:48px;">
+      <div style="font-family:var(--f-display);font-style:italic;font-size:40px;letter-spacing:0.02em;color:var(--stone);">Anthropic · skill-creator</div>
+      <div style="font-family:var(--f-display);font-size:88px;line-height:0.95;letter-spacing:-0.03em;">
+        A skill<br>que cria<br><em style="font-style:italic;color:var(--accent);">skills.</em>
+      </div>
+      <div style="font-family:var(--f-sans);font-size:var(--fs-body);color:var(--stone);line-height:1.55;max-width:560px;">
+        Você descreve o que quer que o Claude faça. Ela escreve o SKILL.md por você — com frontmatter, instruções e exemplos corretos.
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;margin-top:8px;">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://github.com/anthropics/skills/tree/main/skills/skill-creator" style="width:96px;height:96px;border-radius:4px;flex-shrink:0;" alt="QR">
+        <div style="font-family:var(--f-mono);font-size:16px;color:var(--stone);line-height:1.6;">github.com/anthropics/skills<br>/skill-creator</div>
+      </div>
+    </div>
+    <!-- Lado direito: Leo + We need to go deeper -->
+    <div style="width:480px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;position:relative;">
+      <img src="https://avatars.githubusercontent.com/u/45416?v=4" style="display:none;" alt=""><!-- spacer -->
+      <!-- Inception visual: nested frames -->
+      <div style="position:relative;width:420px;height:420px;display:flex;align-items:center;justify-content:center;">
+        <div style="position:absolute;inset:0;border:3px solid var(--rule);border-radius:4px;"></div>
+        <div style="position:absolute;inset:28px;border:3px solid var(--stone-2);border-radius:4px;background:var(--bg-alt);"></div>
+        <div style="position:absolute;inset:56px;border:3px solid var(--stone);border-radius:4px;background:var(--bg);"></div>
+        <div style="position:absolute;inset:84px;border:3px solid var(--ink-soft);border-radius:4px;background:var(--bg-alt);"></div>
+        <div style="position:absolute;inset:112px;border:3px solid var(--ink);border-radius:4px;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:20px;">
+          <div style="text-align:center;">
+            <div style="font-family:var(--f-mono);font-size:20px;color:var(--accent);font-weight:700;">skill</div>
+            <div style="font-family:var(--f-mono);font-size:13px;color:var(--stone);margin:4px 0;">cria</div>
+            <div style="font-family:var(--f-mono);font-size:20px;color:var(--accent);font-weight:700;">skill</div>
+            <div style="font-family:var(--f-mono);font-size:13px;color:var(--stone);margin:4px 0;">que cria</div>
+            <div style="font-family:var(--f-mono);font-size:16px;color:var(--accent);font-weight:700;">skill</div>
+          </div>
+        </div>
+      </div>
+      <div style="font-family:var(--f-display);font-style:italic;font-size:32px;letter-spacing:-0.01em;color:var(--ink);text-align:center;margin-top:16px;">
+        "We need to go deeper."
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 2</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S04-slash — Slash Commands
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s04-slash">
+  <header class="slide-header">
+    <span>Ato 2 — Slash Commands</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:36px;">
+    <div style="display:flex;align-items:baseline;gap:20px;">
+      <div style="font-family:var(--f-mono);font-size:72px;font-weight:700;color:var(--accent);">/comando</div>
+      <div style="font-family:var(--f-sans);font-size:var(--fs-body);color:var(--stone);">um atalho que dispara uma sequência inteira</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;flex:1;align-items:center;">
+      <!-- Antes vs depois -->
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);">Sem slash command</div>
+        <div style="background:var(--bg-alt);border-radius:4px;padding:20px 24px;border-left:3px solid var(--rule);">
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.7;">
+            "Me ajude a verificar se o teste A/B tem SRM, calcule o chi-quadrado, verifique a distribuição de tráfego entre as variantes usando a tabela events_clean no DuckDB, e me diga se posso declarar vencedor..."
+          </div>
+        </div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Você reescreve toda vez. Sem garantia de consistência.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent);">Com slash command</div>
+        <div style="background:color-mix(in oklab,var(--accent) 6%,transparent);border:1px solid color-mix(in oklab,var(--accent) 25%,transparent);border-radius:4px;padding:20px 24px;border-left:3px solid var(--accent);">
+          <div style="font-family:var(--f-mono);font-size:36px;color:var(--accent);">/srm-check</div>
+        </div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Uma palavra. Sempre a mesma lógica. Sempre o mesmo output estruturado.</div>
+      </div>
+    </div>
+    <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);border-top:1px solid var(--rule);padding-top:20px;">
+      Slash commands são a interface entre você e o Claude. Quanto mais específicos pro seu negócio, mais valor você extrai.
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 2</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S04-hooks — Hooks
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s04-hooks">
+  <header class="slide-header">
+    <span>Ato 2 — Hooks</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:36px;">
+    <div style="display:flex;align-items:baseline;gap:20px;">
+      <div style="font-family:var(--f-mono);font-size:72px;font-weight:700;color:var(--accent);">Hooks</div>
+      <div style="font-family:var(--f-sans);font-size:var(--fs-body);color:var(--stone);">guardrails que rodam antes do Claude agir</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;flex:1;align-items:start;">
+      <!-- Tipos de hook -->
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);">Momentos disponíveis</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:12px 16px;">
+            <div style="font-family:var(--f-mono);font-size:18px;color:var(--stone);">SessionStart</div>
+            <div style="font-family:var(--f-sans);font-size:18px;color:var(--stone-2);margin-top:2px;">Início ou retomada de sessão</div>
+          </div>
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:12px 16px;">
+            <div style="font-family:var(--f-mono);font-size:18px;color:var(--stone);">UserPromptSubmit</div>
+            <div style="font-family:var(--f-sans);font-size:18px;color:var(--stone-2);margin-top:2px;">Antes do Claude processar sua mensagem</div>
+          </div>
+          <div style="border:2px solid var(--accent);border-radius:4px;padding:12px 16px;background:color-mix(in oklab,var(--accent) 5%,transparent);">
+            <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">PreToolUse ← usamos hoje</div>
+            <div style="font-family:var(--f-sans);font-size:18px;color:var(--stone);margin-top:2px;">Antes de executar qualquer ferramenta (Bash, Edit, Read)</div>
+          </div>
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:12px 16px;">
+            <div style="font-family:var(--f-mono);font-size:18px;color:var(--stone);">PostToolUse</div>
+            <div style="font-family:var(--f-sans);font-size:18px;color:var(--stone-2);margin-top:2px;">Após executar uma ferramenta com sucesso</div>
+          </div>
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:12px 16px;">
+            <div style="font-family:var(--f-mono);font-size:18px;color:var(--stone);">Stop</div>
+            <div style="font-family:var(--f-sans);font-size:18px;color:var(--stone-2);margin-top:2px;">Quando Claude termina de responder</div>
+          </div>
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:12px 16px;">
+            <div style="font-family:var(--f-mono);font-size:18px;color:var(--stone);">PreCompact</div>
+            <div style="font-family:var(--f-sans);font-size:18px;color:var(--stone-2);margin-top:2px;">Antes de compactar o contexto da sessão</div>
+          </div>
+        </div>
+        <div style="font-family:var(--f-mono);font-size:14px;color:var(--stone-2);">28 hooks no total — docs.claude.ai/hooks</div>
+      </div>
+      <!-- Hook desta palestra -->
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);">O hook que vamos usar hoje</div>
+        <div style="background:var(--bg-alt);border-radius:4px;overflow:hidden;">
+          <div style="background:var(--ink);padding:8px 16px;font-family:var(--f-mono);font-size:13px;color:var(--stone-2);">settings.json — PreToolUse</div>
+          <div style="padding:16px 20px;font-family:var(--f-mono);font-size:16px;line-height:1.8;color:var(--stone);">
+            <span style="color:var(--stone);">{</span><br>
+            &nbsp;<span style="color:var(--ink);">"hooks"</span><span style="color:var(--stone);">: {</span><br>
+            &nbsp;&nbsp;<span style="color:var(--ink);">"PreToolUse"</span><span style="color:var(--stone);">: [{</span><br>
+            &nbsp;&nbsp;&nbsp;<span style="color:var(--ink);">"matcher"</span><span style="color:var(--stone);">: </span><span style="color:var(--accent);">"Bash"</span><span style="color:var(--stone);">,</span><br>
+            &nbsp;&nbsp;&nbsp;<span style="color:var(--ink);">"hooks"</span><span style="color:var(--stone);">: [{</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--ink);">"command"</span><span style="color:var(--stone);">: </span><span style="color:var(--accent);">"bash validate.sh"</span><br>
+            &nbsp;&nbsp;&nbsp;<span style="color:var(--stone);">}]</span><br>
+            &nbsp;&nbsp;<span style="color:var(--stone);">}]</span><br>
+            &nbsp;<span style="color:var(--stone);">}</span><br>
+            <span style="color:var(--stone);">}</span>
+          </div>
+        </div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;">Antes de qualquer Bash rodar, <code style="font-family:var(--f-mono)">validate.sh</code> verifica se SRM check foi feito. Se não foi, bloqueia. <strong style="color:var(--ink);">Não é prompt. É código.</strong></div>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 2</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S04-hooks-refs — Onde encontrar mais hooks
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s04-hooks-refs">
+  <header class="slide-header">
+    <span>Ato 2 — Hooks: referências</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+    <div style="font-family:var(--f-display);font-size:64px;line-height:1.02;letter-spacing:-0.022em;">
+      Onde encontrar mais <em style="font-style:italic;color:var(--accent)">hooks</em>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;flex:1;">
+      <!-- awesome-claude-code-hooks -->
+      <div style="border:2px solid var(--accent);border-radius:4px;padding:36px 32px;display:flex;flex-direction:column;gap:20px;background:color-mix(in oklab,var(--accent) 5%,transparent);">
+        <div style="display:flex;align-items:center;gap:16px;">
+          <img src="https://github.com/lucianfialho.png" style="width:64px;height:64px;border-radius:50%;object-fit:cover;" alt="lucianfialho">
+          <div>
+            <div style="font-family:var(--f-sans);font-size:26px;font-weight:600;">Lucian Fialho</div>
+            <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">@lucianfialho</div>
+          </div>
+        </div>
+        <div style="font-family:var(--f-mono);font-size:22px;color:var(--accent);font-weight:700;">awesome-claude-code-hooks</div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.55;flex:1;">
+          Lista curada de hooks para Claude Code — PreToolUse, SessionStart, UserPromptSubmit e mais. Contribuições abertas.
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;padding-top:20px;border-top:1px solid color-mix(in oklab,var(--accent) 25%,transparent);">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://github.com/lucianfialho/awesome-claude-code-hooks" style="width:200px;height:200px;border-radius:4px;" alt="QR">
+          <div style="font-family:var(--f-mono);font-size:15px;color:var(--stone);text-align:center;">github.com/lucianfialho/<strong style="color:var(--ink);">awesome-claude-code-hooks</strong></div>
+        </div>
+      </div>
+      <!-- Conceito: hooks são código -->
+      <div style="border:1px solid var(--rule);border-radius:4px;padding:36px 32px;display:flex;flex-direction:column;gap:24px;justify-content:center;">
+        <div style="font-family:var(--f-display);font-size:80px;line-height:0.95;letter-spacing:-0.025em;">
+          Hooks são<br><em style="font-style:italic;color:var(--accent)">código.</em>
+        </div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-body);color:var(--stone);line-height:1.6;">
+          Shell scripts. Qualquer linguagem. Qualquer lógica. Se você sabe escrever um script bash, você sabe escrever um hook.
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:8px;">
+          <div style="font-family:var(--f-mono);font-size:18px;color:var(--stone);">PreToolUse → valida antes</div>
+          <div style="font-family:var(--f-mono);font-size:18px;color:var(--stone);">UserPromptSubmit → adiciona contexto</div>
+          <div style="font-family:var(--f-mono);font-size:18px;color:var(--stone);">Stop → notifica quando termina</div>
+          <div style="font-family:var(--f-mono);font-size:18px;color:var(--stone);">SessionStart → inicializa ambiente</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 2</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S-BONUS — Transição BONUS
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s-bonus">
+  <!-- dark overlay pra cobrir o fundo do stage -->
+  <div style="position:absolute;inset:0;background:#13120F;z-index:0;"></div>
+  <header class="slide-header" style="position:relative;z-index:1;color:#8A867C;border-bottom-color:#2B2923;">
+    <span>Ato 3</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="position:relative;z-index:1;justify-content:center;align-items:center;gap:24px;">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:16px;">
+      <div style="font-family:var(--f-mono);font-size:22px;font-weight:600;text-transform:uppercase;letter-spacing:0.2em;color:var(--accent);">Para quem não é dev</div>
+      <div style="font-family:var(--f-display);font-style:italic;font-size:240px;line-height:0.85;letter-spacing:-0.05em;color:#F5F1EB;">
+        Bonus
+      </div>
+      <div style="font-family:var(--f-sans);font-size:var(--fs-lead);color:#8A867C;text-align:center;max-width:800px;line-height:1.5;">
+        agent-browser — Claude Code abre o browser, analisa páginas e gera hipóteses de teste
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer" style="position:relative;z-index:1;color:#8A867C;border-top-color:#2B2923;">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S-AB1 — O que é agent-browser
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s-ab1">
+  <header class="slide-header">
+    <span>Ato 3 — agent-browser</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;flex:1;align-items:center;">
+      <div style="display:flex;flex-direction:column;gap:28px;">
+        <div style="font-family:var(--f-display);font-size:80px;line-height:0.95;letter-spacing:-0.03em;">
+          agent-<em style="font-style:italic;color:var(--accent)">browser</em>
+        </div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-body);color:var(--stone);line-height:1.55;">
+          CLI em Rust para automação de browser feito pra agentes de IA. Claude Code abre uma página, navega, interage e analisa — tudo autonomamente.
+        </div>
+        <div style="font-family:var(--f-mono);font-size:20px;color:var(--stone);">
+          npx skills add vercel-labs/agent-browser
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:18px 22px;display:flex;flex-direction:column;gap:6px;">
+          <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">Navegação</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Abre URLs, clica, preenche forms, navega entre páginas</div>
+        </div>
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:18px 22px;display:flex;flex-direction:column;gap:6px;">
+          <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">Screenshots + pixel-diff</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Screenshot anotado, comparação visual entre variantes</div>
+        </div>
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:18px 22px;display:flex;flex-direction:column;gap:6px;">
+          <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">Network monitoring</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Captura requests de rede — valida se GTM disparou</div>
+        </div>
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:18px 22px;display:flex;flex-direction:column;gap:6px;">
+          <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">Accessibility tree</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Mapeia todos os elementos interativos com referências (@e1, @e2...)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 3</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S-AB2 — Plano de mensuração
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s-ab2">
+  <header class="slide-header">
+    <span>Ato 3 — Plano de mensuração</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+    <div style="display:flex;flex-direction:column;gap:32px;flex:1;">
+      <div style="font-family:var(--f-display);font-size:72px;line-height:1.02;letter-spacing:-0.022em;">
+        De "o que medir" a <em style="font-style:italic;color:var(--accent)">plano pronto</em>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;flex:1;align-items:start;">
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:24px 22px;display:flex;flex-direction:column;gap:12px;">
+          <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);">1. Abre e analisa</div>
+          <div style="font-family:var(--f-mono);font-size:17px;color:var(--accent);">agent-browser open URL</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;">Captura screenshot, mapeia elementos, identifica CTAs, forms, navegação</div>
+        </div>
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:24px 22px;display:flex;flex-direction:column;gap:12px;">
+          <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);">2. Cruza com GTM</div>
+          <div style="font-family:var(--f-mono);font-size:17px;color:var(--accent);">gmp gtm list-tags</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;">Lista tags ativas. Claude compara com elementos da página — identifica o que não está sendo rastreado</div>
+        </div>
+        <div style="border:2px solid var(--accent);border-radius:4px;padding:24px 22px;display:flex;flex-direction:column;gap:12px;background:color-mix(in oklab,var(--accent) 5%,transparent);">
+          <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent);">3. Gera o plano</div>
+          <div style="font-family:var(--f-mono);font-size:17px;color:var(--ink);">/measurement-plan</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;">Output: eventos a criar, dataLayer keys, triggers GTM e KPIs por objetivo de negócio</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 3</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S-AB3 — Hipóteses de A/B test
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s-ab3">
+  <header class="slide-header">
+    <span>Ato 3 — Hipóteses de teste</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;flex:1;align-items:center;">
+      <div style="display:flex;flex-direction:column;gap:28px;">
+        <div style="font-family:var(--f-display);font-size:72px;line-height:1.02;letter-spacing:-0.022em;">
+          Da página à <em style="font-style:italic;color:var(--accent)">hipótese</em><br>em segundos
+        </div>
+        <div style="background:var(--bg-alt);border-radius:4px;padding:20px 24px;border-left:3px solid var(--accent);">
+          <div style="font-family:var(--f-mono);font-size:17px;color:var(--accent);line-height:1.7;">
+            agent-browser open https://loja.com/checkout<br>
+            agent-browser screenshot --annotate<br>
+            agent-browser snapshot -i<br>
+            /generate-ab-hypothesis
+          </div>
+        </div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.55;">
+          Claude analisa o screenshot anotado + accessibility tree e gera hipóteses com: elemento específico, comportamento esperado, métrica de sucesso e tamanho de amostra estimado.
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);">Output gerado</div>
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:20px 24px;display:flex;flex-direction:column;gap:10px;">
+          <div style="font-family:var(--f-display);font-size:22px;font-weight:600;">H1 — CTA acima da dobra</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Mover botão "Comprar" para thumb zone em mobile deve aumentar CR em +15-25% em mobile. Métrica: purchase / session por device.</div>
+        </div>
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:20px 24px;display:flex;flex-direction:column;gap:10px;">
+          <div style="font-family:var(--f-display);font-size:22px;font-weight:600;">H2 — Redução de campos</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Form tem 7 campos. Remover 3 opcionais deve reduzir abandono em +20%. Métrica: form_submit / form_start.</div>
+        </div>
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:20px 24px;display:flex;flex-direction:column;gap:10px;">
+          <div style="font-family:var(--f-display);font-size:22px;font-weight:600;">H3 — Contraste do botão</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Ratio atual: 3.2:1 (falha WCAG AA). Aumentar para 4.5:1 deve melhorar clicks em +8%. Impacto maior em usuários 55+.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 3</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S-AB4 — Validação de GTM
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s-ab4">
+  <header class="slide-header">
+    <span>Ato 3 — Validação GTM</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+    <div style="display:flex;flex-direction:column;gap:36px;flex:1;">
+      <div style="font-family:var(--f-display);font-size:72px;line-height:1.02;letter-spacing:-0.022em;">
+        GTM disparou? <em style="font-style:italic;color:var(--accent)">Confirma agora.</em>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;flex:1;align-items:start;">
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);">O fluxo de validação</div>
+          <div style="background:var(--bg-alt);border-radius:4px;overflow:hidden;">
+            <div style="background:var(--ink);padding:8px 16px;font-family:var(--f-mono);font-size:13px;color:var(--stone-2);">terminal</div>
+            <div style="padding:16px 20px;font-family:var(--f-mono);font-size:17px;color:var(--accent);line-height:1.8;">
+              <span style="color:var(--stone);"># abre página e monitora requests</span><br>
+              agent-browser open https://loja.com<br>
+              agent-browser network start<br>
+              <br>
+              <span style="color:var(--stone);"># clica no botão de compra</span><br>
+              agent-browser click @e12<br>
+              <br>
+              <span style="color:var(--stone);"># verifica se GTM disparou</span><br>
+              agent-browser network stop<br>
+              agent-browser list-network-requests
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);">O que Claude verifica</div>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="border:1px solid var(--rule);border-radius:4px;padding:16px 20px;display:flex;gap:12px;align-items:flex-start;">
+              <div style="font-family:var(--f-mono);font-size:22px;color:#3A8B5A;flex-shrink:0;">✓</div>
+              <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Request pra Google Analytics com evento <code style="font-family:var(--f-mono)">purchase</code> disparado</div>
+            </div>
+            <div style="border:1px solid var(--rule);border-radius:4px;padding:16px 20px;display:flex;gap:12px;align-items:flex-start;">
+              <div style="font-family:var(--f-mono);font-size:22px;color:#3A8B5A;flex-shrink:0;">✓</div>
+              <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">DataLayer contém <code style="font-family:var(--f-mono)">transaction_id</code> e <code style="font-family:var(--f-mono)">revenue</code></div>
+            </div>
+            <div style="border:1px solid var(--rule);border-radius:4px;padding:16px 20px;display:flex;gap:12px;align-items:flex-start;">
+              <div style="font-family:var(--f-mono);font-size:22px;color:#C84B4B;flex-shrink:0;">✗</div>
+              <div style="font-family:var(--f-sans);font-size:var(--stone-2);line-height:1.5;font-size:var(--fs-small);">Tag de Meta Ads não disparou — trigger está configurado só pra desktop</div>
+            </div>
+            <div style="border:1px solid var(--rule);border-radius:4px;padding:16px 20px;display:flex;gap:12px;align-items:flex-start;">
+              <div style="font-family:var(--f-mono);font-size:22px;color:#C84B4B;flex-shrink:0;">✗</div>
+              <div style="font-family:var(--f-sans);font-size:var(--stone-2);line-height:1.5;font-size:var(--fs-small);">add_to_cart ausente no DL — produto X não tem variante configurada</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 3</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S-AB5 — O ciclo completo
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s-ab5">
+  <header class="slide-header">
+    <span>Ato 3 — O ciclo</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+    <div style="display:flex;flex-direction:column;gap:36px;flex:1;">
+      <div style="font-family:var(--f-display);font-size:72px;line-height:1.02;letter-spacing:-0.022em;">
+        O ciclo <em style="font-style:italic;color:var(--accent)">completo</em> de CRO
+      </div>
+      <div style="display:flex;align-items:center;gap:0;flex:1;justify-content:center;">
+        <!-- Step 1 -->
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:28px 24px;text-align:center;min-width:200px;display:flex;flex-direction:column;gap:10px;">
+          <div style="font-family:var(--f-mono);font-size:16px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.08em;">1. Hipótese</div>
+          <div style="font-family:var(--f-sans);font-size:20px;font-weight:600;">agent-browser</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Analisa página, gera hipóteses visuais</div>
+        </div>
+        <div style="font-family:var(--f-mono);font-size:36px;color:var(--accent);padding:0 16px;">→</div>
+        <!-- Step 2 -->
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:28px 24px;text-align:center;min-width:200px;display:flex;flex-direction:column;gap:10px;">
+          <div style="font-family:var(--f-mono);font-size:16px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.08em;">2. Mensuração</div>
+          <div style="font-family:var(--f-sans);font-size:20px;font-weight:600;">GTM + gmp-cli</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Valida tracking, cria plano de mensuração</div>
+        </div>
+        <div style="font-family:var(--f-mono);font-size:36px;color:var(--accent);padding:0 16px;">→</div>
+        <!-- Step 3 -->
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:28px 24px;text-align:center;min-width:200px;display:flex;flex-direction:column;gap:10px;">
+          <div style="font-family:var(--f-mono);font-size:16px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.08em;">3. Teste</div>
+          <div style="font-family:var(--f-sans);font-size:20px;font-weight:600;">VWO / ABTasty</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Roda o experimento</div>
+        </div>
+        <div style="font-family:var(--f-mono);font-size:36px;color:var(--accent);padding:0 16px;">→</div>
+        <!-- Step 4 -->
+        <div style="border:2px solid var(--accent);border-radius:4px;padding:28px 24px;text-align:center;min-width:200px;display:flex;flex-direction:column;gap:10px;background:color-mix(in oklab,var(--accent) 5%,transparent);">
+          <div style="font-family:var(--f-mono);font-size:16px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.08em;">4. Análise</div>
+          <div style="font-family:var(--f-sans);font-size:20px;font-weight:600;">DuckDB + skills</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">/srm-check + /post-test-segments</div>
+        </div>
+        <div style="font-family:var(--f-mono);font-size:36px;color:var(--accent);padding:0 16px;">→</div>
+        <!-- Step 5 -->
+        <div style="border:1px solid var(--rule);border-radius:4px;padding:28px 24px;text-align:center;min-width:160px;display:flex;flex-direction:column;gap:10px;">
+          <div style="font-family:var(--f-mono);font-size:16px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.08em;">5. Decisão</div>
+          <div style="font-family:var(--f-sans);font-size:20px;font-weight:600;">Próxima hipótese</div>
+          <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Loop</div>
+        </div>
+      </div>
+      <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);border-top:1px solid var(--rule);padding-top:20px;">
+        Cada etapa tem uma skill. O ciclo inteiro pode ser agendado com <code style="font-family:var(--f-mono);color:var(--accent);">/schedule</code>.
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 3</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S12 — Automação: /schedule + /loop
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s12">
+  <header class="slide-header">
+    <span>Ato 5 — Automação</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+    <div class="eyebrow accent">De análise manual para agente recorrente</div>
+    <div class="auto-cards">
+      <div class="auto-card">
+        <div class="auto-cmd">/schedule every monday at 8am:<br>/cro-weekly-pipeline</div>
+        <div class="auto-title">Pipeline<br>semanal</div>
+        <div class="auto-desc">
+          Toda segunda às 8h: puxa dados frescos, limpa bots, verifica SRM em todos os testes ativos, gera relatório segmentado. Você chega com a análise pronta.
+        </div>
+      </div>
+      <div class="auto-card">
+        <div class="auto-cmd">/loop 2h: /srm-check</div>
+        <div class="auto-title">Plantonista<br>24/7</div>
+        <div class="auto-desc">
+          De 2 em 2 horas: verifica integridade dos testes rodando. Se detectar SRM ou anomalia, avisa antes de você declarar um vencedor errado.
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 5</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S13 — 4 skills kit
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s13">
+  <header class="slide-header">
+    <span>Ato 5 — O kit</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+    <div class="eyebrow accent">4 skills · markdown · git clone · funciona agora</div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-cmd">/srm-check</div>
+        <div class="skill-name">SRM Check</div>
+        <div class="skill-desc">Valida distribuição de tráfego antes de qualquer análise. χ² automático, veredicto claro.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cmd">/post-test-segments</div>
+        <div class="skill-name">Segmentação pós-teste</div>
+        <div class="skill-desc">Quebra o resultado por device, novo/recorrente e canal. Revela onde o lift realmente aconteceu.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cmd">/cro-weekly-pipeline</div>
+        <div class="skill-name">Pipeline semanal</div>
+        <div class="skill-desc">Puxa → limpa → SRM → segmenta → reporta. Um comando, relatório completo toda segunda.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cmd">/heuristic-scan</div>
+        <div class="skill-name">Heuristic Scan</div>
+        <div class="skill-desc">agent-browser roda 11 checks (desktop + mobile). Hipóteses visuais correlacionadas com o lift quantitativo.</div>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span>Ato 5</span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S14 — CTA
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s14">
+  <header class="slide-header">
+    <span>CTA</span>
+    <span>Palestra 02</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+    <div style="font-family:var(--f-display);font-size:72px;line-height:1.02;letter-spacing:-0.022em;">
+      Ficou interessado? <em style="font-style:italic;color:var(--accent)">Me segue.</em>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;flex:1;align-items:stretch;">
+      <!-- Newsletter -->
+      <div style="border:2px solid var(--accent);border-radius:4px;padding:36px 32px;display:flex;flex-direction:column;gap:20px;background:color-mix(in oklab,var(--accent) 5%,transparent);">
+        <div style="font-family:var(--f-mono);font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);">Newsletter — Skunkworks</div>
+        <div style="font-family:var(--f-display);font-size:44px;line-height:1.0;letter-spacing:-0.015em;">Experimentos com Claude Code — toda semana</div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;flex:1;">Benchmarks, casos reais, ferramentas novas. O que eu testo antes de palestrar.</div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;padding-top:16px;border-top:1px solid color-mix(in oklab,var(--accent) 25%,transparent);">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=https://lucianfialho.substack.com/" style="width:200px;height:200px;border-radius:4px;" alt="QR Newsletter">
+          <div style="font-family:var(--f-mono);font-size:16px;color:var(--stone);text-align:center;font-weight:600;">lucianfialho.substack.com</div>
+        </div>
+      </div>
+      <!-- LinkedIn -->
+      <div style="border:1px solid var(--rule);border-radius:4px;padding:36px 32px;display:flex;flex-direction:column;gap:20px;">
+        <div style="font-family:var(--f-mono);font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--stone);">LinkedIn</div>
+        <div style="display:flex;align-items:center;gap:16px;">
+          <img src="https://github.com/lucianfialho.png" style="width:64px;height:64px;border-radius:50%;object-fit:cover;" alt="Lucian Fialho">
+          <div>
+            <div style="font-family:var(--f-sans);font-size:26px;font-weight:600;">Lucian Fialho</div>
+            <div style="font-family:var(--f-mono);font-size:16px;color:var(--stone);">Métricas Boss</div>
+          </div>
+        </div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;flex:1;">Analytics, CRO e experimentos com Claude Code. Conexões relevantes bem-vindas.</div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--rule);">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=https://www.linkedin.com/in/lucianfialho/" style="width:200px;height:200px;border-radius:4px;" alt="QR LinkedIn">
+          <div style="font-family:var(--f-mono);font-size:16px;color:var(--stone);text-align:center;font-weight:600;">linkedin.com/in/lucianfialho</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     S15 — OBRIGADO
+═════════════════════════════════════════════════════════════════════════ -->
+<article class="slide" id="s15">
+  <header class="slide-header">
+    <span>Métricas Boss · 2026</span>
+    <span>Palestra 02 — CRO</span>
+  </header>
+  <div class="slide-main" style="justify-content:center; gap:48px;">
+    <div class="obrigado-title">Obrigado.</div>
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div style="font-family:var(--f-mono);font-size:var(--fs-small);color:var(--stone);letter-spacing:0.04em;">@lucianfialho</div>
+      <div style="font-family:var(--f-mono);font-size:var(--fs-small);color:var(--stone);letter-spacing:0.04em;">metricasboss.com.br</div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+</deck-stage>
+</body>
+</html>

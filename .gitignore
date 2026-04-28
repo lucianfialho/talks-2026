@@ -9,3 +9,7 @@ build/
 *.log
 .gates/runs/*
 !.gates/runs/.gitkeep
+.gates/hook-log.jsonl
+*.db
+.cro-srm-checked
+02-cro/deck/config.js
