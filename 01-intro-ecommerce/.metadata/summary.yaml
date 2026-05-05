@@ -1,0 +1,18 @@
+id: 01-intro-ecommerce
+title: "Palestra 01 — Como atingir o máximo de eficiência com o Claude Code"
+tags:
+  - ecommerce
+  - script
+  - deck
+  - vote-server
+  - bifurcations
+covers:
+  - script-outline.md
+  - deck/index.html
+  - deck/palestra-01-ecommerce.pdf
+  - deck/vote-server.js
+specialist: frontend-dev
+touched_by_issues:
+  - 11
+last_updated: 2026-04-28
+status: filled
