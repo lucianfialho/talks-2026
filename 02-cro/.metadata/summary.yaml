@@ -15,8 +15,9 @@ covers:
   - demos/data/
   - demos/hooks/
   - demos/skills/
+  - deck/palestra-02-cro.pdf
 specialist: frontend-dev
 touched_by_issues:
   - 11
-last_updated: 2026-04-27
+last_updated: 2026-04-28
 status: filled
