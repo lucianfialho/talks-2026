@@ -110,6 +110,125 @@
       <p style="font-family:var(--f-display);font-size:48px;color:var(--stone);">por teste — do início ao código pronto</p>
     </div>
   </section>
+
+  <!-- SLIDE 7: Definição de harness -->
+  <section class="slide">
+    <div class="slide-main" style="gap:56px;">
+      <p style="font-family:var(--f-mono);font-size:var(--fs-small);color:var(--accent);text-transform:uppercase;letter-spacing:0.12em;">O que a gente construiu</p>
+      <h2 style="font-family:var(--f-display);font-size:64px;letter-spacing:-0.02em;line-height:1.1;">Um harness de experimentação</h2>
+      <p style="font-family:var(--f-display);font-size:40px;color:var(--stone);max-width:1100px;line-height:1.4;">
+        Processo definido que <strong style="color:var(--fg);">uma pessoa</strong> consegue rodar do início ao fim.<br>
+        Sem fila de sprint. Sem brief pro designer. Sem ticket pro dev.
+      </p>
+    </div>
+  </section>
+
+  <!-- SLIDE 8: Diagrama do harness — 3 skills -->
+  <section class="slide">
+    <div class="slide-main" style="gap:64px;">
+      <h2 style="font-family:var(--f-display);font-size:56px;letter-spacing:-0.02em;">3 etapas. 1 pessoa. 0 handoffs.</h2>
+      <div style="display:flex;align-items:stretch;gap:24px;">
+        <div style="flex:1;padding:40px;border:1px solid var(--rule);border-radius:12px;display:flex;flex-direction:column;gap:16px;">
+          <p style="font-family:var(--f-mono);font-size:var(--fs-small);color:var(--accent);">/cro-audit</p>
+          <p style="font-family:var(--f-display);font-size:36px;">Auditoria da página</p>
+          <p style="color:var(--stone);font-size:24px;">Fricção priorizada por impacto</p>
+        </div>
+        <div style="display:flex;align-items:center;font-size:48px;color:var(--accent);">→</div>
+        <div style="flex:1;padding:40px;border:1px solid var(--rule);border-radius:12px;display:flex;flex-direction:column;gap:16px;">
+          <p style="font-family:var(--f-mono);font-size:var(--fs-small);color:var(--accent);">/ab-suggest</p>
+          <p style="font-family:var(--f-display);font-size:36px;">Hipóteses + preview</p>
+          <p style="color:var(--stone);font-size:24px;">Control vs variant na página real</p>
+        </div>
+        <div style="display:flex;align-items:center;font-size:48px;color:var(--accent);">→</div>
+        <div style="flex:1;padding:40px;border:1px solid var(--rule);border-radius:12px;display:flex;flex-direction:column;gap:16px;">
+          <p style="font-family:var(--f-mono);font-size:var(--fs-small);color:var(--accent);">/ab-create</p>
+          <p style="font-family:var(--f-display);font-size:36px;">Spec + código JS</p>
+          <p style="color:var(--stone);font-size:24px;">Pronto pra colar no GTM</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 9: /cro-audit — screenshot -->
+  <section class="slide">
+    <div class="slide-main" style="gap:40px;">
+      <div style="display:flex;align-items:baseline;gap:24px;">
+        <p style="font-family:var(--f-mono);font-size:40px;color:var(--accent);">/cro-audit</p>
+        <p style="font-family:var(--f-display);font-size:40px;color:var(--stone);">— análise que levava 3 dias de analista</p>
+      </div>
+      <div style="flex:1;border-radius:12px;overflow:hidden;border:1px solid var(--rule);">
+        <img src="screenshots/cro-audit-output.png" alt="Output do /cro-audit no analytics-copilot" style="width:100%;height:100%;object-fit:cover;object-position:top;">
+      </div>
+      <p style="font-family:var(--f-mono);font-size:var(--fs-small);color:var(--stone);">Fricção priorizada com score + recomendação — em horas.</p>
+    </div>
+  </section>
+
+  <!-- SLIDE 10: /ab-suggest — screenshot com preview -->
+  <section class="slide">
+    <div class="slide-main" style="gap:40px;">
+      <div style="display:flex;align-items:baseline;gap:24px;">
+        <p style="font-family:var(--f-mono);font-size:40px;color:var(--accent);">/ab-suggest</p>
+        <p style="font-family:var(--f-display);font-size:40px;color:var(--stone);">— wireframe que precisava de designer</p>
+      </div>
+      <div style="flex:1;border-radius:12px;overflow:hidden;border:1px solid var(--rule);">
+        <img src="screenshots/ab-suggest-preview.png" alt="Preview control vs variant do /ab-suggest" style="width:100%;height:100%;object-fit:cover;object-position:top;">
+      </div>
+      <p style="font-family:var(--f-mono);font-size:var(--fs-small);color:var(--stone);">Preview na página real. Não é Figma — é a página com a variação injetada.</p>
+    </div>
+  </section>
+
+  <!-- SLIDE 11: /ab-create — screenshot com código -->
+  <section class="slide">
+    <div class="slide-main" style="gap:40px;">
+      <div style="display:flex;align-items:baseline;gap:24px;">
+        <p style="font-family:var(--f-mono);font-size:40px;color:var(--accent);">/ab-create</p>
+        <p style="font-family:var(--f-display);font-size:40px;color:var(--stone);">— código que precisava de dev</p>
+      </div>
+      <div style="flex:1;border-radius:12px;overflow:hidden;border:1px solid var(--rule);">
+        <img src="screenshots/ab-create-code.png" alt="Spec + código JS do /ab-create" style="width:100%;height:100%;object-fit:cover;object-position:top;">
+      </div>
+      <p style="font-family:var(--f-mono);font-size:var(--fs-small);color:var(--stone);">Spec completo + JS pronto para colar no GTM. Já vem junto.</p>
+    </div>
+  </section>
+
+  <!-- SLIDE 12: Before vs After lado a lado -->
+  <section class="slide">
+    <div class="slide-main" style="gap:48px;">
+      <h2 style="font-family:var(--f-display);font-size:56px;letter-spacing:-0.02em;">Antes vs depois</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;flex:1;">
+        <div style="padding:40px;border:1px solid var(--rule);border-radius:12px;display:flex;flex-direction:column;gap:24px;">
+          <p style="font-family:var(--f-mono);font-size:var(--fs-small);color:var(--stone);text-transform:uppercase;">Antes</p>
+          <div style="font-family:var(--f-display);font-size:48px;color:var(--accent);">3 semanas</div>
+          <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:12px;font-size:28px;color:var(--stone);">
+            <li>3 pessoas envolvidas</li>
+            <li>3 handoffs no processo</li>
+            <li>Sprint do dev como gargalo</li>
+            <li>Contexto perdido a cada troca</li>
+          </ul>
+        </div>
+        <div style="padding:40px;border:2px solid var(--accent);border-radius:12px;display:flex;flex-direction:column;gap:24px;">
+          <p style="font-family:var(--f-mono);font-size:var(--fs-small);color:var(--accent);text-transform:uppercase;">Depois</p>
+          <div style="font-family:var(--f-display);font-size:48px;color:var(--fg);">3 dias</div>
+          <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:12px;font-size:28px;color:var(--stone);">
+            <li>1 pessoa roda o processo</li>
+            <li>0 handoffs</li>
+            <li>Sem fila de sprint</li>
+            <li>Contexto preservado do início ao fim</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 13: Síntese -->
+  <section class="slide">
+    <div class="slide-main" style="justify-content:center;">
+      <h2 style="font-family:var(--f-display);font-size:96px;line-height:1.05;letter-spacing:-0.025em;max-width:1400px;">
+        Do URL ao código em horas,<br>
+        <span style="color:var(--accent);">não semanas.</span>
+      </h2>
+    </div>
+  </section>
 </div>
 </body>
 </html>
