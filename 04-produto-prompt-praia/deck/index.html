@@ -9,7 +9,107 @@
 </head>
 <body>
 <div id="deck">
-  <!-- slides adicionados nas próximas tasks -->
+  <!-- SLIDE 1: Hook -->
+  <section class="slide">
+    <div class="slide-main" style="justify-content:center; gap:48px;">
+      <p style="font-family:var(--f-mono);font-size:var(--fs-small);color:var(--accent);text-transform:uppercase;letter-spacing:0.12em;">Produto. Prompt. Praia. — Rio, 26 jun 2026</p>
+      <h1 style="font-family:var(--f-display);font-size:96px;line-height:1.05;letter-spacing:-0.025em;max-width:1400px;">
+        Quantos testes A/B você subiu nos últimos 3 meses?
+      </h1>
+    </div>
+  </section>
+
+  <!-- SLIDE 2: Reframe -->
+  <section class="slide">
+    <div class="slide-main" style="justify-content:center;">
+      <h2 style="font-family:var(--f-display);font-size:80px;line-height:1.1;letter-spacing:-0.02em;max-width:1200px;color:var(--stone);">
+        O problema quase nunca é<br>
+        <span style="color:var(--fg);">falta de ideia.</span>
+      </h2>
+    </div>
+  </section>
+
+  <!-- SLIDE 3: Processo tradicional — diagrama de handoffs -->
+  <section class="slide">
+    <div class="slide-main" style="gap:64px;">
+      <h2 style="font-family:var(--f-display);font-size:56px;letter-spacing:-0.02em;">O processo tradicional de CRO</h2>
+      <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
+        <div style="padding:24px 36px;border:1px solid var(--rule);border-radius:8px;font-family:var(--f-display);font-size:36px;">Analista</div>
+        <span style="font-size:48px;color:var(--accent);">→</span>
+        <div style="padding:24px 36px;border:1px solid var(--rule);border-radius:8px;font-family:var(--f-display);font-size:36px;">Designer</div>
+        <span style="font-size:48px;color:var(--accent);">→</span>
+        <div style="padding:24px 36px;border:1px solid var(--rule);border-radius:8px;font-family:var(--f-display);font-size:36px;">Dev</div>
+        <span style="font-size:48px;color:var(--accent);">→</span>
+        <div style="padding:24px 36px;border:1px solid var(--rule);border-radius:8px;font-family:var(--f-display);font-size:36px;">QA</div>
+        <span style="font-size:48px;color:var(--accent);">→</span>
+        <div style="padding:24px 36px;background:var(--accent);color:#000;border-radius:8px;font-family:var(--f-display);font-size:36px;">Teste no ar</div>
+      </div>
+      <p style="font-family:var(--f-mono);font-size:var(--fs-small);color:var(--stone);">Cada → é um handoff. Cada handoff é fila + contexto perdido.</p>
+    </div>
+  </section>
+
+  <!-- SLIDE 4: Tabela de tempo por etapa -->
+  <section class="slide">
+    <div class="slide-main" style="gap:48px;">
+      <h2 style="font-family:var(--f-display);font-size:56px;letter-spacing:-0.02em;">Quanto tempo cada etapa realmente leva</h2>
+      <table style="width:100%;border-collapse:collapse;font-size:32px;">
+        <thead>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <th style="text-align:left;padding:16px 0;font-family:var(--f-mono);font-size:var(--fs-small);color:var(--stone);font-weight:400;">Etapa</th>
+            <th style="text-align:left;padding:16px 0;font-family:var(--f-mono);font-size:var(--fs-small);color:var(--stone);font-weight:400;">Quem</th>
+            <th style="text-align:right;padding:16px 0;font-family:var(--f-mono);font-size:var(--fs-small);color:var(--stone);font-weight:400;">Tempo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:20px 0;font-family:var(--f-display);">Análise + hipóteses</td>
+            <td style="padding:20px 0;color:var(--stone);">Analista CRO</td>
+            <td style="padding:20px 0;text-align:right;font-family:var(--f-mono);">3–5 dias</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:20px 0;font-family:var(--f-display);">Wireframe + aprovação</td>
+            <td style="padding:20px 0;color:var(--stone);">Designer</td>
+            <td style="padding:20px 0;text-align:right;font-family:var(--f-mono);">3–5 dias</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:20px 0;font-family:var(--f-display);">Implementação</td>
+            <td style="padding:20px 0;color:var(--stone);">Frontend dev</td>
+            <td style="padding:20px 0;text-align:right;font-family:var(--f-mono);">5–7 dias</td>
+          </tr>
+          <tr>
+            <td style="padding:20px 0;font-family:var(--f-display);">QA + setup no VWO</td>
+            <td style="padding:20px 0;color:var(--stone);">CRO + QA</td>
+            <td style="padding:20px 0;text-align:right;font-family:var(--f-mono);">2–3 dias</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr style="border-top:2px solid var(--fg);">
+            <td style="padding:20px 0;font-family:var(--f-display);font-size:40px;" colspan="2"><strong>Total</strong></td>
+            <td style="padding:20px 0;text-align:right;font-family:var(--f-display);font-size:40px;color:var(--accent);"><strong>3–5 semanas</strong></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </section>
+
+  <!-- SLIDE 5: O gargalo real -->
+  <section class="slide">
+    <div class="slide-main" style="justify-content:center;">
+      <h2 style="font-family:var(--f-display);font-size:80px;line-height:1.1;letter-spacing:-0.02em;max-width:1300px;">
+        O gargalo não é<br>velocidade.<br>
+        <span style="color:var(--accent);">É a transferência.</span>
+      </h2>
+    </div>
+  </section>
+
+  <!-- SLIDE 6: Número âncora -->
+  <section class="slide">
+    <div class="slide-main" style="justify-content:center;gap:32px;">
+      <p style="font-family:var(--f-mono);font-size:var(--fs-small);color:var(--stone);text-transform:uppercase;letter-spacing:0.1em;">Case — e-commerce de materiais de construção</p>
+      <div style="font-family:var(--f-display);font-size:160px;line-height:1;letter-spacing:-0.04em;color:var(--accent);">3 semanas</div>
+      <p style="font-family:var(--f-display);font-size:48px;color:var(--stone);">por teste — do início ao código pronto</p>
+    </div>
+  </section>
 </div>
 </body>
 </html>
