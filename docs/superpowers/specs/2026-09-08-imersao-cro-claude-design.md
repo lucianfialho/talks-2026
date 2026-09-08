@@ -85,7 +85,7 @@ A Taci instala o vocabulário de "quatro cadeiras, uma agenda". Eu reutilizo ess
 
 ## 3. Estrutura da tarde (15h–18h)
 
-**Break do evento: 15h30.** Duração assumida: 20min (15h30–15h50). Se for 30min, o buffer absorve.
+**Break do evento: 15h30–15h50 (20min).** Confirmado com o Lucian em 2026-09-08.
 
 O break cai exatamente onde estaria o bloco de instalação — o trecho de maior risco operacional do dia. Decisão: **a instalação do Claude Code acontece durante o café**, de forma voluntária e assistida, em vez de consumir tempo de aula.
 
@@ -116,7 +116,7 @@ Anúncio antes de liberar: *"O guia de instalação do Claude Code está no hand
 | 16h50 | 25min | **Cadeira do Dev — Code** | `variante-builder` + `pre-flight-check` (slide 41 dela). |
 | 17h15 | 20min | **Segunda parede → copilot** | "Rodou no MEU dataset. E no SEU GA4, toda segunda, sozinho?" Demo gravada do copilot. |
 | 17h35 | 10min | **Fechamento** | Ciclo de 7 passos da Taci com uma skill em cada etapa. Repo + acesso beta. |
-| 17h45 | 15min | **Buffer** | Absorve atraso, break de 30min, ou instalação assistida que estourou. |
+| 17h45 | 15min | **Buffer** | Absorve atraso da Taci, break estendido ou instalação assistida que estourou. |
 
 ### Contrato cumprido antes do café
 
@@ -219,7 +219,7 @@ Este é o ponto de maior risco do dia: 50 pessoas majoritariamente não-técnica
 | Instalação do Claude Code falha em massa | Alta | Contrato já cumprido no bloco 1; plano B declarado; guia impresso |
 | Wifi do venue cai | Média | Dataset local, skills do degrau 1 rodam com Claude Pro (precisa de rede, mas leve); demos do degrau 3 **gravadas em vídeo**, não ao vivo |
 | Taci atrasa e come meu tempo | Média | Buffer de 15min + Cadeira do Dev (25min) é o primeiro bloco a ser cortado |
-| Break estoura para 30min | Média | Buffer absorve; `ice-score` encolhe de 15 para 10min |
+| Break estoura de 20min | Média | Buffer de 15min absorve; `ice-score` encolhe de 15 para 10min |
 | Frustração pelo beta limitado | Média | Critério de mérito declarado antes, não sorteio |
 | Aluno chega sem Claude Pro pago | Baixa | Pré-requisito da página; comunicar reforço antes do dia |
 | Messina não cobre Claude Code de manhã como previsto | Média | Meu bloco de instalação é autossuficiente, não assume conhecimento prévio |
