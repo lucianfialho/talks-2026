@@ -85,22 +85,42 @@ A Taci instala o vocabulário de "quatro cadeiras, uma agenda". Eu reutilizo ess
 
 ## 3. Estrutura da tarde (15h–18h)
 
+**Break do evento: 15h30.** Duração assumida: 20min (15h30–15h50). Se for 30min, o buffer absorve.
+
+O break cai exatamente onde estaria o bloco de instalação — o trecho de maior risco operacional do dia. Decisão: **a instalação do Claude Code acontece durante o café**, de forma voluntária e assistida, em vez de consumir tempo de aula.
+
+#### Antes do break — 15h00 às 15h30 (30min)
+
 | Tempo | Duração | Bloco | Objetivo |
 |---|---|---|---|
-| 15h00 | 10min | **Quatro cadeiras** | Pegar o slide 44 da Taci e virar tese. Mostrar o mapa do que vai ser construído. |
-| 15h10 | 35min | **Cadeira do CRO — Desktop** | 3 skills criadas ao vivo. Todos os 50 entregam. Aluno sai com hipótese real da própria página. |
-| 15h45 | 20min | **A parede: "porque [evidência]"** | O template da Taci exige evidência. Desktop não puxa dado. Instalação do Claude Code entra motivada. |
-| 16h05 | 45min | **Cadeira do Analytics — Code** | `srm-check` + `post-test-segments` rodando SQL e chi-quadrado em `cro.db` real. |
-| 16h50 | 25min | **Cadeira do Dev — Code** | Skill que gera código de variante + checklist pré-Start (slide 41 dela). |
-| 17h15 | 20min | **Segunda parede → copilot** | "Rodou no MEU dataset. E no SEU GA4, toda segunda, sozinho?" Demo do copilot. |
+| 15h00 | 8min | **Quatro cadeiras** | Pegar o slide 44 da Taci e virar tese. Mapa do que vai ser construído. |
+| 15h08 | 22min | **Cadeira do CRO — Desktop** | `heuristica-morys` + `hipotese-estruturada` criadas ao vivo. Todos os 50 entregam. Aluno sai com hipótese real da própria página. |
+
+O bloco termina na **parede**: `hipotese-estruturada` se recusa a completar o campo `porque [evidência]` porque o aluno não tem dado, e o Desktop não consegue buscar. Esse é o último momento antes do café — a sala vai para o intervalo com a pergunta aberta.
+
+#### O break — 15h30 às 15h50 (20min)
+
+Anúncio antes de liberar: *"O guia de instalação do Claude Code está no handout, página X. Quem quiser sair na frente instala enquanto toma café — eu fico aqui."*
+
+- Instalação **voluntária**, nunca obrigatória — ninguém é forçado a trabalhar no intervalo
+- Facilitador e apoio ficam na sala para desempate
+- Dataset (`cro.db`) distribuído por pendrive/local, sem depender do wifi
+- Ganho: o bloco de maior risco sai do caminho crítico da aula
+
+#### Depois do break — 15h50 às 18h00 (130min)
+
+| Tempo | Duração | Bloco | Objetivo |
+|---|---|---|---|
+| 15h50 | 15min | **`ice-score` — Desktop** | Retomada que inclui todo mundo, inclusive quem não instalou. Em paralelo, instalação assistida para os retardatários. Fecha o pacote de skills do degrau 1. |
+| 16h05 | 45min | **Cadeira do Analytics — Code** | `srm-check` + `post-test-segments` rodando SQL e chi-quadrado em `cro.db` real. Responde a parede de 15h30. |
+| 16h50 | 25min | **Cadeira do Dev — Code** | `variante-builder` + `pre-flight-check` (slide 41 dela). |
+| 17h15 | 20min | **Segunda parede → copilot** | "Rodou no MEU dataset. E no SEU GA4, toda segunda, sozinho?" Demo gravada do copilot. |
 | 17h35 | 10min | **Fechamento** | Ciclo de 7 passos da Taci com uma skill em cada etapa. Repo + acesso beta. |
-| 17h45 | 15min | **Buffer** | Absorve atraso de instalação. |
+| 17h45 | 15min | **Buffer** | Absorve atraso, break de 30min, ou instalação assistida que estourou. |
 
-**Coffee break:** não está no cronograma acima. Se a organização inserir um, sai do buffer e o bloco de instalação vira o ponto natural de encaixe (aluno instala enquanto toma café).
+### Contrato cumprido antes do café
 
-### Contrato cumprido aos 45 minutos
-
-"Pacote de Skills" + "hipótese estruturada a partir de insight real" saem no primeiro bloco, no Desktop, com risco operacional próximo de zero. **Se a instalação do Claude Code falhar para metade da sala, o curso ainda entregou o que vendeu.** Este é o seguro do design e a razão de a ordem ser Desktop-primeiro.
+"Hipótese estruturada a partir de insight real" sai **aos 30 minutos, antes do café**, no Desktop. O "pacote de Skills" fecha às 16h05, também no Desktop. Ambos com risco operacional próximo de zero. **Se a instalação do Claude Code falhar para metade da sala, o curso já entregou o que vendeu antes do intervalo.** Este é o seguro do design e a razão de a ordem ser Desktop-primeiro.
 
 ### Mecânica do acesso beta
 
@@ -112,7 +132,7 @@ Não há acesso para 50. **Não sortear.** Critério declarado no início do blo
 
 Cada skill existe em **duas versões** no repo: `desktop/` (instruções para Projects do Claude Desktop) e `code/` (SKILL.md com frontmatter para Claude Code). A existência das duas versões é o que torna a comparação tangível — o aluno lê o mesmo método e vê o que cada camada consegue executar.
 
-### Degrau 1 — Desktop (bloco das 15h10)
+### Degrau 1 — Desktop (15h08 e 15h50)
 
 **`heuristica-morys`**
 Varredura nas 7 dimensões da Taci: Relevância, Confiança, Orientação, Estímulo, Segurança, Conveniência, Confirmação. Input: URL + screenshot colado pelo aluno (Desktop não navega). Output: score por dimensão + achado por dimensão.
@@ -123,7 +143,7 @@ Implementa o template dela literalmente: `Se [X], para [segmento Y], então [Z],
 **`ice-score`**
 Impacto × Confiança × Facilidade (1–10). Recebe N hipóteses, devolve backlog ranqueado. Segue o aviso dela: ranking relativo, não veredito.
 
-### Degrau 2 — Claude Code (blocos das 16h05 e 16h50)
+### Degrau 2 — Claude Code (16h05 e 16h50)
 
 **`srm-check`** — já existe em `02-cro/demos/skills/`. Reaproveitável quase como está. Lê `cro.db` (DuckDB), chi-quadrado sobre distribuição por variante.
 
@@ -133,7 +153,7 @@ Impacto × Confiança × Facilidade (1–10). Recebe N hipóteses, devolve backl
 
 **`pre-flight-check`** — nova. Checklist "o que checar antes de apertar Start" (slide 41 dela) como skill executável.
 
-### Degrau 3 — demo apenas (bloco das 17h15)
+### Degrau 3 — demo apenas (17h15)
 
 `cro-weekly-pipeline` (existe, depende de `gmp-cli`) e `ab-suggest` (skill global, depende de `agent-browser`) **não entram no hands-on**. Viram a demo da segunda parede, onde o custo de setup é o argumento.
 
@@ -143,15 +163,17 @@ A `heuristic-scan` atual em `02-cro/demos/skills/` é **técnica** (WCAG, thumb 
 
 ---
 
-## 5. Bloco de instalação (15h45) — design de sobrevivência
+## 5. Instalação do Claude Code — design de sobrevivência
 
-Este é o bloco de maior risco do dia: 50 pessoas majoritariamente não-técnicas instalando Node + Claude Code em Windows e macOS, em wifi de evento.
+Este é o ponto de maior risco do dia: 50 pessoas majoritariamente não-técnicas instalando Node + Claude Code em Windows e macOS, em wifi de evento.
+
+**Decisão estrutural: a instalação acontece no break das 15h30, não em tempo de aula.** Voluntária, assistida, com repescagem às 15h50 em paralelo ao `ice-score` (que roda no Desktop e não exclui quem ficou para trás).
 
 **Mitigações:**
 - Guia por SO escrito e impresso/distribuído antes do bloco — o aluno não depende de acompanhar a projeção
 - Dataset (`cro.db`) distribuído por **pendrive ou download local**, não por rede — remove o wifi do caminho crítico
 - **Plano B declarado em voz alta:** quem não conseguir instalar continua no degrau 1, acompanha as demos e sai com as 3 skills do bloco anterior funcionando. Ninguém fica sem entregável.
-- Buffer de 15min no fim da tarde existe primariamente para absorver atraso deste bloco
+- Buffer de 15min no fim da tarde absorve repescagem de instalação e break estendido
 
 **Fora de escopo por decisão:** OAuth do GA4 do aluno via `gmp-cli`. Autenticar 50 contas Google em wifi de evento é risco desproporcional ao ganho. O dado real do aluno é justamente o que o degrau 3 resolve.
 
@@ -196,7 +218,8 @@ Este é o bloco de maior risco do dia: 50 pessoas majoritariamente não-técnica
 |---|---|---|
 | Instalação do Claude Code falha em massa | Alta | Contrato já cumprido no bloco 1; plano B declarado; guia impresso |
 | Wifi do venue cai | Média | Dataset local, skills do degrau 1 rodam com Claude Pro (precisa de rede, mas leve); demos do degrau 3 **gravadas em vídeo**, não ao vivo |
-| Taci atrasa e come meu tempo | Média | Buffer de 15min + bloco 4 (Cadeira do Dev, 25min) é o primeiro a ser cortado |
+| Taci atrasa e come meu tempo | Média | Buffer de 15min + Cadeira do Dev (25min) é o primeiro bloco a ser cortado |
+| Break estoura para 30min | Média | Buffer absorve; `ice-score` encolhe de 15 para 10min |
 | Frustração pelo beta limitado | Média | Critério de mérito declarado antes, não sorteio |
 | Aluno chega sem Claude Pro pago | Baixa | Pré-requisito da página; comunicar reforço antes do dia |
 | Messina não cobre Claude Code de manhã como previsto | Média | Meu bloco de instalação é autossuficiente, não assume conhecimento prévio |
