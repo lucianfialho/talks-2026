@@ -63,8 +63,17 @@ Desktop.
 ## Instalação no Claude Code
 
 ```bash
+mkdir -p ~/.claude/skills/
 cp -r 05-imersao-cro/skills/code/* ~/.claude/skills/
 ls ~/.claude/skills/ | grep -E 'morys|hipotese|ice-score|srm|segments|variante|pre-flight'
+```
+
+**PowerShell (Windows):**
+
+```powershell
+New-Item -ItemType Directory -Force -Path "$HOME\.claude\skills"
+Copy-Item -Recurse -Force "05-imersao-cro\skills\code\*" "$HOME\.claude\skills\"
+Get-ChildItem "$HOME\.claude\skills\" | Where-Object { $_.Name -match 'morys|hipotese|ice-score|srm|segments|variante|pre-flight' }
 ```
 
 Esperado: as 7 skills listadas.
@@ -73,6 +82,13 @@ Esperado: as 7 skills listadas.
 
 ```bash
 cp -r 05-imersao-cro/data ./data
+duckdb data/cro.db -c "SELECT COUNT(*) FROM events_clean;"
+```
+
+**PowerShell (Windows):**
+
+```powershell
+Copy-Item -Recurse -Force "05-imersao-cro\data" ".\data"
 duckdb data/cro.db -c "SELECT COUNT(*) FROM events_clean;"
 ```
 
