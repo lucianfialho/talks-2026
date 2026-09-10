@@ -342,8 +342,15 @@ casa — o handout já está desenhado para isso.
 
 ## Bloco 5 — 16h05 · 45min · Cadeira do Analytics — Code
 
-**Modo de interação:** demo no telão, na máquina do facilitador (que não
-depende de wifi nem de instalação de ninguém); quem já tem `claude` e
+**Modo de interação:** demo no telão, na máquina do facilitador, já com
+`claude` e `duckdb` instalados e logados de antemão — isso não depende de
+nada que aconteça na sala. **Atenção: isso não quer dizer que o bloco
+independe de wifi.** O caminho planejado (pedir à skill em linguagem
+natural: "roda srm-check em data/cro.db") passa pelo Claude Code, que
+depende da API da Anthropic — sem rede, ele não responde, para ninguém, nem
+para o facilitador. O que não depende de wifi são os comandos `duckdb` e
+`python3` por baixo da skill, que rodam contra o arquivo local — ver a saída
+de 3 níveis na tabela de travas deste bloco. Quem já tem `claude` e
 `duckdb` funcionando replica em paralelo; quem não tem acompanha pelos
 resultados impressos no handout (seção 6) — não fica sem exercício, fica
 sem terminal.
@@ -371,8 +378,13 @@ qualquer terminal:**
 
 ### 16h07–16h20 · `srm-check`
 
-**O que digitar ao vivo (peça pelo nome à skill, ou rode manualmente para
-conferir):**
+**O que digitar ao vivo:** o caminho planejado é pedir pelo nome à skill
+("roda srm-check em data/cro.db") e deixar o Claude Code orquestrar. O
+comando abaixo é **exatamente o que a skill roda por baixo** — o mesmo
+texto que está impresso no handout ao lado deste passo. Vale o facilitador
+saber isso de cor: é o que transforma uma queda de wifi de "bloco parado"
+em "roda o mesmo comando direto no terminal, sem a skill no meio" (nível 2
+da degradação — ver a tabela de travas deste bloco):
 
 ```
 duckdb data/cro.db -c "SELECT experiment_variant, COUNT(DISTINCT user_pseudo_id) AS users FROM events_clean WHERE event_name = 'session_start' AND experiment_variant IS NOT NULL GROUP BY 1 ORDER BY 1;"
@@ -467,7 +479,7 @@ handout impresso.
 
 | Trava | Sinal | Saída |
 |---|---|---|
-| Wifi caiu | Skills do Desktop param (não afeta este bloco diretamente, mas puxa atenção da sala) | Passar direto para as demos gravadas e o dataset local; `srm-check` e `post-test-segments` rodam offline — nenhum dos dois depende de internet, só o Desktop das cadeiras de CRO dependeria |
+| Wifi caiu | Claude Code para de responder para a sala inteira (a invocação da skill em linguagem natural depende da API da Anthropic; sem rede, `claude` não roda, mesmo com `duckdb` e o dado 100% locais) | Degradação em 3 níveis: **(1)** com wifi, pede à skill em linguagem natural, como planejado; **(2)** sem wifi, digita direto no terminal o comando `duckdb`/`python3` impresso no handout ao lado do passo — é exatamente o que a skill executava por baixo, o resultado é o mesmo, só sem a conversa; **(3)** sem wifi e sem ambiente (`duckdb` não instalado), acompanha as demos gravadas `04-contingencia-srm.mp4` e `05-contingencia-segmentos.mp4` (`notes/video-spec.md`) mais o handout impresso |
 | Muita gente sem `duckdb` mesmo depois da repescagem | Mais de metade da sala só observando | Manter o ritmo da demo no telão; não alongar o bloco por isso — a repescagem do Bloco 4 já foi o ponto de decisão |
 
 **Como cortar se atrasar:** primeiro corte os 10 minutos de prática em
@@ -709,7 +721,7 @@ preencher os 15 minutos com conteúdo novo.
 |---|---|---|
 | Instalação estourou o break | Mais de 10 pessoas ainda tentando às 15h50 | Rodar `ice-score` (Desktop) e deixar o apoio circulando; ele é o bloco que existe justamente para isso |
 | Taciana atrasou e comeu tempo | Começar depois das 15h05 | Cortar o bloco da cadeira do Dev (16h50, 25min) inteiro; ele é o primeiro a cair |
-| Wifi caiu | Skills do Desktop param | Passar direto para as demos gravadas e o dataset local; `srm-check` e `post-test-segments` rodam offline |
+| Wifi caiu | No Bloco 5 (Analytics, Code): Claude Code para de responder para a sala inteira, porque invocar a skill em linguagem natural depende da API da Anthropic — `duckdb` e o dado são locais, mas isso não ajuda se ninguém consegue chegar até eles pela skill. Nos blocos de CRO (Desktop): skills param igual, mesmo motivo | No Bloco 5, degradação em 3 níveis — ver a tabela de travas desse bloco: (1) pedir à skill normalmente, (2) sem wifi, digitar direto o comando `duckdb`/`python3` impresso no handout (mesmo resultado, sem a conversa), (3) sem wifi e sem ambiente, demos gravadas `04-contingencia-srm.mp4`/`05-contingencia-segmentos.mp4` (`notes/video-spec.md`) + handout impresso. Nos blocos de CRO, não há comando local equivalente — a saída é seguir só com quem já tem ambiente e reforçar que o material fica disponível para depois |
 | Pergunta longa sobre estatística no bloco de SRM | Uma pessoa puxando para p-valor e poder | Responder em uma frase, oferecer conversar no fim, seguir. Não é a aula. |
 | Ninguém tem página própria para analisar | Bloco das 15h08 trava | Ter 3 URLs de e-commerce brasileiro prontas no slide, para quem não trouxe |
 | Quem só instalou Claude Code (sem DuckDB) chega ao Bloco 5 | Pessoa com terminal funcionando mas `duckdb: command not found` | Ela acompanha o Bloco 5 pelos resultados impressos no handout (seção 6), não pelo próprio terminal; instala o DuckDB depois, em casa — não é possível rodar `srm-check` ou `post-test-segments` sem ele, e fingir que dá seria pior do que admitir o limite |
