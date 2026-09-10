@@ -10,6 +10,13 @@ nesta parte" que diz exatamente o que fazer para voltar ao jogo sozinho.
 
 O guia de instalação do Claude Code está no fim deste material.
 
+> **Nota de montagem (impressão):** este handout e o guia de instalação são
+> dois arquivos separados no repositório (`handout.md` e `instalacao.md`),
+> mas o material impresso que você recebe é os dois juntos, nesta ordem —
+> handout primeiro, guia de instalação em seguida. Toda referência abaixo a
+> "o guia de instalação, no fim deste material" está falando desse segundo
+> arquivo, encadernado logo depois deste.
+
 ## Sumário
 
 1. 15h00 · As quatro cadeiras
@@ -275,10 +282,10 @@ Claude Code amplia o que dá para fazer, mas não é pré-requisito para
 acompanhar o resto.
 
 O que o guia de instalação cobre, em ordem: abrir o terminal, instalar o
-Node.js, instalar o Claude Code, logar, instalar o DuckDB, e por fim
-instalar as sete skills e o dataset local (esse último passo está
-detalhado em `skills/README.md`, seção "Instalação no Claude Code" — o
-guia de instalação te leva até lá).
+Node.js, instalar o Claude Code, logar, instalar o DuckDB, instalar o
+python3, baixar os arquivos da imersão, e por fim instalar as sete skills e
+o dataset local (esse último passo está detalhado em `skills/README.md`,
+seção "Instalação no Claude Code" — o guia de instalação te leva até lá).
 
 Se travar em qualquer passo, o próprio guia tem uma tabela "Quando der
 errado" e um quadro final "Não trave aqui" — leia esse quadro antes de
@@ -374,7 +381,7 @@ Comece por: `_______` — justificativa em uma linha:
 **Se você chegou atrasado nesta parte:** este bloco é 100% Claude Code — não
 existe versão Desktop de `srm-check` e `post-test-segments`. Se você ainda
 não tem `claude` e `duckdb` funcionando, pare aqui, siga o guia de
-instalação (no fim deste material) até o Passo 6, e volte para esta seção. Se já tem o
+instalação (no fim deste material) até o Passo 8, e volte para esta seção. Se já tem o
 terminal funcionando mas perdeu a explicação, os comandos abaixo são
 suficientes para você conferir sozinho, com o resultado esperado ao lado de
 cada um.
@@ -423,6 +430,20 @@ skill existe para pegar. **Esse teste não tem resultado para ler.** Não dá
 para seguir para a análise segmentada com ele.
 
 ### `post-test-segments` — onde o lift realmente aconteceu
+
+Esta skill tem uma pré-condição obrigatória: só roda se `srm-check` já
+tiver dado veredito 🟢 nesse dataset. Você acabou de rodar `srm-check` em
+`cro.db` e viu 🔴 — isso não conta para `cro-clean.db`, que é outro
+arquivo. Rode `srm-check` de novo, agora em `cro-clean.db`, antes de pedir
+`post-test-segments`:
+
+```
+duckdb data/cro-clean.db -c "SELECT experiment_variant, COUNT(DISTINCT user_pseudo_id) AS users FROM events_clean WHERE event_name = 'session_start' AND experiment_variant IS NOT NULL GROUP BY 1 ORDER BY 1;"
+```
+
+**Resultado esperado:** `control 4000` / `variant_b 4000` → χ²=0, p=1,0000
+→ **🟢 SEM SRM**. Mesmo teste, distribuição corrigida, e agora ele passa —
+é isso que libera a análise segmentada abaixo.
 
 Esta skill roda sobre `data/cro-clean.db` — a versão já corrigida do
 dataset, sem o problema de SRM que você acabou de detectar em `cro.db`. No
@@ -502,8 +523,10 @@ O que acontece: a skill escreve dois arquivos na pasta onde você está —
 push no `dataLayer`) e `eventos.md` (a lista de eventos a instrumentar, com
 a métrica primária declarada). Para conferir que os dois foram escritos e
 que o JavaScript é sintaticamente válido, rode na mesma pasta: liste os
-arquivos com `ls -la variante-b.js eventos.md` e valide a sintaxe com
-`node --check variante-b.js` — se não aparecer erro, o arquivo está válido.
+arquivos com `ls -la variante-b.js eventos.md` (Mac/Linux) — no Windows,
+PowerShell: `Get-ChildItem variante-b.js, eventos.md` — e valide a sintaxe
+com `node --check variante-b.js` (funciona igual nos dois sistemas) — se
+não aparecer erro, o arquivo está válido.
 
 Aviso que a skill sempre encerra dizendo: este código não foi testado no seu
 site. Rode `pre-flight-check` antes de subir.
