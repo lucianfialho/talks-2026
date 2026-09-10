@@ -105,10 +105,10 @@ Avalie cada uma de 1 a 5, com a pergunta-guia:
 
 ## Regras de avaliação
 
-- Cada nota precisa citar o que você viu na página. "Nota 2 em Orientação"
+- Cada nota precisa citar **o que você viu na página**. "Nota 2 em Orientação"
   sem dizer qual CTA e onde ele está é uma nota inútil.
 - Se você não consegue avaliar uma dimensão com o material fornecido, escreva
-  n/d e diga o que precisaria para avaliar. Nunca chute uma nota.
+  `n/d` e diga o que precisaria para avaliar. Nunca chute uma nota.
 - Não sugira solução ainda. Esta skill diagnostica. A hipótese vem depois.
 
 ## Output
@@ -117,13 +117,14 @@ Avalie cada uma de 1 a 5, com a pergunta-guia:
 |---|---|---|---|
 | ... | ... | ... | ... |
 
-Score total: X/Y (Z dimensões n/d) — Y é 5 × número de dimensões avaliadas.
-Uma dimensão n/d sai do denominador: reflete falta de material do aluno, não
-falha da página.
+**Score total:** X/Y (Z dimensões n/d) — Y é 5 × número de dimensões
+avaliadas (35 menos 5 para cada dimensão marcada `n/d`). Uma dimensão n/d
+sai do denominador: ela reflete falta de material do aluno, não falha da
+página, e não pode ser contada como nota zero.
 
-As 2 dimensões mais fracas: [nomes] — são as candidatas a virar hipótese.
+**As 2 dimensões mais fracas:** [nomes] — são as candidatas a virar hipótese.
 
-Termine com: "Rode hipotese-estruturada sobre a dimensão mais fraca."
+Termine com: "Rode `hipotese-estruturada` sobre a dimensão mais fraca."
 ```
 
 ### Anote aqui
@@ -164,7 +165,7 @@ Transforma um achado em hipótese testável. Uma ideia solta não é hipótese.
 
 ## O template
 
-Se [mudarmos X], para [segmento Y], então [resultado Z], porque [evidência].
+    Se [mudarmos X], para [segmento Y], então [resultado Z], porque [evidência].
 
 Quatro campos, todos obrigatórios:
 
@@ -175,39 +176,64 @@ Quatro campos, todos obrigatórios:
 | Resultado esperado | Métrica + magnitude | "+20% checkout completion" |
 | Evidência | Dados que suportam | "68% abandono + rage clicks" |
 
-## Regra de bloqueio
-
-Você NÃO pode preencher o campo Evidência sozinho. Evidência é dado
-observado: número de analytics, gravação de sessão, heatmap, entrevista,
-teste anterior. Não é raciocínio, não é boa prática de mercado, não é
-"estudos mostram que".
-
-Se o usuário não fornecer evidência: preencha os três primeiros campos,
-deixe Evidência em branco marcado como ⚠️ FALTA EVIDÊNCIA, e diga
-exatamente qual dado resolveria. Diga com todas as letras: "Sem esse dado,
-isso é uma ideia priorizada por opinião, não uma hipótese." Nunca invente
-número. Nunca aceite "acho que" como evidência.
-
-## Output
-
-Se [X], para [Y], então [Z], porque [evidência].
-
-| Campo | Conteúdo |
-|---|---|
-| Observação | ... |
-| Intervenção | ... |
-| Resultado esperado | ... |
-| Evidência | ... ou ⚠️ FALTA EVIDÊNCIA |
-
-Status: ✅ Hipótese fechada ou ⚠️ Bloqueada — falta evidência.
-Se bloqueada, diga o que buscar.
-```
-
-### O exemplo de referência (da Taciana)
+Exemplo completo:
 
 > Se adicionarmos auto-preenchimento por CEP no checkout mobile, então o
 > completion aumentará 20%, porque heatmaps mostram rage clicks no campo de
 > endereço e 68% dos usuários mobile abandonam nessa etapa.
+
+## Regra de bloqueio — leia com atenção
+
+**Você NÃO pode preencher o campo `Evidência` sozinho.**
+
+Evidência é dado observado: número de analytics, gravação de sessão, heatmap,
+entrevista, teste anterior. Não é raciocínio, não é boa prática de mercado,
+não é "estudos mostram que".
+
+Se o usuário não fornecer evidência:
+
+1. Preencha os três primeiros campos normalmente.
+2. Deixe `Evidência` **em branco**, marcado como `⚠️ FALTA EVIDÊNCIA`.
+3. Diga exatamente qual dado resolveria, nesta forma:
+
+       Para fechar essa hipótese eu preciso de:
+       - [métrica específica] segmentada por [dimensão]
+       - no período de [recorte]
+       - fonte: [GA4 / heatmap / gravação / teste anterior]
+
+4. Diga com todas as letras: **"Sem esse dado, isso é uma ideia priorizada por
+   opinião, não uma hipótese."**
+
+Nunca invente número. Nunca use número ilustrativo sem marcar como ilustrativo.
+Não aceite "acho que" como evidência.
+
+Isso vale mesmo se o usuário insistir, sugerir um número "só para ilustrar",
+pedir para você "estimar" ou "chutar" um valor plausível, ou disser que "não
+tem tempo para buscar o dado agora". Nenhuma dessas situações é evidência.
+Repita o bloqueio da mesma forma, sem amaciar o texto e sem inventar um
+número "razoável" para não frustrar o pedido. Aceitar qualquer atalho aqui
+transforma uma hipótese em opinião disfarçada — que é exatamente o que esta
+skill existe para impedir.
+
+## Output
+
+    ## Hipótese
+
+    Se [X], para [Y], então [Z], porque [evidência].
+
+    | Campo | Conteúdo |
+    |---|---|
+    | Observação | ... |
+    | Intervenção | ... |
+    | Resultado esperado | ... |
+    | Evidência | ... ou ⚠️ FALTA EVIDÊNCIA |
+
+    ## Status
+    ✅ Hipótese fechada   ou   ⚠️ Bloqueada — falta evidência
+
+    ## Se bloqueada: o que buscar
+    - ...
+```
 
 ### Sua hipótese — preencha à mão
 
@@ -285,7 +311,7 @@ Prioriza hipóteses de CRO com ICE Score. Uma lista de ideias sem prioridade
 
 ## A fórmula
 
-ICE = Impacto × Confiança × Facilidade
+    ICE = Impacto × Confiança × Facilidade
 
 Cada eixo vai de 1 a 10. Score final vai de 1 a 1000.
 
@@ -297,27 +323,29 @@ Cada eixo vai de 1 a 10. Score final vai de 1 a 1000.
 
 ## Regras
 
-- Hipótese com ⚠️ FALTA EVIDÊNCIA tem Confiança no máximo 3. Sem dado, a
-  confiança é opinião.
-- Peça ao usuário a nota de Facilidade — só quem conhece a stack sabe o
-  custo real. Se ele não souber, marque ? e diga que o dev precisa estimar.
-- Impacto e Confiança você pode propor, mas justificando cada nota em uma
-  linha.
+- **Hipótese com `⚠️ FALTA EVIDÊNCIA` tem Confiança no máximo 3.** Sem dado,
+  a confiança é opinião. Marque isso na tabela e diga por quê.
+- Peça ao usuário a nota de **Facilidade** — só quem conhece a stack sabe o
+  custo real. Se ele não souber, marque `?` e diga que o dev precisa estimar.
+- Impacto e Confiança você pode propor, mas justificando cada nota em uma linha.
 
 ## Aviso obrigatório no output
 
-Termine sempre com esta citação (Taciana Serafim, CRO AI DAY):
+Termine sempre com esta citação literal do material de referência (Taciana
+Serafim, CRO AI DAY):
 
-"O score explicita critérios e organiza o backlog — use para ranking
-relativo, não como veredito. O Dev participa estimando esforço e risco
-técnico."
+> "O score explicita critérios e organiza o backlog — use para ranking
+> relativo, não como veredito. O Dev participa estimando esforço e risco
+> técnico."
 
 ## Output
 
 | # | Hipótese | I | C | F | ICE | Status da evidência |
 |---|---|---|---|---|---|---|
+| 1 | ... | 8 | 6 | 7 | 336 | ✅ evidência real |
+| 2 | ... | 9 | 3 | 4 | 108 | ⚠️ FALTA EVIDÊNCIA |
 
-Recomendação: comece pela #1. Justificativa em uma linha.
+**Recomendação:** comece pela #1. Justificativa em uma linha.
 ```
 
 ### Seu backlog — preencha à mão
