@@ -3,6 +3,8 @@ name: pre-flight-check
 description: Checklist dos 8 itens a checar antes de apertar Start num teste A/B (hipótese, controle, audiência, QA, métrica e guardrails, variante, eventos, flickering). Use quando o usuário disser "posso subir o teste", "pre-flight", "checklist antes de subir", "QA do teste".
 ---
 
+# Pre-flight Check — checklist antes de subir o teste
+
 ## Tarefa
 
 Rodar o checklist pré-Start e dar veredito. Não existe "quase pronto": ou pode

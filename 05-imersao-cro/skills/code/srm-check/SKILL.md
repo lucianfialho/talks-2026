@@ -3,6 +3,8 @@ name: srm-check
 description: Valida Sample Ratio Mismatch em teste A/B antes de declarar resultado. Roda chi-quadrado sobre a distribuição de usuários por variante no DuckDB local. Use quando o usuário disser "SRM", "validar teste", "o teste é confiável", "posso declarar vencedor".
 ---
 
+# SRM Check — validação de Sample Ratio Mismatch
+
 ## Tarefa
 
 Verificar se o teste A/B tem SRM antes de qualquer leitura de resultado. Um

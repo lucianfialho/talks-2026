@@ -3,15 +3,17 @@ name: post-test-segments
 description: Análise pós-teste A/B segmentada por device, novo vs recorrente e canal de aquisição. Revela onde o lift realmente aconteceu, em vez de ler só o agregado. Use quando o usuário disser "onde o lift aconteceu", "segmentar resultado", "análise pós-teste", "quebrar por device".
 ---
 
+# Post-test segments — análise pós-teste segmentada
+
 ## Pré-condição obrigatória
 
-Rode `srm-check` primeiro. Se o veredito for 🔴 SRM DETECTADO, **pare** e diga:
+Rode `srm-check` primeiro. Se o veredito for 🔴 **SRM DETECTADO**, **pare** e diga:
 
 > Esse teste tem SRM. Segmentar um resultado inválido só produz conclusões
 > inválidas mais detalhadas. Corrija a distribuição antes.
 
-Só siga se o veredito for 🟢 ou se o usuário apontar explicitamente um dataset
-válido.
+Só siga se o veredito for 🟢 **SEM SRM** ou se o usuário apontar explicitamente
+um dataset válido.
 
 ## Passo 1 — resultado agregado
 

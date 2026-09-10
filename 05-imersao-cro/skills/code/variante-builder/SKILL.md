@@ -3,6 +3,8 @@ name: variante-builder
 description: Transforma uma hipótese de CRO fechada no código da variante B (JS/CSS) mais a lista de eventos a instrumentar. Cobre as etapas Construir, Configurar e Instrumentar do fluxo de experimentação. Use quando o usuário disser "código da variante", "implementar o teste", "criar variante B".
 ---
 
+# Variante Builder — código da variante B a partir da hipótese
+
 ## Pré-condição
 
 A hipótese precisa estar fechada (com evidência). Se vier com
