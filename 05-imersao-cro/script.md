@@ -22,8 +22,8 @@ sempre "o guia de instalação, no fim do handout".
       skill entram ao vivo, no ritmo da sala, não pré-coladas. (Se o tempo
       apertar demais em ensaio, ver "como cortar" do Bloco 2 para a exceção.)
 - [ ] Terminal do Claude Code aberto numa pasta com `05-imersao-cro/data`
-      copiada para dentro dela (`cp -r 05-imersao-cro/data ./data`), `claude`
-      e `duckdb` funcionando na máquina de demonstração.
+      copiada para dentro dela (`cp -r 05-imersao-cro/data ./data`), `claude`,
+      `duckdb` e `python3` funcionando na máquina de demonstração.
 - [ ] 3 URLs de backup prontas no slide do Bloco 2, para quem não trouxe
       página própria: `magazineluiza.com.br`, `americanas.com.br`,
       `mercadolivre.com.br` — abrir as três no navegador antes da sala
@@ -31,11 +31,17 @@ sempre "o guia de instalação, no fim do handout".
 - [ ] Demos gravadas de `srm-check` e `post-test-segments` disponíveis em
       arquivo local (não em link que depende de internet) — é o plano B se o
       wifi cair durante os blocos de Code.
+- [ ] **Impressão montada como um documento só:** `handout.md` seguido de
+      `instalacao.md`, nessa ordem, no mesmo material impresso — são dois
+      arquivos separados no repositório, mas o handout promete três vezes
+      "o guia de instalação está no fim deste material", e essa promessa só
+      é verdade se os dois forem encadernados juntos. Conferir antes de
+      imprimir, não no dia.
 - [ ] Handout impresso na mão, para apontar fisicamente "guia de instalação,
       no fim do handout" quando disser a frase do break.
 - [ ] Time de apoio (quem circula durante o intervalo e a repescagem)
-      avisado que **agora são duas instalações**, Claude Code e DuckDB, não
-      uma — ver Bloco 3.
+      avisado que **agora são três instalações e um download**, Claude Code,
+      DuckDB, python3 e os arquivos do curso, não uma só — ver Bloco 3.
 
 ---
 
@@ -88,10 +94,19 @@ Meio-campo/Criação — UX/Research; Ataque/Finalização — Dev/Experimentaç
 >> minutos você vai descobrir que a ferramenta que você escolheu preenche
 >> uma só."
 
+**Declarar em voz alta a cadeira que fica de fora — não deixar implícito:**
+
+>> "Uma delas não entra na tarde de hoje: UX/Research. Não foi esquecimento
+>> — é a cadeira que menos se resolve com skill e mais depende de pesquisa
+>> com gente: entrevista, teste de usabilidade, sessão gravada. As outras
+>> três — Analytics, CRO e Dev — a gente cobre com uma skill em cada uma."
+
 Mostrar a tabela do handout (CRO / Analytics / Dev × 7 skills × Desktop /
-Claude Code). Dizer, sem entrar em detalhe ainda: "as três primeiras rodam
-nas duas colunas; as quatro últimas só na direita — e o motivo disso é o
-assunto da tarde inteira."
+Claude Code) — repare que ela já só lista essas três cadeiras, não as
+quatro da Taciana; é o mapa da tarde, não o mapa completo do time. Dizer,
+sem entrar em detalhe ainda: "as três primeiras rodam nas duas colunas; as
+quatro últimas só na direita — e o motivo disso é o assunto da tarde
+inteira."
 
 **O que pode dar errado:** parte da sala saiu para o café das 15h e ainda
 não voltou / está entrando. **Saída:** não parar para esperar; quem perder
@@ -102,8 +117,10 @@ quando a pessoa senta.
 **Como cortar se atrasar:** este bloco não tem gordura — é 8 minutos para
 uma citação, quatro nomes e uma tabela. Se precisar cortar, corte a leitura
 das quatro posições uma a uma e vá direto da citação para a tese e a
-tabela. Nunca corte a citação de abertura nem a frase da tese: são o gancho
-que a tarde inteira usa.
+tabela. Nunca corte a citação de abertura, a frase da tese, nem a frase que
+declara UX/Research fora de escopo: uma sala que conta as cadeiras no slide
+do mapa percebe a ausência antes de você nomeá-la — dizer isso em voz alta é
+o que evita a pergunta incômoda no meio de outro bloco.
 
 ---
 
@@ -210,33 +227,38 @@ nem a fala da parede — são o motivo de o break existir.
 
 ## Bloco 3 — 15h30 · 20min · BREAK — instalação voluntária assistida
 
-**Objetivo:** deixar quem quiser instalar o Claude Code e o DuckDB durante
-o café, com apoio circulando, sem obrigar ninguém.
+**Objetivo:** deixar quem quiser instalar o Claude Code, o DuckDB e o
+python3 durante o café, com apoio circulando, sem obrigar ninguém.
 
 **Dependência nova que aperta este bloco:** o guia de instalação
-(`instalacao.md`) ganhou um Passo 5 (DuckDB) que não existia na versão
-original do material. Isso significa que **o intervalo agora cobre duas
-instalações, não uma** — Claude Code (Passos 0 a 4) e DuckDB (Passo 5) —
-antes de chegar ao Passo 6 (skills + dataset). Os 20 minutos do break não
-mudaram; o que cabe neles ficou mais apertado.
+(`instalacao.md`) ganhou um Passo 5 (DuckDB), um Passo 6 (python3) e um
+Passo 7 (baixar os arquivos do curso) que não existiam na versão original
+do material. Isso significa que **o intervalo agora cobre três instalações
+e um download, não uma** — Claude Code (Passos 0 a 4), DuckDB (Passo 5) e
+python3 (Passo 6), mais baixar os arquivos da imersão (Passo 7) — antes de
+chegar ao Passo 8 (skills + dataset). Os 20 minutos do break não mudaram; o
+que cabe neles ficou mais apertado.
 
 **O que fazer com isso, explicitamente:**
 
 - No anúncio do break (Bloco 2), a frase manda a pessoa para "o guia de
   instalação, no fim do handout", sem detalhar quantos passos são — isso é
   proposital, para não assustar quem está só olhando de longe. Mas o time
-  de apoio que circula durante o café **precisa saber** que são 6 passos, e
+  de apoio que circula durante o café **precisa saber** que são 8 passos, e
   que os passos 0–4 (terminal, Node, Claude Code, verificar, logar) são o
   mínimo para acompanhar a próxima meia hora (Bloco 4, que continua 100% no
-  Desktop), enquanto o Passo 5 (DuckDB) só importa a partir das 16h05.
+  Desktop), enquanto os Passos 5–7 (DuckDB, python3, baixar os arquivos) só
+  importam a partir das 16h05.
 - Priorização do apoio durante os 20 minutos: ajudar primeiro quem está
   travado nos Passos 0–4 (sem isso, a pessoa não acompanha nem o Bloco 4);
-  só depois ajudar quem já tem Claude Code e está tentando o DuckDB.
-- **Ninguém deve ser empurrado a tentar os dois no mesmo café.** Se alguém
-  claramente não vai terminar os dois em 20 minutos, a orientação do apoio é
-  fechar o Claude Code primeiro (Passos 0–4) e deixar o DuckDB para depois
-  — exatamente o que o próprio guia já diz ("se você travar aqui, ainda dá
-  para acompanhar a primeira metade inteira sem problema nenhum").
+  só depois ajudar quem já tem Claude Code e está tentando DuckDB, python3
+  ou o download dos arquivos.
+- **Ninguém deve ser empurrado a terminar tudo no mesmo café.** Se alguém
+  claramente não vai terminar os Passos 5–7 em 20 minutos, a orientação do
+  apoio é fechar o Claude Code primeiro (Passos 0–4) e deixar DuckDB,
+  python3 e o download dos arquivos para depois — exatamente o que o
+  próprio guia já diz ("se você travar aqui, ainda dá para acompanhar a
+  primeira metade inteira sem problema nenhum").
 
 **Na tela:** deixar um slide neutro (contagem regressiva ou o mapa das 4
 cadeiras de novo) — o facilitador não precisa narrar o break, só estar
@@ -247,7 +269,7 @@ disponível.
 | Trava | Sinal | Saída |
 |---|---|---|
 | Instalação estourou o break | Mais de 10 pessoas ainda tentando às 15h50 | Rodar `ice-score` (Desktop) e deixar o apoio circulando; ele é o bloco que existe justamente para isso |
-| Wifi caiu | Ninguém consegue baixar Node/Claude Code/DuckDB | Avisar a sala que quem não conseguir agora tem o guia completo para levar para casa; seguir o dia com quem já tem ambiente pronto (a máquina de demonstração do facilitador não depende do wifi da sala para os blocos de Code, só a instalação de quem está tentando pela primeira vez depende) |
+| Wifi caiu | Ninguém consegue baixar Node/Claude Code/DuckDB/python3, nem baixar o ZIP dos arquivos do curso | Avisar a sala que quem não conseguir agora tem o guia completo para levar para casa; seguir o dia com quem já tem ambiente pronto (a máquina de demonstração do facilitador não depende do wifi da sala para os blocos de Code, só a instalação de quem está tentando pela primeira vez depende) |
 
 **Como cortar se atrasar:** o break não corta — 20 minutos de intervalo são
 para a sala, não para o conteúdo. Se o Bloco 2 invadiu o horário do break,
@@ -427,6 +449,23 @@ próximo degrau."
 
 ### 16h23–16h40 · `post-test-segments`
 
+**Antes de chamar a skill — fechar a pré-condição (~30s):** `post-test-segments`
+tem uma regra dura: só roda se o veredito de `srm-check` for 🟢. O único
+veredito que a sala viu até agora foi 🔴 (em `cro.db`). Sem rodar `srm-check`
+em `cro-clean.db` primeiro, a skill está sendo chamada logo depois do único
+veredito da sessão ter sido vermelho — e pode recusar ou pedir confirmação
+ao vivo. Rodar rápido, ainda dentro deste bloco, antes de pedir
+`post-test-segments`:
+
+```
+duckdb data/cro-clean.db -c "SELECT experiment_variant, COUNT(DISTINCT user_pseudo_id) AS users FROM events_clean WHERE event_name = 'session_start' AND experiment_variant IS NOT NULL GROUP BY 1 ORDER BY 1;"
+```
+
+**Resultado esperado:** `control 4000` / `variant_b 4000` → distribuição
+perfeita, χ²=0, p=1,0000 → veredito **🟢 SEM SRM**. Dizer: "mesmo teste,
+distribuição corrigida — e ele passa. Agora sim dá pra ler o resultado."
+Só então pedir `post-test-segments`.
+
 **Agregado:**
 
 ```
@@ -531,6 +570,10 @@ ls -la variante-b.js eventos.md
 node --check variante-b.js
 ```
 
+No Windows, o equivalente do `ls -la` é `Get-ChildItem variante-b.js,
+eventos.md` no PowerShell; `node --check variante-b.js` roda igual nos dois
+sistemas.
+
 Sem erro no `node --check` = sintaxe válida. Dizer o aviso que a própria
 skill sempre encerra dizendo: "este código não foi testado no seu site."
 
@@ -577,14 +620,38 @@ no topo) — ele é o primeiro a cair no cronograma geral.
 
 **Objetivo:** mostrar honestamente o que falta entre "rodou no meu dataset
 preparado" e "roda no seu GA4, toda segunda, sem terminal" — e apresentar o
-analytics-copilot como a resposta a essa lacuna.
+analytics-copilot como a resposta a essa lacuna, com os 3 vídeos de demo
+(`notes/video-spec.md`) tocando nos pontos certos.
 
-**Falas-chave:**
+**Sub-timing:**
+
+| Janela | Duração | O quê |
+|---|---|---|
+| 17h15–17h16 | 1min | Fala de abertura + Vídeo 1 (slide 13, 45s) |
+| 17h16–17h18 | 2min | Quatro itens nomeados (slide 14) + frase honesta de cada |
+| 17h18–17h19 | 1min | Vídeo 2 (slide 15, 60s) — o copilot respondendo |
+| 17h19–17h20 | 1min | Vídeo 3 (slide 16, 30s) — o pipeline, reforçando "Agendamento" |
+| 17h20–17h35 | 15min | Perguntas da sala + transição para o Bloco 8 |
+
+### 17h15–17h16 · Abertura + Vídeo 1
 
 >> "Isso rodou no meu dataset, que eu deixei pronto pra vocês. Pra rodar no
 >> SEU GA4, toda segunda, sem você abrir o terminal — o que falta?"
 
-**Na tela, listar os quatro itens (vocabulário do handout, seção 8):**
+**Na tela:** avançar para o slide 13 e **clicar em play no vídeo**
+(`01-custo-setup.mp4`, 45s — o player tem `controls`, é clique simples).
+Narrar por cima, ao vivo, enquanto o vídeo roda mudo:
+
+"Isso que vocês viram nos últimos comandos rodou porque o dataset já
+estava pronto. Pra rodar isso no SEU GA4 — não no meu — alguém passa por
+isto primeiro: escolher a property certa, autorizar o acesso, esperar o
+export terminar, e montar o schema que as skills esperam. Não é um passo,
+são vários, e o relógio não para durante nenhum deles."
+
+### 17h16–17h18 · Os quatro itens
+
+**Na tela:** slide 14, listar os quatro itens (vocabulário do handout,
+seção 8):
 
 - OAuth
 - ETL
@@ -599,15 +666,48 @@ pessoa ou rotina — precisa disparar no dia certo, e reagir quando falhar
 silenciosamente"; Manutenção de schema é "cada mudança no GA4 é uma chance
 de as queries pararem de funcionar sem avisar".
 
+### 17h18–17h19 · Vídeo 2 — o copilot respondendo
+
 >> "Foi exatamente por isso que a gente construiu o analytics-copilot."
+
+**Na tela:** avançar para o slide 15 e clicar em play
+(`02-copilot.mp4`, 60s). Narrar por cima:
+
+"A mesma pergunta que a gente acabou de responder na mão, com o terminal e
+o dataset que eu preparei — aqui, em linguagem natural, sem terminal, sem
+setup, contra o dado real do negócio. É a mesma tabela, o mesmo achado do
+tablet. A diferença é que ninguém aqui precisou saber o que é SRM para
+chegar nela."
+
+### 17h19–17h20 · Vídeo 3 — o pipeline rodando sozinho
+
+**Na tela:** avançar para o slide 16 e clicar em play
+(`03-pipeline.mp4`, 30s). Narrar por cima, reforçando especificamente o
+item "Agendamento":
+
+"Isso é o que o `cro-weekly-pipeline` faria se vocês tivessem essa
+infraestrutura rodando: toda segunda, sem ninguém abrir terminal, sem
+ninguém lembrar de rodar nada — o relatório já está esperando."
 
 **O que pode dar errado:** a sala pergunta preço/prazo/disponibilidade do
 beta antes do CTA formal. **Saída:** responder que os detalhes vêm no
 fechamento e na conversa individual do buffer final; não interromper o
 fio dos quatro itens para negociar acesso ao vivo.
 
-**Como cortar se atrasar:** encurtar a frase de cada um dos 4 itens para
-uma linha só (a lista em si não corta — é o argumento inteiro do bloco).
+**O que pode dar errado (vídeos):** o arquivo `.mp4` de algum dos três
+vídeos não está na máquina de demonstração (ver pendência em
+`notes/video-spec.md`, "Status de gravação"). **Saída:** pular a
+reprodução daquele vídeo específico e narrar a cena descrita em
+`notes/video-spec.md` como se fosse contada, não mostrada — a legenda
+abaixo do vídeo no slide já diz de qual demo se trata, então a sala não
+fica sem contexto; não travar o bloco tentando resolver o arquivo faltante
+ao vivo.
+
+**Como cortar se atrasar:** primeiro, encurtar a frase de cada um dos 4
+itens para uma linha só. Se ainda faltar tempo, corte o Vídeo 3 (é o mais
+curto e o menos crítico dos três — reforça "Agendamento", que já foi dito
+em palavras no item da lista); nunca corte o Vídeo 2, é a prova visual do
+CTA.
 
 ---
 
