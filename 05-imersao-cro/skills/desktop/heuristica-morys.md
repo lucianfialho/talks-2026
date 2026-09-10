@@ -41,7 +41,10 @@ Avalie cada uma de 1 a 5, com a pergunta-guia:
 |---|---|---|---|
 | ... | ... | ... | ... |
 
-**Score total:** X/35
+**Score total:** X/Y (Z dimensões n/d) — Y é 5 × número de dimensões
+avaliadas (35 menos 5 para cada dimensão marcada `n/d`). Uma dimensão n/d
+sai do denominador: ela reflete falta de material do aluno, não falha da
+página, e não pode ser contada como nota zero.
 
 **As 2 dimensões mais fracas:** [nomes] — são as candidatas a virar hipótese.
 
