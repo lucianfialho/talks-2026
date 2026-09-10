@@ -115,18 +115,24 @@ próximo passo — instalar as sete skills da imersão e copiar o dataset —
 está em `skills/README.md`, seção "Instalação no Claude Code". Siga a
 partir de lá.
 
-## Quando der errado — tabela de erros literais
+## Quando der errado — tabela de erros
 
-Compare o texto exato que apareceu na sua tela com a coluna da esquerda.
+Compare o que apareceu na sua tela com a coluna da esquerda. Nas linhas
+marcadas `(mac)`, o texto é exato — copiado direto do que aparece no
+Terminal. Nas linhas marcadas `(win)`, o texto varia um pouco conforme a
+versão do Windows; procure só o **trecho em negrito**, que se mantém igual
+nas versões mais comuns.
 
 | O que aparece na tela | O que fazer |
 |---|---|
 | `command not found: node` (mac) | Node não instalou. Refazer Passo 1. |
-| `'node' não é reconhecido` (win) | Faltou "Add to PATH". Reinstalar marcando a caixa. |
+| Uma frase com **node** e **"não é reconhecido"** (win) | Faltou "Add to PATH". Reinstalar marcando a caixa. |
 | `EACCES: permission denied` (mac) | Rodar `sudo npm install -g @anthropic-ai/claude-code` e digitar a senha do computador. |
-| `command not found: claude` após instalar | Fechar e reabrir o terminal. |
+| `command not found: claude` após instalar (mac) | Fechar e reabrir o terminal. |
+| Uma frase com **claude** e **"não é reconhecido"** (win) | Fechar e reabrir o terminal. |
 | `npm ERR! network` | Wifi. Tentar de novo; se insistir, usar o 4G do celular. |
 | Login não abre o navegador | Copiar a URL que apareceu no terminal e colar no navegador. |
+| Nenhuma linha acima bate com o que você está vendo | Não insista sozinho. Chame o facilitador e mostre a tela. |
 
 **Nota sobre o `sudo`:** se você precisar rodar o comando com `sudo`, ao
 digitar a senha **nada vai aparecer na tela** — nem letras, nem bolinhas,
