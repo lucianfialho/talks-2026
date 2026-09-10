@@ -59,10 +59,6 @@ número "razoável" para não frustrar o pedido. Aceitar qualquer atalho aqui
 transforma uma hipótese em opinião disfarçada — que é exatamente o que esta
 skill existe para impedir.
 
-**Exceção — a única forma válida de destravar aqui no Claude Code:** buscar o
-dado de verdade no dataset local, como descrito na seção abaixo, e citar a
-query e o número que ela devolveu. Isso não é inventar evidência — é buscá-la.
-
 ## Output
 
     ## Hipótese
@@ -91,6 +87,10 @@ buscar a evidência em vez de pedir ao usuário:
       ROUND(100.0*COUNT(DISTINCT CASE WHEN converted=1 THEN user_pseudo_id END)
             /COUNT(DISTINCT user_pseudo_id),2) AS cr
       FROM events_clean GROUP BY 1 ORDER BY cr;"
+
+**Exceção — a única forma válida de destravar:** buscar o dado de verdade
+no dataset local, como acima, e citar a query e o número que ela devolveu.
+Isso não é inventar evidência — é buscá-la.
 
 Use o resultado como evidência real e cite a query no campo. Esta seção é a
 diferença prática entre a camada Desktop e a camada Code: o método é o mesmo,
