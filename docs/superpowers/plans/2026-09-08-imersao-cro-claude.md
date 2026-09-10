@@ -935,8 +935,19 @@ Mesma query trocando `device_category` por `traffic_source`.
     O ganho está concentrado em [segmento]. [Segmento] mostra perda.
 
     ## Decisão possível
-    Winner e loser é leitura pobre. As opções aqui são: [rollout segmentado /
-    novo teste em X / manter controle em Y].
+    Winner e loser é uma leitura pobre do resultado. Todo experimento termina
+    em uma decisão — e nem toda decisão é implementar. Escolha uma das cinco:
+
+    | Decisão | Quando |
+    |---|---|
+    | Implementar | A evidência sustenta a mudança e os guardrails ficaram estáveis. |
+    | Iterar | A direção parece certa, mas a execução pode melhorar. |
+    | Investigar | A evidência não é suficiente. Precisamos entender melhor. |
+    | Abandonar | A hipótese não se sustentou. Aprendemos algo sobre o usuário. |
+    | Nova hipótese | O resultado revelou um comportamento que não esperávamos. |
+
+    Recomende uma e justifique em uma linha. As cinco decisões são vocabulário
+    da Taciana (slide 42) — use os nomes exatos, não sinônimos.
 ```
 
 - [ ] **Step 2: Verificar a query de device no dataset limpo**
@@ -1060,7 +1071,7 @@ Diga qual é a **métrica primária** e por que as outras são secundárias.
 ```markdown
 ---
 name: pre-flight-check
-description: Checklist do que checar antes de apertar Start num teste A/B — QA de implementação, instrumentação, amostra e critério de parada. Use quando o usuário disser "posso subir o teste", "pre-flight", "checklist antes de subir", "QA do teste".
+description: Checklist dos 8 itens a checar antes de apertar Start num teste A/B (hipótese, controle, audiência, QA, métrica e guardrails, variante, eventos, flickering). Use quando o usuário disser "posso subir o teste", "pre-flight", "checklist antes de subir", "QA do teste".
 ---
 
 ## Tarefa
@@ -1068,29 +1079,39 @@ description: Checklist do que checar antes de apertar Start num teste A/B — QA
 Rodar o checklist pré-Start e dar veredito. Não existe "quase pronto": ou pode
 subir, ou não pode.
 
-## Checklist
+## Checklist — os 8 itens da Taciana (slide 41)
 
-### Implementação
-- [ ] Variante renderiza sem flicker (mudança antes do primeiro paint)?
-- [ ] Testado em Chrome, Safari e no mobile real, não só no emulador?
-- [ ] Se a página é SPA, a variante sobrevive à navegação client-side?
-- [ ] O código falha silenciosamente se o elemento sumir?
+Estes 8 são a estrutura de primeiro nível e os nomes são obrigatórios. As
+sub-checagens abaixo de cada um são o detalhamento técnico; elas podem ser
+encurtadas se o tempo apertar, os 8 itens não.
 
-### Instrumentação
-- [ ] Evento de impressão dispara **uma vez por usuário**, não por pageview?
-- [ ] O ID do experimento chega no analytics em ambas as variantes?
-- [ ] A métrica primária está declarada **antes** de subir?
-- [ ] Existe pelo menos uma métrica de guarda (algo que não pode piorar)?
-
-### Amostra e parada
-- [ ] Qual o tamanho de amostra necessário para o efeito mínimo que interessa?
-- [ ] Quantos dias isso leva no tráfego atual?
-- [ ] O teste cobre pelo menos um ciclo semanal completo?
-- [ ] O critério de parada está escrito **antes** de começar?
-
-### Conflitos
-- [ ] Tem outro teste ativo na mesma página?
-- [ ] Tem campanha, promoção ou sazonalidade no período?
+- [ ] **1. Hipótese escrita e compartilhada**
+  - A hipótese está no template completo, com evidência preenchida?
+  - Alguém além de quem escreveu leu e concordou?
+- [ ] **2. Controle definido e no ar**
+  - O controle é a experiência atual, sem mudança nenhuma?
+- [ ] **3. Audiência e segmentação corretas**
+  - O filtro de audiência é aplicado ANTES da alocação, nunca depois?
+  - Tem outro teste ativo na mesma página?
+  - Tem campanha, promoção ou sazonalidade no período?
+- [ ] **4. QA aprovado em browsers diferentes**
+  - Testado em Chrome, Safari e no mobile real, não só no emulador?
+  - Se a página é SPA, a variante sobrevive à navegação client-side?
+  - O código falha silenciosamente se o elemento sumir?
+- [ ] **5. Métrica primária e guardrails definidos**
+  - A métrica primária está declarada por escrito ANTES de subir?
+  - Existe pelo menos um guardrail (algo que não pode piorar)?
+  - Qual o tamanho de amostra necessário para o efeito mínimo que interessa?
+  - Quantos dias isso leva no tráfego atual, e cobre um ciclo semanal completo?
+  - O critério de parada está escrito antes de começar?
+- [ ] **6. Variante validada em mobile e desktop**
+  - A mudança faz sentido nos dois, ou o teste deveria ser só de um?
+- [ ] **7. Eventos disparando nas duas versões**
+  - Evento de impressão dispara uma vez por usuário, não por pageview?
+  - O ID do experimento chega no analytics em ambas as variantes?
+- [ ] **8. Flickering e performance verificados**
+  - A variante renderiza sem flicker (mudança antes do primeiro paint)?
+  - A variante não degradou o tempo de carregamento?
 
 ## Regras
 
@@ -1102,14 +1123,19 @@ subir, ou não pode.
 ## Veredito
 
     ## Pre-flight
-    ✅ Checados: X/16
-    ⚠️ Não checados: [lista]
+    ✅ Checados: X/8
+    ⚠️ Não checados: [lista, pelo nome do item da Taciana]
 
     ## Veredito
     🟢 PODE SUBIR   ou   🔴 NÃO SUBA — [o item bloqueante]
 
-Qualquer item de **Instrumentação** ou **Amostra e parada** não checado força
-🔴. Itens de Implementação não checados geram 🟡 com ressalva explícita.
+Os itens **1, 5 e 7** (hipótese escrita, métrica primária e guardrails, eventos
+disparando) não checados forçam 🔴 — sem eles o teste não produz leitura. Os
+demais não checados geram 🟡 com ressalva explícita.
+
+Feche sempre com a frase dela: **"Só então: START. Um erro de implementação não
+aparece no resultado — ele aparece como um resultado que ninguém consegue
+explicar."**
 ```
 
 - [ ] **Step 3: Teste funcional das duas skills em sequência**
