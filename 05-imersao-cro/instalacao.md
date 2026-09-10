@@ -32,11 +32,15 @@ digitar os comandos deste guia.
 Uma janela escura ou clara com texto vai abrir. É essa janela que fica
 aberta para todos os passos a seguir.
 
-**Como usar os comandos deste guia:** cada bloco cinza abaixo é um comando.
-Copie o texto do bloco (selecione e `Cmd+C` no Mac, `Ctrl+C` no Windows),
-clique dentro da janela do terminal para ela ficar ativa, cole (`Cmd+V` no
-Mac; no Windows, clique com o botão direito dentro da janela — isso já
-cola) e aperte `Enter`. O comando só roda depois do `Enter`.
+**Como usar os comandos deste guia:** cada bloco de texto abaixo é um
+comando — você vai digitá-lo, letra por letra, dentro da janela do
+terminal. Clique dentro da janela do terminal primeiro, para o cursor
+ficar piscando lá dentro, depois digite exatamente o que está no bloco.
+Preste atenção em símbolos como `@`, `-` e espaços — eles fazem parte do
+comando, não são decoração. Só aperte `Enter` depois de conferir que
+digitou igual ao bloco. Se errar, apague com a tecla `Backspace` e digite
+de novo — não tem problema, o terminal só reage quando você aperta
+`Enter`.
 
 ## Passo 1 — instalar o Node.js
 
