@@ -43,9 +43,15 @@ gravação precisa existir e estar pronta antes do dia 14/09.
       contraste importa)
 - [ ] **Sem áudio próprio** — track silenciado no export. A narração é
       sempre ao vivo, do facilitador, por cima do vídeo mudo.
-- [ ] **Sem chrome de player** — sem barra de play/pause/volume visível no
-      arquivo final. O deck já injeta o player mínimo necessário
-      (`muted playsinline`); não gravar com controles de OS/app por cima.
+- [ ] **Sem chrome de player na gravação** — sem barra de play/pause/volume
+      do OS/app visível *dentro do arquivo `.mp4`*. Isso não conflita com o
+      deck: o `<video>` do deck usa `controls` (revogação deliberada da
+      regra original de "sem chrome nenhum" — sem os controles do
+      navegador não há como o facilitador iniciar a reprodução no palco).
+      A regra "sem chrome" vale só para o que fica gravado dentro do
+      arquivo; o player do navegador por cima dele é esperado e
+      necessário — não gravar com controles de OS/app **por cima da
+      captura de tela**, mas o `controls` do `<video>` no deck fica.
 - [ ] Ferramenta sugerida: QuickTime (built-in Mac) ou OBS.
 - [ ] Edição: iMovie ou DaVinci Resolve gratuito. Cortes diretos, sem
       transição — plateia presencial não precisa de fade.
@@ -95,9 +101,9 @@ ainda se aplica.
 
 **Arquivo:** `01-custo-setup.mp4`
 **Duração alvo:** 45s
-**Onde entra:** Bloco 7 — 17h15, "Segunda parede → copilot", na
-apresentação dos quatro itens (OAuth, ETL, Agendamento, Manutenção de
-schema), logo depois da fala:
+**Onde entra:** Bloco 7 — 17h15, "Segunda parede → copilot", slide 13 do
+deck, logo depois da fala e antes de a sala ver os quatro itens nomeados
+(OAuth, ETL, Agendamento, Manutenção de schema — slide 14):
 
 > "Isso rodou no meu dataset, que eu deixei pronto pra vocês. Pra rodar no
 > SEU GA4, toda segunda, sem você abrir o terminal — o que falta?"
@@ -157,9 +163,9 @@ são vários, e o relógio não para durante nenhum deles."
 
 **Arquivo:** `02-copilot.mp4`
 **Duração alvo:** 60s
-**Onde entra:** Bloco 7 — 17h15, slide 14 do deck ("analytics-copilot — a
-resposta"), embutido via `<video src="assets/02-copilot.mp4" muted
-playsinline>` (já referenciado no slide 14 de `deck/index.html`).
+**Onde entra:** Bloco 7 — 17h15, slide 15 do deck ("analytics-copilot — a
+resposta"), embutido via `<video src="assets/02-copilot.mp4" controls
+muted playsinline>` (já referenciado no slide 15 de `deck/index.html`).
 Este é o vídeo que seria a resposta positiva depois do vídeo 1 mostrar o
 custo: "e se não precisasse de nada disso?"
 
@@ -220,9 +226,9 @@ chegar nela."
 
 **Arquivo:** `03-pipeline.mp4`
 **Duração alvo:** 30s
-**Onde entra:** Bloco 7 — 17h15, depois do vídeo 2, reforçando o item
-"Agendamento" da lista de quatro (o pipeline chega pronto sem alguém
-disparar manualmente).
+**Onde entra:** Bloco 7 — 17h15, slide 16 do deck, logo depois do vídeo 2
+(slide 15), reforçando o item "Agendamento" da lista de quatro (o pipeline
+chega pronto sem alguém disparar manualmente).
 
 ### Roteiro de captura, quadro a quadro
 
