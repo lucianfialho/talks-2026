@@ -128,6 +128,11 @@ Compare o texto exato que apareceu na sua tela com a coluna da esquerda.
 | `npm ERR! network` | Wifi. Tentar de novo; se insistir, usar o 4G do celular. |
 | Login não abre o navegador | Copiar a URL que apareceu no terminal e colar no navegador. |
 
+**Nota sobre o `sudo`:** se você precisar rodar o comando com `sudo`, ao
+digitar a senha **nada vai aparecer na tela** — nem letras, nem bolinhas,
+nem o cursor se mexendo. Não travou: é assim mesmo, por segurança. Digite
+a senha do computador normalmente e aperte `Enter`.
+
 > **Não trave aqui.** Você já tem três skills funcionando no Claude Desktop e
 > elas cobrem a cadeira mais importante. Acompanhe as demos da segunda metade,
 > o material inteiro está no repositório, e a instalação você faz com calma
