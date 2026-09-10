@@ -19,6 +19,9 @@ indexed_directories:
   - path: 03-harness
     specialist: content
     tags: [palestra, harness, sprint-03]
+  - path: 05-imersao-cro
+    specialist: content
+    tags: [palestra, cro, workshop]
   - path: shared/knowledge-base
     specialist: content
     tags: [knowledge-base, rag-source]

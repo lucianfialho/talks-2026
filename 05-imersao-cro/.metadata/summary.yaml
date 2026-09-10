@@ -1,11 +1,5 @@
 id: 05-imersao-cro
 title: "Imersão Claude para CRO — módulo da tarde (15h-18h)"
-event: "Imersão Claude para CRO — CRO Brasil"
-event_url: "https://crobrasil.com.br/imersao-claude/"
-event_date: "2026-09-14"
-event_time: "15:00 – 18:00"
-duration_min: 180
-location: "Distrito · Av. Rebouças, 1585, São Paulo — presencial, 50 vagas"
 tags:
   - cro
   - workshop
@@ -13,10 +7,13 @@ tags:
   - analytics-copilot
   - hands-on
 covers:
-  - skills/
+  - script.md
   - handout.md
   - instalacao.md
-  - script.md
-  - notes/sources/taciana-cro-fundamentos.md
-last_updated: "2026-09-08"
-status: in-progress
+  - deck/
+  - data/
+  - notes/
+  - skills/
+specialist: content
+last_updated: "2026-09-09"
+status: filled
