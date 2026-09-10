@@ -197,12 +197,108 @@ variáveis de ambiente → editar Path".)
 
 Depois de instalar, rode `duckdb --version` de novo para confirmar.
 
-## Passo 6 — instalar as skills e o dataset
+## Passo 6 — instalar o python3
 
-Com `node`, `npm`, `claude` e `duckdb` funcionando, o terminal está
-pronto. O próximo passo — instalar as sete skills da imersão e copiar o
-dataset — está em `skills/README.md`, seção "Instalação no Claude Code".
-Siga a partir de lá.
+O python3 é usado por baixo dos panos pela skill `srm-check` para calcular
+o chi-quadrado do teste de SRM — ela roda sozinha, você não digita
+`python3` na mão. **Este passo é só para a segunda metade da tarde, a
+partir das 16h05** — igual ao DuckDB no Passo 5: se você travar aqui,
+ainda dá para acompanhar a primeira metade inteira sem problema nenhum.
+
+Verifique se já tem instalado:
+
+```
+python3 --version
+```
+
+**Se aparecer algo como `Python 3.9`, `Python 3.11`, `Python 3.14` ou
+qualquer número que comece com `Python 3.`** (confirmado nesta máquina:
+`Python 3.14.7`): já está instalado, pule para o Passo 7.
+
+**No Mac, um caso especial antes de concluir que deu errado:** se em vez de
+um número de versão **abrir uma janela pedindo para instalar as "Command
+Line Tools"**, isso não é erro — é o macOS avisando que o `python3` do
+sistema (`/usr/bin/python3`) é só um "atalho" que depende dessa instalação
+para funcionar de verdade. Clique em "Instalar", espere terminar (pode
+levar de 5 a 20 minutos e precisa de wifi) e rode `python3 --version` de
+novo. (Não foi possível reproduzir essa janela nesta verificação porque a
+máquina usada para revisar este guia já tinha as Command Line Tools
+instaladas — o comportamento acima é o documentado para uma instalação
+nova; trate como aproximação, no mesmo espírito das notas de Windows deste
+guia.)
+
+**Se aparecer `command not found: python3` (Mac, raro) ou uma frase com
+`python3` e "não é reconhecido" — ou a tela abrir a Microsoft Store sem
+instalar nada (Windows):**
+
+- **Mac, com Homebrew** (você já conferiu isso no Passo 5):
+
+```
+brew install python3
+```
+
+- **Mac, sem Homebrew:** abra o navegador, vá em python.org/downloads,
+  baixe o instalador para macOS, abra o `.pkg` baixado e avance até o fim.
+- **Windows:** o alias `python3` do PowerShell, quando o Python não está
+  instalado, abre a Microsoft Store em vez de mostrar um erro — feche essa
+  janela sem instalar nada por ali. Abra o navegador, vá em
+  python.org/downloads, baixe o instalador para Windows, avance até a tela
+  que tem a caixa **"Add python.exe to PATH"** e **marque essa caixa** —
+  sem ela o próximo passo não funciona. Continue avançando até o fim,
+  depois **feche o terminal e abra um novo** (Passo 0).
+
+Depois de instalar, rode `python3 --version` de novo para confirmar.
+
+## Passo 7 — obter os arquivos do curso
+
+Antes de instalar as skills, você precisa ter os arquivos da imersão na sua
+máquina — o próximo passo copia arquivos de dentro dessa pasta, e sem ela
+o comando não encontra nada para copiar.
+
+**Caminho principal — baixar o ZIP pelo navegador** (não exige instalar
+mais nada além do que você já tem):
+
+1. Abra o navegador em `github.com/lucianfialho/talks-2026`.
+2. Clique no botão verde **"Code"** e, no menu que abrir, em **"Download
+   ZIP"**.
+3. Quando o download terminar, descompacte o arquivo: no Mac, dê um duplo
+   clique no `.zip` (normalmente na pasta Downloads); no Windows, clique
+   com o botão direito no `.zip` e escolha **"Extrair tudo..."**. Isso cria
+   uma pasta com um nome parecido com `talks-2026-main`.
+4. Volte para a janela do terminal e entre nessa pasta:
+
+```
+cd ~/Downloads/talks-2026-main
+```
+
+No Windows (PowerShell): `cd ~\Downloads\talks-2026-main`. O nome exato da
+pasta pode variar um pouco (`talks-2026-main`, `talks-2026-master`) —
+confira o nome real dentro da sua pasta Downloads antes de digitar.
+
+Confirme que chegou no lugar certo:
+
+```
+ls
+```
+
+No Windows: `dir`. Você deve ver, entre outras coisas, uma pasta chamada
+`05-imersao-cro`.
+
+**Sem rede no momento?** Peça ao facilitador o pendrive com os arquivos da
+imersão — ele circula durante o break com uma cópia completa da pasta
+`05-imersao-cro`. Copie essa pasta do pendrive para o seu computador (por
+exemplo, para a Área de Trabalho) e use-a como se fosse a pasta
+descompactada do ZIP a partir daqui.
+
+## Passo 8 — instalar as skills e o dataset
+
+Com `node`, `npm`, `claude`, `duckdb` e `python3` funcionando, e os
+arquivos da imersão já na sua máquina (Passo 7), o terminal está pronto.
+Abra o terminal dentro da pasta que você baixou no Passo 7 (a que contém
+`05-imersao-cro`) — os comandos do próximo passo pressupõem isso. O
+próximo passo — instalar as sete skills da imersão e copiar o dataset —
+está em `skills/README.md`, seção "Instalação no Claude Code". Siga a
+partir de lá.
 
 ## Quando der errado — tabela de erros
 
@@ -225,6 +321,11 @@ nas versões mais comuns.
 | Uma frase com **duckdb** e **"não é reconhecido"** (win) após instalar | Fechar e reabrir o terminal. |
 | `command not found: brew` (mac) | Sem Homebrew. Use o caminho "Mac, sem Homebrew" do Passo 5 — baixar o zip direto de duckdb.org/install. |
 | `winget` não reconhecido ou não encontrado (win) | Sem winget. Use o caminho "Windows, sem winget" do Passo 5 — baixar o zip direto de duckdb.org/install. |
+| Uma janela pedindo para instalar as **"Command Line Tools"** apareceu ao rodar `python3 --version` (mac) | Não é erro. Clique em "Instalar", espere terminar (5–20min, precisa de wifi) e rode `python3 --version` de novo. |
+| `command not found: python3` (mac, raro) | Rodar `brew install python3` (com Homebrew) ou baixar o instalador em python.org/downloads. |
+| A tela abriu a **Microsoft Store** ao rodar `python3 --version`, sem instalar nada (win) | Fechar a Store sem instalar nada por ali. Baixar o instalador em python.org/downloads, marcando "Add python.exe to PATH". |
+| Uma frase com **python3** e **"não é reconhecido"** (win) após instalar | Faltou "Add python.exe to PATH". Reinstalar marcando a caixa. |
+| `cd: no such file or directory` (mac) ou **"O sistema não pode encontrar o caminho especificado"** (win) ao entrar na pasta baixada | Você não está na pasta certa ou o nome dela é outro. Confira o nome exato da pasta descompactada (`ls` no Mac / `dir` no Windows, dentro de Downloads) e repita o `cd` apontando para esse nome. |
 | Nenhuma linha acima bate com o que você está vendo | Não insista sozinho. Chame o facilitador e mostre a tela. |
 
 **Nota sobre o `sudo`:** se você precisar rodar o comando com `sudo`, ao
