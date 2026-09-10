@@ -13,3 +13,7 @@ Rodar segmentação em teste com SRM é exatamente o erro que a skill anterior e
 - `cro-clean.db` foi derivado de `cro.db` por amostragem estratificada por `device_category`: cada célula (variante × device) de `variant_b` foi reduzida na mesma proporção (4000/4400), preservando a distribuição de dispositivos. Resultado: control 4000 / variant_b 4000, χ² = 0, sem SRM residual.
 - Ambos os arquivos expõem a mesma estrutura: tabela `events` (`user_pseudo_id VARCHAR, event_name VARCHAR, event_timestamp TIMESTAMP, device_category VARCHAR, traffic_source VARCHAR, experiment_variant VARCHAR, session_duration BIGINT, converted BIGINT, is_new_user BIGINT`) e as views `sessions` e `events_clean`.
 - O balanceamento por device preserva os achados por segmento: o lift forte de `mobile` na variante B e o lift **negativo** de `tablet` continuam presentes em `cro-clean.db`, sustentando a fala de que "winner e loser é uma leitura pobre do resultado" quando o teste não é olhado por segmento.
+
+## Por que os `.db` estão versionados
+
+`cro.db` e `cro-clean.db` são versionados de propósito neste repositório — são asset de curso distribuído ao aluno, não banco de scratch. O `.gitignore` da raiz tem uma regra `*.db` para artefatos de desenvolvimento, mas com uma exceção explícita para `05-imersao-cro/data/*.db`. Quem clonar o repositório já recebe os dois datasets prontos, sem nenhum passo de geração — importante numa sala de aula com 50 pessoas e um intervalo curto entre os blocos.

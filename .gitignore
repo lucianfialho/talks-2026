@@ -11,5 +11,8 @@ build/
 !.gates/runs/.gitkeep
 .gates/hook-log.jsonl
 *.db
+# datasets de demo da imersão CRO: são asset de curso distribuído ao aluno,
+# não banco de scratch — versionados de propósito (2,5MB)
+!05-imersao-cro/data/*.db
 .cro-srm-checked
 02-cro/deck/config.js
