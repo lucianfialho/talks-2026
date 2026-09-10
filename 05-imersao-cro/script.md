@@ -601,24 +601,53 @@ uma linha só (a lista em si não corta — é o argumento inteiro do bloco).
 
 ## Bloco 8 — 17h35 · 10min · Fechamento
 
-**Objetivo:** fechar o ciclo do dia retomando, em ordem, os sete passos que
-a sala deu esta tarde — um por skill — e deixar claro o que levar para
-casa.
+**Objetivo:** fechar o dia com o ciclo real da Taciana (slide 6, "Um ciclo
+contínuo jogado por um time") — não uma lista das 7 skills, mas os 7 passos
+dela, mapeados contra o que a sala efetivamente cobriu hoje. O encaixe é
+imperfeito de propósito: os passos que ficam descobertos são o argumento do
+bloco seguinte já dado (17h15) e o gancho natural para o CTA.
 
-**Retomar os sete passos, uma linha por skill (não redemonstrar nenhuma):**
+**Na tela:** a tabela dos 7 passos, com uma coluna extra marcando o que foi
+coberto hoje.
 
-1. `heuristica-morys` — diagnosticar onde a página perde conversão.
-2. `hipotese-estruturada` — transformar o achado em hipótese testável, com
-   evidência ou sem ela declarada.
-3. `ice-score` — priorizar o backlog com Impacto × Confiança × Facilidade.
-4. `srm-check` — validar a distribuição antes de ler qualquer resultado.
-5. `post-test-segments` — achar onde o lift realmente aconteceu.
-6. `variante-builder` — transformar a hipótese fechada em código.
-7. `pre-flight-check` — barrar o Start até os 8 itens estarem checados.
+**Falas-chave:**
 
-Amarrar de volta à tese do Bloco 1: "vocês preencheram as três cadeiras que
-tinham skill pronta hoje — CRO, Analytics e Dev. A quarta, UX/Research, fica
-para outro módulo."
+Abrir citando o nome do ciclo, sem parafrasear:
+
+>> "A Taciana fechou a manhã com isto: 'um ciclo contínuo jogado por um
+>> time'. Sete passos. Vamos ver quantos a gente cobriu nas últimas três
+>> horas."
+
+Passar pelos 7 passos, pelo nome exato dela, marcando coberto/descoberto:
+
+| # | Passo (nome exato) | Coberto hoje por | Status |
+|---|---|---|---|
+| 1 | Coleta de Dados | — | **descoberto** |
+| 2 | Análise | `heuristica-morys`, `srm-check`, `post-test-segments` | coberto |
+| 3 | Hipóteses | `hipotese-estruturada` | coberto |
+| 4 | Priorização | `ice-score` | coberto |
+| 5 | Testes | `variante-builder`, `pre-flight-check` | coberto |
+| 6 | Relatórios | — | **descoberto** |
+| 7 | Escala | — | **descoberto** |
+
+>> "Quatro dos sete passos do ciclo dela, cobertos em três horas, com uma
+>> skill em cada um. Os três que faltam — Coleta de Dados, Relatórios e
+>> Escala — não são acaso: são exatamente os três que pedem infraestrutura
+>> contínua, não uma conversa pontual. É o mesmo problema que a gente já
+>> nomeou às 17h15: OAuth, ETL, agendamento, manutenção de schema."
+
+Fechar com a frase do rodapé do slide 6, também literal:
+
+>> "CRO é um esporte coletivo: nenhuma dessas competências resolve
+>> conversão sozinha, e nenhuma etapa do ciclo pertence a uma única pessoa.
+>> Em times pequenos, alguém acumula vários papéis; em times maduros, eles
+>> se distribuem entre especialistas."
+
+E a frase de continuidade do ciclo, para amarrar com "segunda-feira
+seguinte" do handout:
+
+>> "O passo 7 alimenta o passo 1: o aprendizado de uma rodada define onde a
+>> próxima começa."
 
 **Para levar (conteúdo do handout, seção 9 — só apontar, não reler):**
 
@@ -631,16 +660,23 @@ para outro módulo."
 - Quem entrou no beta (critério anunciado às 16h05): confirmar acesso
   individualmente com o facilitador — isso vira o assunto do buffer.
 
-**O que pode dar errado:** 10 minutos para 7 skills é menos de 1,5 minuto
-por item — risco real de estourar se qualquer skill ganhar uma frase a
-mais. **Saída:** ter a lista numerada já impressa/no slide, para não
-precisar improvisar o enunciado de cada uma; se estourar mesmo assim, corte
-a linha de "para levar" sobre reinstalação (já está no handout) e mantenha
-as 7 linhas + a ação de segunda-feira.
+**O que pode dar errado:** este fechamento tem mais conteúdo do que a
+versão anterior (7 passos nomeados + mapeamento + 3 citações literais +
+"para levar") — 10 minutos é apertado mesmo cortando tudo que dá para
+cortar. **Estimativa honesta: isto tende a estourar para 12–13 minutos** em
+ritmo de palco normal, não só em ensaio malfeito. **Saída:** este é
+exatamente o tipo de estouro para o qual o Bloco 9 (buffer, 15min) existe —
+não espremer o conteúdo para caber à força nos 10min; se passar 2-3
+minutos, é o buffer absorvendo, não um erro de execução.
 
-**Como cortar se atrasar:** cortar primeiro o "para levar" (é 100%
-redundante com o handout impresso, que a sala já tem em mãos); nunca cortar
-a lista dos sete passos — é o fechamento do arco do dia.
+**Como cortar se atrasar (além de usar o buffer):** primeiro corte o "para
+levar" (é 100% redundante com o handout impresso, que a sala já tem em
+mãos); depois, se ainda faltar tempo, corte a citação de continuidade
+("o passo 7 alimenta o passo 1") e a frase do rodapé, mantendo só a tabela
+dos 7 passos e a linha "quatro de sete, e os três que faltam pedem
+infraestrutura" — é ela que carrega o gancho para o CTA. Nunca corte a
+tabela dos 7 passos nem a marcação dos 3 descobertos: é o fechamento do
+arco do dia.
 
 ---
 

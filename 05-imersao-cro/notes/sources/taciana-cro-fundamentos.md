@@ -11,6 +11,33 @@
 
 ---
 
+## O ciclo de 7 passos (slide 06) — VOCABULÁRIO OBRIGATÓRIO
+
+"Um ciclo contínuo jogado por um time" — slide de diagrama de cards (não sai
+em extração de texto simples; conteúdo abaixo lido diretamente da imagem da
+página). Os 7 passos, nesta ordem (fonte de verdade; não reordenar nem
+parafrasear):
+
+| # | Passo | Quem | Descrição |
+|---|---|---|---|
+| 1 | Coleta de Dados | ANALYTICS | Quanti + quali |
+| 2 | Análise | ANALYTICS + CRO | Padrões e problemas |
+| 3 | Hipóteses | CRO | Explicações testáveis |
+| 4 | Priorização | CRO + TIME | O que testar primeiro |
+| 5 | Testes | CRO + DEV | A/B, MVT e MAB |
+| 6 | Relatórios | ANALYTICS + CRO | Documentar aprendizados |
+| 7 | Escala | TIME | Implementar e repetir |
+
+> "O passo 7 alimenta o passo 1: o aprendizado de uma rodada define onde a
+> próxima começa."
+
+> "CRO é um esporte coletivo: nenhuma dessas competências resolve conversão
+> sozinha, e nenhuma etapa do ciclo pertence a uma única pessoa. Em times
+> pequenos, alguém acumula vários papéis; em times maduros, eles se
+> distribuem entre especialistas."
+
+---
+
 ## As 4 posições (slide 07)
 
 "Quatro posições, um mesmo gol" — analogia de futebol para os quatro papéis do time de CRO:
