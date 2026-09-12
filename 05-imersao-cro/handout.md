@@ -180,6 +180,35 @@ claude
 O que esperar: se você já logou durante o guia de instalação, isso abre
 direto o prompt do Claude Code, pronto para receber texto.
 
+### B.2 — Instalar o plugin do Skill Creator (todos juntos, aqui — não corta)
+
+O comando `/skill-creator`, usado só no fim da tarde no Bloco D, não vem
+pronto dentro do Claude Code assim que você instala — é um plugin oficial
+que precisa ser adicionado uma vez. Por isso ele entra aqui, no Bloco B, com
+a sala toda ao mesmo tempo: quem já adiantou este passo no intervalo (Passo
+6, opcional, do guia de instalação) vai ver a mesma mensagem de sucesso de
+novo — isso é sucesso, não erro, não uma falha. Precisa de internet — se o
+wifi cair aqui, veja o quadro "Se a rede não voltar" mais abaixo.
+
+No terminal, ainda **fora** do Claude Code (ou dentro dele, trocando `claude`
+por `/`, os dois funcionam):
+
+```
+claude plugin marketplace add https://github.com/anthropics/claude-plugins-official
+```
+
+Espere a mensagem `✔ Successfully added marketplace: claude-plugins-official`
+(ou `já on disk`, se alguém já rodou isso na sua máquina antes — também está
+certo). Depois:
+
+```
+claude plugin install skill-creator@claude-plugins-official
+```
+
+Espere `✔ Successfully installed plugin: skill-creator@claude-plugins-official`
+(ou `já instalado` — também está certo). Rodar os dois comandos de novo não
+tem problema nenhum: eles não fazem nada se já estiver tudo pronto.
+
 Depois, um primeiro prompt de verdade — algo que produz saída em texto, sem
 depender de nenhuma fonte de dado externa. Anote aqui o que o facilitador
 pediu e o que voltou, para você repetir na sua própria máquina:
@@ -503,35 +532,14 @@ O Skill Creator é uma skill que cria skills:
 > skills. Vai ter uma metodologia ali por trás que o Claude vai seguir."
 > — Lucian Fialho
 
-### Antes de digitar `/skill-creator` — instalar o plugin (uma vez só)
-
-O Skill Creator não vem pronto dentro do Claude Code assim que você instala
-— é um plugin oficial que precisa ser adicionado uma vez. Isso não está no
-roteiro nem no guia de instalação porque é um detalhe técnico que foi
-conferido só agora, na escrita deste handout: sem este passo, `/skill-creator`
-não existe ainda na sua máquina. Precisa de internet — se o wifi cair aqui,
-veja o quadro "Se a rede não voltar" mais abaixo.
-
-No terminal, ainda **fora** do Claude Code (ou dentro dele, trocando `claude`
-por `/`, os dois funcionam):
-
-```
-claude plugin marketplace add https://github.com/anthropics/claude-plugins-official
-```
-
-Espere a mensagem `✔ Successfully added marketplace: claude-plugins-official`
-(ou `já on disk`, se alguém já rodou isso na sua máquina antes — também está
-certo). Depois:
-
-```
-claude plugin install skill-creator@claude-plugins-official
-```
-
-Espere `✔ Successfully installed plugin: skill-creator@claude-plugins-official`
-(ou `já instalado` — também está certo). Rodar os dois comandos de novo não
-tem problema nenhum: eles não fazem nada se já estiver tudo pronto.
-
 ### Rodando o Skill Creator
+
+**O plugin do Skill Creator já foi instalado no Bloco B (B.2), com a sala
+toda.** Se você chegou agora e o comando `/skill-creator` não aparece quando
+você digita `/`, não pare para instalar sozinho: faça este exercício em
+dupla com alguém que já tem o plugin funcionando, enquanto instala o seu em
+paralelo — os mesmos dois comandos do B.2, listados no guia de instalação
+(Passo 6).
 
 Dentro do Claude Code:
 
