@@ -365,9 +365,21 @@ E a piada que desarma quem nunca escreveu Markdown:
 ## O exemplo dissecado: `heuristica-morys`
 
 Este é o arquivo `.md` inteiro, projetado na tela — a Taciana apontou
-heurística e análise de site como o que mais agrega para esta turma:
+heurística e análise de site como o que mais agrega para esta turma.
+
+Repare nas quatro primeiras linhas, entre `---` e `---`: é o *frontmatter*, o
+crachá da skill. O `name` é o que vira o comando (`/heuristica-morys`) e tem
+que ser igual ao nome da pasta; a `description` é o que faz o Claude Code
+saber **quando** usar a receita. Sem esse bloco, o arquivo é só um texto
+solto — o Claude Code não o carrega. Ele volta no Bloco D, quando você
+escrever a sua.
 
 ```markdown
+---
+name: heuristica-morys
+description: Varredura de página nas 7 dimensões da heurística de André Morys (Relevância, Confiança, Orientação, Estímulo, Segurança, Conveniência, Confirmação). Diagnostica onde a página perde conversão antes de propor hipótese. Use quando o usuário disser "analisar página", "heurística", "diagnóstico de CRO", "onde estou perdendo conversão".
+---
+
 # Heurística de Morys — varredura em 7 dimensões
 
 Você é um estrategista de CRO. Avalia páginas usando a heurística de André Morys.
