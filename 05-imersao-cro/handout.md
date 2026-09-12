@@ -14,8 +14,10 @@ exatamente o que fazer para voltar ao jogo sozinho.
 > mas o material impresso que você recebe é os dois juntos, nesta ordem —
 > handout primeiro, guia de instalação em seguida. Toda referência abaixo a
 > **"o guia de instalação, no fim deste material"** está falando desse
-> segundo arquivo, encadernado logo depois deste. Você instala **só o Claude
-> Code** — nada de DuckDB, Python ou clone de repositório.
+> segundo arquivo, encadernado logo depois deste. Você instala **o Claude
+> Code e mais dois programas de base que ele usa por baixo: o Node.js e o
+> git** — e nada além disso. Sem DuckDB, sem Python, e sem clonar o
+> repositório do curso.
 
 **Sobre as citações abaixo:** as falas marcadas como citação saem das
 transcrições do próprio Lucian e do material da Taciana Serafim. Onde o
@@ -186,28 +188,81 @@ O comando `/skill-creator`, usado só no fim da tarde no Bloco D, não vem
 pronto dentro do Claude Code assim que você instala — é um plugin oficial
 que precisa ser adicionado uma vez. Por isso ele entra aqui, no Bloco B, com
 a sala toda ao mesmo tempo: quem já adiantou este passo no intervalo (Passo
-6, opcional, do guia de instalação) vai ver a mesma mensagem de sucesso de
-novo — isso é sucesso, não erro, não uma falha. Precisa de internet — se o
-wifi cair aqui, veja o quadro "Se a rede não voltar" mais abaixo.
+7, opcional, do guia de instalação) vai ver a mesma mensagem de sucesso de
+novo — isso é sucesso, não erro, não uma falha.
 
-No terminal, ainda **fora** do Claude Code (ou dentro dele, trocando `claude`
-por `/`, os dois funcionam):
+**Este passo precisa de duas coisas:** internet, e o **git** instalado na sua
+máquina (Passo 2 do guia). O comando abaixo faz um `git clone` por baixo do
+pano — sem git ele falha com uma frase que contém `Failed to clone
+marketplace repository`. Se o wifi cair aqui, veja o quadro **"Se a rede não
+voltar"**, logo abaixo.
+
+**Primeiro: saia do Claude Code.** Os dois comandos abaixo são comandos do
+**terminal**, não do Claude. Se você digitar qualquer um deles dentro da
+sessão do Claude Code, ele vai responder em texto sobre o comando e **nada
+será instalado**. Para sair, digite:
+
+```
+/exit
+```
+
+Agora, no terminal (com o cursor do terminal de volta, sem a caixa de
+digitação do Claude Code):
 
 ```
 claude plugin marketplace add https://github.com/anthropics/claude-plugins-official
 ```
 
-Espere a mensagem `✔ Successfully added marketplace: claude-plugins-official`
-(ou `já on disk`, se alguém já rodou isso na sua máquina antes — também está
-certo). Depois:
+Espere a mensagem
+`✔ Successfully added marketplace: claude-plugins-official (declared in user settings)`
+(ou `✔ Marketplace 'claude-plugins-official' already on disk`, se alguém já
+rodou isso na sua máquina antes — também está certo). Depois:
 
 ```
 claude plugin install skill-creator@claude-plugins-official
 ```
 
-Espere `✔ Successfully installed plugin: skill-creator@claude-plugins-official`
-(ou `já instalado` — também está certo). Rodar os dois comandos de novo não
-tem problema nenhum: eles não fazem nada se já estiver tudo pronto.
+Espere
+`✔ Successfully installed plugin: skill-creator@claude-plugins-official (scope: user)`
+(ou `✔ Plugin "skill-creator@claude-plugins-official" is already installed` —
+também está certo). Rodar os dois comandos de novo não tem problema nenhum:
+eles não fazem nada se já estiver tudo pronto.
+
+**Por último, e não é opcional: abra o Claude Code de novo.**
+
+```
+claude
+```
+
+O plugin só passa a existir **na próxima vez** que o Claude Code abre. Se
+você continuar na sessão que já estava rodando, `/skill-creator` não vai
+aparecer — e parece falha de instalação, quando não é. Confira agora: digite
+`/` e procure `skill-creator` na lista. Se não estiver lá, `/exit` e
+`claude` de novo.
+
+### Se a rede não voltar
+
+Sem wifi, este passo **não acontece** — e não adianta insistir. O comando
+baixa o plugin da internet, com um `git clone`; não existe versão offline
+dele, nem cópia em pendrive que resolva. Se a rede cair no meio do B.2, o
+que você faz é:
+
+- **Agora:** pare de tentar. Ficar repetindo o comando com a rede fora só
+  produz a mesma mensagem de erro. Acompanhe o B e o C pela tela do
+  facilitador — a máquina dele é a única que precisa de rede para o que vai
+  ser mostrado.
+- **No Bloco D:** o exercício continua existindo. Descrever o seu processo
+  (D.1) é papel e caneta, e escrever a skill à mão é Markdown puro — funciona
+  offline, é o "Plano B" do D.2, mais adiante neste handout. Para a parte que
+  precisa do `/skill-creator`, faça em dupla com quem instalou antes da rede
+  cair.
+- **Em casa, com internet:** rode os dois comandos do B.2 exatamente como
+  estão acima (eles também estão no guia de instalação, Passo 7), reabra o
+  Claude Code, e você fica com a mesma máquina que a sala.
+
+Não é a mesma situação de quem não instalou o Claude Code: ali a saída é a
+mesma (dupla no D), mas aqui a falha é da sala inteira e o facilitador anuncia
+o ajuste em voz alta. Você não precisa decidir sozinho.
 
 Depois, um primeiro prompt de verdade — algo que produz saída em texto, sem
 depender de nenhuma fonte de dado externa. Anote aqui o que o facilitador
@@ -257,8 +312,13 @@ terminal essa ponte existe.
 
 ## Git, em uma frase
 
-Você não vai aprender Git hoje. Só precisa saber que existe, porque é o
-lugar de onde a maioria das skills prontas circula:
+Você não vai aprender a **usar** Git hoje, e não vai clonar repositório
+nenhum. Mas ele já está na sua máquina desde o intervalo (Passo 2 do guia de
+instalação), porque o Claude Code usa o git por baixo do pano para baixar
+plugins — foi o que aconteceu agora há pouco, no B.2, sem você ver.
+
+O que você precisa saber é por que ele existe: é o lugar de onde a maioria
+das skills prontas circula.
 
 > "Vocês não precisam ser experts em GitHub, vocês precisam saber que que é
 > isso daqui, como que isso funciona, porque lá que vocês vão copiar a
@@ -539,7 +599,9 @@ toda.** Se você chegou agora e o comando `/skill-creator` não aparece quando
 você digita `/`, não pare para instalar sozinho: faça este exercício em
 dupla com alguém que já tem o plugin funcionando, enquanto instala o seu em
 paralelo — os mesmos dois comandos do B.2, listados no guia de instalação
-(Passo 6).
+(Passo 7). Lembre dos dois detalhes que fazem esse comando falhar em
+silêncio: ele roda **fora** do Claude Code (`/exit` primeiro), e o plugin só
+aparece **depois** de fechar e abrir o Claude Code de novo.
 
 Dentro do Claude Code:
 
@@ -553,9 +615,20 @@ para ele gerar a skill do processo de CRO da sua empresa.
 ### Plano B — se o Skill Creator não se comportar como esperado
 
 A skill não deixa de existir porque a ferramenta falhou. Escreva o `.md` à
-mão, com os três blocos que você aprendeu no Bloco C:
+mão, com os três blocos que você aprendeu no Bloco C.
+
+**As três primeiras linhas não são decoração.** Aquele bloco entre `---` e
+`---` chama-se *frontmatter*: é por ele que o Claude Code reconhece o arquivo
+como uma skill e sabe quando usá-la. Um `.md` sem frontmatter é só um texto
+solto na pasta — o Claude Code nunca o carrega. Copie o formato exatamente,
+inclusive os dois `---`:
 
 ```
+---
+name: [nome-da-sua-skill]
+description: [uma frase dizendo o que a skill faz e quando usar]
+---
+
 # [nome da sua skill]
 
 ## Ingredientes
@@ -568,12 +641,18 @@ mão, com os três blocos que você aprendeu no Bloco C:
 [os entregáveis de cada etapa, da resposta 3 de D.1]
 ```
 
+O `name` tem que ser em minúsculas, sem espaço e sem acento — use hífen no
+lugar do espaço (`processo-cro-acme`). E ele precisa ser **igual ao nome da
+pasta** onde você salvar o arquivo; é o erro de instalação mais comum.
+
 ## D.3 — Validar
 
-**Se você chegou atrasado nesta parte:** se o comando `/valida-skill-cro` não
-existir ainda na sua máquina quando você chegar aqui, acompanhe o
-facilitador rodando na tela dele com a skill de um voluntário, e use a
-tabela de critérios abaixo para se autoavaliar enquanto isso.
+**Se você chegou atrasado nesta parte:** o texto completo do validador está
+impresso mais abaixo, nesta mesma seção, junto com as três etapas para
+instalá-lo (criar a pasta, salvar o arquivo, reabrir o Claude Code). Se não
+der tempo de fazer isso agora, acompanhe o facilitador rodando na tela dele
+com a skill de um voluntário e use a tabela de critérios para se
+autoavaliar — a instalação você refaz em casa, com o mesmo texto.
 
 O validador foi desenhado como o oposto da sua skill — um antipattern que
 confere se a sua metodologia está completa:
@@ -585,20 +664,106 @@ confere se a sua metodologia está completa:
 > "Ponto. Entrega com o cara saindo com a notinha e tá tudo certo."
 > — Lucian Fialho
 
-`[A CONFIRMAR: como exatamente o comando `/valida-skill-cro` chega até a sua
-máquina — pendrive, cópia de tela ou link — ainda não estava decidido quando
-este handout foi escrito. O facilitador anuncia o método no início do Bloco
-D. O que segue abaixo é o mecanismo técnico por trás de qualquer um desses
-métodos: uma vez com o texto da skill em mãos, ele funciona assim.]`
+### Como o validador chega na sua máquina
 
-Se o arquivo chegar como texto para colar (pendrive ou tela), salve-o na
-pasta de skills do seu usuário, dentro da pasta oculta `.claude` que o
-Claude Code já criou quando você fez login — no Mac, `~/.claude/skills/`; no
-Windows, dentro da pasta do seu usuário, também `.claude\skills\`. Crie uma
-subpasta chamada `valida-skill-cro` e salve o conteúdo dentro dela como
-`SKILL.md`. Feito isso, o comando abaixo passa a existir.
+O texto completo do validador está **impresso aqui neste handout**, logo
+abaixo. Não depende de link, de pendrive nem de você ter copiado algo da
+tela a tempo: se o resto falhar, o papel na sua mão continua funcionando. O
+facilitador também posta o arquivo no grupo de WhatsApp — quando der,
+copiar de lá é mais rápido do que digitar.
 
-No Claude Code:
+São três coisas, nesta ordem: **criar a pasta**, **salvar o arquivo**,
+**reabrir o Claude Code**. Cada uma tem um jeito de dar errado em silêncio, e
+os três estão avisados abaixo.
+
+#### 1. Criar a pasta
+
+A pasta de skills do seu usuário **ainda não existe** — instalar o Claude
+Code não a cria. Numa máquina recém-configurada, dentro da pasta oculta
+`.claude` existem só `.claude.json`, `backups`, `plugins` e `settings.json`.
+Você vai criar duas pastas: `skills`, e dentro dela `valida-skill-cro`.
+
+O caminho final, por sistema:
+
+| Sistema | Onde o arquivo tem que ficar |
+|---|---|
+| **Mac** | `~/.claude/skills/valida-skill-cro/SKILL.md` |
+| **Windows** | `C:\Users\<seu usuário>\.claude\skills\valida-skill-cro\SKILL.md` |
+
+**Sem terminal, no Mac:** abra o Finder. No menu do topo, clique em **Ir →
+Ir para a pasta…** (ou aperte `Cmd + Shift + G`). Digite `~/.claude` e
+aperte `Enter` — a pasta abre. Se não houver uma pasta `skills` ali, crie:
+`Cmd + Shift + N`, nomeie **`skills`**, `Enter`. Entre nela e crie outra,
+nomeada **`valida-skill-cro`**.
+
+**Sem terminal, no Windows:** abra o Explorador de Arquivos. Clique na barra
+de endereço do topo (onde aparece o caminho), apague o que estiver lá,
+digite `%USERPROFILE%\.claude` e aperte `Enter`. Se não houver uma pasta
+`skills`, clique com o botão direito num espaço vazio → **Novo → Pasta**, e
+nomeie **`skills`**. Entre nela e crie outra, nomeada
+**`valida-skill-cro`**.
+
+O nome da pasta tem que ser **exatamente** `valida-skill-cro` — minúsculas,
+com hífen, sem espaço e sem acento. Ele precisa bater com o campo `name` que
+está na primeira linha do arquivo, mais abaixo.
+
+#### 2. Salvar o arquivo — e o editor importa
+
+Dentro da pasta `valida-skill-cro`, o arquivo tem que se chamar `SKILL.md`,
+com esse nome e essa extensão. Aqui mora a armadilha:
+
+> ⚠️ **No Windows, o Bloco de Notas (Notepad) salva `SKILL.md` como
+> `SKILL.md.txt` sem avisar.** Você vê "SKILL.md" na janela de salvar, o
+> arquivo aparece na pasta, e mesmo assim o Claude Code nunca acha a skill —
+> porque o nome real tem um `.txt` grudado no fim que o Windows esconde de
+> você. É a causa número um de o D.3 não funcionar.
+
+**Como evitar, em ordem de preferência:**
+
+1. **Se você já tem VS Code, Sublime Text ou Notepad++ instalado, use um
+   deles.** Eles salvam texto puro e respeitam o nome que você digita. É o
+   caminho sem surpresa.
+2. **Mais simples ainda: peça ao Claude Code.** Abra o Claude Code, cole o
+   texto do validador no chat e escreva: *"salve este conteúdo exatamente
+   como está em `~/.claude/skills/valida-skill-cro/SKILL.md`, criando as
+   pastas se não existirem"*. Ele pede sua confirmação para escrever o
+   arquivo — responda que sim. Isso resolve o passo 1 e o passo 2 de uma vez,
+   e é o caminho recomendado para quem não quer mexer em pasta nenhuma.
+3. **No Mac, com o TextEdit:** abra o TextEdit e, **antes de colar o texto**,
+   vá em **Formatar → Converter em texto simples** (`Shift + Cmd + T`) — sem
+   isso ele salva um `.rtf` disfarçado. Depois cole, salve com o nome
+   `SKILL.md` dentro da pasta que você criou, e quando ele perguntar sobre a
+   extensão escolha **"Usar .md"**.
+4. **No Windows, com o Bloco de Notas:** na janela "Salvar como", **antes de
+   apertar Salvar**, mude o campo **"Tipo"** (ou "Salvar como tipo") de
+   *Documentos de texto (\*.txt)* para **"Todos os arquivos (\*.\*)"**. Só
+   então digite `SKILL.md` e salve. Se não achar esse campo, escreva o nome
+   entre aspas: `"SKILL.md"`.
+
+**Como conferir que deu certo no Windows:** no Explorador de Arquivos, aba
+**Exibir**, marque a caixa **"Extensões de nomes de arquivo"**. O arquivo
+tem que aparecer como `SKILL.md`. Se aparecer `SKILL.md.txt`, clique com o
+botão direito → Renomear e apague o `.txt` do fim.
+
+#### 3. Reabrir o Claude Code
+
+Uma skill nova só é carregada **na próxima vez** que o Claude Code abre. Se
+você salvar o arquivo com a sessão aberta, `/valida-skill-cro` não vai
+aparecer — e parece que você errou a pasta, quando não errou.
+
+Dentro do Claude Code, digite:
+
+```
+/exit
+```
+
+E depois, no terminal:
+
+```
+claude
+```
+
+Confira: digite `/` e procure `valida-skill-cro` na lista. Estando lá, rode:
 
 ```
 /valida-skill-cro
@@ -606,6 +771,119 @@ No Claude Code:
 
 E aponte o `SKILL.md` que você acabou de gerar (ou cole o conteúdo direto no
 chat).
+
+#### O texto do validador — copie daqui
+
+```markdown
+---
+name: valida-skill-cro
+description: Avalia a skill de processo de CRO que o aluno acabou de criar com o Skill Creator, nota por critério nomeado e aponta o que falta responder — sem preencher a lacuna por ele. Use quando o usuário disser "validar minha skill", "avaliar a skill que eu criei", "dar nota na skill", "essa skill tá boa?" ou "rodar o validador".
+---
+
+# Valida Skill CRO — nota e lacunas da skill do aluno
+
+## Tarefa
+
+Receber a skill de processo que o aluno acabou de gerar com o Skill Creator,
+avaliar em 5 critérios nomeados e devolver uma nota por critério, uma nota
+final e — para cada ponto que faltar — a pergunta exata que a skill não
+responde. Esta skill não corrige a skill do aluno: ela é o antipattern que
+confere se a metodologia dele está completa.
+
+## Input necessário
+
+Peça ao aluno:
+1. O caminho do arquivo `SKILL.md` que ele gerou, ou o conteúdo colado
+   direto no chat.
+
+Se vier só um pedaço (por exemplo, sem a seção de passos), avalie apenas o
+que foi entregue e diga explicitamente quais critérios ficaram sem material
+suficiente — não peça para o aluno completar antes de rodar; a nota parcial
+também é informação.
+
+## Os 5 critérios
+
+Cada um vem de uma peça específica do que uma skill de processo precisa ter,
+nas próprias palavras usadas na definição do exercício: a skill é uma
+receita — **ingredientes** (fontes de dado) e **modo de preparo** (sequência
+de passos) — e o processo por trás dela tem **cargos**, **handoffs** e
+**entregáveis** nomeados.
+
+| # | Critério | Pergunta-guia |
+|---|---|---|
+| 1 | Papéis | A skill nomeia os cargos ou papéis das pessoas envolvidas no processo? |
+| 2 | Handoffs | A skill nomeia as passagens entre papéis — quem entrega para quem, e em que momento? |
+| 3 | Entregáveis | A skill nomeia o entregável de cada etapa — o que sai de cada handoff? |
+| 4 | Ingredientes | A skill diz de onde vem o dado que alimenta cada etapa, com fonte nomeada (não "os dados da empresa")? |
+| 5 | Modo de preparo | A sequência de passos é executável — dá para seguir passo 1, passo 2, passo 3 — ou é vaga ("analisar", "otimizar", "melhorar")? |
+
+## Escala
+
+Cada critério recebe 0, 1 ou 2:
+
+- **0 — ausente.** Não aparece em nenhum lugar da skill.
+- **1 — parcial.** Aparece, mas de forma genérica ou incompleta (por
+  exemplo, cita "o time de CRO" sem nomear os cargos dentro dele, ou cita
+  "os dados" sem dizer de onde vêm).
+- **2 — completo.** Nomeado e específico o suficiente para outra pessoa
+  executar sem perguntar de volta.
+
+**Nota final:** soma dos 5 critérios, de 0 a 10.
+
+- **8–10** — a skill descreve um processo executável; está pronta para virar
+  a skill de execução do time.
+- **4–7** — a skill tem processo real por trás, mas com lacunas que impedem
+  que outra pessoa a rode sem perguntar de volta.
+- **0–3** — o que foi descrito ainda não é um processo (ou é a operação de
+  uma ferramenta, não um processo de negócio — ver sinal de alerta abaixo).
+
+## Sinal de alerta — ferramenta em vez de processo
+
+Uma skill pode ter uma sequência de passos claramente executável ("abra o
+relatório X, clique em Y, exporte Z") e ainda assim pontuar 0 em Papéis,
+Handoffs e Entregáveis. Isso não é um empate entre critérios — é o sinal de
+que o aluno descreveu como usar uma ferramenta, não o processo de CRO da
+empresa dele. Diga isso explicitamente quando acontecer: "Modo de preparo
+pontuou alto porque os cliques são claros, mas isso descreve uma ferramenta,
+não o processo — falta dizer quem faz isso, para quem entrega e o que essa
+pessoa faz com o resultado."
+
+## Regras de avaliação
+
+- Toda nota abaixo de 2 vem acompanhada da **pergunta específica que a skill
+  não responde** — nunca da observação genérica "está vago". Exemplo correto:
+  "não diz quem recebe a lista de hipóteses depois de priorizada" — e não
+  "falta detalhar handoffs".
+- **Nunca invente conteúdo para preencher a lacuna do aluno.** Se a skill não
+  diz de onde vem o dado, aponte a ausência — não sugira uma fonte plausível
+  (não escreva "provavelmente vem do GA4"). O aluno tem que sair sabendo o
+  que falta no processo dele, não recebendo um processo que você inventou.
+- Cite o trecho da skill que sustenta cada nota 1 ou 2, do mesmo jeito que
+  uma nota de heurística de página precisa citar o que foi visto na tela.
+- Não avalie estilo de escrita, formatação de Markdown ou tamanho do
+  arquivo. Os 5 critérios são os únicos pontos de avaliação.
+
+## Output
+
+| Critério | Nota (0-2) | O que sustenta a nota / o que falta |
+|---|---|---|
+| Papéis | ... | ... |
+| Handoffs | ... | ... |
+| Entregáveis | ... | ... |
+| Ingredientes | ... | ... |
+| Modo de preparo | ... | ... |
+
+**Nota final:** X/10 — [faixa: pronta / incompleta / ainda não é um processo]
+
+**Sinal de alerta (ferramenta vs. processo):** [presente / ausente — e por quê]
+
+**As 2 lacunas mais urgentes:** [as perguntas específicas, na ordem em que
+o aluno deveria resolvê-las antes de rodar o Skill Creator de novo]
+```
+
+A última seção do arquivo original — a calibragem que o facilitador roda
+antes do evento — não entra na sua cópia: ela é instrução para quem prepara
+a aula, não para quem roda o validador. Copiar só até aqui está certo.
 
 ### O que o validador devolve
 
@@ -700,7 +978,9 @@ A régua honesta, que fecha a tarde:
 
 Os links prometidos ao longo da tarde — hooks prontos, o `.md` de exemplo
 (`heuristica-morys`) e o validador — vão para o **grupo de WhatsApp da
-turma**, criado antes do coffee.
+turma**, criado antes do coffee. O `heuristica-morys` e o validador também
+estão impressos por extenso neste handout (Bloco C e D.3, respectivamente):
+se você perder o link, o papel resolve.
 
 `[A CONFIRMAR: se há um convite de produto (analytics-copilot) no fechamento
 presencial. Nenhuma fonte usada para este handout confirma isso para o
