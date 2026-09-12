@@ -2,7 +2,7 @@
 
 **Autora:** Taciana Serafim
 **Material:** "CRO AI DAY" — 44 slides
-**Bloco:** 14h–15h (módulo da manhã/tarde anterior ao bloco desta palestra, 15h–18h)
+**Bloco:** 14h–15h30 (módulo anterior ao bloco desta palestra, 16h–18h; coffee 15h30–16h)
 **Recebido em:** 2026-09-08
 **Arquivo fonte:** `~/Downloads/Material CRO AI DAY.pdf`
 **Uso:** referência consultável — vocabulário e dados de CRO que as tasks 3, 4, 5, 7, 8, 12 e 13 devem citar literalmente, sem parafrasear.
@@ -215,4 +215,4 @@ Estudo da CRO Brasil: recorte observacional de **179 diagnósticos**, pontuados 
 
 > "O próximo desafio não é usar o Claude. É transformá-lo em parte do seu processo de CRO."
 
-**GANCHO DE ABERTURA DO BLOCO DAS 15h** — usar esta frase para abrir o módulo da tarde (esta palestra, `05-imersao-cro`), amarrando com o encerramento do bloco da Taciana (14h–15h).
+**GANCHO DE ABERTURA DO BLOCO DAS 16h** — usar esta frase para abrir o módulo da tarde (esta palestra, `05-imersao-cro`), amarrando com o encerramento do bloco da Taciana (14h–15h30).
