@@ -1,10 +1,31 @@
 # Pacote de skills — Imersão CRO com Claude
 
-Sete skills, três cadeiras, duas camadas. Este documento é o que você leva
-para casa: se perdeu o dia da imersão, dá para reinstalar tudo sozinho lendo
-só este arquivo.
+> # ⚠️ MATERIAL DE REFERÊNCIA DO FACILITADOR — NÃO É INSTRUÇÃO PARA O ALUNO
+>
+> **Este arquivo descreve o desenho v1 do workshop, que foi substituído.** Ele
+> continua no repositório porque o inventário de skills e as notas sobre a
+> fronteira Desktop × Claude Code seguem úteis para quem prepara a aula. Nada
+> aqui deve ser entregue, projetado ou seguido pelo aluno do dia 14/09.
+>
+> **O que mudou da v1 para a v2:**
+>
+> | Este arquivo diz (v1) | O que vale de verdade (v2) |
+> |---|---|
+> | "Sete skills, três cadeiras" | **Uma** skill — a do processo de CRO da empresa do próprio aluno, escrita por ele |
+> | Instalar as 7 skills em `~/.claude/skills/` | O aluno instala **um** plugin (`skill-creator`) e **uma** skill (`valida-skill-cro`) |
+> | Copiar `data/` e rodar `duckdb` | **DuckDB não vai para a máquina de ninguém.** É cache interno do `gmp-cli`, stack do facilitador |
+> | Colar instruções no Claude Desktop | Ninguém instala nada no Desktop. O bloco da manhã é sem ferramenta |
+> | Tese das "cadeiras" | Tese: o que aprender **antes** do Claude + a receita (ingredientes e modo de preparo) |
+>
+> **A fonte de verdade para o aluno é `05-imersao-cro/instalacao.md`** (o que
+> instalar) e **`05-imersao-cro/handout.md`** (o que fazer em aula). Onde este
+> arquivo contradiz um dos dois, os dois vencem.
+>
+> As skills em `skills/code/` que não são o `valida-skill-cro` ficam como
+> repertório do facilitador: viram demo se sobrar tempo, não entram como
+> entregável.
 
-## O mapa
+## O mapa (v1 — inventário, não roteiro)
 
 | Cadeira | Skill | Desktop | Claude Code |
 |---|---|---|---|
@@ -44,7 +65,7 @@ Project do Desktop não leem arquivo, não rodam SQL e não escrevem no disco.**
 Se seu fluxo de CRO depende de dado real, a camada certa é Claude Code, não
 Desktop.
 
-## Instalação no Claude Desktop
+## Instalação no Claude Desktop *(v1 — não acontece no evento de 14/09)*
 
 1. Abrir Claude Desktop → **Projects** → criar projeto "CRO".
 2. Em **Instruções do projeto**, colar o conteúdo de `skills/desktop/<skill>.md`
@@ -60,7 +81,7 @@ Desktop.
    e não escrevem no disco. Tudo que a skill precisa (URL, print, achado,
    lista de hipóteses) você cola na própria conversa.
 
-## Instalação no Claude Code
+## Instalação no Claude Code *(v1 — o aluno instala só o `valida-skill-cro`; ver `handout.md`, D.3)*
 
 ```bash
 mkdir -p ~/.claude/skills/
@@ -78,7 +99,7 @@ Get-ChildItem "$HOME\.claude\skills\" | Where-Object { $_.Name -match 'morys|hip
 
 Esperado: as 7 skills listadas.
 
-## Dataset
+## Dataset *(v1 — máquina do facilitador apenas; o aluno não instala DuckDB)*
 
 ```bash
 cp -r 05-imersao-cro/data ./data
