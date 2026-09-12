@@ -50,18 +50,26 @@ saber que houve corte.
 - **120 min — o alvo.** Tudo roda como escrito. Se sobrar minuto no fim de C, ele vai
   para D, não para B.
 - **100 min.** B perde a comparação CLI vs MCP e o tour de features (`/loop`,
-  `/schedule`, remote control) — fica só abrir, custo de prompt e o primeiro prompt.
-  C perde a dissecação linha a linha do exemplo e os hooks viram uma tela só: "existem,
-  servem para isso, o link está no grupo."
+  `/schedule`, remote control) — fica abrir, custo de prompt, **a instalação do plugin
+  do Skill Creator (não corta)** e o primeiro prompt. C perde a dissecação linha a linha
+  do exemplo e os hooks viram uma tela só: "existem, servem para isso, o link está no
+  grupo."
 - **80 min.** B e C deixam de ser blocos separados. Vira **um bloco único de 15 min**:
-  abrir o Claude Code, mostrar o `.md` de exemplo na tela e nomear as três partes da
-  receita (ingredientes, modo de preparo, output). Hooks e guardrails saem do palco e
-  viram link no grupo de WhatsApp. **A e D ficam intactos** — A é a autoridade do
-  facilitador, D é o que o aluno leva para casa.
+  abrir o Claude Code, **instalar o plugin do Skill Creator com a sala (não corta —
+  cabe primeiro, o resto se ajusta ao que sobrar)**, mostrar o `.md` de exemplo na tela
+  e nomear as três partes da receita (ingredientes, modo de preparo, output). Hooks e
+  guardrails saem do palco e viram link no grupo de WhatsApp. **A e D ficam intactos** —
+  A é a autoridade do facilitador, D é o que o aluno leva para casa.
 
 **Ordem de corte, declarada:** B comprime primeiro, depois C, depois B e C fundem.
 **A e D nunca caem.** Se a Taciana estourar além dos 40 min (palco às 16h40+), não
 comprimir A nem D: cortar o Fechamento para 2 min e avisar a produção.
+
+**A instalação do plugin do Skill Creator, dentro de B, também nunca cai** — nos três
+cenários, inclusive no B+C fundido de 80 min. Sem ela o exercício do bloco D não
+acontece, então ela tem a mesma prioridade de A e D. O espaço para ela sai de conteúdo
+de B que já era opcional em qualquer cenário (a comparação CLI vs MCP): ver seção do
+Bloco B.
 
 **Se sobrar tempo** (ela terminar antes das 16h00): B e C voltam ao alvo e o excedente
 vai todo para D — é onde o tempo extra rende mais, porque é lá que o aluno trava.
@@ -301,9 +309,10 @@ atrasar, o corte sai de B, nunca daqui.
 
 ## Objetivo
 
-O aluno abre o Claude Code pela primeira vez, entende custo e controle de prompt, e
-manda o primeiro prompt. Nada além disso. O aluno instala **só o Claude Code** — sem
-DuckDB, sem Python, sem clone de repositório.
+O aluno abre o Claude Code pela primeira vez, entende custo e controle de prompt,
+**instala o plugin do Skill Creator com o facilitador** e manda o primeiro prompt. Nada
+além disso. O aluno instala **só o Claude Code e este plugin** — sem DuckDB, sem
+Python, sem clone de repositório.
 
 Fala dele em 16/07, sobre o próprio desconforto com o momento em que isso acontece:
 
@@ -313,6 +322,17 @@ Fala dele em 16/07, sobre o próprio desconforto com o momento em que isso acont
 
 Isso é contexto para o facilitador, não fala de palco. O efeito prático: **assumir que
 ninguém abriu antes** e não pressupor nada.
+
+**Por que o plugin entra aqui e não no intervalo:** o `/skill-creator` — usado no bloco
+D, o exercício do dia — não vem instalado por padrão com o Claude Code; é um plugin
+separado. Se cada aluno instalasse sozinho no intervalo, uma falha (por exemplo, alguém
+digitando a forma abreviada do comando, que pode tentar autenticação por SSH e falhar
+sem chave configurada) passaria em silêncio, espalhada pela sala, e só apareceria às
+17h25, quando o D começa. Aqui, ao vivo, o facilitador roda com todo mundo, vê quem
+travou na hora e resolve — por isso este passo é tratado como **B.2, com a mesma
+prioridade dos blocos A e D: não cai em nenhum cenário**, nem no B+C fundido de 80 min.
+No `05-imersao-cro/instalacao.md` isso aparece como Passo 6, opcional e de
+adiantamento — quem já rodou no intervalo só vê a confirmação de novo, sem problema.
 
 ## Na tela
 
@@ -325,8 +345,9 @@ mencionar. O link de instalação já está no grupo de WhatsApp desde antes do 
 claude
 ```
 
-Esperar a sala acompanhar. Depois, o primeiro prompt de verdade — algo que produza
-saída em texto, sem depender de conexão a fonte de dado externa.
+Esperar a sala acompanhar. Depois, os dois comandos do plugin (ver B.2 abaixo). Depois,
+o primeiro prompt de verdade — algo que produza saída em texto, sem depender de conexão
+a fonte de dado externa.
 
 Depois, para mostrar o menu de recursos:
 
@@ -346,7 +367,38 @@ O enquadramento, definido em 16/07:
 > `>>` **"galera, a gente precisa garantir com relação a custo. Pô, como que a gente faz
 > para poder orientar e garantir o custo de prompt?"**
 
-### B.2 — As features, em lista (7 min)
+### B.2 — Instalar o plugin do Skill Creator, todos juntos (4 min · NUNCA CORTA)
+
+A fala de transição: *"antes de seguir, um passo técnico rápido, e eu quero ver todo
+mundo rodando comigo — vocês vão precisar disso lá no fim da tarde."*
+
+**O que a turma digita**, os dois comandos, um de cada vez, exatamente como estão:
+
+```
+claude plugin marketplace add https://github.com/anthropics/claude-plugins-official
+```
+
+Esperar a sala acompanhar. O sinal de que funcionou aparece na tela de cada um:
+`✔ Successfully added marketplace: claude-plugins-official` (ou, para quem já rodou no
+intervalo — Passo 6 do guia —, `already on disk`; os dois estão certos). Depois:
+
+```
+claude plugin install skill-creator@claude-plugins-official
+```
+
+Sinal de sucesso: `✔ Successfully installed plugin: skill-creator@claude-plugins-official`
+(ou `already installed`, mesma coisa). Os dois comandos são idempotentes — rodar de novo
+não quebra nada, é por isso que dá para rodar com a sala toda ao mesmo tempo, sem
+perguntar antes quem já adiantou.
+
+**Como confere que a sala inteira conseguiu, sem parar o bloco:** perguntar em voz
+alta, "quem viu as duas mensagens de sucesso, levanta a mão" — não é checagem
+máquina a máquina, é leitura rápida da sala. Quem não levantar a mão é a saída da linha
+3 da tabela de pontos de trava, mais abaixo: segue o bloco sem parar, e resolve em
+dupla no bloco D. **Não depurar erro de instalação individual aqui** — mesmo raciocínio
+já usado para erro de login: mão levantada, segue o roteiro, resolve durante o D.
+
+### B.3 — As features, em lista (7 min)
 
 Ele mesmo definiu o inventário a cobrir:
 
@@ -373,7 +425,7 @@ Mostrar `/loop` e `/schedule` como estão no `/`:
 > aconselho vocês utilizarem nesse primeiro momento, mas ele é o comando que vai evitar
 > com que você fique apertando y e confirmando toda hora."**
 
-### B.3 — Por que terminal e não web (7 min)
+### B.4 — Por que terminal e não web (3 min)
 
 > `>>` **"Muita gente fica copiando e colando o texto ainda, jogando pro chat GPT,
 > deixando ele analisar, copia, cola, volta. Isso daí é um fluxo meio ruim, porque quando
@@ -381,14 +433,15 @@ Mostrar `/loop` e `/schedule` como estão no `/`:
 > uso de um MCP local, que pode, por exemplo, abrir um navegador, ou usar recursos locais
 > da máquina que você tá trabalhando."**
 
-Se houver tempo e a sala aguentar, o ponto de CLI vs MCP (é o primeiro a cair na
-compressão):
+O aparte de CLI vs MCP que cabia aqui saiu do tempo cronometrado — é o que abriu espaço
+para o B.2. Se sobrar tempo de verdade (só no cenário de 120 min, e só se B.2 não
+comeu o excedente), soltar como bônus:
 
 > `>>` **"o MCP na maioria das vezes ele acaba trazendo uma visão onde ele vai gastar
 > mais tokens do que a maioria das conexões de dados que a gente pode fazer através de
 > CLI. Então, ele acaba sendo um pouco mais caro em consumo de tokens."**
 
-### B.4 — Git, em 60 segundos (3 min)
+### B.5 — Git, em 60 segundos (3 min)
 
 Não ensinar Git. Só nomear por que existe:
 
@@ -404,15 +457,21 @@ Não ensinar Git. Só nomear por que existe:
 | Risco | Saída |
 |---|---|
 | Aluno não conseguiu instalar no coffee | Ele acompanha B e C **sem máquina**, de olho na tela. No bloco D trabalha em dupla com quem instalou — a permissão de dupla é explícita e vem do desenho do exercício |
+| Aluno instalou o Claude Code mas o plugin do Skill Creator falhou no B.2 (erro de SSH, wifi, ou não levantou a mão a tempo) | Não parar o bloco. Ele acompanha C normalmente. No bloco D, dupla com quem tem o plugin funcionando, enquanto o facilitador (ou o próprio aluno, se der tempo) tenta de novo em paralelo — ver linha 3 dos pontos de trava |
 | Wifi do local cai | B e C rodam na máquina do facilitador, que é a única que precisa de rede. D é escrita de Markdown — funciona offline até a chamada do Skill Creator. Se a rede não voltar, ver "pontos de trava" |
 | Sala trava em erro de login/conta | Não debugar caso a caso no palco. Pedir para levantar a mão, seguir o roteiro, e resolver as mãos levantadas durante o bloco D, que é trabalho individual |
 | Alguém pergunta de DuckDB / gmp-cli / Copilot | Responder que é o stack do facilitador, não do exercício de hoje, e que o link vai para o grupo. **Não instalar nada na máquina de ninguém** |
 
 ## Compressão
 
-- **Para 15 min:** cortar B.3 inteiro (CLI vs MCP e web vs terminal) e B.4. Fica abrir,
-  custo de prompt, `/`, primeiro prompt.
-- **Para 5 min (cenário 80, fundido com C):** só `claude`, o primeiro prompt e a frase
+O B.2 (plugin) **nunca corta** — nem em minutos, nem em conteúdo — em nenhum dos
+cenários abaixo, pelo mesmo motivo que A e D não cortam: sem ele, o bloco D não tem o
+que fazer.
+
+- **Para 15 min:** cortar B.4 inteiro (CLI vs MCP e web vs terminal) e B.5 (Git). Fica
+  abrir, custo de prompt, **o plugin do B.2**, `/`, e o primeiro prompt.
+- **Para 5 min (cenário 80, fundido com C):** só `claude`, **o plugin do B.2** — os dois
+  comandos, sem a fala de transição — o primeiro prompt e a frase
   "isso aqui é onde a receita roda". Features, remote control, danger skip permission e
   Git saem do palco e viram mensagem no grupo.
 
@@ -575,9 +634,11 @@ registra a URL.]`
 - **Para 20 min:** cortar C.3 (a distinção skill/command/hook vira uma frase dentro de
   C.4) e reduzir C.4 a **uma tela**: hooks existem, bloqueiam `rm -rf` e `drop table`, o
   link está no grupo. C.1 e C.2 ficam intactos — são o que sustenta o bloco D.
-- **Cenário 80:** C não existe como bloco. Dentro dos 15 min fundidos com B, sobra apenas
-  a nomeação das três partes da receita (ingredientes · modo de preparo · output) sobre o
-  arquivo na tela. Hooks saem inteiros do palco.
+- **Cenário 80:** C não existe como bloco. Dentro dos 15 min fundidos com B, a
+  instalação do plugin do Skill Creator (B.2) roda primeiro e não corta; sobra o
+  restante do tempo para abrir o Claude Code e nomear as três partes da receita
+  (ingredientes · modo de preparo · output) sobre o arquivo na tela. Hooks saem
+  inteiros do palco.
 
 ---
 
@@ -651,6 +712,14 @@ O Skill Creator, com o argumento que já foi plantado no C.2:
 > `>>` **"é usar o skill creator, porque ele vai seguir um passo a passo que minimamente
 > vai trazer um equilíbrio maior sobre o teu time criando várias skills, sabe? Vai ter uma
 > metodologia ali por trás que o [Claude] vai seguir."**
+
+**Antes de soltar a sala no `/skill-creator`, uma pergunta rápida em voz alta:** "o
+comando `/skill-creator` aparece quando vocês digitam `/`? Quem não instalou o plugin
+no B.2, levanta a mão de novo." **Não presumir que o comando já está lá** — foi
+instalado ao vivo no B.2, mas quem não conseguiu naquele momento (wifi, erro de SSH,
+não levantou a mão a tempo) ainda não tem `/skill-creator` disponível. Quem levantar a
+mão aqui vai de dupla com quem tem, exatamente como já vale para quem não instalou o
+Claude Code — não para o bloco para reinstalar.
 
 **O que o facilitador digita ao vivo**, na máquina dele, uma vez, antes de soltar a sala:
 
@@ -767,6 +836,10 @@ menção ao Copilot aparece só na live pública de 22/07. Decidir com ela antes
 
 - [ ] **Ensaiar o bloco D ponta a ponta na máquina do dia** — descrever, `/skill-creator`,
       `/valida-skill-cro`. Cronometrar. É o único bloco que não tem plano de corte.
+- [ ] **Ensaiar o B.2 (instalação do plugin) na máquina do dia, do zero** — rodar os dois
+      comandos (`claude plugin marketplace add ...` e `claude plugin install
+      skill-creator@claude-plugins-official`) e cronometrar quanto tempo leva de
+      verdade, incluindo a espera pela mensagem de sucesso.
 - [ ] **Calibrar o validador com três exemplos:** uma skill boa, uma vaga, uma que
       descreve ferramenta em vez de processo. Conferir se a nota separa os três.
 - [ ] Confirmar com a Taciana **o horário real de entrega do palco** e anotar aqui:
@@ -788,6 +861,10 @@ menção ao Copilot aparece só na live pública de 22/07. Decidir com ela antes
 - [ ] Fonte do terminal aumentada e testada do fundo da sala.
 - [ ] `/skill-creator` e `/valida-skill-cro` testados **na máquina do dia**, na rede do
       local.
+- [ ] **Os dois comandos do plugin do Skill Creator testados na rede do local**
+      (não só na rede de casa/escritório) — wifi de local de evento costuma ser mais
+      lento ou filtrado, e é isso que vai rodar ao vivo com 50 pessoas ao mesmo tempo
+      no B.2.
 - [ ] O `.md` de exemplo aberto e pronto para projetar.
 - [ ] Tela das **quatro perguntas guia** do bloco D pronta e testada no projetor.
 - [ ] Cronômetro visível para a sala.
@@ -810,14 +887,15 @@ menção ao Copilot aparece só na live pública de 22/07. Decidir com ela antes
 |---|---|---|---|
 | 1 | **Taciana estoura o horário** | Palco entregue depois das 16h00 | Escolher o cenário na tabela da seção 1. B comprime, depois C, depois fundem. A e D não caem |
 | 2 | **Aluno não instalou o Claude Code** | Mão levantada no início de B | Acompanha A, B e C sem máquina. Em D, dupla com quem instalou. Não parar o bloco para instalar |
-| 3 | **Wifi cai** | Prompt não responde na máquina do facilitador | A não depende de rede. B e C rodam na tela do facilitador. D: o aluno escreve o `.md` à mão (plano B do D.2) e o validador vai para casa |
-| 4 | **Skill Creator não se comporta como no ensaio** | Saída diferente, loop travado | Caminho manual: o `.md` à mão com ingredientes + modo de preparo + output. Anunciar como plano previsto |
-| 5 | **Validador não roda na máquina do aluno** | Comando não encontrado | Facilitador roda na máquina dele com 2–3 voluntários, na tela. Os outros se autoavaliam pelos critérios |
-| 6 | **Validador dá nota alta para skill ruim** | Nota 8+ numa skill sem cargos nem handoffs | Discordar em voz alta e apontar a lacuna. A honestidade vale mais que a ferramenta |
-| 7 | **Aluno não sabe descrever o processo da empresa** | Tela em branco depois de 5 min no D.1 | "Descreva o que existe hoje, mesmo informal." As quatro perguntas são o esqueleto. Dupla como saída |
-| 8 | **Sala trava em debate longo (GA4, ferramenta, framework)** | Uma pessoa dominando 3+ min | Reconhecer, dizer que é assunto de curso inteiro, devolver ao ponto. Retomar a linha do bloco |
-| 9 | **O bloco D vai começar com menos de 30 min** | Relógio | Cortar o Fechamento para 2 min e avisar a produção. D não encolhe |
-| 10 | **Material de case indisponível (Duty Free)** | Sem número, sem hipótese, sem resultado | Contar como menção de 20 segundos e ir para Ering, que tem material. Não inventar número |
+| 3 | **Aluno sem o plugin do Skill Creator quando o exercício (D) começa** | `/skill-creator` não aparece no `/` da máquina dele; mão levantada na checagem do B.2 ou no início do D.2 | Fazer em dupla com quem tem o plugin instalado, enquanto instala o dele em paralelo (os dois comandos do B.2, de novo). Não parar o bloco D para reinstalar — a dupla já resolve a entrega da nota |
+| 4 | **Wifi cai** | Prompt não responde na máquina do facilitador | A não depende de rede. B e C rodam na tela do facilitador. D: o aluno escreve o `.md` à mão (plano B do D.2) e o validador vai para casa |
+| 5 | **Skill Creator não se comporta como no ensaio** | Saída diferente, loop travado | Caminho manual: o `.md` à mão com ingredientes + modo de preparo + output. Anunciar como plano previsto |
+| 6 | **Validador não roda na máquina do aluno** | Comando não encontrado | Facilitador roda na máquina dele com 2–3 voluntários, na tela. Os outros se autoavaliam pelos critérios |
+| 7 | **Validador dá nota alta para skill ruim** | Nota 8+ numa skill sem cargos nem handoffs | Discordar em voz alta e apontar a lacuna. A honestidade vale mais que a ferramenta |
+| 8 | **Aluno não sabe descrever o processo da empresa** | Tela em branco depois de 5 min no D.1 | "Descreva o que existe hoje, mesmo informal." As quatro perguntas são o esqueleto. Dupla como saída |
+| 9 | **Sala trava em debate longo (GA4, ferramenta, framework)** | Uma pessoa dominando 3+ min | Reconhecer, dizer que é assunto de curso inteiro, devolver ao ponto. Retomar a linha do bloco |
+| 10 | **O bloco D vai começar com menos de 30 min** | Relógio | Cortar o Fechamento para 2 min e avisar a produção. D não encolhe |
+| 11 | **Material de case indisponível (Duty Free)** | Sem número, sem hipótese, sem resultado | Contar como menção de 20 segundos e ir para Ering, que tem material. Não inventar número |
 
 ---
 

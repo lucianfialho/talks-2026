@@ -1,10 +1,12 @@
 # Guia de instalação — Claude Code
 
-Este guia é para o intervalo das 15h30. Leva uns 10 minutos se tudo correr
-bem. Se travar em algum passo, procure a frase exata que apareceu na sua
-tela na tabela "Quando der errado", mais abaixo. Se mesmo assim não sair do
-lugar, leia o quadro **"Não trave aqui"** no fim deste guia e siga para o
-resto da tarde sem culpa.
+Este guia é para o intervalo das 15h30. Os passos 0 a 5 levam uns 10 minutos
+se tudo correr bem — são esses que valem a pena terminar antes do fim do
+intervalo. O Passo 6, no fim do guia, é opcional: só faça se sobrar tempo.
+Se travar em algum passo, procure a frase exata que apareceu na sua tela na
+tabela "Quando der errado", mais abaixo. Se mesmo assim não sair do lugar,
+leia o quadro **"Não trave aqui"** no fim deste guia e siga para o resto da
+tarde sem culpa.
 
 ## Antes de tudo — o que você precisa ter
 
@@ -137,6 +139,55 @@ por exemplo, a Área de Trabalho. Não precisa estar dentro de nenhuma pasta
 específica nem ter nome fixo: quando chegar a hora de usá-lo em aula, você
 aponta o caminho desse arquivo para o Claude Code.
 
+## Passo 6 (opcional) — adiantar a instalação do Skill Creator
+
+**Este passo é opcional.** Ele **não** é pré-requisito para nada do que vem
+antes das 16h. Se sobrar tempo aqui no intervalo, você adianta e chega no
+Bloco B da tarde na frente dos outros. **Se não sobrar tempo, sem problema
+nenhum** — o facilitador roda isso junto com a turma inteira, ao vivo, logo
+no início do Bloco B. Ninguém trava por não ter feito este passo agora.
+
+O Skill Creator é uma ferramenta extra que vai ser usada só no fim da tarde,
+no exercício principal. Ela não vem instalada junto com o Claude Code —
+precisa ser adicionada à parte, com dois comandos.
+
+Com o terminal ainda aberto, digite e aperte `Enter`:
+
+```
+claude plugin marketplace add https://github.com/anthropics/claude-plugins-official
+```
+
+Espere aparecer:
+
+```
+✔ Successfully added marketplace: claude-plugins-official
+```
+
+(Se alguém já rodou isso antes na mesma máquina, pode aparecer `already on
+disk` em vez disso — também está certo, não precisa fazer nada.)
+
+Depois, digite e aperte `Enter`:
+
+```
+claude plugin install skill-creator@claude-plugins-official
+```
+
+Espere aparecer:
+
+```
+✔ Successfully installed plugin: skill-creator@claude-plugins-official
+```
+
+(Se já estiver instalado, aparece `already installed` em vez disso — também
+está certo.) Rodar os dois comandos de novo não tem problema nenhum: eles
+não fazem nada de errado se já estiver tudo pronto.
+
+**Importante:** copie os comandos exatamente como estão acima, com o
+endereço completo começando em `https://`. Não digite uma versão
+resumida (só `anthropics/claude-plugins-official`, sem o `https://github.com/`
+na frente) — essa forma resumida pode falhar de um jeito diferente, veja a
+tabela de erros abaixo.
+
 ## Quando der errado — tabela de erros
 
 Compare o que apareceu na sua tela com a coluna da esquerda. Nas linhas
@@ -154,6 +205,8 @@ nas versões mais comuns.
 | Uma frase com **claude** e **"não é reconhecido"** (win) | Fechar e reabrir o terminal. |
 | `npm ERR! network` | Wifi. Tentar de novo; se insistir, usar o 4G do celular. |
 | Login não abre o navegador | Copiar a URL que apareceu no terminal e colar no navegador. |
+| Uma frase com **"Permission denied"** e **"publickey"**, ao adicionar o marketplace | Você (ou alguém) digitou a versão resumida do comando do Passo 6, sem o `https://github.com/` na frente. Apague e digite de novo, copiando exatamente o bloco do Passo 6, começando em `https://`. |
+| Uma frase com **"not found in marketplace"**, ao instalar o `skill-creator` | O comando de adicionar o marketplace (o primeiro do Passo 6) não rodou com sucesso antes deste. Volte um comando, confira que apareceu a mensagem de sucesso dele, e só depois rode o comando de instalar de novo. |
 | Nenhuma linha acima bate com o que você está vendo | Não insista sozinho. Chame o facilitador e mostre a tela. |
 
 **Nota sobre o `sudo`:** se você precisar rodar o comando com `sudo`, ao
@@ -164,4 +217,6 @@ a senha do computador normalmente e aperte `Enter`.
 > **Não trave aqui.** Você já tem três skills funcionando no Claude Desktop e
 > elas cobrem a cadeira mais importante. Acompanhe as demos da segunda metade,
 > o material inteiro está no repositório, e a instalação você faz com calma
-> depois — o guia é este mesmo.
+> depois — o guia é este mesmo. **E o Passo 6 (o do Skill Creator) nem
+> precisa ser feito agora** — o facilitador roda ele com a sala inteira, ao
+> vivo, no início da parte da tarde.
