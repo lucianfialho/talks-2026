@@ -1,0 +1,1254 @@
+# **ð Observações**  
+
+ jul. 16, 2026
+
+## **Reunião em 16 de jul. de 2026 às 16:06 GMT-03:00**
+
+Registros da reunião [Transcrição](https://docs.google.com/document/d/1EaDWosFEEW9kpUWu3tNG4YcJDCrFHjCoeHEPnwZo4Qc/edit?usp=drive_web&tab=t.tddcg0i8kvdh) [Gravação](https://drive.google.com/file/d/1nDJEY8aUwW0vnXXT1JdHBxZGNuhmR8U8/view?usp=drive_web) 
+
+  
+  
+
+### **Resumo**
+
+Definição da metodologia do curso de CRO e alinhamento da estratégia operacional para sustentação de ferramentas digitais.  
+  
+**Estrutura e metodologia educacional**  
+Definida sessão de 4 horas focada em CRO dividida entre conceitos teóricos e implementação prática com ferramentas técnicas.  
+  
+**Operações e alocação estratégica**  
+A equipe revisou a carga de 30 horas mensais para sustentação de ferramentas e a contratação de suporte operacional.  
+  
+**Branding e eventos estratégicos**  
+Discussões abordaram o alinhamento da marca em materiais promocionais e o mapeamento de parcerias para eventos executivos.
+
+  
+  
+
+### **Próximas etapas**
+
+  - \[Taciana Serafim\] Definir estrutura curso: Mapear cargos e processos de otimizacao de conversao. Enviar conteudo para validacao.
+  - \[Taciana Serafim\] Atualizar material visual: Localizar fotos do evento EDX. Substituir imagens obsoletas nos materiais do treinamento.
+  - \[Taciana Serafim\] Atualizar biografia: Utilizar a biografia da home page para configurar o novo material do curso. Atualizar o texto de apresentacao.
+  - \[Taciana Serafim\] Enviar email VWO: Encaminhar informacoes solicitadas via email para o fornecedor VWO. Finalizar o processo de comunicacao pendente.
+  - \[Lucian Fialho\] Investigar email: Verificar problemas tecnicos na conta de email. Garantir a solucao de falhas de comunicacao reportadas.
+  - \[Taciana Serafim, Lucian Fialho\] Criar chat projeto: Criar um topico de chat compartilhado para o projeto. Utilizar o espaco para envio de links e comunicacoes futuras.
+  - \[Taciana Serafim\] Contatar Noma Produções: Verificar condições de desconto e serviços para organização de eventos.
+  - \[Lucian Fialho\] Enviar contato WhatsApp: Compartilhar os dados da Noma Produções para facilitar o atendimento direto.
+
+  
+  
+
+### **Detalhes**
+
+  - **Estrutura e metodologia do curso**: Lucian Fialho e Taciana Serafim planejam a dinâmica da sessão, definindo blocos de 30 minutos com interações constantes, como quizzes e exercícios, para manter o engajamento dos alunos durante o período de 4 horas ([00:00:00](https://docs.google.com/document/d/1EaDWosFEEW9kpUWu3tNG4YcJDCrFHjCoeHEPnwZo4Qc/edit?ouid=115331458253527809065#heading=h.d9cy808reggy)). Lucian enfatiza que é fundamental realizar uma introdução ao CRO antes de abrir as ferramentas técnicas, garantindo que o aprendizado seja prático ([00:01:34](https://docs.google.com/document/d/1EaDWosFEEW9kpUWu3tNG4YcJDCrFHjCoeHEPnwZo4Qc/edit?ouid=115331458253527809065#heading=h.z7k3fs1u04yh)). O objetivo final é que os participantes construam seu próprio processo e cheguem a um entregável de produção ([00:00:55](https://docs.google.com/document/d/1EaDWosFEEW9kpUWu3tNG4YcJDCrFHjCoeHEPnwZo4Qc/edit?ouid=115331458253527809065#heading=h.z4ylwo4yq2sp)) ([00:02:25](https://docs.google.com/document/d/1EaDWosFEEW9kpUWu3tNG4YcJDCrFHjCoeHEPnwZo4Qc/edit?ouid=115331458253527809065#heading=h.1llw2pccrcje)).
+  - **Cronograma e fluxo de atividades**: A sessão ocorrerá das 14:00 às 18:00, com uma pausa para o coffee break das 15:30 às 16:00. O período das 14:00 às 15:30 será dedicado exclusivamente à contextualização e conceitos, sem uso de ferramentas, enquanto a partir das 16:00 o foco será na implementação prática ([00:03:15](https://docs.google.com/document/d/1EaDWosFEEW9kpUWu3tNG4YcJDCrFHjCoeHEPnwZo4Qc/edit?ouid=115331458253527809065#heading=h.34h5qhfjks7p)) ([00:06:05](https://docs.google.com/document/d/1EaDWosFEEW9kpUWu3tNG4YcJDCrFHjCoeHEPnwZo4Qc/edit?ouid=115331458253527809065#heading=h.ve98l4y7x77y)).
+  - **Divisão de responsabilidades**: Taciana Serafim liderará a primeira parte da aula, das 14:00 às 15:30, para garantir que o foco no conceito de CRO seja mantido sem interrupções técnicas ([00:07:03](https://docs.google.com/document/d/1EaDWosFEEW9kpUWu3tNG4YcJDCrFHjCoeHEPnwZo4Qc/edit?ouid=115331458253527809065#heading=h.1swb3m56t9b0)). Lucian Fialho assumirá a segunda parte, das 16:00 às 18:00, implementando a metodologia de CRO utilizando ferramentas como o Cloud Code ([00:07:57](https://docs.google.com/document/d/1EaDWosFEEW9kpUWu3tNG4YcJDCrFHjCoeHEPnwZo4Qc/edit?ouid=115331458253527809065#heading=h.gc9jfa5jww1l)).
+  - **Metodologia técnica e ferramentas**: Lucian planeja ensinar o uso de ferramentas ("tooling") e como configurar "guardrails" no Cloud Code. O plano inclui conectar o conteúdo técnico à metodologia de CRO, utilizando habilidades específicas para validação de resultados. Lucian reforça a necessidade de verificar o entendimento dos alunos frequentemente durante as explicações técnicas ([00:07:57](https://docs.google.com/document/d/1EaDWosFEEW9kpUWu3tNG4YcJDCrFHjCoeHEPnwZo4Qc/edit?ouid=115331458253527809065#heading=h.gc9jfa5jww1l)) ([00:09:33](https://docs.google.com/document/d/1EaDWosFEEW9kpUWu3tNG4YcJDCrFHjCoeHEPnwZo4Qc/edit?ouid=115331458253527809065#heading=h.icpv77pvzn5w)).
+  - **Implementação de IA e automação**: Lucian exemplifica a metodologia citando um trabalho de desenvolvimento de uma vertical baseada 100% em IA, utilizando geradores de texto, imagem e landing pages (como o Copilot) ([00:10:25](https://docs.google.com/document/d/1EaDWosFEEW9kpUWu3tNG4YcJDCrFHjCoeHEPnwZo4Qc/edit?ouid=115331458253527809065#heading=h.3ukd5ktl0u6c)) ([00:12:32](https://docs.google.com/document/d/1EaDWosFEEW9kpUWu3tNG4YcJDCrFHjCoeHEPnwZo4Qc/edit?ouid=115331458253527809065#heading=h.r49hja8u688h)). O foco é criar uma estrutura onde analistas geram inputs sem necessidade de intervenção manual excessiva, utilizando as "skills" do Cloud para isso ([00:13:34](https://docs.google.com/document/d/1EaDWosFEEW9kpUWu3tNG4YcJDCrFHjCoeHEPnwZo4Qc/edit?ouid=115331458253527809065#heading=h.506ldl8jvzjr)).
+  - **Abordagem pedagógica e autenticidade**: Ambos discutem a importância da autenticidade, evitando adotar a postura de "guru" ([00:14:43](https://docs.google.com/document/d/1EaDWosFEEW9kpUWu3tNG4YcJDCrFHjCoeHEPnwZo4Qc/edit?ouid=115331458253527809065#heading=h.a9czdbqhgmq3)) ([00:22:49](https://docs.google.com/document/d/1EaDWosFEEW9kpUWu3tNG4YcJDCrFHjCoeHEPnwZo4Qc/edit?ouid=115331458253527809065#heading=h.nbru9m6kfi9b)). Taciana Serafim reflete sobre o desenvolvimento profissional através da colaboração e a necessidade de revisar constantemente o material didático com base na experiência adquirida ([00:15:36](https://docs.google.com/document/d/1EaDWosFEEW9kpUWu3tNG4YcJDCrFHjCoeHEPnwZo4Qc/edit?ouid=115331458253527809065#heading=h.yw78j464plvr)).
+  - **Processo de CRO**: Taciana utilizará a "molécula da CXL" como referência para explicar o processo de CRO, abrangendo coleta de dados, análise, hipóteses e testes AB ([00:17:12](https://docs.google.com/document/d/1EaDWosFEEW9kpUWu3tNG4YcJDCrFHjCoeHEPnwZo4Qc/edit?ouid=115331458253527809065#heading=h.xtzrleejn58s)). Como exercício final, os alunos deverão definir o processo de CRO de suas próprias empresas e criar uma "skill" que consolide esse entendimento, conectando o conceito à prática ([00:18:15](https://docs.google.com/document/d/1EaDWosFEEW9kpUWu3tNG4YcJDCrFHjCoeHEPnwZo4Qc/edit?ouid=115331458253527809065#heading=h.82j1ktdqhgoq)).
+  - **Documentação e registro de raciocínio**: Lucian detalha o uso de documentos markdown e moodboards para registrar a linha de raciocínio e criar uma base de memória e contexto ([00:20:08](https://docs.google.com/document/d/1EaDWosFEEW9kpUWu3tNG4YcJDCrFHjCoeHEPnwZo4Qc/edit?ouid=115331458253527809065#heading=h.q5xag0lesh42)). Isso permitirá que os alunos estruturem suas metodologias dentro de um conjunto de habilidades ("skill set") já configurado ([00:21:06](https://docs.google.com/document/d/1EaDWosFEEW9kpUWu3tNG4YcJDCrFHjCoeHEPnwZo4Qc/edit?ouid=115331458253527809065#heading=h.5xyln5pzpglk)).
+  - **Administração e branding**: Discussão sobre a atualização de fotos para materiais promocionais, com preferência por imagens do RDX ou da comunidade CRO, e alinhamento de marca com o site da MB ([00:22:10](https://docs.google.com/document/d/1EaDWosFEEW9kpUWu3tNG4YcJDCrFHjCoeHEPnwZo4Qc/edit?ouid=115331458253527809065#heading=h.l6v18amcrg7j)). Taciana se encarregará de atualizar a biografia baseada no conteúdo do site ([00:22:49](https://docs.google.com/document/d/1EaDWosFEEW9kpUWu3tNG4YcJDCrFHjCoeHEPnwZo4Qc/edit?ouid=115331458253527809065#heading=h.nbru9m6kfi9b)).
+  - **Infraestrutura digital e tagueamento**: Lucian e Taciana alinham a subida do site da MB, o tagueamento e a migração de domínios para o ambiente da Métricas Nossas. Lucian confirmou estar em contato com C e Igor para agilizar essas demandas e o suporte à extensão do Chrome ([00:24:41](https://docs.google.com/document/d/1EaDWosFEEW9kpUWu3tNG4YcJDCrFHjCoeHEPnwZo4Qc/edit?ouid=115331458253527809065#heading=h.3dygzvk8z6qm)) ([00:26:29](https://docs.google.com/document/d/1EaDWosFEEW9kpUWu3tNG4YcJDCrFHjCoeHEPnwZo4Qc/edit?ouid=115331458253527809065#heading=h.e8lww8yeun07)).
+  - **Alocação de recursos e contratação**: Foi estabelecida uma carga de trabalho de 30 horas mensais para a sustentação da extensão do Chrome e tarefas de marketing ([00:27:19](https://docs.google.com/document/d/1EaDWosFEEW9kpUWu3tNG4YcJDCrFHjCoeHEPnwZo4Qc/edit?ouid=115331458253527809065#heading=h.phgejj2gylhq)). Lucian também comentou sobre seus esforços para contratar um colaborador para apoiar a Métricas Nossas ([00:28:00](https://docs.google.com/document/d/1EaDWosFEEW9kpUWu3tNG4YcJDCrFHjCoeHEPnwZo4Qc/edit?ouid=115331458253527809065#heading=h.7eizjfz2wxpq)).
+  - **Organização de eventos e experiências**: Avaliam a parceria com a Noma Hub/Pivo para organizar eventos, buscando formatos diferenciados que atraiam perfis executivos, como dinâmicas que fogem dos happy hours tradicionais ([00:29:33](https://docs.google.com/document/d/1EaDWosFEEW9kpUWu3tNG4YcJDCrFHjCoeHEPnwZo4Qc/edit?ouid=115331458253527809065#heading=h.3w8ptyg4qpy8)) ([00:31:30](https://docs.google.com/document/d/1EaDWosFEEW9kpUWu3tNG4YcJDCrFHjCoeHEPnwZo4Qc/edit?ouid=115331458253527809065#heading=h.ecsgwh8kogzl)). Taciana está mapeando locais adequados para essas ações, visando otimizar custos ([00:30:52](https://docs.google.com/document/d/1EaDWosFEEW9kpUWu3tNG4YcJDCrFHjCoeHEPnwZo4Qc/edit?ouid=115331458253527809065#heading=h.5wc9n9qh3l32)) ([00:32:28](https://docs.google.com/document/d/1EaDWosFEEW9kpUWu3tNG4YcJDCrFHjCoeHEPnwZo4Qc/edit?ouid=115331458253527809065#heading=h.wg0n8qhpe7a5)).
+  - **Logística pessoal e gestão do tempo**: A conversa termina com um relato sobre a gestão estratégica de cuidados familiares e tarefas domésticas, comparando a necessidade de planejamento antecipado com a logística aplicada aos projetos profissionais ([00:33:52](https://docs.google.com/document/d/1EaDWosFEEW9kpUWu3tNG4YcJDCrFHjCoeHEPnwZo4Qc/edit?ouid=115331458253527809065#heading=h.nwhwqguugmwd)).
+
+  
+  
+
+*Revise as anotações do Gemini para checar se estão corretas.* [*Confira dicas e saiba como o Gemini faz anotações*](https://support.google.com/meet/answer/14754931)
+
+*Como está a qualidade de* ***destas observações?*** [*Responda a uma breve pesquisa*](https://google.qualtrics.com/jfe/form/SV_9vK3UZEaIQKKE7A?confid=C8OV4QA_nGji5AvZQbZuDxITOAIIigIgABgFCA&detailid=standard&screenshot=false) *para nos dar seu feedback, incluindo o quanto as observações foram úteis para o que você precisa.****  
+***
+
+# **ð Transcrição***  
+*
+
+ jul. 16, 2026
+
+## **Reunião em 16 de jul. de 2026 às 16:06 GMT-03:00 - Transcrição**
+
+### **00:00:00**
+
+  
+
+**Lucian Fialho:** aí pra gente ver de novo, que aí a gente faz só um brainstorm aqui e aí a gente faz o que a gente quer na parte da tarde, p\*\*\*\*\*\*\*\* desse maluco e aproveita, tá gravando aí, tá ligado? É isso.
+
+**Taciana Serafim:** Ai, meu Deus do céu. Olha,
+
+**Lucian Fialho:** Ah,
+
+**Taciana Serafim:** eu trabalho,
+
+**Lucian Fialho:** uma coisa que eu faço,
+
+**Taciana Serafim:** mas eu me
+
+**Lucian Fialho:** uma coisa que a gente faz,
+
+**Taciana Serafim:** divirto.
+
+**Lucian Fialho:** eu e o Gustavo, é tipo assim, meio que fazer com que o conteúdo ele tenha meio que lapsos de 30 minutos de talk e um e alguma coisa para poder despertar a galera.
+
+**Taciana Serafim:** Uhum. Uhum.
+
+**Lucian Fialho:** Seja tipo assim uma dinâmica que por padrão ele vai me chamar para poder falar alguma coisa, ou seja, uma dinâmica que, p\*\*\*\*, ele vai dar um exercício, ele vai fazer um quiz no meio da parada. Eu eu eu aprendi isso com o Gustavo, acho que é fundamental para, tipo assim, a galera ficar 1 hora e meia sentada, porque assim, se a gente não pode abrir o cloud code para poder mostrar alguma coisa no terminal, eu acredito que a gente também não pode fazer 1 hora e meia de aula falando sobre o mesmo assunto,
+
+  
+  
+
+### **00:00:55**
+
+  
+
+**Taciana Serafim:** É,
+
+**Lucian Fialho:** que é um assunto que eles não dominam.
+
+**Taciana Serafim:** mas ele falou que pode. Você lembra, né, que ele falou que podia, que se podia.
+
+**Lucian Fialho:** Não, no terminal não.
+
+**Taciana Serafim:** Eu acho que eu acho que ele fala,
+
+**Lucian Fialho:** No terminal ele falou que não.
+
+**Taciana Serafim:** mas ele falou que ele não ia mostrar, mas que você podia ficar com essa parte.
+
+**Lucian Fialho:** Não, não, mas ele falou que no terminal não, ele falou que mostrar o cloud desktop.
+
+**Taciana Serafim:** É.
+
+**Lucian Fialho:** Tá tudo bem também.
+
+**Taciana Serafim:** Ah, tá bom.
+
+**Lucian Fialho:** Bem, então, tipo assim, que que você pode fazer?
+
+**Taciana Serafim:** Beleza.
+
+**Lucian Fialho:** Fazer essa parte de introdução e a galera sair com o seu processo feito.
+
+**Taciana Serafim:** Hum.
+
+**Lucian Fialho:** E aí, beleza, tu termin?
+
+**Taciana Serafim:** Diga mais, formule mais esse o que seria esse esse processo feito,
+
+**Lucian Fialho:** Tu terminou? Tô jogando, tô jogando coisa na tua,
+
+**Taciana Serafim:** porque é tu tentando entender como que eu faço
+
+**Lucian Fialho:** na marimba aí, porque aí tô jogando na mar.
+
+  
+  
+
+### **00:01:34**
+
+  
+
+**Taciana Serafim:** isso.
+
+**Lucian Fialho:** Porque assim, ó, se a gente faz o negócio em conjunto é igual o curso presencial,
+
+**Taciana Serafim:** Hum.
+
+**Lucian Fialho:** eu e o Gustavo. Você entra,
+
+**Taciana Serafim:** Uhum.
+
+**Lucian Fialho:** faz a parte de introdução a CRO, aí eu entro e falo sobre introdução ao cloud.
+
+**Taciana Serafim:** Aham.
+
+**Lucian Fialho:** Aí eu vou falar sobre o cloud. Eles vão abrir o cloud no curso pela primeira vez, né, que eu acho um absurdo. Eles tinham que ter aberto o cloud na primeira parte do curso já, tá ligado? Beleza. Aí eles vão abrir o cloud pela primeira vez e a gente vai ver, ó, galera, a gente precisa garantir com relação a custo. Pô, como que a gente faz para poder orientar e e e garantir o custo de prompt? Quais são as features do cloud code? Pô, tem a parte do cloud cowork, tem a parte do schedule, tem a parte das tarefas, a gente fala disso, e tem a skill, pá. Aí na skill, tipo, a gente começa a a a gente para na parte da skill, você volta com a parte de Cro e fala sobre o processo.
+
+  
+  
+
+### **00:02:25**
+
+  
+
+**Lucian Fialho:** Aí você fala sobre o processo, a galera executa o processo com você e eles vão ter o que eles querem em produção no final, que é o entregável, entendeu?
+
+**Taciana Serafim:** Meu Deus,
+
+**Lucian Fialho:** Porque tipo assim,
+
+**Taciana Serafim:** eu não tô eu não tô conseguindo visualizar em que momento eu faço isso.
+
+**Lucian Fialho:** eu vou eu vou Calma, você vai ver agora. Você vai ver agora.
+
+**Taciana Serafim:** Eu sou a menina do roteiro, pelo amor de Deus, não tô entendendo nada.
+
+**Lucian Fialho:** Calma, calma, calma, calma. Se ficar ruim também a gente não precisa fazer não. Tudo bem.
+
+**Taciana Serafim:** Deixa eu voltar para cá para ver o que você tá mostrando. Pera aí.
+
+**Lucian Fialho:** É que tipo assim, a gente pode fazer a gente vai ter o conteúdo em blocos, né? Pensando no conteúdo em blocos. Então, das 9, das 9 não, né? Das 14 que a gente tem até às 18 horas, a gente ainda tem um cofe aqui no meio do caminho. Que horas que é o
+
+**Taciana Serafim:** Temos cof das 15:45 às
+
+  
+  
+
+### **00:03:15**
+
+  
+
+**Lucian Fialho:** cofe?
+
+**Taciana Serafim:** 16. Mas que cof é esse? Que 15 minutos? Meu Deus.
+
+**Lucian Fialho:** É, é loucura, né?
+
+**Taciana Serafim:** Mas tá bom.
+
+**Lucian Fialho:** Porque o cofre deve ser ruim para c\*\*\*\*\*\*, né? Porque as pessoas não podem comer. Enfim.
+
+**Taciana Serafim:** Deve ser.
+
+**Lucian Fialho:** Aí o a gente pode fazer o o talk de boasvindas, que foi o que você falou, boas vindas e programação da tarde. E aí esse talk, ele vai ser um talk, deixa eu botar aqui numa fonte que você consiga ler, né? Que vai durar 15 minutinhos. Então ele vai ser das 14 às 14:15, né?
+
+**Taciana Serafim:** Nem isso. Até menos 10 minutos.
+
+**Lucian Fialho:** Termin. Tudo bem, 10 minutos. Beleza. Aí você aí eu vou estar contigo ali nessa hora. A gente se apresenta, se apresenta como professor. Não sei se a gente vai fazer isso no início, né?
+
+  
+  
+
+### **00:04:07**
+
+  
+
+**Lucian Fialho:** Qualquer coisa a gente se reapresenta lá depois e aí a gente começa com o teu conteúdo. Tipo assim, ó, galera, o que a gente vai ver aqui com o Lucian vai ser tal coisa. O que eu vou ver aqui agora com vocês é isso. E aí a gente vai falar porque Cro ele tem que começar eh eh CRO tem que começar antes de você abrir qualquer ferramenta, sacou? E aí você vai falar sobre o processo, nem só sobre o processo, acho que você pode falar sobre o conceito e a introdução a CRO e aí você falar que não é só taxa B, você falar que é coisas como, pô, pesquisa, aí eu eu consigo fazer o gancho com as EZES. Então a gente falou assim, pô, é muito f\*\*\*. A gente rolou a pesquisa com o pessoal da Zerezas, onde pô, o que resolveu uma p\*\*\* fricção com os caras pra gente poder fazer taxa B e montar uma máquina de taxa B com os caras foi tipo a gente ter entrevistado as pessoas. Aí tu entra no gancho de falar de pesquisa qualitativa dentro da estrutura de CRO. A gente consegue fazer a parada é meio que fazer como eu faço com o Gustavo mesmo.
+
+  
+  
+
+### **00:04:59**
+
+  
+
+**Taciana Serafim:** Угу.
+
+**Lucian Fialho:** Sacou? Assim, eu sei que eu posso levantar uma bola para você no meio do material, porque é isso, a gente tem os cases em conjunto agora. Então, tipo assim, p\*\*\*\*, tu quer que eu levante uma bola para você poder cortar no meio da parada do Cloud? Porque, pô, você acha que a galera pode ter o pode presumir que aquilo dali é algo difícil? Pô, me corta, fala: "Ó, Lucian, isso daí é muito importante, mas é é é é muito importante a gente ter atenção, mas não é nada de bicho de sete cabeças. Você pode fazer isso assim, assim, assim, assado, porque a gente tem os conteúdos de callback, né, que a gente já fez com eles, que a gente pode usar para poder citar ou tipo assim, p\*\*\*\*, Lucian, não entendi nada, explica de novo. A gente consegue meio que ir brincando nessa dinâmica assim. E aí, tipo, aqui dá para fazer, se a gente tem, né, a gente vai ter duas, 3, 4, 5, 6, 4 horas de conteúdo, né? Então pensa que a gente pode fazer aqui às das 14:10 até a hora do cof, né?
+
+  
+  
+
+### **00:06:05**
+
+  
+
+**Taciana Serafim:** Aham.
+
+**Lucian Fialho:** A hora do
+
+**Taciana Serafim:** Mas é só 15:45.
+
+**Lucian Fialho:** cofre,
+
+**Taciana Serafim:** 15:30. Vai ter que ser 30 minutos esse negócio aqui.
+
+**Lucian Fialho:** é, não dá tempo nem para todo mundo ir no banheiro junto se tiver muita gente,
+
+**Taciana Serafim:** Eu se tiver pila
+
+**Lucian Fialho:** tá ligado? É,
+
+**Taciana Serafim:** lascou.
+
+**Lucian Fialho:** então a gente sabe que a gente tem esse período aqui para poder fazer a parte de introdução. Aqui a gente vai ter o cof que vai ser e vai colocar a gente para poder voltar às 4.
+
+**Taciana Serafim:** Isso.
+
+**Lucian Fialho:** Então vão ser 16 horas. E aí aqui na volta das 16 horas a gente pensa nessa segunda metade, beleza? Então tem o cof aqui. Agora a gente tem que pensar do cof, que é às 16 até a galera voltar e
+
+**Taciana Serafim:** E e das 14:10,
+
+**Lucian Fialho:** sentar.
+
+**Taciana Serafim:** então até às 15:30, a gente contextualiza sem abrir nada da ferramenta até então.
+
+**Lucian Fialho:** É isso.
+
+  
+  
+
+### **00:07:03**
+
+  
+
+**Lucian Fialho:** Tipo assim, o que eu pensei é, a gente pode ou dividir esse espaço com você,
+
+**Taciana Serafim:** Eu
+
+**Lucian Fialho:** tendo esse material aqui para fazer aqui e eu tendo as duas horas para poder implementar tudo que eles precisam, ou a gente pode fazer mesclado, sacou?
+
+**Taciana Serafim:** acho que é melhor eu faço, depois você faz. Por quê? Eu tenho muita dificuldade em voltar atenção para mim, porque quando a pessoa começa a falar,
+
+**Lucian Fialho:** Угуm.
+
+**Taciana Serafim:** eu fico, eu vou, não vou, vou, não vou. Eu tenho essa dificuldade, já trabalhei com o Nellio, mas ainda não foi resolvida. E até porque eu me perco no meu pensamento, às vezes, tipo, você vai começar a falar muitas coisas técnicas e aí vai exigir um esforço meu muito muito intenso para est prestando atenção no que você tá falando, para conectar o que você tá falando com o que eu tenho que falar, que eu já tinha pensado em tudo que eu ia falar e no final vai ficar muito ruim,
+
+**Lucian Fialho:** Perfeito. Então a gente faz assim,
+
+**Taciana Serafim:** tá?
+
+**Lucian Fialho:** você tem das duas às 3:30,
+
+**Taciana Serafim:** Eu acho que é mais fácil.
+
+  
+  
+
+### **00:07:57**
+
+  
+
+**Lucian Fialho:** eu pego das 4 às 6 e é isso. Fechou?
+
+**Taciana Serafim:** Boa.
+
+**Lucian Fialho:** Aí depois que você tiver seu material pronto, é só você me passar o processo que você vai seguir ou vai ensinar para eles como ser um processo Creo, porque aí eu implemento isso na parte das skills. Aí no a ideia é que, tipo,
+
+**Taciana Serafim:** Ah.
+
+**Lucian Fialho:** a gente mostre a a as a parte de tooling, a parte de ferramenta, o conteúdo que a gente tem que aprender antes de saber essas coisas, como que a gente coloca guard rails dentro do cloud code. E aí no final a gente vai falar, ó, a gente vai criar aqui uma primeira skill com você consolidando tudo que a a a Taciana de CRO falou sobre a parte de de processo. Beleza? Então, a tua meta é fazer isso. E aí, o que que eu posso fazer? Eu posso fazer uma skill que é um antipattern da sua, que você vai colocar quais são os pontos de avaliação pra gente poder fazer um um validador de skill.
+
+**Taciana Serafim:** Ja.
+
+**Lucian Fialho:** Ponto, entrega com o cara saindo com a notinha e tá tudo certo.
+
+  
+  
+
+### **00:08:53**
+
+  
+
+**Lucian Fialho:** É porque se se a gente fizesse isso em conjunto, eu acho que fica menos mçante para todo mundo fazer o conteúdo,
+
+**Lucian Fialho's Presentation:** M.
+
+**Lucian Fialho:** sacou? Mas tipo, até pra galera consumir, mas pode ser separado também, tá tudo bem. Aí a gente divide dessa forma,
+
+**Taciana Serafim:** Tá. Não,
+
+**Lucian Fialho:** beleza?
+
+**Taciana Serafim:** depois a gente vai treinando e vai fazendo. Eu não,
+
+**Lucian Fialho:** É, não.
+
+**Taciana Serafim:** eu não me apanho
+
+**Lucian Fialho:** E lá fica à vontade também para poder, tipo assim, você perceber,
+
+**Taciana Serafim:** não.
+
+**Lucian Fialho:** eu fico muito olhando os rostos da pessoa enquanto eu tô falando algum termo técnico. Só que, tipo assim, eu eu já tô fazendo essa p\*\*\*\* já tem um tempo, eu fico tipo meio que naquela, tipo assim, eu tenho que voltar nessa pessoa aqui depois. Então, tipo assim,
+
+**Taciana Serafim:** Uhum.
+
+**Lucian Fialho:** fica meio que olhando a galera e tem na minha cabeça tem isso, tá? tem a timeline do que eu tô falando e tem a timeline,
+
+**Taciana Serafim:** Так.
+
+  
+  
+
+### **00:09:33**
+
+  
+
+**Lucian Fialho:** tipo assim, de assuntos de dúvida que a galera pode tirar e aí eu tenho que conseguir fazer callback com tudo isso. E tem o timeline, tipo assim, de eu voltar numa coisa porque eu vi que a pessoa não entendeu ou tipo assim, a cada momento que eu tenho, tipo, sei lá, 15, e eu não faço isso pensando, não, tá? É inconsciente. Mas, tipo assim, eu eu sempre pego tipo assim, c\*\*\*\*\*\*, acho que eu vou fechar um ciclo aqui e perguntar se a galera entendeu para poder abrir a dúvida pra galera. Tá ligado? Então a gente dá para ir fazendo e aí fica a vontade de meter o B dele aí. E aí eu faço isso.
+
+**Taciana Serafim:** Boa. Ups.
+
+**Lucian Fialho:** Tu monta a metodologia que você vai apresentar, eu apresento para eles o cloud code mostrando a ferramenta, colocando os guard rails necessários, porque eu já tenho muita coisa pronta do meu github, sacou? E aí a gente finaliza meio que que assim, e eu acho que é é interessante a gente falar sobre GitHub também, né? que é é a gente não vai falar, mas é uma loucura do c\*\*\*\*\*\*.
+
+  
+  
+
+### **00:10:25**
+
+  
+
+**Lucian Fialho:** E a gente pode deixar para eles que, ó, toda essa parte de git a gente já garantiu ali dentro, porque eu vou montar uma parada que no final vai ser ele, vai ser um validador da skill dele também. Então, tipo assim, eu quero que eles peguem, tô dando aqui a sugestão, tá? Assim, eu acho que o que seria interessante a gente entregar a eles pegarem exatamente o conceito que você apresentou, usar os conceitos que eu mostrei e criar uma skill de CRO para eles. Então, tipo assim, eles vão ter que descrever o processo de como eles entendem o time deles de CRO, qual que é o papel de cada uma das pessoas, tipo assim, você pode ter isso dentro do teu material para poder fazer esses callbacks depois. Então, tipo assim, dentro do como que é uma estrutura de um time de Cro? É, é até um pouco do trabalho que eu tô fazendo com o Enzo, porque eu tô fazendo meio que um trampo com eles lá, né? Deixa eu pegar aqui. E aí a gente tá fazendo exatamente isso, ó. Porque no caso do Enzo, eu tô sendo chamado lá para poder fazer um papel de forward deploying nil. Então eles chegaram com a demanda assim, Lucian, eu quero criar uma nova vertical dentro da manual e eu quero que essa vertical ela seja 100% feita por IA.
+
+  
+  
+
+### **00:11:35**
+
+  
+
+**Lucian Fialho:** Então, tipo assim, eu tô tendo que montar meio que uma metodologia para conseguir fazer esse tipo de implementação. Então, o que que eu fiz? Eu mapeei, eu tô, eu tô extraindo isso desse material, né, que eu mapei quais são os cargos das pessoas, quais são os handoffs que elas fazem, ou seja, quais são as conexões que elas fazem durante a semana, durante o mês, quais são as interfaces que ela Yeah. tem e quais são os entregáveis de cada uma delas. Aí, a partir disso, eu tô fazendo os geradores. Então, tipo assim, o que que são os geradores? Pô, a base de tudo é fazer um gerador de texto, porque eu sei que a parte principal de interface de comunicação é texto. Então, tipo assim, eu tenho que fazer o gerador de texto para poder conseguir construir os artigos no blog. Eu tenho que fazer os geradores de texto pra gente poder conseguir fazer briefing. Eu tenho que, sacou? Então, tipo, o que que a gente vai fazendo? A gente, eu, o que que eu tô fazendo agora?
+
+  
+  
+
+### **00:12:32**
+
+  
+
+**Lucian Fialho:** Eu tô numa fase que eu já fiz o gerador de texto e eu já fiz o gerador de imagem, não fiz, né? Eu integrei dentro da estrutura porque o time dele já é muito pica e já fez um gerador de imagem para mim. Então, tipo assim, p\*\*\*\*, eles estão aí agora eu vou pro gerador de landing page, sacou? E aí em cada uma das esferas eu tô colocando um software na frente. Então tipo o gerador de landing page para CRO vai ser o copilot, sacou? O gerador de imagem é algo que eu anexei que foi deles que eles fizeram. E o gerador de texto são vários botes que eu coloquei dentro da estrutura deles. Só que tipo assim, com dinheiro é muito mais fácil, né? Tipo assim, esses caras me deram meio que budget infinito. Então, tipo assim, eles colocaram o bagulho do cartão de crédito e estão rindo da minha cara porque até agora eu não gastei $.
+
+**Taciana Serafim:** A, eu amo
+
+**Lucian Fialho:** Tipo assim, eles falam assim, ó, para para mim você ia gastar tipo $50.000 1000 nisso daqui, no mínimo, porque, tipo assim, aqui a equiparação do trabalho que eles querem é que eu pegue exatamente cada uma dessas áreas e eu vou ticando.
+
+  
+  
+
+### **00:13:34**
+
+  
+
+**Lucian Fialho:** Eu já tiquei se inteiro, tipo, dentro da estrutura deles, eles vão ter os analistas de SEO gerando inputs e gerando dados para poder melhorar a estrutura de CRO, mas sem ninguém meter a mão. Ele só vai trabalhar na skill que vai fazer isso aí. Então, tipo, o que que eu tô querendo dizer? Quando a gente tá construindo uma parada tipo de uso de A e o c\*\*\*\*\*\*, a galera sempre fica querendo buscar meio que um pipeline, tá ligado? Então, tipo assim, se você falar sobre quais são os papéis, quais são as tecnologias, quais são as ferramentas, lá do meu lado eu consigo fazer, pô, esse papel é importante porque a gente precisa de uma skill que é um QA. Esse papel é importante porque eu preciso de uma skill que é o analista, que é o dev. E aí a gente tem que criar várias subskills dentro de cada uma delas. O que que é subskill? E aí a gente consegue ir trabalhando nisso, sacou? Porque aí eu faço conexões diretas ao conteúdo que você fez. Quando você falar sobre tipos de ferramenta, eu vou falar sobre conectividade. Então, tipo assim, p\*\*\*\*, ó, você tá falando sobre ferramentas de CRO, tocando sobre, sei lá, Goab, falando sobre MC, falando sobre VWO e o c\*\*\*\*\*\*.
+
+  
+  
+
+### **00:14:43**
+
+  
+
+**Lucian Fialho:** Aí tu pode fazer esse gancho pro minha pra minha parte da do final, ó. E o Lucian vai mostrar como que a gente conecta cada uma dessas coisas ali na hora. E aí a gente consegue ir fazendo isso, sacou? Tipo, eu vou fazer, né, meio que te usando como referência e você vai usar botando o ponto futuro.
+
+**Lucian Fialho's Presentation:** M.
+
+**Lucian Fialho:** Tudo que, tipo assim, meio que eu pelo menos faço isso com o Gustavo, tudo que tem como a gente refazer do meio do curso pro final, a gente refaz. Eu e o Gustavo, a gente começa a fazer o curso, a gente nem sabe qual o treinamento. A gente tem um PPT lá, mas tipo assim, a gente vai fazer o treinamento e se ele virar CRO do nada, ele vira Cro. É o que é melhor pra galera que tá lá, entendeu? Então, tipo
+
+**Taciana Serafim:** Não são muitos anos, né, vocês fazendo essas coisas juntas. Eu falei pro Nélio, Nélio, eu tô eu tô praticando até eu tava conversando com o Gustavo,
+
+**Lucian Fialho:** assim,
+
+**Taciana Serafim:** fazendo um parênteses aqui, tava falando com o Gustavo do MBA da Fernanda, né?
+
+  
+  
+
+### **00:15:36**
+
+  
+
+**Taciana Serafim:** Aí eu falei assim: "Gustavo, eu aceitei, embora a gente vai fazer o nosso, porque eu não quero fazer o nosso, não tendo a experiência do que o da Fernanda vai fazer o T para eu me desenvolver. Eu tô gravando, eu já vejo que as gravações que eu tô gravando agora são as melhores que eu gravei no começo. Então, até o o o até o material eu fico revendo e já fico assim:
+
+**Lucian Fialho:** Aha.
+
+**Taciana Serafim:** "Putz, tem que incluir isso, isso daqui vai ficar mais legal, isso aqui vai ficar mais legal". Porque a experiência, embora já tenha dado alguns cursos, é muito diferente, principalmente essa questão de fazer com alguém. E eu sei que se eu falar pro Gustavo da, ele não vai querer, que ele é tá super avesso curso. Eu não quero nem propor isso, senão ele vai me jogar pela janela. Mas vamos fazer.
+
+**Lucian Fialho:** Por isso que tem sobrado, por isso que tem vindo mais palestras para mim. Então é que esse f\*\*\*\*\*\*\*\*\*\*\*\*
+
+**Taciana Serafim:** Não, não,
+
+**Lucian Fialho:** tá
+
+**Taciana Serafim:** não, não, não, não. Palestra não.
+
+**Lucian Fialho:** negando.
+
+  
+  
+
+### **00:16:31**
+
+  
+
+**Taciana Serafim:** Palestra é um trabalho do seu marketing Taciana que não para de falar bem de você, tá?
+
+**Lucian Fialho:** Graças a Deus você e minha mãe. Tá tudo bem.
+
+**Taciana Serafim:** Eu já te expliquei que a Raíça não vai falar mesmo.
+
+**Lucian Fialho:** É isso. Não,
+
+**Taciana Serafim:** Nem eu falo do
+
+**Lucian Fialho:** não. Tá tudo certo. Tá tudo certo. Tudo certo. Mas entendeu? Tipo assim,
+
+**Taciana Serafim:** Danilo.
+
+**Lucian Fialho:** eu tava tô tentando mostrar isso daqui para você poder fazer essas caixinhas, entendeu? Porque eu também sou muito visual assim. Então, se eu não tiver, porque aí cada caixinha eu sei que é um handoff, é uma relação,
+
+**Taciana Serafim:** É,
+
+**Lucian Fialho:** cada bolinha eu sei que é uma pessoa, sacou? Eu vou meio que indo assim,
+
+**Taciana Serafim:** mas assim, ó, eu vou,
+
+**Lucian Fialho:** tá ligado?
+
+**Taciana Serafim:** a minha ideia nem era trazer tanta coisas aprofundadas. Tem uma molécula, não sei se você já viu, da C Excel.
+
+  
+  
+
+### **00:17:12**
+
+  
+
+**Taciana Serafim:** Pera aí que eu vou vou pegar molécula C Excel,
+
+**Lucian Fialho:** Perfeito.
+
+**Taciana Serafim:** porque a ideia é só dar um contexto, sabe? Tipo aterroo mesmo, no mesmo, na mesma ideia.
+
+**Lucian Fialho:** Так.
+
+**Taciana Serafim:** Cadê a molécula dos abençoados da sex? tava conversando com eles para ver se consigo uns uns ingressos para que eles têm uma conferência de novo.
+
+**Lucian Fialho:** Acabou que não vai, né?
+
+**Taciana Serafim:** Tem outra.
+
+**Lucian Fialho:** O evento do Não vai ter o evento de semana que vem,
+
+**Taciana Serafim:** Eu vou,
+
+**Lucian Fialho:** né?
+
+**Taciana Serafim:** né? Eu tô em São Paulo. Quem é que vai? Eu.
+
+**Lucian Fialho:** Tu gosta,
+
+**Taciana Serafim:** Eu vou.
+
+**Lucian Fialho:** tu gosta de ir no evento
+
+**Taciana Serafim:** Ah. Yeah. Eu gosto quando eu não tenho que falar nada técnico, porque vocês ficam com muita tecniquice e eu não sou da da ai não tô achando essa porcaria, depois eu te mando. Mas basicamente essa molécula, ela tem os bracinhos dela e ela fala sobre o processo de CRO. Então no processo de CRO temos o quê?
+
+  
+  
+
+### **00:18:15**
+
+  
+
+**Taciana Serafim:** A coleta de dados, temos análise de dados, temos levantamento de hipóteses, temos teste AB. Então eu vou falar muito resumidamente, então se você quiser depois se aprofundar nisso, não tem problema. Então, inclusive incluindo os cases da MB, falando dessa questão da pesquisa das erees,
+
+**Lucian Fialho:** É, não é isso.
+
+**Taciana Serafim:** entendeu?
+
+**Lucian Fialho:** É, não. Então, mas é, acho que o a única coisa que eu quero é conectar o que você vai falar com o que eu vou falar pro entregável seu mesmo. Porque, tipo assim, dado o que você vai fazer, o que a gente vai eh falar sobre uma camada de tooling, falar sobre uma camada de segurança, falar sobre como que a gente aí eu vou mostrando e gerando os entregáveis para eles. Baixa isso daqui, usa isso daqui. Eu vou criar um plugin nosso de fazer Cro gratuito para eles lá. Então, tipo assim, eles vão ter que criar a skill deles, que vai ser uma das skills que vão compor a nossa. Tá me entendendo? Tipo assim, eh, o porque assim, imagina só, a gente tem que fazer uma skill por cada cargo,
+
+**Taciana Serafim:** Sim.
+
+  
+  
+
+### **00:19:15**
+
+  
+
+**Lucian Fialho:** definir quais são os handoffs dentro de cada um desses agentes e suagentes, definir quais são os entregáveis de cada um deles e qual é a camada de tooling que vai resolver cada dor. Qual é a única coisa que é diferente para cada pessoa? A metodologia, sacou? Então, tipo assim, eles vão recriar a metodologia baseado no que eles entenderam do que você falou, entendeu?
+
+**Taciana Serafim:** Entendi.
+
+**Lucian Fialho:** Então, tipo, a única skill que eles vão ter que criar é falar:
+
+**Taciana Serafim:** Uhum.
+
+**Lucian Fialho:** "Galera, então, ó, a gente vai fazer agora um exercício que a gente vai trabalhar, vocês vão trabalhar individualmente dentro das máquinas, mas, pô, vocês podem fazer isso em grupo se quiserem, onde vocês vão descrever o processo de CRO, tal como funciona na empresa de vocês, tal, como vocês vão ter que debater sobre isso e sair para mim com uma skill, beleza? Aí eu chego no final falando, ó, essa skill é o ponto que conecta com toda a metodologia do que a gente viu aqui hoje. Então a gente tá deixando para você uma
+
+**Taciana Serafim:** Hum, entendi. É, no final das contas,
+
+  
+  
+
+### **00:20:08**
+
+  
+
+**Lucian Fialho:** sacou
+
+**Taciana Serafim:** a skill mais importante que eu vejo, não vou não vou colocar mais importante porque pode ser que tenha outras aí, mas acho que as que vai mais agregar é as partes de heurística, de análises de site,
+
+**Lucian Fialho:** isso.
+
+**Taciana Serafim:** entendeu?
+
+**Lucian Fialho:** É isso.
+
+**Taciana Serafim:** De
+
+**Lucian Fialho:** E eu tô fazendo muito agora,
+
+**Taciana Serafim:** páginas.
+
+**Lucian Fialho:** eu tô fazendo muito agora uma parada que é você fazer o cloud gerar uma tela local.
+
+**Taciana Serafim:** Ah, isso é legal.
+
+**Lucian Fialho:** É o que eu tenho feito aqui, tipo assim, pô, ó, o cloud é o o copilot que me deu esse insite. Então, tipo assim, por exemplo, aquela, lembra de uma apresentação que eu acho que eu não cheguei a fazer para você, que era do moodboard que eu tinha feito para falar sobre o evento do antiascismo e o c\*\*\*\*\*\*.
+
+**Taciana Serafim:** Угуm.
+
+**Lucian Fialho:** Tipo assim,
+
+**Taciana Serafim:** Yeah.
+
+**Lucian Fialho:** aquilo dali eu faço exatamente Eu sou exatamente visual igual você, tá? Só que eu uso o cloud, né, que eu eu gosto que ele tenha acesso a recursos do meu computador, pegar transcrição e por aí mais e por aí vai.
+
+  
+  
+
+### **00:21:06**
+
+  
+
+**Lucian Fialho:** Mas tipo assim, eu eu vou fazendo meio que uma página que vai documentando a minha linha de raciocínio. Então assim, por exemplo, dentro dessa camada de CRO, a gente tem que entender como que a gente monta uma base de contexto para eles, porque a gente vai ter que falar de contexto e memória e persistência de memória. Então, tipo assim, eu normalmente trabalho criando essa base de memória e aí eu vou fazendo um processo de ingestão, de referência, de link, de vídeo, sacou? eu vou criando pipelines que são skills separadas, tá ligado? Então, tipo assim, e o que a gente vai fazer com eles, acho que é o que é mais interessante, que eles saem podendo plugar a sua própria metodologia. MD, que é o arquivo markdown, que vai ser a visão dele ou do time dele sobre CRO, sacou? dentro de um skill set que tem tudo já
+
+**Taciana Serafim:** Boa. Tá bom, eu entendi agora a ideia, a proposta.
+
+**Lucian Fialho:** pronto.
+
+**Taciana Serafim:** Eu vou então criar para você os cargos ali, processo, cargo, estrutura. Mando para você. Aí você me fala se é isso, se você precisa de mais alguma coisa.
+
+  
+  
+
+### **00:22:10**
+
+  
+
+**Taciana Serafim:** Enquanto isso, vou trabalhando na página lá com que a gente tem. Usar aquela sola foto do GLA ou você tem alguma outra
+
+**Lucian Fialho:** Pois é.
+
+**Taciana Serafim:** preferência?
+
+**Lucian Fialho:** Você quiser pegar as fotos do evento do da própria comunidade CRO,
+
+**Taciana Serafim:** Ah,
+
+**Lucian Fialho:** tá bom também.
+
+**Taciana Serafim:** verdade. Tem do EDX também.
+
+**Lucian Fialho:** Pelo menos eu tô com uma roupa diferente,
+
+**Taciana Serafim:** Vou perguntar pro Timo.
+
+**Lucian Fialho:** tá ligado?
+
+**Taciana Serafim:** Não é que tem que ter uma foto que tem a nossa marca, né? Ficar promovendo a marca do mineiro aí de graça. Então não dá.
+
+**Lucian Fialho:** Ah. Hum. Aí tu me fodeu.
+
+**Taciana Serafim:** Eu vou pegar uma foto do RDX.
+
+**Lucian Fialho:** Aí tu me fodeu. Porque eu troquei essa foto porque eu eu achava inadmissível não ter uma foto boa tirada na métricas boas mesmo.
+
+**Taciana Serafim:** É, então,
+
+**Lucian Fialho:** Era um protesto no início.
+
+**Taciana Serafim:** entendeu?
+
+**Lucian Fialho:** Era um protesto, tá
+
+**Taciana Serafim:** A gente precisa ter fotos.
+
+  
+  
+
+### **00:22:49**
+
+  
+
+**Lucian Fialho:** ligado?
+
+**Taciana Serafim:** Eu falei pro Gustavo que ele também precisa tirar foto nova, porque a gente tá usando uma dele que ele tá com moletom. Ele tá super super gordinho igual eu, na mesma condição que eu. Eu também tava gordinha.
+
+**Lucian Fialho:** Eu
+
+**Taciana Serafim:** Agora as fotos é outro CP. Aí não faz sentido nenhum. Eu vou vou atualizar isso, eu vou ver onde que tá essas fotos do edx e vou usar elas. Então, e eu vou pegar só a bio da página que a gente já tinha criado lá da home, da nota home para criar lá.
+
+**Lucian Fialho:** eu normalmente coloco no PPT uma parada diferente da bio lá. Eu coloco porque eu não sou guru.
+
+**Taciana Serafim:** É.
+
+**Lucian Fialho:** É,
+
+**Taciana Serafim:** Ah, quer me mandar então?
+
+**Lucian Fialho:** eu eu Mas é porque você não vai gostar não. Você vai você vai vetar.
+
+**Taciana Serafim:** É. Ah,
+
+**Lucian Fialho:** É,
+
+**Taciana Serafim:** então vou eh deixa para sua apresentação.
+
+**Lucian Fialho:** deixa só no meu PPT.
+
+**Taciana Serafim:** Eh,
+
+**Lucian Fialho:** É porque é branding. Para mim é branding, entendeu?
+
+  
+  
+
+### **00:23:42**
+
+  
+
+**Lucian Fialho:** Tipo assim,
+
+**Taciana Serafim:** entendi.
+
+**Lucian Fialho:** eu ser meio eu ser meio p\*\*\*\*\*
+
+**Taciana Serafim:** Entendi. E você?
+
+**Lucian Fialho:** assim.
+
+**Taciana Serafim:** E você tá certo? Eu eu tenho falado muito sobre o quanto a gente ser, como fala?
+
+**Lucian Fialho:** autêntico.
+
+**Taciana Serafim:** palavra autêntico autenticidade.
+
+**Lucian Fialho:** É uma pará que eu
+
+**Taciana Serafim:** Eu já me, eu deixei muita coisa de mostrar quem eu era com o receio do
+
+**Lucian Fialho:** busco.
+
+**Taciana Serafim:** julgamento dos outros em vários momentos assim. Hoje eu não tô nem aí. Tipo, é é isso mesmo. Tipo, eu ficava me sentindo mal porque eu sou uma work holic. A minha diversão é trabalhar e eu ficava mal por isso.
+
+**Lucian Fialho:** Aham.
+
+**Taciana Serafim:** Putz, as pessoas estão postando que tão passeando.
+
+**Lucian Fialho:** Acho que é porque as pessoas entendem errado.
+
+**Taciana Serafim:** Tá, tá, tá.
+
+**Lucian Fialho:** A sua paixão ou o seu vício ou o seu workaholic não é trabalhar, é construir, tá ligado? Eu acho que tem uma diferença muito muito grande entre trabalhar e construir, que é acima de tudo, se a pessoa assume que ela tem um trabalho e não ela tá construindo alguma coisa, ela já nem tinha que estar conversando comigo, tá?
+
+  
+  
+
+### **00:24:41**
+
+  
+
+**Lucian Fialho:** Vou de ser bem
+
+**Taciana Serafim:** É isso, sabe? Tipo, eu gosto mesmo e tá tudo bem.
+
+**Lucian Fialho:** sincero.
+
+**Taciana Serafim:** Acho que é isso. Eu eu quebrei um pouquinho desses préconceitos de que a gente tem que se colocar numa caixinha, que o mercado não, as pessoas vão se identificar justamente com isso. E aí, isso é importante. Isso inclusive vende, inclusive vende, vende muitos,
+
+**Lucian Fialho:** É
+
+**Taciana Serafim:** mas boas. Mas vamos colocar o que tá então no site da MB.
+
+**Lucian Fialho:** isso.
+
+**Taciana Serafim:** Deixa eu te falar uma coisa que não tem nada a ver com esse COD. Eh, o C tá vendo contigo pra gente subir o site do
+
+**Lucian Fialho:** Hoje hoje eu tenho eu tenho um bate-papo com ele daqui a pouco,
+
+**Taciana Serafim:** MB? Ah,
+
+**Lucian Fialho:** inclusive.
+
+**Taciana Serafim:** então tá bom, porque eu já falei com o fio de tagueamento, ele também vai conseguir fazer até segunda-feira.
+
+**Lucian Fialho:** É, eu tô pensando até em dar uma agilizada nisso.
+
+**Taciana Serafim:** E
+
+**Lucian Fialho:** deixar uma skill pronta de tagueamento lá dentro e o Cloud só usa.
+
+  
+  
+
+### **00:25:31**
+
+  
+
+**Taciana Serafim:** ah, nossa, que maravilha. Vai ser muito bom, porque o quanto antes a gente tiver essa página, o Lucas da que faz lá o EDS pra gente, ele tem um budget para colocar pra gente já fazer um umas coisinhas ali. Eu queria muito que a gente desse vazão, principalmente porque a gente já vai ter próxima semana ali o Fórum e-commerce e assim a as pessoas acabam, né, entrando no site e tal. Eu acho que é legal já ter essa carinha nova pra gente aí receber esses esses novos visitantes.
+
+**Lucian Fialho:** É, não é isso, é isso. Eu conversei com o Igor também, tá?
+
+**Taciana Serafim:** Ah, legal, você já conversou,
+
+**Lucian Fialho:** Conversei com ele.
+
+**Taciana Serafim:** né? Eu já tô agilizando lá as
+
+**Lucian Fialho:** A gente já tá começando a migrar e eu já tô trabalhando aqui para ver o que aconteceu no e-mail também,
+
+**Taciana Serafim:** coisas.
+
+**Lucian Fialho:** tá? Não esqueci
+
+**Taciana Serafim:** Ai, obrigada, porque tem um e-mail que eu preciso mandar pra VWO para continuar.
+
+**Lucian Fialho:** não.
+
+**Taciana Serafim:** Eu até mandei umas coisas no WhatsApp para eles, mas eu preciso mandar umas coisas no e-mail
+
+  
+  
+
+### **00:26:29**
+
+  
+
+**Lucian Fialho:** É porque a gente viu quando eu fui conversar com o Igor,
+
+**Taciana Serafim:** mesmo.
+
+**Lucian Fialho:** eu vi que tinham vários outros
+
+**Taciana Serafim:** Sim,
+
+**Lucian Fialho:** sistemas.
+
+**Taciana Serafim:** que faz essas coisas para mim. Vocês têm que entender que a minha a minha vida é limitada em fazer as coisas andarem assim da maneira que der.
+
+**Lucian Fialho:** É, não,
+
+**Taciana Serafim:** Agora se elas c não o grande demais,
+
+**Lucian Fialho:** tá tudo certo, tá tudo certo, tá tudo certo. Tudo certo. Não, aí agora é isso.
+
+**Taciana Serafim:** né?
+
+**Lucian Fialho:** A gente está migrando agora todos os domínios pra dentro do ambiente da métricas nós, você não vai precisar daqui algum tempo ter custo em algumas ferramentas,
+
+**Taciana Serafim:** Tá.
+
+**Lucian Fialho:** vai ter recursos novos dentro da Versel que você vai poder ter acesso porque a gente vai começar a contratar tecnologia, todo mundo junto, entendeu? Então eu falei, pô,
+
+**Taciana Serafim:** Uhum.
+
+**Lucian Fialho:** migrar a extensão do Chrome para um lugar onde a gente consiga trabalhar em conjunto, colocar ele também dentro desses outros projetos aqui. O que eu falei para ele,
+
+**Taciana Serafim:** a gente tá jogando basicamente que a gente tinha antes.
+
+  
+  
+
+### **00:27:19**
+
+  
+
+**Lucian Fialho:** deixei mais ou menos alinhado, foi: "Ó, vamos focar em resolver. Eu sei que as 40 horas é demais em algum momento. Eu sei, tá? Mas eu acho que as 40 horas é suficiente para você consumir 20 horas dela para as tarefas de marketing e eu consumi 20 horas para essas tarefas de sustentação de extensão do
+
+**Taciana Serafim:** São 30,
+
+**Lucian Fialho:** Chrome.
+
+**Taciana Serafim:** hein? São 30. Não esquece.
+
+**Lucian Fialho:** Gustavo baixou 10 horas. Que bom de vaca.
+
+**Taciana Serafim:** Não, a gente não,
+
+**Lucian Fialho:** Eu tinha falado 40 30.
+
+**Taciana Serafim:** a gente ia falar do 30.
+
+**Lucian Fialho:** Então tá bom. A gente usa, eu uso 10.
+
+**Taciana Serafim:** É,
+
+**Lucian Fialho:** Se eu tiver 10 horas dele no mês e ele conseguir pegar uma
+
+**Taciana Serafim:** não. Você vai ter mais, você vai ter mais.
+
+**Lucian Fialho:** tarefa.
+
+**Taciana Serafim:** As coisas aqui a gente pode diminuir aqui. São coisinhas que dá para ir, sabe?
+
+  
+  
+
+### **00:28:00**
+
+  
+
+**Lucian Fialho:** É, não, mas o que eu o que eu falei para ele ah,
+
+**Taciana Serafim:** Não tem.
+
+**Lucian Fialho:** foca em resolver o problema da taxe, porque vai chegar no momento onde isso entra numa velocidade de cruzeiro. E aí assim, aí eu vou ter horas para poder ter a pessoa que eu preciso aqui do meu lado para poder resolver algumas picas. Aí aproveitei para dar uma comida de rabo nele e falei: "ló só, eu tô desenhando um bagulho aqui absurdo pra gente poder fazer. Tô cansado de ficar correndo atrás de você para te contratar aqui para métricas boys, hein? Tu deixa de ser b\*\*\*\*\*\*\*\*\*". Falei mesmo.
+
+**Taciana Serafim:** Rapaz, ele não vai sair do emprego dele não. O pessoal queria levar ele pro Itaú, queria levar para ele um monte de lugar, ele não vai.
+
+**Lucian Fialho:** Mas eu falei para ele que a gente vai ter token infinito e vamos treinar nossos próprios modelos.
+
+**Taciana Serafim:** Ah, é. Aí pode ser que ganhe o coração
+
+**Lucian Fialho:** ganha nada. Ele ficou,
+
+**Taciana Serafim:** dele.
+
+**Lucian Fialho:** ele eu sei como é que é porque é a mesma resposta que eu dou quando alguém me chama para fazer algum projeto que eu não quero, tá ligado?
+
+  
+  
+
+### **00:28:54**
+
+  
+
+**Taciana Serafim:** Eu sei, tô ligada,
+
+**Lucian Fialho:** Eu
+
+**Taciana Serafim:** mas beleza. Então, obrigada, Lu. Vou pensar aqui,
+
+**Lucian Fialho:** fechou.
+
+**Taciana Serafim:** depois eu eu vou compartilhando contigo as outras coisinhas,
+
+**Lucian Fialho:** É isso.
+
+**Taciana Serafim:** tá? Obrigada.
+
+**Lucian Fialho:** Cria um tópico e cria um tópico eu e você num chat que a gente consegue ir falando e mandando link só para isso, entendeu?
+
+**Taciana Serafim:** Tá bom,
+
+**Lucian Fialho:** Mas acho que vai dar para fazer um p\*\*\* entregável nesse bagulho aí,
+
+**Taciana Serafim:** combinado.
+
+**Lucian Fialho:** até para humilhar esse f\*\*\*\*\*\*\*\*\*\*\*\* aí que vai. Tô p\*\*\*, eu tô p\*\*\*, eu vou p\*\*\*, tá? Eu vou para fazer o melhor curso do mundo porque eu tô p\*\*\* com esse cara.
+
+**Taciana Serafim:** Não vai ser bom usar da audiência dele. É uma vez e já era.
+
+**Lucian Fialho:** É isso.
+
+**Taciana Serafim:** Depois a gente o nosso porque ele não vai conectar a gente com ninguém,
+
+**Lucian Fialho:** É isso.
+
+**Taciana Serafim:** não vai. A única coisa que teremos é a redução de alguns custos que a gente não vai ter.
+
+  
+  
+
+### **00:29:33**
+
+  
+
+**Lucian Fialho:** E que a gente poderia pagar,
+
+**Taciana Serafim:** compartilhar,
+
+**Lucian Fialho:** né?
+
+**Taciana Serafim:** entendeu? Na próxima a gente sai sozinho,
+
+**Lucian Fialho:** Tá,
+
+**Taciana Serafim:** não tem problema nenhum.
+
+**Lucian Fialho:** fechou. Tá. Ó,
+
+**Taciana Serafim:** Fechou,
+
+**Lucian Fialho:** uma parada que eu ia falar para depois você dar uma ligada para ver.
+
+**Taciana Serafim:** então.
+
+**Lucian Fialho:** Sei que você organiza os eventos sozinha aí e o c\*\*\*\*\*\*,
+
+**Taciana Serafim:** Hum.
+
+**Lucian Fialho:** vê o pessoal da Noma Hub porque eles têm desconto pra gente,
+
+**Taciana Serafim:** Uhum.
+
+**Lucian Fialho:** porque eu conheço os caras lá. E assim, é o que eu te mandei,
+
+**Taciana Serafim:** Norma hub.
+
+**Lucian Fialho:** noma produções,
+
+**Taciana Serafim:** Tá. Yeah.
+
+**Lucian Fialho:** Porque eles
+
+**Taciana Serafim:** É que você sabe que o MB tem,
+
+**Lucian Fialho:** organizam,
+
+**Taciana Serafim:** né, a galera que organiza evento lá, como que é o nome? Esqueci.
+
+**Lucian Fialho:** tem a pivo,
+
+**Taciana Serafim:** A gente tem um
+
+**Lucian Fialho:** tem a pivo, mas é para evento.
+
+  
+  
+
+### **00:30:05**
+
+  
+
+**Taciana Serafim:** É,
+
+**Lucian Fialho:** Eles conseguem organizar também esses essas experiências, entendeu?
+
+**Taciana Serafim:** hum,
+
+**Lucian Fialho:** Ela tava me contando, é a empresa de uma menina que trabalha, ela é esposa de um colega meu, de um amigo meu.
+
+**Taciana Serafim:** Угуm.
+
+**Lucian Fialho:** E aí ele meio que tava contando, falando. Eu falei: "Cara, mas eu até julguei mal eles". Eu falei: "p\*\*\*\*, mas esses caras deve ser um produtorzinho de evento minúsculo, né? Tipo assim, eles produzem todo ela sozinha, ela é uma empresa de três ou quatro pessoas, ela produz, tipo assim, todos os eventos do ano da rap
+
+**Taciana Serafim:** Ah,
+
+**Lucian Fialho:** vida.
+
+**Taciana Serafim:** já tô ligada. Tô olhando aqui, já tô entendendo onde você quer chegar. É, mas tem que ver custo, né? Porque assim, ó,
+
+**Lucian Fialho:** Então,
+
+**Taciana Serafim:** a gente a gente
+
+**Lucian Fialho:** mas uma coisa que eles falaram com a gente que eles conseguem fazer só no honorário pra
+
+**Taciana Serafim:** cobra,
+
+**Lucian Fialho:** gente. Aí você vê se for uma m\*\*\*\*,
+
+  
+  
+
+### **00:30:52**
+
+  
+
+**Taciana Serafim:** é,
+
+**Lucian Fialho:** tá tudo bem.
+
+**Taciana Serafim:** você não tem o WhatsApp dela não? Não queria ter que submeter formulário.
+
+**Lucian Fialho:** Ah, não. Eu te mando o WhatsApp, pô. Pelo amor de Deus.
+
+**Taciana Serafim:** É, me manda o WhatsApp,
+
+**Lucian Fialho:** Só
+
+**Taciana Serafim:** porque assim, eh, a gente tem os eventos igual a VWO fechou,
+
+**Lucian Fialho:** ver.
+
+**Taciana Serafim:** né? Então, a gente vai ter um evento com a VWO para organizar. A gente, eu já organizei tudo o evento que a gente vai ter, tal, mas tem que ver, colocar na conta, porque assim, é uma mixaria, tá, que o pessoal tá pagando pra gente organizar evento. Esse é o meu receio. De repente não vale a pena mesmo.
+
+**Lucian Fialho:** Ah,
+
+**Taciana Serafim:** Eh,
+
+**Lucian Fialho:** a gente não tá no momento de fazer.
+
+**Taciana Serafim:** assim,
+
+**Lucian Fialho:** Entendi. Tudo bem.
+
+**Taciana Serafim:** exato. Entendeu?
+
+**Lucian Fialho:** Aí tu decide.
+
+**Taciana Serafim:** Seria muito legal fazer
+
+**Lucian Fialho:** É porque assim, ela tava mostrando ali agora, tipo assim,
+
+  
+  
+
+### **00:31:30**
+
+  
+
+**Taciana Serafim:** igual
+
+**Lucian Fialho:** eh, de fazer, eles vão fazer uma ação paraa AP Vida, lógico, com dinheiro infinito, onde eles vão fazer uma experiência. E aí eu acho que eles ajudariam muito mais a gente para poder organizar essas coisas que a gente tá querendo fazer com a
+
+**Taciana Serafim:** e
+
+**Lucian Fialho:** e-commerce Brasil,
+
+**Taciana Serafim:** porque Uhum.
+
+**Lucian Fialho:** do que propriamente eventos que a gente vai executar. Porque assim, a experiência que ela desenhou lá foi um dia eles alugaram um lugar que é igual
+
+**Taciana Serafim:** E o
+
+**Lucian Fialho:** MasterChef, que é exatamente a mesma estrutura. Ele vai levar o Jacan lá para poder cozinhar com os caras e os caras vão ter uma dinâmica meio masterchef onde eles vão ter que fazer um miojo com os Sacou? É isso,
+
+**Taciana Serafim:** Não, eu tô ligada. Inclusive,
+
+**Lucian Fialho:** Le?
+
+**Taciana Serafim:** eu tava pesquisando para fazer exatamente isso, porque assim, um seou, um se tiou, se deou, se alguma coisa, jamais vai querer ir no happy hourzinho no boteco.
+
+**Lucian Fialho:** É
+
+**Taciana Serafim:** Para, fala sério, né?
+
+**Lucian Fialho:** isso.
+
+  
+  
+
+### **00:32:28**
+
+  
+
+**Taciana Serafim:** Tenho mais que fazer. Então, a gente tem que levar para esses lugares mesmo. Eu já tô mapeando quais lugares dá para
+
+**Lucian Fialho:** A menina da Ering,
+
+**Taciana Serafim:** fazer.
+
+**Lucian Fialho:** a menina da Ering quando eu mandei para ela que ia ter, ela falou: "Poxa, o pessoal da, como é que é o nome? Ela me mandou até o link do do convite". É, o pessoal de uma outra empresa lá vai levar ela, eles para poder fazer macarrão. E ela não é nem gerente Colon, não, tá? Ela é tipo assim analista de produto. Ah, a Juliana, pô,
+
+**Taciana Serafim:** Eu sei.
+
+**Lucian Fialho:** que você conhece agora.
+
+**Taciana Serafim:** Trabalhei com ela. Trabalik com ela falou bem ou falou
+
+**Lucian Fialho:** Ela falou, ela falou de você hoje. Ela falou: "Você sabe que eu trabalhei com falou:
+
+**Taciana Serafim:** mal.
+
+**Lucian Fialho:** "Vem, falou bem". Falou: "Você sabia que eu trabalhei com a Tana,
+
+**Taciana Serafim:** Ah,
+
+**Lucian Fialho:** né?" Eu falei:
+
+  
+  
+
+### **00:33:04**
+
+  
+
+**Taciana Serafim:** tá.
+
+**Lucian Fialho:** "Ah, sabia. Ela tinha me falado já e
+
+**Taciana Serafim:** Nossa, foi muito divertido, meu Deus.
+
+**Lucian Fialho:** tal".
+
+**Taciana Serafim:** A época que eu tava na Erig era muito vida louca, tava solteira e eu fui lá para Blumenau. Meu Deus do céu, foi muito bom, pelo amor de Deus. Muito legal trabalhar na Ering, mas eles eram os filhos da p\*\*\*. E eu sindicalista que só fui reclamar. Você não sabe o que eles fizeram comigo? Eles, eu trabalhava no comercial, aí eles falaram assim: "Quem bater a meta primeiro vai ganhar o Cruzeiro do E-commerce
+
+**Lucian Fialho:** Acho que tu contou essa história uma
+
+**Taciana Serafim:** Brasil". Pois eu bati,
+
+**Lucian Fialho:** vez.
+
+**Taciana Serafim:** o cara não gostava de mim porque eu ficava batendo de frente com ele. Agora eu parei de ser militante. Agora eu tô mais menos.
+
+**Lucian Fialho:** É porque agora tu é dona de empresa, né? Agora tu tá na,
+
+**Taciana Serafim:** É,
+
+**Lucian Fialho:** tu virou vidraça,
+
+**Taciana Serafim:** agora não tem como. Eh, mas eu não ligo, tá?
+
+  
+  
+
+### **00:33:52**
+
+  
+
+**Taciana Serafim:** Eu acho assim, se a pessoa tem bons argumentos,
+
+**Lucian Fialho:** né?
+
+**Taciana Serafim:** se ela não tá me pedindo uma coisa que ela não mereça, aí tá tudo bem. Agora não vem querer também eh plantar, colher onde você não plantou. E aí ele pegou e deu o cruzeiro para outra pessoa. Que ódio daquele filho da mãe. Mas enfim,
+
+**Lucian Fialho:** Não fechou.
+
+**Taciana Serafim:** é isso. Você tá aqui? Ah,
+
+**Lucian Fialho:** Tô,
+
+**Taciana Serafim:** você tá aqui.
+
+**Lucian Fialho:** tô sim, tô sim.
+
+**Taciana Serafim:** Beleza. A gente tá,
+
+**Lucian Fialho:** Tava só olhando aqui,
+
+**Taciana Serafim:** ele tá bem, tá tudo certinho.
+
+**Lucian Fialho:** tá? Ainda não teve febre hoje. Eu acho que não vai ter também essa noite.
+
+**Taciana Serafim:** Ai, que bom.
+
+**Lucian Fialho:** Só que essa noite eu não dormi,
+
+**Taciana Serafim:** Tomara.
+
+**Lucian Fialho:** né?
+
+**Taciana Serafim:** Sério?
+
+**Lucian Fialho:** Que essa noite eu fiquei inteiro acordando,
+
+**Taciana Serafim:** Preocupado, né?
+
+  
+  
+
+### **00:34:27**
+
+  
+
+**Lucian Fialho:** porque na noite passada eu também não dormi. Eu dormi das 3 até às 8, porque eu fico vendo se ele tá com febre. Eu fiquei acordado até 3 horas da manhã trabalhando também, né? Aí, beleza. Aí eu dormi, ele teve febre. Aí eu acordei, ele tava tipo assim com 39 de febre, quase 40 de febre. Eu falei: "c\*\*\*\*\*\*, eu não posso dormir, você vai ter febre a qualquer momento." Aí beleza. Aí dei o remédio para ele. Aí voltei a dormir, fomos até às 8 horas da manhã, acordei. Aí tô tô vivendo o dia que eh eh vivi o dia ontem fazendo as paradas, teve algumas coisas. Só que essa noite eu falei: "Cara, eu não posso dar mole. Vou tentar organizar o horário do do remédio dele, porque como ele começou a dar febre depois da hora do que é isso, né? Tu tem que ficar esperto até para essas paradas, qual é a hora que tu vai dar o remédio para ele para você não ter que acordar de madrugada?" Então eu falei, cara, eu preciso segurar a febre do Oto até meia-noite, porque tipo, se eu seguro a febre dele até meia-noite, noss 37 até baixo, tipo assim, eu vou no banho, vou na compressa de água fria, na testa, aí a febre abaixa da meia-noite, eu durmo 6 horas seguidas. Aí foi o que eu fiz, que aí é f\*\*\*, tem que estratégia, tá ligado? É igual aqui,
+
+**Taciana Serafim:** Ah,
+
+**Lucian Fialho:** tipo assim,
+
+**Taciana Serafim:** mas que bomar melhorzinho.
+
+**Lucian Fialho:** o eu eu faço eu faço agora tipo assim, eu faço a eu faço janta para sobrar pro almoço. Eu não posso fazer almoço para sobrar pra janta, porque senão eu me fodo no outro dia, porque a cozinha tá uma m\*\*\*\* cheia de louça para poder lavar. A Eloá só acorda 10 horas da manhã Porque tá de fé, sacou? Tem toda um fechou.
+
+**Taciana Serafim:** Essa logística dos é bom demais.
+
+**Lucian Fialho:** Estamos junto.
+
+**Taciana Serafim:** Valeu, tchau.
+
+  
+  
+
+### **A transcrição foi encerrada após 00:36:12**
+
+  
+
+*Esta transcrição editável foi gerada por computador e pode conter erros. As pessoas também podem alterar o texto depois que ele for cr

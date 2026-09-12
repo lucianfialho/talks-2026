@@ -1,0 +1,806 @@
+﻿📝 Observações
+jul. 22, 2026
+Analytics Live | Como usar Claude Code para análise de dados
+convidado Gustavo Esteves Gabriel Matos Lucian Fialho Educação Taciana Serafim
+Anexos Analytics Live | Como usar Claude Code para análise de dados
+Registros da reunião Transcrição Gravação 
+
+
+
+
+Resumo
+A apresentação abordou o uso de ferramentas de automação e análise de dados via Cloud Code.
+
+Estratégias de análise dados
+A engenharia de dados prioriza a facilitação de acesso via protocolos de contexto e interfaces de linha de comando. Ferramentas locais garantem controle e eficiência superior de tokens.
+
+Segurança e automação técnica
+A implementação de guard rails impede comandos destrutivos e garante fluxos de trabalho seguros. O uso de navegadores agênticos permite realizar auditorias e planos de mensuração automáticos.
+
+Implementação do Analytics Copilot
+A solução centraliza conexões com fontes de dados e simplifica a exploração analítica conversacional. Esta ferramenta otimiza o fluxo de trabalho ao reduzir a dependência de desenvolvedores.
+
+
+
+
+Próximas etapas
+* [Lucian Fialho] Atualizar Material: Adicionar ao material de apoio as ferramentas sugeridas pelos participantes durante a conversa.
+* [Lucian Fialho] Planejar Workshop: Organizar e planejar um aulão prático sobre a criação de MCPs para a comunidade.
+* [A equipe] Ajustar Horário: Programar as próximas sessões de bate-papo para horários mais cedo, visando acomodar participantes em diferentes fusos horários.
+* [A equipe] Usar Terminal: Implementar o uso do terminal de Cloud Code por parte da equipe.
+* [Participantes] Avaliar Projeto: Marcar o repositório GMP CLI com uma estrela no GitHub como forma de feedback e apoio ao projeto.
+* [The group] Estudar Git e GitHub: Aprender conceitos básicos de Git e GitHub para facilitar o gerenciamento de skills e a colaboração no trabalho técnico.
+* [The group] Usar skill creator: Utilizar o skill creator dentro do Cloud Code para transformar análises exploratórias em skills automatizadas e replicáveis.
+* [The group] Implementar hooks: Implementar hooks no Cloud Code para garantir a segurança e evitar a execução de comandos destrutivos pelos usuários.
+* [The group] Testar Analytics Copilot: Testar a ferramenta Analytics Copilot inscrevendo-se na versão beta disponibilizada pela Métrica Boss.
+* [O grupo] Inscrever lista espera: Inscrever-se na lista de espera da ferramenta beta. Esta ação permitirá receber atualizações e contribuir com o desenvolvimento do produto.
+* [O grupo] Enviar feedback: Enviar feedbacks e sugestões sobre as ferramentas gratuitas disponibilizadas. As contribuições auxiliam diretamente na manutenção e aprimoramento dos recursos.
+* [O grupo] Conectar LinkedIn: Conectar com Lucian Fialho no LinkedIn. A rede social será utilizada para manter o contato e continuar a troca de conhecimentos após o evento.
+* [Lucian Fialho] Compartilhar link workshop: Enviar o link de inscrição para o workshop de otimização de taxa de conversão. O evento presencial ocorrerá no dia 10 de setembro em Sao Paulo.
+
+
+
+
+Detalhes
+* Introdução e Contexto: Lucian Fialho deu início à apresentação, estabelecendo o objetivo do bate-papo: explorar o uso do Cloud Code para análise de dados, focando em conceitos práticos e estratégias de implementação, com a participação de diversos membros da comunidade (00:05:23) (00:14:44).
+* Stack de Ferramentas e IA: Durante o aquecimento, discutiu-se a eficácia do stack de ferramentas do Google (Google Analytics, Google Search Console, Google Ads, Google Tag Manager) aliado ao uso de IA e ferramentas como o Antigravity, destacando o valor agregado para empresas que utilizam esse ecossistema (00:12:07) (00:18:10).
+* Desafios da Preparação de Dados: Lucian Fialho ressaltou a importância dos "seis pilares de confiança em dados", enfatizando que o tempo dedicado à preparação dos dados para garantir qualidade, consistência e completude é significativamente maior do que o tempo de tomada de decisão, reforçando que a IA pode atuar como uma aliada crucial nessa etapa (00:15:43).
+* O Papel da Engenharia de Dados: Discutiu-se a mudança na função dos engenheiros de dados, que devem evoluir de "gatekeepers" (responsáveis por entregar relatórios manualmente) para "enablers" (facilitadores), fornecendo acesso seguro às bases de dados via integrações como MCP (Model Context Protocol) ou APIs, permitindo que analistas consumam informações de forma autônoma (00:20:51) (00:24:31).
+* Model Context Protocol (MCP): Foi introduzido o conceito de MCP como uma camada fundamental para conectar a IA às fontes de dados de forma segura, permitindo que a IA interaja com as bases de dados da empresa sem que o usuário precise acessar diretamente as estruturas complexas de um data warehouse (00:23:26).
+* Cloud Code vs. Ferramentas Web: Lucian Fialho comparou o Cloud Code com interfaces web como o ChatGPT, destacando que o Cloud Code, através da versão desktop e do uso de CLI (Command Line Interface), oferece maior controle, segurança e capacidade de integrar recursos locais da máquina, ao contrário do fluxo manual de copiar e colar na web (00:28:01).
+* Eficiência de Tokens e Performance: Debatou-se a diferença de custo em consumo de tokens entre o uso de MCP e o uso de CLI, sendo este último frequentemente mais eficiente, o que levou à criação de bibliotecas próprias pela equipe da Métricas Boys para otimizar o processo (00:31:43) (00:35:10).
+* GMP CLI e DuckDB: Apresentou-se o GMP CLI (Google Marketing Platform CLI), desenvolvido pela Métricas Boys para conectar ferramentas como GA4, BigQuery e Google Ads, e a implementação do banco de dados DuckDB como uma camada de cache local, permitindo que consultas frequentes sejam feitas sem a necessidade de atingir repetidamente a API ou o data warehouse (00:32:53) (00:41:16).
+* Técnicas Técnicas Avançadas: Foram explicadas técnicas como o "Disclosure CLI", que habilita a IA a aprender e navegar via comandos de terminal, e o uso do Spectral CLI, que permite a conexão a qualquer API desde que haja uma documentação em Swagger, facilitando a automação de integrações (00:37:05) (00:42:08).
+* Benchmarks de Desempenho: Lucian Fialho compartilhou benchmarks internos realizados pela equipe, comparando o MCP do Google Analytics com o GMP CLI desenvolvido por eles, demonstrando que o uso do CLI foi mais performático e consumiu menos tokens em uma série de tarefas de análise (00:39:15).
+* Recursos do Cloud Code Desktop: Destacaram-se funcionalidades específicas do Cloud Code Desktop, como a capacidade de rodar plugins, configurar a inicialização com comandos de segurança (evitando confirmações manuais constantes com comandos como "danger skip permission") e o recurso de controle remoto, que permite gerenciar a máquina pelo celular (00:46:25) (00:51:11).
+* Estrutura de Skills e Hooks: As "Skills" foram definidas como receitas em Markdown contendo ingredientes (fontes de dados) e modo de preparo (sequência de passos), enquanto os "Hooks" foram descritos como scripts de segurança essenciais para manter o uso determinístico e seguro das ferramentas (00:48:36) (00:53:13).
+* Padronização com Skill Creator: Enfatizou-se a importância de não apenas copiar Skills de terceiros, mas adaptá-las ao contexto de trabalho, utilizando a ferramenta "Skill Creator" para automatizar a criação dessas Skills e garantir que todo o time siga uma metodologia padronizada na análise de dados (00:57:31) (01:00:53).
+* Segurança e Guard Rails no Cloud Code: Lucian Fialho explica a importância de implementar "guard rails" ou "hooks" de segurança no Cloud Code para impedir que usuários executem comandos destrutivos acidentais, como a exclusão de artigos ou tabelas. Eles detalham que eventos específicos, como "session start", "user prompt submit" e "PR to use", permitem analisar e bloquear ações antes que sejam executadas. Lucian Fialho disponibilizou uma série de scripts prontos, incluindo bloqueios para comandos como "rm -rf" e "drop table", para que os usuários possam integrar camadas de segurança em seus fluxos de trabalho (01:05:13).
+* Uso do GitHub para Colaboração: Lucian Fialho enfatiza que profissionais, inclusive de áreas como marketing, precisam desenvolver competências técnicas, como o conhecimento básico de GitHub. Eles argumentam que, embora não seja necessário ser um especialista em programação, entender o funcionamento do Git e do GitHub é essencial para acessar, copiar e compartilhar scripts e "skills" que aumentam a produtividade e a segurança dentro das equipes (01:08:40).
+* Capacidades de Navegação (Agent Browser): Lucian Fialho aborda a funcionalidade de permitir que o Cloud navegue em navegadores para realizar auditorias, testes de jornada e extração de informações. Eles observam que, embora essa prática consuma mais tokens, é um recurso fundamental para detectar problemas como a perda de "client ID" em fluxos de e-commerce. Para gerenciar recursos computacionais e consumo de tokens, Lucian Fialho recomenda o uso da extensão "Agent Browser" para Chrome em vez de uma instância completa do navegador (01:10:46).
+* Planos de Mensuração e Auditoria com GTM: Lucian Fialho explica que a navegação agêntica permite que o Cloud auxilie na criação de planos de mensuração ao simular a navegação do usuário em um site. Essa capacidade facilita a auditoria de tags no Google Tag Manager (GTM), permitindo identificar erros em acionadores e garantir o disparo correto de eventos em plataformas como Google Analytics, Google Search Console, Google Big Query e Google Ads (01:15:11).
+* Análise de CRO com Heurísticas: Lucian Fialho destaca a aplicação de Cloud para Conversion Rate Optimization (CRO), utilizando a capacidade de navegação da IA para realizar auditorias baseadas em heurísticas, como as de Nielsen. O processo envolve navegar pelo site, capturar prints e identificar elementos como "hero sections" e CTAs, servindo como uma etapa inicial para antecipar problemas antes da execução de experimentos (01:17:21).
+* Automação com Loop e Schedule: Lucian Fialho apresenta os recursos de "loop" e "schedule" disponíveis no Cloud Desktop e Cloud Code para automação de tarefas. Esses recursos permitem que os usuários agendem a execução de pipelines ou verificações recorrentes, como checagens de hora em hora ou disparos automáticos, reduzindo o esforço manual em processos contínuos de análise e extração de dados (01:20:52).
+* Qualidade de Dados e Independência Técnica: Lucian Fialho ressalta que as estruturas de "skills" apresentadas podem ser aplicadas para assegurar a qualidade de dados (data quality), como a extração de informações de um data warehouse ou a análise de logs do Google Cloud Watch. Eles incentivam a adoção dessas práticas técnicas, afirmando que isso torna os profissionais mais independentes e produtivos em suas funções (01:22:00).
+* Introdução ao Analytics Copilot: Lucian Fialho apresenta a ferramenta "Analytics Copilot", desenvolvida pela Métricas Boss para simplificar a conexão de fontes de dados e a interação com IA. A ferramenta resolve a complexidade técnica de montar camadas de "cache" e conexões manuais, oferecendo uma interface desktop para explorar dados conectando-se a diversos provedores de IA e mais de 100 fontes de dados, como Google Analytics 4, Meta Ads, Vertex AI, Shopify e Snowflake (01:23:59).
+* Recursos e Gestão de Skills no Analytics Copilot: Lucian Fialho detalha funcionalidades do Analytics Copilot, como o monitoramento automático de catálogos do Facebook e Google Merchant Center, a gestão de credenciais múltiplas por workspace e o compartilhamento de "skills" entre membros da equipe. A ferramenta inclui habilidades pré-configuradas para auditorias de LGPD e outras demandas de análise, permitindo a colaboração eficiente dentro de empresas (01:30:22).
+* Usabilidade e Geração de Relatórios: Lucian Fialho explica que o Analytics Copilot mantém uma interface de chat conversacional para exploração de dados, similar ao Cloud, mas com acesso mais direto e economia de tokens. Eles citam o exemplo de usuários na Ering que automatizaram a criação e distribuição de relatórios diários ou semanais, tornando a análise de dados mais frequente e acessível para o time (01:32:48).
+* Estudo de Caso de CRO e Testes A/B: Lucian Fialho compartilha um estudo de caso onde o Analytics Copilot foi utilizado para identificar e solucionar uma fricção na jornada de compra de uma marca de óculos. O processo envolveu a criação de uma funcionalidade de detecção de formato de rosto via HTML/JavaScript, que reduziu a dependência de desenvolvedores e agilizou a implementação de testes A/B, otimizando o pipeline de trabalho (01:35:05).
+* Workshop Presencial e Encerramento: Lucian Fialho anuncia um workshop presencial de CRO marcado para o dia 10 de setembro em São Paulo, focado em práticas de conexão e configuração utilizando Cloud e Copilot. Eles concluem a sessão incentivando os participantes a fornecerem feedback sobre as ferramentas gratuitas disponibilizadas e a manterem contato via LinkedIn para futuras trocas de ideias (01:41:00).
+
+
+
+
+Revise as anotações do Gemini para checar se estão corretas. Confira dicas e saiba como o Gemini faz anotações
+Como está a qualidade de destas observações? Responda a uma breve pesquisa para nos dar seu feedback, incluindo o quanto as observações foram úteis para o que você precisa.
+📖 Transcrição
+jul. 22, 2026
+Analytics Live | Como usar Claude Code para análise de dados - Transcrição
+00:05:23
+
+
+Lucian Fialho: Tem Posso falar? B capture. É, pronto. Tá beleza. Alô, alô, alô, alô, alô, alô. p****, não tem um slide me apresentando aqui, velho. Aproveitar para mijar também. Vai ser essa luz aqui. Parou, né? aqui é a luz de lá parou. Vou ter que trocar ali o que é o nome da live mesmo. Tá bom, vamos usar discurso. Tá bom, tá bom. O f*** é que sabe qual é? Eu não tenho, eu vou ser só o conteúdo, não vou poder mostrar nada porque minha conta do Cláudio acabaram todos os tokens, tá ligado? Vamos permitir aqui, hein? Salve, rapaziada.
+Apresentação de Lucian Fialho's Presentation: M.
+Lucian Fialho: Todo mundo me ouvindo aí? Deixa eu abrir o chat aqui. Boa noite.
+
+
+
+
+00:09:09
+
+
+Lucian Fialho: Boa noite a rapaziada que entrou aí. Todo mundo me ouvindo? Confirmem aí para mim o áudio. Caião. Maneiro. Tô vendo que tem uma galera aí dentro, hein? Tem uma galera aí. Já vamos fazer o seguinte, enquanto a gente vai aquecendo aqui, vai me mandando aí no chat aí onde é que vocês são, onde é que vocês são, onde é que vocês conheceram a métricas boy. Vai mandando aí que a gente vai batendo um papo aqui enquanto a gente espera o resto da galera entrar. Beleza? Deixa eu ir aprovando aqui. O Gabriel tá provando ali pra gente também. Sejam muito bem-vindos a esse bate-papo que eu já queria fazer com vocês há muito tempo, meu parceiro. Ih, já tem a galera tá escrevendo aí, ó. Opa, São Paulo, Caião. Prazer, cara. Trabalha por onde, Caião? Vinícius, boa noite.
+
+
+
+
+00:10:11
+
+
+Lucian Fialho: Boa noite, Gisline. Boa noite, Emilson. Galerinha aqui, né? Tranquilo. Fala, Lívia. Tudo bom? Essa essa Ah, não, não conheço. Não conheço. Conheço. Ah, fala aí, Lívia. Tudo bom, cara? Como é que você tá? Tudo bem. Fala aí. Boa noite, Anderson. Tudo bom? Ainda tem uma galera entrando aí.
+Leonardo da Rosa: Yeah.
+Lucian Fialho: Fala, Davi. Pô, olha aí, ó. Vamos, p****, salva de palmas aí pro Leonardo da Rosa que entrou já abrindo a câmera. p****, vocês t que abrir a câmera para ver vocês aí, hein? Quem puder. Aí, fechou. Olha aí, cara. Tudo bom? Putz, sopinha de ervilha é muito forte.
+
+
+
+
+00:11:07
+
+
+Lucian Fialho: A gente tá aqui aquecendo por enquanto, ó. Cuidado aí com o telefone, pelo amor de Deus. tá no Rio, né? Maneiro, maneiro. Cara, vai me passando aí, pô, frescão muito forte. Muito bom, muito bom, muito bom, cara. Vai me passando aí também um pouco aí onde é que vocês, né, eh, onde é que vocês estão e se vocês já usaram cloud code alguma vez, como que tá o nível de uso de a de vocês aí. Vamos, vamos trocar uma ideia enquanto a gente começa, quanto a gente não começa. Tem uma galera que tá entrando aí. Rapaziada tá botando appi aqui para poder coletar aqui, hein? p****, já recebi umas três notificações aqui. Deixa eu ver o chat aqui. Bem superficial, beleza. Nunca mexi no Cloud Code. de eh na prática, parei no cowork. Maneiro. Não, já é um caminho, hein, cara? Já é um caminho.
+
+
+
+
+00:12:07
+
+
+Lucian Fialho: Comecei a usar recente. A agência que trabalha está no cles de OS interna no cloud. Bem maneiro, cara. Isso é muito interessante, hein? A galera tá criando vários ecossistemas em volta do cloud. Tem um aqui que a gente vai mostrar para vocês já já. Olha aí, ó. Tô construindo um app usando cloud, galera que tá usando antigravity. Pô, o antigravity é um modelo bem interessante, né, que a galera tem usado muito, né? Você chega a usar para análise de dados, Leonardo? Opa, fala aí, David de Floripa. Ah, não tá mais para desenvolver. Perfeito, perfeito, perfeito. Eu preço grande é complicado. Tô usando muito mais os stacks do Google. Cara, faz total sentido. Eu acho, sendo bem sincero, que o stack do Google, eu acho que é o que eu mais faz sentido pra empresa contratar. Eu acho que é o que mais agrega em outros serviços, sabe? você assina o Google Workspace, você já ganha acesso ao Notebook LM, você já ganha acesso a uma série de ferramentas que vão te ajudando a a a teu dia a dia, né, no trabalho.
+
+
+
+
+00:13:14
+
+
+Lucian Fialho: Aí, pô, o o pacote do Antigravity mais esse stack de coisas, eu acho que é o maior custo benefício, assim, é o maior combom assim, se fosse contratar aqui para para uma empresa tipo muito grande, eu acho que é o melhor custo benefício, é o que tem mais valor agregado assim. Beleza. Bem, ó, vou aprovar aqui que tem mais uma galera para entrar e a gente começa. Pode ser? Alguém mais construindo alguma coisa com IAI aí? Quem tá quem tá usando IA para poder fazer a análise de dados aí? Tá beleza. Gustavo. Júlia me liga. Pô, Júlia me liga, não é? Me liga do curso.
+Julia Meliga: Sim,
+Lucian Fialho: Fala aí,
+Julia Meliga: sim.
+Lucian Fialho: Julinha. Tudo bom?
+Julia Meliga: Tô por aqui,
+Lucian Fialho: Ah, valeu, valeu, valeu,
+Julia Meliga: ó. Tô prestigiando vocês aqui de Portugal,
+Lucian Fialho: viu?
+Julia Meliga: hein? 11 horas da noite.
+
+
+
+
+00:14:03
+
+
+Julia Meliga: Eu tô por aqui,
+Lucian Fialho: Opa.
+Julia Meliga: hein?
+Lucian Fialho: É isso, é isso.
+Julia Meliga: Atenta para eu poder ir
+Lucian Fialho: A gente vai começar a fazer uma mais cedo aí para tu não, para tu não se ferrar tanto. Fechou?
+Julia Meliga: dormir cedo.
+Lucian Fialho: É isso, é isso, é isso. Deixa eu ver ali, ó. O Gustavão mandou: "Quero ver se vai migrar pro Cloud". A questão é que o Cloud é a mania da vez. Sim, concorda um pouquinho. A galera tá fazendo um uso mais de cloud, né? numa camada onde, cara, isso aqui funciona, a galera sempre indica o cloud assim porque normalmente tem uns modelos bem interessantes ali pra gente poder conseguir utilizar. O Nilson falou aqui, ó, uso para um app de análise de dados para um RP jurídico. Olha aí que maneiro, cara. Que maneiro. Que maneiro. Bem, vamos vamos começar aqui o nosso papo. Vou vou começar.
+
+
+
+
+00:14:44
+
+
+Lucian Fialho: Ah, ó, a galera usando copilot também. Eh, mais uso não, mas tem uma pessoa aqui que tá usando IA e tá usando bastante que eu quero ver se ela vai se ela vai se acusar aqui, que eu já vi que ela entrou e a gente tem bastante ideia. Ah, lá, ó. Lá minha. Vive Coder aí, ó. É isso. É isso. Bem, pessoal, ó, preparamos o materialzinho aqui para vocês, pra gente poderar uma ideia sobre como funciona o processo de como usar o cloud code para poder fazer a análise de dados. Beleza? Agora eu não tô vendo diretamente o chat, então eu vou fazendo umas pausas aqui de vez em quando para dar uma olhada no chat, beleza? Ah, agora que eu consegui vendo. Fechou? Então assim, cara, eh, a ideia desse material aqui é muito pra gente poder conseguir dar um start, tá? nem vou abrir a ferramenta aqui para vocês verem. Eh, a ideia aqui é muito mais mostrar para vocês como que vocês conseguem utilizar o cloud para você poder conseguir fazer a análise de dados do ponto de vista mais conceitual, beleza?
+
+
+
+
+00:15:43
+
+
+Lucian Fialho: Depois a gente vai e pode criar outros conteúdos mais práticos e assim eh eh sem tanto eh criar conteúdos mais práticos é de fato conectar, plugar, usar. Então a gente acho que a gente consegue trazer uma linha que pode ser uma série de conteúdos aí que a gente pode fazer aqui em conjunto com vocês, caso vocês curtem esse primeiro bate-papo, beleza? Então eh eh aqui na Matricas Boys, a gente começou com uso de inteligência artificial para análise. Eu acho que deve ter um um ano e meio, quase dois, vai, a gente já tá usando em vários cenários aqui a pra gente poder conseguir eh eh mitigar grande parte de de riscos, porque a gente tá fazendo um double check usando AI. E acho que esse é o grande ponto quando a gente fala sobre uso de AI para análise de dados, né? É entender quantas camadas de segurança, quais quais as camadas de segurança e principalmente o que que a gente tem que fazer para poder conseguir fazer com que esse dado chegue mais limpo, mais palatável pra tomada de decisão no dia a dia. Beleza? Vou vou começar aqui e a gente vai trocando uma ideia, porque assim, eu acho que eu não sei o quanto que vocês percebem entre a solicitação que a gente faz eh para um time de dados até ele conseguir te entregar a análise no final, a gente tem uma porrada de coisa que a gente tem que fazer, preparar e garantir que esse dado tá com uma qualidade boa.
+
+
+
+
+00:17:04
+
+
+Lucian Fialho: A gente tem que garantir eh eh eh a consistência, a confiabilidade e completude, né? a gente tem os seis, os seis pilares de confiança em dados que a gente pode, vocês podem dar uma olhada aí depois eu vou trazer aqui alguns pontos para vocês, mas assim, a o tempo que a gente passa preparando o dado para poder conseguir extrair o insite, acho que a máxima é que ele é muito maior do que o tempo que a gente toma uma decisão, cara, dentro do nosso negócio ou dentro do time que a gente tá trabalhando. Então, a ideia aqui de como a gente consegue plugar IA é talvez levantar um pouco dessa consciência para entender que a IA ela pode ajudar a gente em grande parte nessas etapas que são de preparação dos dados inicialmente e foi por onde a gente começou aqui com a métricas boys. Então assim, eh eh em vários cenários, eu acredito falando alguma besteira aqui, citando alguma das ferramentas, vocês podem me trazer aqui, mas assim, eu imagino que aqui é o stack de análise de dados da maioria Bras empresas hoje tô errado. Ou vocês tem alguma ferramenta aqui que vocês incluiriam? Que que vocês acham? Vamos interagindo aí no chat aí que eu tô conseguindo ver aqui agora o chat, beleza?
+
+
+
+
+00:18:10
+
+
+Lucian Fialho: Então assim, dentro do nosso stack hoje de análise de dados, a gente tem todos os stacks do Google Analytics com o Google Analytics, Google Search Console, Google Ads, Google Tag Manager pra gente poder conseguir fazer a gestão de grande parte do pilar de várias empresas, né? Ó, triple wale em alguns clientes. WordPress, meu Deus do céu, WordPress, mas a gente tá usando aqui em alguns, não posso falar nada não, que agora a gente tem o WordPress aqui também, não vão. Então assim, a gente sabe que a gente tem essa lista de ferramentas aqui que tá dentro do stack de análise de dados da maioria das empresas, certo? Então assim, eh eh o ponto principal é que quando a gente vai para poder coletar até as próprias ferramentas que a gente tem de de que essas empresas dão, elas nunca trazem esses dados entre si, né? Então você tem que ter uma integração para dentro do teu pipeline de colocar esse dado dentro de um datryho house ou pô você consome diretamente via ferramenta e aí você tem que lidar com não só o not, mas você tem que lidar com uma série de outras coisas que a gente tem no processo quando a gente tá fazendo as nossas análises. assim, eh, ter a visão de quais são essas ferramentas dentro do stack de análise de dados de vocês, eu acho que é o passo principal, porque quando a gente vai pensar em quais dados a gente tem que preparar, a gente tem que pensar em quais dados, né?
+
+
+
+
+00:19:25
+
+
+Lucian Fialho: Então, quais são as fontes de dados que a gente precisa mapear pra gente poder conseguir conectar ou tentar criar uma integração com que a gente consiga conectar isso dentro de uma inteligência artificial, beleza? Então assim, ter esse mapa é muito importante e aí, pô, muito maneiro que vocês já têm algumas aí que vocês conectariam aqui. Pode deixar que depois eu eu vou adicionando isso nesse material aqui pra gente ir atualizando. Então assim, Google Analytics, o Hubspot que o Gabriel trouxe, traria uma camada de uso para a gente conseguir consumir os dados de usando inteligência artificial para poder tomar decisão, que seria muito maneiro. Porque assim aqui eu nem tô falando na parte onde a IA ela vai automatizar alguma tarefa, é a gente mapear quais são as ferramentas para poder conseguir conseguir consumir esses dados para dentro e fazer a ingestão disso de uma maneira mais palatável. Eu acho que essa aqui, essa é a grande vantagem que o Cloud Code acaba trazendo quando a gente conecta um stack de ferramentas dentro dele. É, é uma camada conversacional onde você vai conseguir de fato trocar uma ideia com seus dados pra gente poder conseguir eh melhorar o processo, né, de tomada de decisão dentro das empresas. E aí, na maioria das vezes, o que a gente acaba tendo, né, nem em todas as empresas, mas a gente acaba tendo um cenário onde a gente vai indo muito para essa premissa de usar o datarehouse e aí, pô, é big query, é data bricks, é snowflake, a DBT, tudo isso é e vai meio que trazendo uma camada de complexidade muito grande pro análise de dados.
+
+
+
+
+00:20:51
+
+
+Lucian Fialho: Então, pô, quando a gente pensa que a gente tem que preparar esse dado, preparar o datarehouse ou ou preparar o como a gente vai consumir esse dado dentro do datare house, também é algo que a gente precisa pensar quando a gente tá trabalhando aqui com análise de dados utilizando a alguém aqui tem alguma dessas estruturas de data warehouse, Google Big Query, datab, snowflake ou algo do tipo, onde você consiga hoje já fazer uma quer e puxar os dados para montar um relatório? Alguém já tem uma alguma coisa parecida com essa? Me manda aí no chat que a gente vai lendo aqui, beleza? Então assim, eh, o custo real dessa estrutura é de fato a gente ter que, pô, ter a necessidade de ter um engenheiro de dados dentro do nosso time, eh, eh, da gente conseguir manter esse pipeline ativo e dando manutenção dentro desse pipeline. Ou seja, você ainda vai precisar de alguém para poder conseguir consumir esse dado por você, né? você ainda tem ainda um gatekeeper em cima, uma camada em cima, que, pô, você tem que pedir essa informação para uma pessoa. Essa pessoa vai ter a própria estrutura dela de consumo de conte de não de consumo de conteúdo, ó, mas ela vai ter a própria estrutura dela de tarefas, onde ela tem uma porrada de coisa para fazer.
+
+
+
+
+00:22:05
+
+
+Lucian Fialho: Ninguém tá ali 100%, 24% disponível para poder puxar uma fonte de dado que a gente precise ou pra gente poder conseguir fazer uma integração eh eh mais que vai trazer um resultado diferente. Então, a gente acaba tendo muito desses problemas quando a gente tem que entrar com um time de dados para poder conseguir buscar alguma coisa assim. Vocês têm alguma ideia da galera que falou que tem o o DBT ou que tem o BQ de quanto tempo demora mais ou menos para você putz pedir aqui uma solicitação e eu entrego isso daqui? tal dia. Cois, se vocês puderem depois me passando aí, seria interessante. Beleza? Então, assim, eh, a ideia aqui é que quando a gente pensa em usar IA para poder analisar dados, a gente não tá falando especificamente de acabar com o data, o com data warehouse, tá? A gente tá falando de acabar com data house ou tirar ele dentro dessa estrutura. a gente consegue de fato conseguir e fazer com que a gente disponibilize, como engenheiros de dados muito mais a maneira com que o cara vai se conectar através de a e garantir os guard rails de aonde esse cara consegue tocar dentro da nossa base de dados. Então, como engenheiro de dados, a gente consegue preparar e deixar com que, cara, eh, esse time vai ter acesso só a essa estrutura e você disponibiliza a integração direto no cloud code, seja via eh eh um MCP ou seja via uma API.
+
+
+
+
+00:23:26
+
+
+Lucian Fialho: E aí eu já começo a trazer alguns pontos aqui. Alguém aqui já ouviu falar de MCP alguma vez na vida? Na última vez que eu perguntei, não era tanta gente assim. Beleza. Sim, Rogério também. Hein? Olha que maneira, hein? Beleza. Com metaedads eu uso. Muito bom, inclusive o que saiu da da meta, né? Que eles fizeram um cliente novo, tá? Então assim, aqui é um pouco disso. Eu acredito que o papel nosso como engenheiros de dados em algum momento vai dar uma mudada sobre como a gente disponibiliza a informação. Não sei qual que é ainda, mas eu acredito que a gente vai est trabalhando muito mais como um enable de, cara, ó, a gente tem essa estrutura aqui, esse pipeline de dados e o time de dados ou o time de engenharia vai garantir o pipeline, a ingestão e aí eles vão disponibilizar esses SDKs, vai como um MCP ou como algum CI que ele vai se conectar dentro do do da base de dados primária que a gente disponibiliza como engenheiros de dados para esses usuários consumirem na ponta.
+
+
+
+
+00:24:31
+
+
+Lucian Fialho: Então assim, eh eh ficou mais fácil da gente conseguir entregar e dar autonomia para as pessoas. E a ideia aqui é justamente se você tem um data warehouse, consuma ele via data warehouse e crie uma camada onde você consiga adicionar guard rails para dar segurança e e como a gente vai conseguir fazer isso? É meio que trabalhando assim, o cenário que a gente tinha anteriormente antes da IA, a gente tinha um fluxo de tarefa onde a gente tinha o analista abrindo a a a tarefa. a gente tinha um engenheiro de dados para poder escrever a querer ou entender se aquele dado tava preparado ou não pra gente poder conseguir consumir. Eu já tenho pipeline disso, eu não tenho. É uma coisa nova, não é? ele precisava trabalhar nisso. E aí isso inclusive é o que adiciona uma camada gigantesca, né, de tempo para poder implementar essas integrações que a gente não tinha mapeado, não tinha mapeado antes, até a gente conseguir chegar num cenário aonde um analista que pediu a solicitação conseguiria receber, né, ou entregar a tarefa pra pessoa. É assim, um pouco do que eu tô falando sobre como e por mudar, porque aqui o analista ele consegue dispon ele já consegue consumir a informação de ponta a ponta, porque se o time de engenharia de dados disponibilizou um MCP que vai se conectar dentro da tua fonte, né, dentro da fonte de dados da tua empresa, eh eh você só conectou ele dentro de uma estrutura segura no cloud, você já consegue tendo o analista puxando as informações.
+
+
+
+
+00:25:55
+
+
+Lucian Fialho: faz sentido essa esse cenário anterior e esse cenário atual, onde o engenheiro de dados ou o time de dados, ele vai ser muito mais um enable de cara, ó, consuma os dados aí e a gente garante a qualidade. Como que você isso? Eh, vai me mandando aí no chat enquanto a gente tá conversando aqui, tá? A ideia aqui é a gente ir batendo um papo, vocês estão ligados. Beleza? Então, vai trazendo um pouco dessas visões aí que a gente pode ir trocando uma ideia aqui sem nenhum problema. Fechou? Então assim, não acabamos com o datarehous e muito pelo contrário, eu acho que a gente vai ter ainda o data warehouse em vários cenários específicos e em vários cenários genéricos também, porque é é um é uma camada um pouco mais segura ou até uma camada onde a gente consegue colocar mais guard rails pra gente poder conseguir dar acesso aos dados paraas pessoas que vão consumir essas informações. Beleza? Então assim, eh, chat, GPT, cloud, Desktop, eu perguntei um pouco para vocês sobre como que vocês estão utilizando AI. Algumas pessoas falaram antigravity, por isso que eu até perguntei se tava usando antigravity para poder fazer análise de dados.
+
+
+
+
+00:26:54
+
+
+Lucian Fialho: Mas assim, a a real e a grande diferença é que no final das contas o o chat GP, alguém tá usando só o chat GP? PT aqui para analisar dados. Eu não vi na hora que vocês mandaram alguém citando o chat GPT, mas assim, eh, ó lá, p****, eu só recebo mensagem de transcrição, hein? Tá todo mundo usando essa tátic aí, hein? Ã, desenvolver na VPS e disponibilizar por end point com token dá bom também, cara. Você pode, é porque assim, eu acredito, ô Vinícius, que você colocar um MCP na frente desse, eu não sei o que você quis dizer como com relação a a desenvolver na VPS, tá? Mas assim, se você tá falando de desenvolver uma API que você vai se conectar para poder consumir essas informações, dá bom, tá? Você consegue colocar ele lá para poder se conectar via API diretamente no cloud e aí ele vai consumindo as informações. Eu tenho até uma libo, tá? Então assim, funciona muito. Eu só acredito, Vini, que você colocando uma camada de MCP na frente, você vai conseguir controlar melhor o acesso desse cara paraas bases que você tem ou pros end points que você tem.
+
+
+
+
+00:28:01
+
+
+Lucian Fialho: Eu eu tava vendo até um um um vídeo esses dias de como que a maneira com que a gente distribui a API vai mudar com o uso de MCPs na frente, tá? Então, sei lá, acho que já que você tem esse conhecimento mais de técnico aí, vale a pena dar uma olhada nessa parada, beleza? Porque o MCP ele vem para poder colocar uma camada de não entregar o end point diretamente pro usuário. A gente vai entregar, nesse caso, eh só eh um MCP que vai conectar a aí sim a essa API, aos de pontos corretos que a gente quer e a gente vai conseguir controlar de ponta a ponta como que esse cara interage com a nossa PI, então você fica menos exposto de certa forma. Beleza? Então assim, chat GPT, cloud desktop ou cloud code, sendo bem sincero, eh eh para mim eh o cloud ele só tem o cloud code, ele só tem um concorrente ali muito direto, tá? Que seria o Codex. Inclusive, se tiver algum usuário de Codex aí, pode mandar mensagem aí no chat que eu quero saber quem tá usando Codex aí. Então assim, o chat GPT é aquela interface que a gente acessa para poder conseguir mandar mensagem e trocar ideia com a IA, né?
+
+
+
+
+00:29:02
+
+
+Lucian Fialho: Muita gente fica copiando e colando o texto ainda, jogando pro chat GPT. deixando ele analisar, copia, cola, volta. Isso daí é um fluxo meio ruim, porque quando você tá na web ali, você não tem tanto acesso a conseguir eh brincar, por exemplo, com o uso de um MCP local, que pode, por exemplo, abrir um navegador, que a gente pode fazer ou usar recursos locais da da da máquina que você tá trabalhando, tá? Falei, Léo, ó, para mim o GPT tá melhor que o cloud. Beleza. Eu eu sendo bem sincero, eu tô com cloud ainda, mas tô testando o o GPT com Codex, mas sendo bem sincero para mim tá bem parecido, tá? Você não sei se você já chegou a testar o Fable, mas eu curti algumas coisas que ele fez. Eu sempre tenho coisas, sempre tem pontos bons e pontos ruins. Beleza? Então assim, o chat GPT é essa só na interface aonde a gente vai estar na web trocando e usando o chat. Era muito como a gente usava no início o chat GPT. Yeah. E com a evolução, né, desses processos, eles foram criando esses aplicativos e nativos nas máquinas, onde a gente consegue colocar o cloud desktop conectado a MCPs que tem acesso à nossa máquina para ler e fazer coisas a mais que um ambiente web permitiria.
+
+
+
+
+00:30:17
+
+
+Lucian Fialho: Então, o cloud desktop ou agora tem, né, o Codex Desktop também para poder eh eh citar o o mano que falou aí do GPT, cara, tudo isso eles meio que estão replicando, exatamente o mesmo playbook, né? Então o cloud vai lá, lança o cloud desktop, logo depois a gente tem o o o Codex copiando e fazendo o Codex desktop, a mesma coisa pro CLI também, tá? Então assim, eh a grande vantagem de você conseguir eh usar aqui é muito mais sobre você não usar dentro do ambiente web e tentar ir para um ambiente nativo onde você vai conseguir mais controle pro que a gente consegue empregar aqui. Beleza? E no Cloud Code, eu sei que muitos vão acabar tendo um pouco da barreira, mas ele ele tx, né, que também tem um um celai que roda no terminal, também é possível de você conseguir utilizar. E agora no cloud Desktop e no Codex você consegue usar ambos o cloud code para poder e ambos os CLI dentro daquela estrutura, né? Então eles conseguiram deixar bem amigável a estrutura de consumo pra gente poder conseguir ter algo muito muito muito técnico que roda lá no terminal numa interface gráfica que seja interessante para todo mundo consumir. Beleza? Então assim, eh a diferença aqui que a gente acaba trazendo com relação a cloud desktop mais MCP, na verdade é muito sobre a capacidade que o MCP tem de gastar mais token do que outros usos como um CLI.
+
+
+
+
+00:31:43
+
+
+Lucian Fialho: Alguém já ouviu falar dessa diferença entre o MCP e usar o CLI para poder consumir as informações? Que aí a gente tem alguns casezinhos interessantes que a gente pode trazer aqui depois para vocês darem uma olhada também, beleza? Então assim, chat GPT na web, cara, não não acho que a gente vai continuar num fluxo ainda muito manual pra gente poder conseguir consumir as informações. Eh, o cloud desktop é comparado até com o chat GPT. Eu vou até fazer essa pergunta pro Leonardo. Ô, ô, ô, Léo, o o cloud, o cloud ele tem um recurso chamado Cloud Rad Teams, que você consegue rodar skills na nuvem. O codex ou o chatpt também tem isso, só para eu saber se existe essa diferença, tá? Então, assim, eh, o MCP na maioria das vezes ele acaba trazendo uma visão onde ele vai gastar mais tokens do que a maioria das conexões de dados que a gente pode fazer através de CLI. Então, ele acaba sendo um pouco mais caro em consumo de tokens. A gente tava até fazendo um teste, eu e a e a Juliana, a gente tá começando a rodar ele, né, onde ela tava rodando e o o o MCP da Vetex que a gente fez e agora a gente vai comparar com CLI da Vetex que a gente fez para poder ter essa diferença do consumo de dados pro Google Analytics.
+
+
+
+
+00:32:53
+
+
+Lucian Fialho: Inclusive, eu sei que eles criaram o MCP lá do Google Analytics. A gente tem um benchmark lá na minha newsletter lá, onde a gente fala sobre o comparativo de CLI versus MCP, que é bem interessante também. Beleza? Então assim, tudo isso é enable pra gente poder conseguir consumir mais dados e conseguir se conectar a mais fontes de dados. Beleza, galera? É bem tranquilo aqui. Então, deixa eu passar aqui. E aí, cara, o que que é o stack que normalmente eu recomendo? Sim, é criar uma estrutura onde você consiga se conectar à suas fontes de dados, obviamente. E aí aqui paraa métricas boys e e pra gente poder conseguir consumir eh isso de uma maneira onde a gente economize tokens comparados ao ao MCP, a gente criou aqui algumas bibliotecas que se conectam direto dentro do cloud code pra gente poder conseguir buscar essas informações de uma forma um pouco mais mais fácil e gastando menos tokens. Então, dentro da estrutura que a gente colocou, a gente colocou esses CLI, onde a gente tem o Google Marketing Platform CLI, né? Então a gente consegue conectar GA4, Google Search Console, Google Ads, Google Tag Manager e o Google Big Query.
+
+
+
+
+00:34:01
+
+
+Lucian Fialho: E a gente criou uma outra libe que basicamente se conecta a qualquer API, beleza? Explico para vocês daqui a pouquinho, beleza? E aí, cara, uma das coisas que a gente queria muito era fazer com que a gente não tivesse a necessidade de ficar batendo no data warehouse o tempo todo ou batendo na API do Google Analytic 4 o tempo todo para poder consumir essa essa essa cota enquanto a gente tivesse fazendo essa análise, sabe? Então assim, uma coisa que a gente acabou adicionando é um banco de dados chamado banco duckd, que a gente consegue rodar ele local dentro da máquina do dos usuários para poder conseguir adicionar uma camada de cash. Então, toda vez que a gente busca uma informação na nuvem, né, para poder trazer os dados, por exemplo, de quantas vendas eu tive na Vetex, ele puxa esse dado e ele não precisa buscar esse dado novamente, porque ele passa a est dentro de uma camada eh local de cash onde, putz, cara, ele tá buscando dados de transação de novo do período de julho. Ao invés de eu buscar na API ou buscar dentro do data Houseous, ele vai consumir direto dentro do Duck DB. E aí para isso a gente também teve que construir algumas coisas aqui para que isso funcione, fechou?
+
+
+
+
+00:35:10
+
+
+Lucian Fialho: Então assim, GMP Cli e aqui eu tô pegando os stack bem básico, tá? Porque assim, isso daqui faz com que a gente consiga diminuir bastante comparado ao uso de MCPs, eh a quantidade de tokens que a gente vai utilizar enquanto a gente tá fazendo essa análise. Eu não sei, eu uso e tô usando e construindo MCPs há muito tempo e a sensação que eu tinha que por maior o espaço que eles dessem pra gente da gente conseguir consumir dados que não estavam dentro daquele treinamento, daquele modelo, eu acho que a sensação que a gente tinha no geral é que a IA ficava meio burra porque o contexto terminava muito rápido naquela época. Então assim, acho que hoje com modelos de 1 milhão de parâmetros aí que a gente acaba, não 1 milhão de parâmetros, né? 1 milhão de contexto que a gente acaba tendo tanto no cloud quanto em outras soluções, fica mais fácil da gente conseguir utilizar MCP hoje. Mas eu sempre prezo por um cenário onde a gente consiga mitigar e economizar bastante token para poder fazer a análise, beleza? M. Ah, deixa eu ver aqui o que o Vinícius falou aqui. Aprovei app público no Google e na meta.
+
+
+
+
+00:36:07
+
+
+Lucian Fialho: Ã, e tô consumindo tudo via API mesmo e meus clientes também. Eh, vamos ter algum curso para criação das MCPs? Cara, a gente pode pensar em alguma coisa, hein, cara. Eu construí uma porrada de MCP já. A gente pode pensar em alguma coisa aí. É só, eu não sei se um um curso para criação de MCP, porque eu acho que esses conteúdos eles ficam muito datados, Léo. Tipo, essas coisas estão acontecendo muito muito rápido e numa velocidade tipo absurda assim. Mas eu acho que um um aulão de como fazer o MCP super top também. Isso que a dica aí pra galera que tá acompanhando aí do time da Métricas Bost, fechou? Do nosso time aqui. Então assim, e o cloud Code como o o a IA, né,
+Felipe Rosa: M.
+Lucian Fialho: o motor que vai consumir essas informações. E aí a gente deixou uma série de skills prontas ali para poder conseguir mitigar e trazer uma camada de segurança pra gente. Beleza? Então assim, eh, dentro do GMPC, que é essa libu, deixa eu pegar o link aqui para eu poder colocar para vocês aí.
+
+
+
+
+00:37:05
+
+
+Lucian Fialho: Aqui, ó, só para mandar aqui no chat esse GMP Clear aí, ó. E comparado com o Vinícius que tá fazendo tudo via API, Vini, aqui a gente consegue dar uma camada um pouco diferente para isso, tá? O o cloud ele tem uma técnica e aí, p****, é f***, né? Eu sempre venho aqui para poder trazer um monte de técnicas para vocês, mas assim, eh, o cloud ele tem uma técnica ou as Iis, elas têm uma técnica que a gente consegue trabalhar usando que é o disclosury disclos, onde a gente consegue colocar a IA para poder conseguir navegar dentro do CLI e entender o que ela consegue fazer. E aí, pô, deixa eu dar um passo para trás aqui porque tem cardíaco na call aqui. CLI é command line interface, tá? Então assim, eu falo isso para vocês há muito tempo enquanto eu falo e entro aqui nas lives da Métricas Boys, em que os assuntos iam ficar cada vez mais técnico. A a Juliana me liga, inclusive, sabe disso, que eu falo disso um tempão, gente. As parolas estão ficando mais técnicas, as coisas estão ficando mais mais eh eh mais eh eh do ponto de vista de de tecnologia mais aprofundadas, a gente precisa ter essa noção.
+
+
+
+
+00:38:15
+
+
+Lucian Fialho: Então assim, como o disclosure CLI é uma técnica que a gente usa para ir a conseguir usar um CLI para aprender a consumir os dados, tá? Então essa isso é uma coisa que a gente conseguiu habilitar aqui dentro com essa biblioteca. E você pode aí, ô ô, quem era o Vini, usar essa biblioteca aí para poder conectar dentro do teu Steck. Sem problema, Open Source tá lá no GitHub. Fechou? Então assim aqui o que que a gente acaba ganhando é, percebe só, a gente tem comandos específicos para poder a IA conseguir extrair dados diminuindo o consumo de tokens com relação ao MCP. Básico, é só plugar e a gente consegue ter isso aqui conectado. Beleza? Então assim, eh, o benchmark que eu falei até para vocês, ele tá aqui e eu vou pegar o link para vocês aqui agora. Agora, Alex, pera aí, ó. Testei essa semana o GMP Clear e me assustei o quão rápido foi taguear o meu mini size. É isso, Felipe. p****. Aí, ó. Mas tu deixou a estrela lá no GitHub, Felipe, ou tu só usou?
+
+
+
+
+00:39:15
+
+
+Lucian Fialho: Me diz aí se você só usou ou você largou a estrela lá no no GitHub. Tem uma galera que tá usando na surdina e nem me dá um salve e nem deixa uma estrela lá pra gente. Cara, vocês são f***. Ó, tô mandando aqui, ó. É isso. Já paga lá, já paga lá, paga lá. Mandei o link aí, tá? De um artigo que a gente fez lá na newsletter que eu escrevo, onde a gente fez uma comparação, tá? Aqui a gente tem uma comparação do do MCP, do Google Analytics versus o CLI e do GMP Cli. E a gente que que foi a que a gente construiu aqui na métricas boys. E cara, para vários relatórios, a gente conseguiu inclusive um consumo de tokens bem menor comparado com o que o Google Analytics traz, tá? Então assim, eh, pensando, a gente fez um benchmark de fato, né? A gente pegou cinco tarefas e deu as cinco tarefas pro MCP, do Google Analytics e pro CLI, que a gente construiu. Em todas elas a gente foi mais performático, tá?
+
+
+
+
+00:40:16
+
+
+Lucian Fialho: Todas elas a gente foi mais performático do que eles com relação a consumo de tokens. Deixo aí o o artigo para vocês darem uma lida, uma lida. Quem não for inscrito ainda na newsletter, se inscreva, beleza? Porque eu acho que é um tema que vocês assim numa camada onde eu imagino que vocês estão entrando aqui para poder conseguir entender eh como que usa o Cloud Code. Eh, muitas das empresas ainda não estão prontas para isso, né? vocês estão vindo para cá para se preparar para poder implementar isso na empresa que vocês trabalham ou na empresa de vocês. Então assim, ter o cuidado do que a gente tem que colocar na frente disso tudo para poder conseguir mitigar o consumo de tokens, para poder conseguir garantir a qualidade e a precisão dos dados. Tudo isso é o que vai ajudar a gente a diminuir a fricção que a galera, os stakehoters vão acabar colocando pro consumo. Beleza? Pegar aqui uma dúvida, Antônio Carlos, uma dúvida. A questão do banco que você comentou, tem algum tempo de inspiração ou cash ou ele fica registrado no banco eterno? Não, você pode colocar ele para para para zerar esse banco caso você queira, tá?
+
+
+
+
+00:41:16
+
+
+Lucian Fialho: Não tem nenhum problema. Fechou? Dá para você colocar lá. E assim, eu botei um duck DB aqui, cara. Usem o banco que vocês quiserem, tá? Eu só coloquei uma camada de cash para não ficar batendo na PI toda hora. É só um conselho, não é nem algo que, putz, cara, se eu quiser eu não coloco buck DB, tá tudo bem, né? Eu aconselho colocar para você evitar estourar um consumo com um limite de API que você possa ter. Então você coloca uma camada de cash onde você passa por esse cara antes, beleza? Então eu aconselho sim, mas pode ser um, eu eu gosto do Duck DBB porque ele é um banco de dados que roda em qualquer coisa, então eu não tenho uma limitação tão grande para usar o Duck DB de acordo com a máquina que esse usuário tá usando e consumindo cloud Code. Beleza? Então fica a dica aí. Que bom que você curtiu, então assim, Duck DB, esse snapshot local que a gente acabou de falar, o Antônio Carlos acabou de trazer aí. E aí a gente entra no Spectlique.
+
+
+
+
+00:42:08
+
+
+Lucian Fialho: Essa p**** aqui é uma loucura do c******, gente. Vocês vão ter que apertar o cinto aqui agora porque assim, eh, quem tá, vocês estão vendo aqui que a gente tem aqui um comandinho aqui do lado, não sei se vocês conseguem ver o meu mouse mexendo, cara, mas do lado direito a gente tem o fluxo, né, que é um comando Spectral Cle, onde ele tá passando uma URL, certo? Tipo assim, todas as APIs que a gente acaba consumindo, lógico, quando o time que implementou tem o mínimo de noção e o mínimo de padrão, eles implementam uma documentação no Swagger, que é um lugar, uma biblioteca de você documentar e registrar contratos de API. Beleza? E aí, o que que a gente fez aqui na Métricas Boys? Porque a gente é muito doido, cara. Ó, eu já sabia que a Juliana da Ering ia começar a me pedir uma porrada de conexão aqui dentro. Eu já sabia que a vivia do meu time aqui ia me pedir uma porrada de conexão aqui dentro. E o que que eu fiz para poder conseguir mitigar que a gente consiga se conectar a qualquer coisa ou a quase qualquer coisa?
+
+
+
+
+00:43:09
+
+
+Lucian Fialho: Cara, quando você tiver um problema com o consumo de alguma eh ou você quiser trazer uma API para dentro, foi só mais cinco. Muito bom. Mas quando você quiser consumir alguma API, qual que é a coisa que você tem que falar? Pessoal que desenvolveu o API, vocês têm a documentação do Swagger? Consegue me mandar a documentação? E só do fato dele me mandar essa documentação, eu consigo fazer com que o cloud aprenda a se conectar a essa API sem ter a necessidade de saber ou ou sem ter a necessidade de de de aprender tanto sobre essa PI. ele vai descobrindo ali, tal como o GMP Cli, ele vai descobrindo como que ele navega dentro dessa API para poder conseguir consumir informação.
+Luis Mascarenhas: M.
+Lucian Fialho: Então acho que para você que era o V, né, que também tava desenvolvendo lá na na VPS, dá uma olhada nessa biblioteca também. Tem o Spect Cle aí no meu GitHub aí, que é uma biblioteca interessante para você conectar dentro desse teu stack. Beleza? É isso, fechou? Então vou continuando aqui. Então pensa só, eu mitiguei grande parte dos problemas que a gente tinha com relação à conexão aos dados do GMP.
+
+
+
+
+00:44:18
+
+
+Lucian Fialho: Então aqui eu já tô garantindo dentro do que a gente tá conversando aqui, Google Analytics, Google Tag Manager, Search Console e Google Analytics, Google Tag Manager, Search Console. Tá faltando uma. Deixa eu voltar aqui que eu esqueci. Go, o Google Big Query, pô, pelo amor de Deus. Tava falando aqui da importância do da TR house. Esqueci o que eu tava falando. Ó, aqui o Spectle vai servir pra gente poder conseguir fazer o enable. Se tem o RL da Open API, é só apontar para ela que você não vai nem precisar instalar esse DK. Foi algo que a gente fez aqui para poder habilitar a conexão a qualquer outra fonte de dado. Beleza? Então assim, isso daqui se conecta a qualquer API, beleza? Se tiver a documentação, Ele usa a documentação para aprender e pro cloud aprender como que ele consome essas informações. Isso aqui é é fogo, porque assim é muito técnico. Eu entendo que é muito técnico, mas isso daqui se você conseguir encaixar e aí tem a maravilha de um jeito que você pode aprender a usar o spectli dentro da operação de vocês.
+
+
+
+
+00:45:22
+
+
+Lucian Fialho: Você pode pegar o URL do repositório, colar dentro do cloud e trocar uma ideia com o cloud code que ele vai te ensinar a conectar isso dentro do teu fluxo de trabalho. Beleza? Fica a dica aí para vocês. Beleza? Então assim, aqui a gente tem eh pera aí, deixa eu provar a galera que tá entrando aqui. Então assim, ó, voltando até um pouco na parte do Duck DB que o Antônio Carlos estava falando, tá? Eh, o Duck DB ele roda local, tá? Não sei se chegou a pegar isso, Antônio, mas ele vai rodar numa camada local. Ele não tá rodando na nuvem, tá? Então eu não passo esse dado pela nuvem para poder armazenar a informação. Ele tá numa camada de cash local, onde eu passo pela máquina do usuário para poder buscar esse dado ao invés de ter que ir na nuvem. Então a gente consegue ter um snapshot, que é é imutável, você consegue debugar o que o o cloud tá trazendo de informação, porque você consegue fazer uma consulta SQL para poder comprovar, não tem custo de consulta e a gente não tá falando que tá acessando em Prod.
+
+
+
+
+00:46:25
+
+
+Lucian Fialho: Quando você falar que plugou o Dunk DB dentro desse fluxo, o time de engenharia vai te dar um abraço, beleza? Porque quanto menos gente mexendo em produção ou com acesso mais supervisionado, melhor. Beleza? Então assim, aqui nesse caso, nesse caso o o o cloud code ele vai ter só o papel de análise e limpeza e a decisão dentro desse 1 milhão de contextos que ele pode fazer usando o DuckDB como base para cash local. Beleza? E aí, cara, a gente chega finalmente na parte do cloud code. E assim, de novo, né, a gente não vai abrir ferramenta aqui. Eu tô tentando criar uma trilha aqui, né, um uma um caminho pra gente poder conseguir trabalhar nos próximos materiais, onde a gente vai falar um pouco mais aprofundado de cloud. Mas a ideia aqui é que, cara, sim, cara, você pode usar o cloud code no desktop, eu não sei se vocês sabem, mas você consegue, né, usar o cloud code lá dentro do teu desktop. Então você consegue baixar o cloud, deixa eu trocar aqui minha tela. Deixa eu ver se vocês conseguem ver rapidamente aqui a tela do cloud. Tão vendo aí minha tela do cloud?
+
+
+
+
+00:47:34
+
+
+Lucian Fialho: Beleza? Só para poder mostrar aqui, esse daqui é o cloud desktop, é o máximo que eu vou abrir da ferramenta aqui por agora. Beleza? Mas assim, você consegue rodar o cloud code dentro do cloud desktop e tá tudo bem. Beleza? Eu não vou ficar forçando aqui a vocês usarem cloud ou cloud code. Meu time não, né? Meu time vai ser forçado, sim. Vocês estão aí, vocês estão me escutando, vocês vão usar o cloud coach terminal, mas a galera não. Beleza? Yeah. Na real, eles nem estão usando meu terminal mais. Enfim, aqui a gente tem a premissa de que o cloud code ele vai rodar no terminal ou vai rodar nessa camada de interface gráfica que eu aconselho vocês a utilizarem, principalmente no início, para vocês se adaptando. A gente consegue escrever as skills. Alguém aqui sabe, eu já usou skill, imagina que você já devam ter usado, né? antigamente que era um pouco mais difícil, mas assim a gente consegue escrever as skills que a gente consegue descrever o passo a passo de como a gente faria aquela análise para poder ajudar e distribuir eh habilitar, né, essas consultas.
+
+
+
+
+00:48:36
+
+
+Lucian Fialho: Eh, para me ouvir a que parou a câmera aqui, Gabriel, voltou. Voltei aqui rapidinho. Deixa eu só ajeitar a câmera aqui que deu um pause aqui, gente. Pronto. Aqui. Então assim, Cláudio, ele vai rodar no terminal. Vocês não precisam rodar no terminal, tá tudo bem rodar lá. Steel custom, você consegue escrever em Markinho para descrever um passo a passo. Eu acho que é muito interessante porque eh o a skill ela tem o papel muito de ser uma receita e eu vou trocar essa ideia com vocês já já para como a gente consegue fazer isso. E a gente tem os hooks, que são eh a parte de segurança que a gente consegue colocar dentro do cloud code. E a gente também vai ver aqui também a parte de automação que eu vou começar a bater com vocês aqui agora. Então, assim, tirar esse bagulho aqui da minha frente. Eh, como que a gente inicializa o cloud Code? Eu gosto sempre de começar isso para quem tá usando o terminal por aqui, porque assim, é uma das coisas que a gente consegue trabalhar na execução do cloud é definir qual é o plugin que ele vai utilizar paraa tomada de decisão ou para ajudar ele a pensar melhor.
+
+
+
+
+00:49:48
+
+
+Lucian Fialho: Então assim, não fiquem limitados no cloud só o uso das skills. A gente tem dentro do cloud também o uso das das dos plugins que a gente consegue construir, onde a gente vai conseguir entregar uma camada muito melhor do que só uma skill em texto que a gente vai conseguir utilizar. Eu digo isso por eu tenho visto muita galera criando as skills. Eu fico muito feliz quando eu vejo vocês criando as skills aqui. Deixa eu trocar minha tela aqui. Eu fico feliz quando eu vejo vocês criando as skills, mas eu acho que vocês estão criando skills muito grandes e eu acho que uma das maneiras que a gente consegue para poder particionar essas skills é usando a estrutura de plugins que a própria deixa pra gente pronta. Então assim, se você entrar aqui, deixa eu pegar aqui a documentação que aí eu já coloco para vocês aqui plugins, porque inclusive ele tem um ajuda vocês a criar plugins, beleza? E uma série de plugins prontos aqui que a cloud disponibiliza pra gente. E por que que isso é melhor? Porque a gente acaba conseguindo controlar e dividir melhor as responsabilidades de cada skill dentro daquele plugin, tá? Então essa é a primeira dica. Esse plugin de ir aqui que ele tá mostrando ele, esse Esse plugin de aqui que ele tá mostrando, ele vai servir pra gente poder conseguir iniciar o cloud code já com uma skill ou um plugin já preterminado.
+
+
+
+
+00:51:11
+
+
+Lucian Fialho: Isso é muito importante porque sabe quando você vai distribuir isso para uma outra pessoa, tipo assim, se ela já tiver uma série de skills que você já deixou pronta lá dentro, fica muito mais fácil da gente conseguir evitar que ela faça uma besteira muito grande, porque a gente já deixou a a os comandos que ela tem que utilizar para poder tomar a a consumir esses dados dentro das ferramentas. Beleza? Então, acho que esse é um ponto interessante aqui. Então, plugin de é um p*** comando. Esse daqui é o comando perigoso, né? que é o, putz, eu tô clicando aqui, ele tá mudando a tela. Então, ó, esse daqui é o comando perigoso, beleza? Que é o danger skip permission. Não aconselho vocês utilizarem nesse primeiro momento, mas ele é o comando que vai evitar com que você fique apertando y e confirmando toda hora. Isso é um comando importante. Eh, o remote control também é um outro e assim, eh, quando você tá usando no cloud desktop, né, que é aquela versão do app do cloud que fica no nosso computador, eu não sei se você consegue ter acesso a mexer nisso daqui.
+
+
+
+
+00:52:10
+
+
+Lucian Fialho: Então, assim, isso daqui é uma outra e é uma outra vantagem, talvez que o CLI, né, do Cloud Code tenha em comparação ao deixa eu abrir o chat aqui de novo para ver vocês aqui. É uma outra vantagem que vocês vão ter com relação ao cloud desktop, tá? Porque você consegue setar e configurar a inicialização dele aqui. O segundo recurso é o remote control, que inclusive salva casamentos, né? Porque a minha esposa acha que eu ah, sai do computador, não sei você fica só nesse computador o dia inteiro e aí eu deixo o remote control, vou pro meu telefone aqui, ó, e continuo mandando as paradas pro meu computador. Ou seja, o remote control ele vai criar um ambiente remoto onde você do seu celular consegue continuar mexendo o doce, mandando prompto. No caso, eh, ele vai continuar usando a sua máquina, né? Ele vai estar conectado ali dentro da sua máquina. E isso é um ponto muito importante que vocês conseguem ter aí, né? A minha esposa não sabe, né? Então vocês não contem para ela, por gentileza, mas ela acha que eu tô lá só falando no WhatsApp e eu tô continuando usando Code.
+
+
+
+
+00:53:13
+
+
+Lucian Fialho: Eu só terminei, eu só troquei a tela que eu tô usando. Beleza? Então assim, acho que isso é um ponto interessante aqui, porque é uma vantagem com relação ao cloud desktop que eu não sei se vocês sabiam que tinha. Fechou? Então assim, eh aqui a ideia é que a gente consiga ter uma visão das estruturas, né? Porque a gente tem as skills, a gente tem os commands e a gente tem os hooks, né? E essa é a maneira com que a gente deixa esses guard rails ou a gente deixa essa receita pronta para as pessoas conseguirem utilizar o cloud quando elas têm eh eh um conhecimento menor de tecnologia do que a maioria das pessoas ou quando você quer só automatizar um processo, né? Assim, as skets, elas são os textos que vão determinar as receitas de como aquilo tem que ser implementado. O slash command é o atalho, é você dá um barra weekly report e ele rodar um report que é uma skill que vai puxar as informações de uma vez só para você. E os hooks são os scripts que a gente consegue colocar ali automaticamente para poder evitar que alguém faça uma m**** muito grande, como sei lá, adicionar a senha de alguém ou vazar alguma informação ali.
+
+
+
+
+00:54:17
+
+
+Lucian Fialho: Normalmente a gente coloca esses hooks eh dentro do cloud code também, tá? E assim, de novo, eu acho que isso daqui também é uma vantagem com relação ao ao cloud desktop, porque eh tenho certeza que a gente consegue fazer isso aqui via eh cloud CLI, mas via desktop eu confesso que eu não sei se você consegue implementar os hooks, não. Quem usa aí os hooks, quem usa inclusive o cloud desktop, tá usando os hooks, dá um salve aí, beleza? Então assim, eh, as skills, de novo, arquivos em Mark. Quem achou que não ia ter que escrever Markdown em pleno 2026, né? tecnologia tão antiga, mas que a gente tem utilizado bastante, muito porque é uma das formas que a gente tem de escrever documentos um pouco mais semânticos em texto, né? Então, a gente consegue definir se aquilo dali é um título, é um subtítulo, só através dos textos que a gente consegue ir escrevendo. Então, assim, eu tento trabalhar como se a a skill do cloud, ela fosse uma receita mesmo. E aí numa receita, quando a gente vai escrever uma receita ou a gente vai ler uma receita, Dona Maria Braga, você tem lá ela começando pelos ingredientes que a gente pode tentar fazer o translate aqui pro nosso cadro de análise de dados, que vão ser as fontes de dados que a gente vai consumir e a gente tem o modo de preparo, certo?
+
+
+
+
+00:55:30
+
+
+Lucian Fialho: a gente tem ingredientes, modo de preparo e como você vai consumir aquela informação. Então assim, nos ingredientes, você vai definir quais são as fontes de dados que você quer consumir e quais os dados que você quer extrair daquilo para aquela skill que você quer fazer. Por exemplo, no Weekly Report, você pode querer puxar as transações por origem mídia nos últimos 7 dias ou a quantidade de pessoas ou usuários que visitaram o seu site nos últimos s dias, fazendo uma subdivisão por categoria do dispositivo. Tudo isso é o que você vai colocar dentro dessa sket, nessa camada de ingredientes, tá? Na minha opinião, tá? Aqui é 100% eu de como eu vou construindo e como eu vou pensando em construir isso, tá? E aí depois a gente tem o modo de preparo, aonde a gente vai trabalhar em cima de cara, beleza? E o que que ele tem que fazer com cada uma dessas informações por etapa? Então você consegue definir até, putz, cara, ó, primeiro puxa essa informação aqui no G4, você vai montando a lista de passos que ele tem que executar para poder conseguir chegar num produto final, que é o como a gente vai consumir aquilo. Beleza?
+
+
+
+
+00:56:34
+
+
+Lucian Fialho: Então, o modo de preparo é a lista de taps que ele tem que fazer lá em cima. Ele, você colocou os ingredientes aqui embaixo, você vai colocar o modo de preparo. Então, no no GMP Cli, puxa as informações assim, assim, assado, porque a gente tá querendo criar algo que seja replicável, né? Então, quanto mais contexto a gente dá para para essa lista, para esse método, esse modo de preparo, melhor a gente vai conseguir ter o output no final. E por último, cara, eu acho tá muito bem definido o que que é o nosso output, o que que a gente consome, né? Não sei se vocês já chegaram para poder ver a receitinha lá no finalzinho, mas ele diz lá eh como consumir, essa receita é feita para três a seis pessoas. Você pode consumir assim, assim, assado, tem o prazo validade de tanto. Eu acho que a gente tem que deixar isso também contratado dentro da skill. Como que a gente quer o output daquela sequência, né, daquela receita que ele vai executar? Beleza? Não sei se vocês já fazem assim. Vocês podem interagir no chat, tá?
+
+
+
+
+00:57:31
+
+
+Lucian Fialho: Pelo amor de Deus, não me deixa no vác aqui, não. Então assim, as skills é o que vai deixar essa essa sequência de passos pré-definidos pra gente poder conseguir rodar isso várias vezes e não uma vez só. Fechou? E aí, aonde que você consegue encontrar mais skills? E aí eu coloco muito esse slide aqui porque tem uma galera que tá copiando muito skill de todo mundo e a gente não tá trabalhando para poder conseguir adaptar a skill ao nosso cenário de trabalho. Aprendam isso. Você pode consumir as skills de que a galera publica no vhub o quanto você quiser, mas você nunca acredita cegamente na skill de uma pessoa. Você sempre traz essa skill para dentro do seu cloud code e entende como que ela pode ser boa pro teu fluxo de trabalho. Nunca você sai copiando e colando, sabe? Porque assim, eh, aquela skill é uma sequência, é uma receita dada por uma pessoa que tem um fluxo de trabalho específico, que é o dela, sacou? Então assim, eu sempre gosto de trazer primeiro umas referências para vocês seguirem que vocês, p****, vocês são f***, fica só seguindo o guru.
+
+
+
+
+00:58:31
+
+
+Lucian Fialho: Então assim, Jess eh, que é um cara muito bom que tem uma skill que é muito famosa, que é o Super Power, ele trabalhou e criou uma skill de brainstorming muito forte, onde a gente consegue eh eh ter um loop, né, dentro do cloud code, onde ele vai te ajudar a pensar em como você quer analisar aquele dado. Ele é muito bom, tanto para desenvolvimento, mas muito bom também para fazer brainstorner. né? Parte de planejamento da nossa estrutura. Tem o Mat Pocock também faz uma série de skills que ajudam a gente a conseguir fazer handoff. Pô, eu tô trabalhando aqui numa análise do Google Ads e agora eu quero mudar para uma análise do surf Console. Vou dar um barra handoff e ele vai pegar o que ele tava fazendo numa sessão e passar para outra. Então assim, abusem das skills, mas entendam que elas são uma maneira de você pegar algo ou uma receita que já existe e trazer para dentro do teu workflow. Nunca copie, principalmente se o cara sabe menos que você, tá ligado? Para de ficar entrando nessas ondas de ficar pegando skill e colocando dentro do cloud de vocês, porque inclusive e isso pode dar problemas como, né, promption e uma série de coisas que eu, se fosse vocês, eu ficaria bem ligado, beleza?
+
+
+
+
+00:59:41
+
+
+Lucian Fialho: E tem, obviamente, para poder garantir a nossa saúde mental no Enterprise, tem lá os plugins oficiais do próprio cloud, tá? Então você pode aí pegar e mandar pro teu time. Ó, esse daqui é o tropic que recomenda, então é só você eh usar lá e aí fica mais fácil, né? Na maioria das vezes, algumas empresas acabam liberando quando tem alguma oficial, né, que a empresa deixou disponível para eles. Beleza, até aqui tudo tranquilo. Vai me dando um salve aí. Pode ser no emoji, eu sei que vocês estão na preguiça do c****** aí. Todo mundo voltando para casa, cansado. Vai me dando um salve aí. Tranquilo, Júlia, Juliana, Gustavo que tava também no início aí, Felipe, tudo certo? Vou continuando aqui, hein? Então vamos. Então assim, aqui tem uma coisa muito interessante que eu acho que une muito com o lance que eu falei anteriormente, né, que é na nossa capacidade de nunca pegar uma skill diretamente, sempre entender como que a gente consegue adaptar aquela skill ao nosso cenário de trabalho. E aí eu acho que aí tem um fato muito interessante que aic deixou disponível para vocês e pra gente, né, porque eu já uso para c****** isso daí.
+
+
+
+
+01:00:53
+
+
+Lucian Fialho: é uma skill que cria skills. Então vocês podem pegar o link aí que é o skill creator, onde você, putz, cara, acabei de terminar uma análise exploratória, quero transformar isso numa skill. Você dá um barra skill creator dentro do teu cloud code e ele vai criar um passo a passo, um loop que vai extrair as informações daquela sessão para poder conseguir gerar uma skill que você consegue replicar isso automaticamente. Beleza? Pegaram essa daqui? Então assim, é meio inception, mas mas é exatamente isso. O Cloud ele disponibilizou uma skill que cria skills, justamente para poder conseguir deixar um raciocínio mais lógico, cara. E eu acho que esse é um dos grandes problemas que a gente tem quando a gente tá usando IA em grupo, sabe? Sabe porque assim, eh, a maioria das vezes, tem um caso de um de um amigo que tava contando sobre a parte de código, né, e que ele tava tendo alguns problemas com revisão de código e tudo mais. E aí quando a gente foi tentar entender um pouquinho mais o problema dele, a gente percebeu que era porque cada um criou uma skill separada de um jeito para poder conseguir analisar código. Troca isso para cada um criou uma skill separada diferente do seu jeito, com seu contexto para poder analisar dados.
+
+
+
+
+01:02:03
+
+
+Lucian Fialho: A gente vai ter a IA procurando problema às vezes em coisas que só eu peguei ou em coisas que só eu pensei ou em coisas que só o Matias pensou. Então assim, é muito importante que a gente tenha a mesma base para poder conseguir construir essas skills. E eu acho que o ponto inicial, além de você conseguir fazer uma conversa com o teu time e entender o que que vocês precisam de uma skill, é usar o skill creator, porque ele vai seguir um passo a passo que minimamente vai trazer uma um equilíbrio maior sobre o teu time criando várias skills, sabe? Vai ter uma metodologia ali por trás que o Cloud vai seguir. Beleza? Então, ó, o Vinícius trouxe aqui um ponto aqui. Faço o cloud pesquisar umas 10 skills do ramo, triar, filtrar e criar a nova com os aprendizados das ideias e adaptando para um ecossistema. É exatamente isso, Vinícius. Acho que é é bem é bem isso daí mesmo, tá? E aí quanto mais contexto você tiver, né, dentro dessa tua estrutura, melhor fica. Beleza? Não sei o quanto que vocês estão pegando aí na parte de contexto, mas eh esses aprendizados de Você pode ir documentando dentro desse repositório que você tá usando para poder analisar os dados.
+
+
+
+
+01:03:05
+
+
+Lucian Fialho: É, é muito maneiro. Então, usem e abusem da skill que cria skills. Eu acho que eu não sei se o se o se o Vinícius ele coloca o skill creator para poder fazer isso, mas se ele não coloca, acho que vai dar um toque para ele testar que vai ser fundamental. faz esse mesmo processo dele, usa o cloud para pesquisar umas 10 skills do ramo, triar, filtrar, só que no final, quando ele vai criar skill, skill creator. Perfeito, Vinon. É isso mesmo, meu parceiro. Então, assim, slash command, como eu já falei, ele é uma das maneiras que a gente consegue executar a nossa skill, né? Então é quase que um atalho. Você pode pedir para uma skill ser executada, tanto mandando pro chat, pô, ó, usa essa skill aqui que eu criei ou você pode só dar um barra slash que você vai conseguir fazer com que ela seja que ela rode. E aí até aqui, ó, ele faz isso em cima desse name aqui, tá vendo? Eh, o Markdow é interessante por causa disso. Você consegue colocar uma linha de comentário dentro do Markadado dentro daquele arquivo.
+
+
+
+
+01:04:10
+
+
+Lucian Fialho: Então, o nome do comando normalmente fica o nome da skill que tá dentro desse carinha aqui, né, no srmchequ.m. Beleza? Então é só uma dica aí de como que você consegue. Putz, cara, ó, você precisa ou você mandou para alguém para essa pessoa começar a fazer análises no cloud ou usando o cloud code, você consegue colocar ele para poder opa, é só você dar um barra sr em cheque e ele vai rodar exatamente aquela análise que você deixou pré-definida. Isso daqui é muito bom para você poder conseguir disponibilizar análises de dados pro IA dentro do teu time, dentro da tua empresa. Você já deixa a skill pronta para essa galera. Beleza? E aí, cara, dentro dessa estrutura aqui, um pouquinho mais técnico, e eu acho que se p esse aqui é o ponto mais técnico desse material, a gente tem os hooks, tá? E aí, calma que tem bolo, eu sempre deixo umas paradas prontas para vocês, que eu acho que vai ajudar aqui no dia a dia, mas eh os hooks eh é a maneira que a gente tem de conseguir deixar determinístico a parada, sabe?
+
+
+
+
+01:05:13
+
+
+Lucian Fialho: É é a maneira com que a gente tem de falar, Cláudio, ó, se o usuário tentar fazer alguma coisa que vai excluir algum artigo, você bloqueia ele na hora. Só que aqui é onde que a gente tem um pouco mais de de problema, né? porque a gente precisa de ter um conhecimento técnico de fato pra gente poder conseguir fazer esses scripts aqui em dash. Mas você também pode pedir para o próprio cloud code criar esses scripts para você. Então, pô, vou trabalhar aqui numa camada onde eu preciso pensar em quais são os guard rails que eu preciso colocar para construir esses hooks, cara. Vou pegar esses hooks, vou trabalhar com cloud code para poder criar ele e vou disponibilizar pra galera. E aí tem alguns web hook zomas, tem alguns eventos que a gente consegue se vincular que são bem interessantes. O primeiro é o session start. Então você consegue trigar alguma coisa toda vez que a sessão ela inicia, beleza? Quando o usuário ele manda um prompt, você também consegue pegar e capturar aquela informação antes. Então é um ponto interessante. E assim você pega o user prompt submit e você consegue ler o que ele tá falando ali para poder conseguir analisar.
+
+
+
+
+01:06:21
+
+
+Lucian Fialho: a gente tem o PR to use, ou seja, antes dele executar qualquer ação de ferramenta do cloud, você consegue entender o que que ele tá fazendo. Então, pô, executar um comando às vezes é uma best, é uma best tool, que a gente chama, né? Então, pô, toda vez que o cara tentar descrever um código RM, nunca escrevam isso em um lugar, tá? RMÇ RF/ístico. Meu irmão, esse cara vai deletar a p**** toda no computador. Então assim, colocar um guard rail para detectar comandos destritivos é fundamental. Beleza? Então pensem, né? A gente tá falando aqui de analisar dados com cloud code e principalmente, né? Distribuir, porque é isso que analisar dados com IA acaba fazendo, né? a democratização, a disponibilização da informação dentro das empresas. Então nós como engenheiros de dados ou nós como analistas de dados,
+Lucian Fialho's Presentation: Tut
+Lucian Fialho: né, como quando a gente disponibiliza um um dado para um terceiro, que é uma pessoa que não tem esse conhecimento técnico, nós somos responsáveis por colocar esses guards lá dentro, né, né?
+
+
+
+
+01:07:27
+
+
+Lucian Fialho: Se você não sabe quem é que tem que fazer alguma coisa, porque provavelmente é você que tem que fazer, né? Você não sabe quem é que vai fazer aquilo. Beleza? Então assim, aqui é uma série de hooks e eu deixei algo pronto aí. Pode passar o QRode aí. Vou deixar o tempinho aqui porque eu já deixei alguns eh hooks prontos. Deixa eu tentar copiar aqui para eu mandar aqui para vocês no chat para ver. Então assim, ó. Aqui eu deixei alguns hooks prontos que vocês já podem utilizar, tá? Então um dos hooks que a gente tem aqui é lá bloque para bloquear comandos destrutivos. Então assim, tá vendo? Aqui eu disponibilizei um arquivo, um dash, que eu tô dizendo, ó, não pode executar RF, RMÇ RF, não pode executar drop table, não pode executar drop database. Ou seja, toda vez que o cloud, antes de executar uma função que poderia ser um drop table, ele vai trigar o hook e vai travar a sessão pro usuário, beleza? Então assim, deixei o link aí para vocês, vocês podem plugar no cloud de vocês, justamente para poder conseguir fazer e extrair esses dados de uma forma mais segura, né?
+
+
+
+
+01:08:40
+
+
+Lucian Fialho: E até disponibilizar o cloud code para análise de dados de uma maneira mais segura. Enfim, tem várias outras estruturas aqui que a gente acaba utilizando também. Dá uma lida, colabora com isso. Eu acho que isso é muito f***, porque eu acho que é é a primeira vez que a gente tá tendo uma quantidade tão grande de gente conhecendo o GitHub, né? Quem aqui já usa o GitHub ou ou tá usando o GitHub pela primeira vez aí, dá um salve no chat aí. Acho isso muito interessante porque eh eu falei que ia ficar mais técnico o assunto. Olha aí, a gente tá 2026 e a a Me liga, a Juliana, a Júlia Meiga vai ter que usar o GitHub. E assim, Pinam, cara, vocês vão ter que dar uma olhada, uma pincelada no que que é o Git, nem que seja porque assim, nem que seja porque é o lugar que você copia as escritas, tem que saber. Beleza? Então, acho que é um ponto interessante assim, de novo, você pode conseguir trazer uma skill que ensine ou te ajude a usar o gitub, tá? Para tudo ter solução na vida.
+
+
+
+
+01:09:36
+
+
+Lucian Fialho: Beleza? Então, acho que esse é o ponto principal com relação aos web hooks, a gente conseguir adicionar camadas de segurança para, pô, quando a a Júlia me liga mandar lá para alguém do time dela utilizar e consumir informação, ela vai garantir com, cara, uma m**** muito grande essa pessoa não pode fazer. Beleza? uma m**** pequenininha, às vezes ela consegue, mas de uma muito grande ela nunca vai conseguir fazer, né? Eh, muito maneiro, né, Rodrigo? Eu acho muito doido ver o quanto que o nosso trabalho tá ficando cada vez mais técnico e o quanto a galera de marketing foi enganada, né, por tá fazendo uma uma um disciplina de humanas, né, porque assim, vocês acharam que você ia ficar longe de coisas exatas, vocês se ferraram demais, vocês foram enganados, tá ligado? Eles vão ter cada vez mais que aprender a parte técnica. E assim, de novo, né? É sobre quando você começa, sobre quando você estar esse aprendizado. Acho que vocês não precisam ser experts em gitubem GitHub, vocês precisam ser expertos em git, né? Mas vocês precisam saber que que é isso daqui, como que isso funciona, porque lá que vocês vão copiar a maioria das skills que vocês vão pegar.
+
+
+
+
+01:10:46
+
+
+Lucian Fialho: Beleza?
+Lucian Fialho's Presentation: Tut
+Lucian Fialho: Entenderam aqui o conceito de hooks? Todo mundo entendeu como que ele funciona? pra gente poder conseguir criar em cada uma dessas etapas eh camadas de segurança para evitar com que o usuário faça uma m**** muito grande. Olha, Rodrigo, vou te falar, hein? Eu não sei se é o mesmo salário mesmo. E tô vendo, tô acompanhando o Glass Dor aí tem uma galera, você tá procurando os carrinho. Vamos lá. A galera de AI eu tenho visto tá dando uma grana absurda. Vamos lá então assim, onde a gente pontua e aí vou trazer aqui, né, uma parte bônus para dar uma brincada aqui com a galera que tá usando GTM. Agora Felipe Blanco vai pegar a visão dele, beleza? Porque assim, tanto pra parte de CRO, tanto pra parte de Google Tag Manager, a gente consegue fazer o cloud navegar e um navegador. Quem é que já fez isso? Colocou o Cláudio para poder acessar o navegador. Alguém aí já colocou o Cláudio para acessar o navegador?
+
+
+
+
+01:11:53
+
+
+Lucian Fialho: Perfeito, Carol. Perfeito, Felipe. O que que isso vai dar pra gente? a gente consegue, p****. É isso, Eduardo, fazer isso para ele poder executar uma auditoria. A gente consegue fazer o cloud navegar dentro do navegador para ele poder conseguir extrair as informações do navegador. A gente consegue pedir para ele fazer um teste de jornada usando o navegador. Obviamente que você tem que trabalhar para controlar o quanto que isso vai trazer de cursen, porque ele acaba consumindo muito mais token, né? Imagina, ele tem que pegar toda a HTML da página, todos os custos, né? vai acabando gastando bastante token, mas é um recurso fundamental para você poder conseguir fazer ele a detectar. Putz, de uma etapa para outra, eu tive uma perda do client ID, não sei se vocês já pensaram nisso, pô, quando eu entro lá, clico no botão adicionar o produto no carrinho, disparo no evento de cart, tudo isso acho que são coisas que vocês podem trabalhar e fazer assim. Então assim, de novo, eh é um bônus aqui onde a gente vai trabalhar. E aí uma das ferramentas que eu indico, vou pegar aqui Andressa falando, consigo fazer ele monitorar as menções de uma marca em uma rede social?
+
+
+
+
+01:13:02
+
+
+Lucian Fialho: Não, não vai conseguir fazer porque você vai precisar de acesso a mais recursos do que só o navegador para isso. Assim, se você quiser deixar o teu computador aberto 24x7, não deixaria de funcionar não, tá, Andressa, só acho que não é escalável isso, tá? sendo bem sincero e transparente, tranquilo. Cadê o Rodrigo? Mandou coisa aqui também, ó, Luciano, aqui tive economia considerável de tokens pedindo a navegação pelo inbowser do cloud. Era isso que eu ia falar aqui, tá? O cloud ele tem, deixa eu, deixa eu trocar aqui a tela pra gente poder ir pra janela, porque eu vou mostrar aqui para vocês isso, tá? que o Rodrigo tá falando ali, ó. O Cloud recentemente não, mas já acho que é recente, né, essa extensão do Cloud aqui. É porque eu como eu tô no plano lá do Vou c**** a regra aqui agora, p****. Como eu tô no plano 26, a gente acaba tendo acesso a algumas coisas mais e antecipadamente. Então eu não sei quanto que foi lançado para todo mundo assim. Então, então essa daqui é uma extensão que você poderia usar para poder conseguir fazer uma extração mais rápida, tá?
+
+
+
+
+01:14:04
+
+
+Lucian Fialho: Eu não gosto de usar ela para poder automatizar muitas coisas, mas é uma uma que você consegue usar para poder navegar, tá bom, Andressa? É a extensão do cloud em Chrome. Deixa eu ver se vou ver se eu mando o link para você depois. Fechou? Pegou aí? Vou seguindo aqui. Então, agent browser é essa extensão que a gente consegue, né? Uma é, você consegue usar inclusive ela com uma skill específica, né, de agent browser em que você vai conseguir fazer a mesma coisa, tá, Andr? Só que a vantagem aqui é que a gente não tá usando porrada de memória RAM que o Chrome usa no nosso computador. Ele vai utilizar um um uma biblioteca que vai não reduzir o consumo de tokens, mas vai reduzir a capacidade computacional que você precisa para poder acessar um site. Beleza? E assim aqui as limitações são o próprio site. Se ele bloquear a navegação agêntica, vai ficar mais difícil de você conseguir pegar a informação. E aí, por isso que a gente tem que pensar lá no início do papo, quais são as fontes de dados que a gente quer conectar dentro da nossa estrutura, porque aí a gente vai conseguir entender qual é as APIs que a gente precisa conectar.
+
+
+
+
+01:15:11
+
+
+Lucian Fialho: a gente vai entender quais são as APIs dessas que tm documentação para poder conectar no Spect Cle, por exemplo, que a gente já deixou aqui pronto, para poder conseguir chegar nesse ponto onde a gente vai eh eh precisar do browser para poder eh eh executar tarefas de análise, não só para você poder automatizar a extração de dado, sabe? Eu não acredito que a extração de dado vai ser muito sustentável com você colocando cloud code para poder fazer esse pipeline de extração o tempo todo. No cenário onde você quer tirar uma dúvida, onde você quer trabalhar durante um dia, beleza, tudo bem, agora no longo prazo sustenta muito não. Você teria que ficar fazendo aquilo da libal e aí perderia o sentido o uso. Beleza? Então assim aqui, deixa eu continuar aqui, né? plano de mensuração é um dos exemplos que a gente tá fazendo aqui na métrica boys. Então assim, a gente consegue pegar eh o o Chrome, né, para poder eh usar e e fazer o cloud, usar o Chrome para ele poder navegar e falar para ele: "Cara, ó, a jornada do meu e-commerce é assim, assim assado. Eu eu tenho esse esse esse evento aqui como macro, micro e nanoconversão.
+
+
+
+
+01:16:19
+
+
+Lucian Fialho: Quero que você me ajude a criar uma documentação para isso, cara. O cloud e a conexão com agent browser vai ser fundamental para você poder conseguir fazer isso economizando token e principalmente economizando recursos no seu computador. Beleza? Deixa eu ver aqui que o Felipe falou. Utilizei o cloud browser no tags e o GMP Cli fazendo auditoria. É isso aí, meu parceiro. É isso aí que a gente consegue dar para ele a visão de navegação. O que que tem nos cooks? O que que tem no local storage? O que que tem aqui dentro? Enquanto o usuário tá navegando, a gente consegue simular o usuário dentro do site. E um dos casos que a gente fez aqui foi para poder usar eh eh para criar plano de mensuração, beleza? Então fica muito mais fácil da gente criar os planos de mensuração quando a gente primeiro cria uma metodologia e uma skill para como a gente faz isso nós da métricas boss. Segundo a gente usa isso para poder orquestrar o consumo das informações. Então assim, acho que isso é muito interessante porque o que o Felipe falou ali é exatamente essa etapa dois aqui, ó, que é o GMP, GTM, lists, né?
+
+
+
+
+01:17:21
+
+
+Lucian Fialho: a gente consegue, lembra com aquela biblioteca que a gente fez aqui, conectar Google Analytics, Google Tag Manager, Google Search Console e Google Big Query e até o Google Ads também, tá? Ele conecta lá o Google Tag Manager aqui, ele vai servir para você conseguir fazer esse depara. Olha, a tag tá configurada no GTM para disparar de um jeito, mas aqui ela não disparou. ter alguma coisa errada com esse acionador que a gente criou, por exemplo. Então, acho que são coisas que a gente pode pensar aqui para poder usar a nossa imaginação com qual vão ser os usos, tá? É, é algo que não tem certo nem errado, mas isso daqui é um mús que a gente tem e que é muito interessante pra gente aqui, porque acelera um processo que a gente sabe que demora bastante. Fechou. Eh cliquei aqui demais. Então assim, a a ideia é é até para CRO, tá? A gente consegue fazer com que o cloud navegue na página e aplique análise heísticas eh pro nosso site, né, para poder conseguir trazer ou ver aquilo que a gente não conseguiu ver ou aquilo que a gente conseguiu deixar passar. Porque assim, pensa só, e se ele navega no site e tira print, ele consegue separar a página em sessões, entender o que que é hero section, o que que é CTA e conseguir fazer uma análise aplicando as heurísticas de Nilson, por exemplo.
+
+
+
+
+01:18:34
+
+
+Lucian Fialho: Ajuda para caramba para você poder conseguir antecipar algumas coisas e e é sempre o ponto de partida, tá? Não é nunca o início e o fim. Eu acredito que tanto essa estrutura de skill que a gente tá falando, quanto essa estrutura de você conseguir fazer a IA navegar dentro do browser, elas são sempre a etapa inicial do teu trabalho. Eu acho que a skill vai te ela vai te ajudar a trazer o máximo de informação com o mínimo de tempo possível, né, e de prompt possível que você tem que fazer para você poder conseguir continuar explorando aquele dado. Beleza? Acho que isso é um ponto muito importante de vocês terem aí na cabeça de vocês, beleza? Então assim aqui, pera aí que eu tô perdidaço aqui, muito tempo sem fazer live, né? Então, ó, isso daqui é o próximo ponto que a gente estava falando que o Felipe já fez até GTM disparou. Agora a gente consegue confirmar porque o browser consegue pegar essas requisições. Então assim, ele ajuda para análise de dados, mas também ajuda para um ciclo completo completo de CRO, onde a gente vai fazer a análise, a estrutura e rodar o experimento ou gerar a versão do experimento lá dentro.
+
+
+
+
+01:19:42
+
+
+Lucian Fialho: Não sei o quanto de vocês aqui são de CRO, mas inclusive vou deixar aqui o espaço, né, para vocês usarem a ferramenta de CRO que a gente subiu essa semana. Pera aí, deixa eu pegar aqui. CRO Brasil, ferramentas de diagnóstico, tá? Que é uma ferramenta muito maneira que a gente subiu lá na comunidade de CRO essa semana, em que você consegue rodar um diagnóstico de CRO com ele navegando no seu site e tudo mais, extraindo todos os tokens necessários. Olha, Andressa, você ainda vai precisar da VWO para poder publicar o experimento e rodar o experimento em si, mas toda parte de análise que você precisa para poder gerar a tua variação, você consegue usar o cloud Code hoje em dia. Lógico, né? Você tem que ter a tua parte ali, né? Tem que trabalhar também, mas eh a parte inicial pelo menos de conseguir unir todas as informações, trazer aquele dado e mais fegar para você poder conseguir chegar num site mais rápido, você consegue fazer. Então assim, fica aí a dica, tá? Porque putz, cara, eu quero fazer uma análise no meu site aqui para poder entender quais são os problemas de CRO que eu tenho. Cara, a gente tem uma ferramenta gratuita aí que vocês podem utilizar e rodar um diagnóstico no site de vocês.
+
+
+
+
+01:20:52
+
+
+Lucian Fialho: Vai ser um prazer eh vocês utilizando aí, dando feedback sobre ela. Beleza? p****, coisa grátis para c******. vai ter que começar assim, vou ter que começar a voltar esse dinheiro aí. Então, ó, além disso tudo aqui que eu falei, o cloud code e o cloud desktop também tem esse recurso de você conseguir automatizar isso para você. Então assim, lógico, né, em algumas limitações, né, mas você consegue fazer, por exemplo, com que ele, ó, eu tenho um pipeline que roda toda semana aqui, cara, eu vou colocar ele para poder executar uma skill que eu fiz de CRO para todo dia às quer dizer, todo dia, toda segunda-feira às 8 da manhã ele vai rodar aquele pipeline. Eu acho que isso é um ponto interessante porque ele vai rodar inclusive isso no ambiente de nuvem, tá? Então assim, ele perde um pouco dos recursos de navegação, mas você consegue extrair os dados de API tranquilamente e você tem o cenário aonde ele vai ficar fazendo um check, que é o barra loop. Então, quando você abre o cloud lá, tanto desktop quanto o cloud eh code, né, que é o cloud que tá ali dentro do seu terminal, tenta digitar o barra dentro dele.
+
+
+
+
+01:22:00
+
+
+Lucian Fialho: Quem tiver aí aberto e nunca fez isso, aconselho fazer. Dá um barra que você vai ver que ele tem tanto o schedle quanto o loop. O loop ele automatiza aquilo dali como se fosse uma Chrome job, né? De duas em duas horas, de três em 3 horas, de quatro em quatro, de 15 em 15 minutos. E o schedle ele vai conseguir fazer isso na nuvem para você poder rodar o pipeline completo. Tranquilo até aqui? Como é que vocês estão aí? Dá o papo aí no chat. Alguma dúvida até agora? Deixa eu ver se passou alguma coisa aqui. Ah, como profissional de mídia tem sido muito útil aprender desses conceitos mais técnic ser especialista, mas saber mais sobre só me de melhor e mais independente do meu trabalho. Exatamente isso, cara. Eu acho que saber essa parte técnica e vocês tentarem pegar essa parte técnica é o que vai ajudar muito vocês a tá na frente de uma galera que, por exemplo, não tá aqui agora e deveria, certo? porque tá todo mundo fazendo e usando e melhorando e ficando mais produtivo, sacou?
+
+
+
+
+01:22:57
+
+
+Lucian Fialho: Então assim, eh, chegando aqui quase nos finalmente, né, eu vou deixar também para vocês uma lista de skills prontas com essas estruturas aqui, tá? Então, vou deixar um um repositóiozinho do GitHub com as skills específicas para CRO que vocês podem utilizar. Você consegue usar para data quality? Consegue usar sim, cara. você consegue usar bastante paraa qu só você criar um pipeline ou uma skill que vai conseguir puxar as informações do teu dato house e fazer esse processo ou você analisar os logs do seu do seu cloud do seu Google Cloud Watch lá que você consegue analisar também puxando por aqui. Dá para fazer tudo isso e automatizar tudo isso. Beleza? Deixa eu ler aqui a dúvida do Rafael. Eh, tem uma ferramenta que você tinha postado esse dia. Chamei no privado no Insta e você comentou que era para pedir um beta você. Pois gênio. Tava pensando aqui, como é que eu vou botar um pit do copilot aqui dentro, cara? um cara bom assim, tu nem sabe o quanto tu me ajudou agora, mas assim, existe sim, a gente tem trabalhado nessa ferramenta.
+
+
+
+
+01:23:59
+
+
+Lucian Fialho: Eh, eu não sei se todo mundo aqui tem acesso ao Prime, não, não conseguiria substituir um datog da vida, tá, Andress? Então, assim, a gente tem de fato, né, eh, aconselho aqui, né, chegando aos finalmentos, aí eu já abro para poder mostrar a ferramenta que o Rafael trouxe ali. Mas, eh, toda semana tá rolando lá o conteúdo, nem toda semana, tá? Uma vez no mês, quando eu tenho alguma coisa pronta que eu acredito que seja relevante para vocês conseguirem consumir, eu trago para vocês aí na hora, sem problema. Tá? Então, eh, gera o conteúdo tá ali de acordo com a relevância dele. Acho que eu tô tentando gerar conteúdo um pouco mais denso para poder trazer cases de AI um pouco mais densos pra gente poder conseguir trocar ideias um pouco mais eh eh profundas sobre o tema, porque eu acho que a gente precisa e a gente tá nesse momento. Mas a ferramenta que o que o Rafael trouxe aí é o Analytics copilot, tá? E assim para eu não ficar enchendo o saco de vocês, fazendo por pit aqui, esse negócio de coach, a gente vai só trocar uma ideia onde eu vou mostrar para vocês aqui o sitezinho e vou explicando um pouco do conceito, tá?
+
+
+
+
+01:25:08
+
+
+Lucian Fialho: Analytics copilot.com.br. E aí eu vou explicar e depois vocês entram no site para se inscrever, beleza? Então assim, a Métricas Boys, ela montou uma estrutura que de fato ela resolve grande parte desses problemas que vocês acharam super mega complexos de executar, porque p****, é muito técnico, é muito difícil, é muito ruim. Beleza? Então assim, a gente montou aqui na métricas boys lá atrás, vou deixar o Gabriel, você consegue colocar o link da do vídeo? Ah, não tem no YouTube, né? Você consegue pegar o link do YouTube? O Gabriel vai colocar um outro vídeo no YouTube que aí vocês assistam logo depois daqui, que é um material que a gente fez explicando muito mais profundamente o case que a gente tá montando com analíticopilot. Eu não sei se a minha beta tester tá usando, tá aqui ainda no chat, pode ser que ela já esteja já, né? Minha beta tester Juliana tá lá, não vou nem falar nada. Ela pode dizer o quanto que ela tá usando e tá ajudando ela, mas a gente criou aqui uma ferramenta dentro da métricas BO que permite com que você se conecte a todas essas fontes de dados de uma maneira muito mais simples, conseguindo usar a mesma camada que o Cloud Code.
+
+
+
+
+01:26:13
+
+
+Lucian Fialho: Ali a gente vai usar o Cloud Code para consumir as informações e a gente consegue conectar mais de 100 fontes de dados dentro da ferramenta para vocês poderem conseguir só conectar e se comunicar com o AIA de maneira conversacional, porque toda a parte de cash, toda parte dessas estruturas que a gente teria que montar na mão, que a gente viu até aqui, a gente já fez e colocou isso dentro de uma ferramenta, tá? Então o link tá aqui no chat e agora vocês podem se inscrever para vocês poderem conseguir garantir eh a ferramenta, né, o o beta e assim é beta mesmo. A gente tá fazendo o enable pessoa por pessoa. A Juliana tem reunião comigo toda semana onde eu vejo como que ela tá usando a ferramenta, pô, qual o melhor uso que ela tem, aplicabilidade pra gente poder até aprender com o uso dela. É, hoje a gente fez isso. Hoje ela que me ensinou a usar a ferramenta que a gente construiu, pô. Isso aí. carruindo isso junto e fazendo esse bate-papo. Vou mostrar aqui rapidamente a ferramenta para vocês e aí vocês dão uma olhada aqui junto comigo para vocês verem que todas essas partes aqui a gente já meio que deixou pronto pra gente.
+
+
+
+
+01:27:14
+
+
+Lucian Fialho: Beleza? Gabriel acabou de mandar aí inclusive o link para vocês que vocês têm que Posso agora? Acho que vai. Deixa eu compartilhar aqui a minha tela para mostrar para vocês, ó. Analytics pilot, meu parceiro. It's alive in beta. Beleza? Que que a gente fez aqui, gente? Cara, a gente sabe que conectar todas essas fontes de dados, ele é muito técnico, ele é muito chato. Criar camada de cash é difícil na maioria das vezes. Então, a gente montou uma ferramenta desktop nativa, assim como o o cloud desktop, né, que vocês têm, só que focado especificamente em análise de dados. e exploração de dados aqui dentro. Beleza? Então aqui a gente vai ter um um pouco de diferença e obviamente, né, melhorias com relação ao cloud desktop que a gente já identificou, mas acho que o ponto principal é você conseguir conectar qualquer provedor de A. Cara, eu não quero saber se você tá usando cloud, não quero saber se você tá usando Codex, quero saber se tá usando antigravity. Para mim tá tudo bem, de verdade.
+
+
+
+
+01:28:17
+
+
+Lucian Fialho: Eu acho que os modelos vão chegar no momento em que você vai usar IA que for a melhor para você ou que o teu time contratou. Então você consegue conectar aqui a tua própria assinatura para poder conseguir consumir os dados. Isso aqui é uma ideia para dados. Alguém aqui já usou o cursor ou já ouviu falar no cursor? Isso daqui é o cursor de dados que a gente montou para você poder conseguir consumir essas informações. Ô, ô, ô, Savoia, o cursor é uma ferramenta de código, é uma ideiaver, tipo o VS Code. O que a gente fez foi um VS Code para dados que você consegue conectar todas as suas fontes de dados para poder conseguir tomar e e consumir as informações. Beleza? Não, pera aí. Sem papo de Mega Brin Mega Brin aí vai me levar para outro lugar agora. Eu vou começar a zoar aí. Mas então aqui, por exemplo, a gente tem uma série de conexões. Então olha aqui que a gente já tem pronto, né? Google 4, Metaedads, Vertex, em várias APIs da Vertex, Shopfy, a gente consegue conectar com ferramentas de SEO também.
+
+
+
+
+01:29:18
+
+
+Lucian Fialho: A gente tem a parte de logística da VTEX, Appsfire, conectar diretamente dentro do teu Snowflake, caso você queira. Então assim, a gente tem uma série de conectores que a gente já deixou pronto para vocês, para vocês poderem conseguir utilizar, beleza? Essa daqui é uma das coisas que a gente habilita, né, desse ponto chato de você ter que ficar fazendo conexão. A gente transforma isso num formulário que você vai preencher pegando as informações já com documentação que a gente deixou aqui pronta para você poder só conseguir conectar a informação e já analisar dados, que é o que a gente quer fazer, né? A gente quer diminuir a fricção do consumo de dados, não só no Brasil, mas quem sabe, né, o mundo aí a gente consegue fazer esse enemigo. Beleza? Então assim, segundo ponto que a gente tem aqui é a funcionalidade que a gente já fazer na métricas boys que a gente consegue adicionar melhorias dentro do cloud desse nesse caso aqui dentro do nosso harness de então aqui tem uma funcionalidade bem interessante que você consegue colocar um catálogo seu do Facebook ele fica monitorando para você automaticamente caso ele tenha algum problema de cadastro de produto ou algum problema que possa invalidar alguma coisa dele dentro do Facebook.
+
+
+
+
+01:30:22
+
+
+Lucian Fialho: A gente já tá adicionando um módulo aqui inclusive para validação. O Dreamer entrega a idade, né? Mas eu comecei a programar, acho que foi do Dreamver. Acho que começaram, na verdade tinha um emel que você que usava também que era bem bem sinistro. Então assim, catálogo do Facebook monitorado através da nossa ferramenta, a gente tá fazendo agora habilitando o Merchant Center também para poder conseguir eh detectar problemas dentro do shopping, naquele XML que a gente mandou pro Google. a gente já tá fazendo catálogo Facebook, vai fazer para eles. E aí, cara, tem a parte das skills aqui também, onde você consegue fazer o gerenciamento das skills pro seu time. Então, assim, pô, aqui a gente vai conseguir colocar com que você consiga compartilhar de uma maneira mais fácil pro teu time uma skill que você criou dentro daquele workspace, né? Porque você consegue criar várias empresas aqui dentro. Então, diferente de um cloud desktop, você consegue fazer o gerenciamento aqui de multicredenciais por workspace, porque aqui eu tenho todos os clientes da métricas boos e para cada workspace eu tenho credenciais diferentes que o próprio copilot vai fazer isso aqui dentro da sua máquina. E eu acho que isso é é uma grande vantagem assim, porque ter que ficar quem tá trabalhando num caso mais agência em que você tem que ficar trocando e às vezes o cliente tem cinco clientes vai texar trocando as kis dentro do cloud de code ou dentro do cloud de desktop para isso,
+
+
+
+
+01:31:42
+
+
+Lucian Fialho: para que isso aconteça, beleza? Então aqui você vai ter um cenário um pouco mais fácil para poder gerenciar isso, tá? Então assim, skills, né? Então, pô, tem skills de auditoria que a gente já deixou pronto, pô, a gente deixou uma skill muito interessante para produtos que têm o pacto com o clima. Então, pô, vende mais ar condicionado se tiver fazendo mais som, é óbvio, mas a gente precisa tomar essa decisão, entender se faz sentido. A gente foi criando algumas coisas, uma esquil foi a line do nosso time que criou, que eu achei muito f***, a auditoria de LGPD, ela consegue trazer, olha aqui a visão, o o acho que foi quem que colocou aqui? O Felipe colocou que tava usando para validar a implementação do Google Tag Manager, certo? A gente tá usando aqui para poder validar a LGPD, cara, também. Então, a gente consegue disponibilizar e fazer com que ele navegue com a premissa para, ó, eu tô fazendo alguma m****, alguma besteira aqui com relação a LGPD. a gente já deixa isso pronto aqui e disponibiliza para vocês. E tem as de time, né, que são a todas as skills que o meu time foi criando ao longo desses usos que que a gente tá tendo e fazendo com os nossos clientes pra gente já poder ter a maioria das coisas prontas aqui.
+
+
+
+
+01:32:48
+
+
+Lucian Fialho: Então assim, é uma maneira de você trabalhar em equipe, analisando dados, compartilhando conhecimento dentro da sua empresa, fora as skills originais, que aí essas são as skills que a gente vai pegando das skills que o nosso Co? time vai trabalhando e criando e jogando para dentro das skills que aí qualquer pessoa poderia, que tem acesso à ferramenta poderia utilizar. Até aqui tudo tranquilo? Vocês estão comigo ainda aí ou vocês já meteram perto? Conseguindo ver? Dá o papo aí. Fechou? Então assim, do ponto de vista de usabilidade, né, de como que a gente vai analisar, eh você vai ver que ela é uma interface até muito parecida com a do cloud, né? Então assim, eh, a gente consegue continuar com a camada conversacional de vocês conseguirem continuar conversando, só que agora com acesso mais direto e economizando mais token aos dados de vocês. Então essa é a primeira estrutura que a gente tem aqui. Então assim, se você for ver, a gente tem dois tipos de chat, né? O chat de análise e o chat de teste AB. E assim, o chat de análise, cara, ele é um chat de exploração, onde você vai rodar às vezes uma skill ou vai explorar os dados do zero para poder depois transformar aquilo numa skill.
+
+
+
+
+01:33:53
+
+
+Lucian Fialho: Mas você vai conseguir criar relatório, ver dashboard. Nosso time tá inclusive, tá inclusive criando HTMLs. Acho que eu vi a a Juliana também fazendo isso lá da ERG, construindo uns HTMLs. Muito maneiro. A a Juliana, inclusive usou o copilot para automatizar uns uns cinco, seis relatórios que ela tinha lá dentro da empresa na Ering que agora ela tá trabalhando, conversando com as áreas, entendendo quais são os melhores dashboards, quais são as principais fontes de dados que ela precisa. Eh, eh, ó, 15, cara. 15 é f***. Tá graindando demais o o Mas assim, ela conseguiu fazer esse enable de relatoria dentro do time dela. O time recebe os e-mails 100% dentro do e-mail todo dia de manhã ou toda semana ou todo mês com uma p*** análise que ela trouxe mostrando esses dados. Não tem desculpa nesse caso pra pessoa não analisar dados, né? Porque a gente tá tentando deixar isso cada vez mais palatado. E aí, cara, a segunda parte é para teste AB, né? Então assim, a gente consegue criar coisas específicas aqui para ele poder rodar tex B. Eh, tem um case específico agora que a gente tá rodando com o pessoal da que vai rodar agora com o pessoal das EZES, que é um case onde a gente vai passar para eles uma ferramenta de detecção de rosto,
+
+
+
+
+01:35:05
+
+
+Lucian Fialho: que foi 100% copilot que fez já dentro do design system das erezas. E, pô, vai subir um teste AB que vai ser uma p*** ficção que a gente identificou dentro da jornada dos usuários onde, cara, eu vou comprar um óculos. Qual óculos que eu compro se meu, qual o tipo de rosto que cabe no meu óculos? Aí a gente perguntou e fazendo a entrevista a gente entendeu. Cara, o usuário deve ter uma fricção com relação a qual tipo de rosto ele tem. Como que a gente consegue fazer com que isso? Deixa eu ver se eu consigo mostrar aqui para vocês, né? Tô falando aqui, tá parecendo? Não gosto de parecer que as coisas é é fake. Vou mostrar aqui para vocês porque eu apresentei isso recentemente e eu acho que é interessante vocês entenderem o potencial. A gente já tá acabando, já sei que tá todo mundo cansado aí, mas a gente já tá acabando. Deixa eu pegar aqui minha tela, ó. Eh, foi uma apresentação que a gente fez agora no no evento do Horácio aqui, ó. Yeah.
+
+
+
+
+01:36:01
+
+
+Lucian Fialho: três semanas, três dias usando o copilot, tá? Então, foi quando a gente pegou o processo de CRO, deixa eu botar aqui em apresentação para vocês verem bonitinho, ó. Aqui é um cenário que o case é 100% usando copilot, tá? Então, a gente é um case de taxa B que a gente tá fazendo com o uso do copilot. Então, a gente percebeu que dentro desse desse desse principal problema que as empresas estão em montar uma máquina de experimentos, eh, nunca era propriamente a falta de ideia, né? Ideia todo mundo tem. O problema, na verdade, na maioria das vezes, é a estrutura que a gente tem de time para poder executar esse estátis. Então assim, o processo tradicional vem de um cenário onde um analista, um designer, um de um colocam esse teste em produção. E a gente foi mapeando isso para poder conseguir entender que o problema não era a hipótese, não era a quantidade de ideias, era exatamente a quantidade de handoffice que a gente tinha que fazer dentro desse processo. E aí uma coisa que a gente fez usando o copilot foi, cara, a eh óbvio, né?
+
+
+
+
+01:37:03
+
+
+Lucian Fialho: a gente não tira a nossa capacidade que a gente tem de trabalhar. É o que eu tô tentando eh trazer aqui para vocês. A gente trabalhou do ponto de vista qualitativo, indo na loja, entrevistando o vendedor, eh eh com hotjar, com formulário no site, pra gente poder conseguir captar a informação. Trabalhou todos esses dados para poder conseguir chegar na fricção de que, cara, como eu sei qual o tipo de óculos funciona no meu rosto? E aí a gente chegou nessa funcionalidade aqui que aí foi 100% feita via cupadas, tá? Isso aqui é um HTML, ele tá navegando aqui só porque o Cloud ele faz umas apresentações maneiras, mas assim eu consigo fechar aqui inclusive e navegar dentro dele para cara quero descobrir qual o formato do meu rosto. Eu posso fazer isso de maneira manual, igual no exemplo ele vai me mostrar. Ou eu posso fazer isso através de uma foto que eu vou colocar aqui dentro e ele vai fazer a mesma coisa. Mas olha que interessante, eu também posso colocar a minha cara aqui e ele vai detectar qual que é o meu rosto. Então assim, é uma funcionalidade que e ela sozinha são três eh melhorias ou a redução de três possíveis fricções que esse cara vai ter.
+
+
+
+
+01:38:06
+
+
+Lucian Fialho: Ele ter a foto, ele saber qual o formato do rosto. Cara, só coloca a tua cara aqui que o nosso algoritmo vai detectar qual qual é o seu rosto e qual óculos você deveria estar usando. Cara, eu nem preciso falar, nem preciso falar, né? um case que a gente fez 100% usando o Analytics copilot, porque a gente conseguiu colocar 100% da nossa capacidade, do nosso da nossa metodologia dentro desse harness para poder fazer ele rodar esse tipo de testa B que a gente tá rodando aqui. E assim, eu nem queria ficar fazendo pint para vocês, não, tá? A ferramenta é é uma ferramenta que tá em beta, a gente tá fazendo o enable dela paraas pessoas que estão entrando na wait list. Quem quiser se cadastrar lá, o link tá aqui de novo para vocês e aí vocês se cadastram que aí já já a gente vai entrando em contato pessoa por pessoa para poder justamente conseguir construir um produto onde o usuário é o centro dele e pegando feedback igual a gente tá fazendo com a Juliana, com o nosso time, vai ser fundamental para isso. Yeah. Tranquilo, rapaziada. Tá vendo? Nem doeu, ó.
+
+
+
+
+01:39:04
+
+
+Lucian Fialho: 8:30. Tranquilinho. Calma que vai chegar, Léo. Calma que vai chegar. Calma que vai chegar. Vai dar tudo certo. Não esqueçam de usar também as outras ferramentas, tá? A Andressa tá perguntando alguma coisa, mas eu devolvimento. A publicação foi feita em outra ferramenta. Ó, exatamente o que a gente fez aqui com a ferramenta foi tirar a necessidade de necessidade, entre aspas, né? porque a gente pede a a homologação e a revisão dos designers. Mas aqui, ô Andressa, ele fez o HTML, CSS e o JavaScript e dentro do Copilot a gente só pegou o JavaScript necessário e colocou na VWO. Então ele tirou, mas não, mas ele automatizou grande parte do trabalho que a gente tinha naquele pipeline entre dev e design. Então, a gente percebeu que pra gente poder conseguir aumentar a a capacidade de geração de teste que as empresas têm, a gente precisava mitigar uma coisa muito importante que era o principal gargalo, que era devo. A gente sabe que tem tudo muito isso, né, dentro das empresas.
+
+
+
+
+01:40:06
+
+
+Lucian Fialho: Esse e esse às vezes é é tipo um é é exatamente isso, é facilitar o processo e aí o designer e o cara de tecnologia, ele vai só revisar aquilo e vai gastar muito menos tempo do que às vezes meses para você poder conseguir subir um teste AB dentro da estror de vocês. Tranquilo, rapaziada, tranquilinho. Curtiram o papo? Vai me dando um feedback aí, pô. Tô maluco. Ah, valeu, Matias. Tamo junto, cara. É isso. A gente tinha um pouco desse bate-papo. Convido vocês a usarem as ferramentas gratuitas que a gente deixa aí para vocês. Deem os feedbacks paraa gente. A gente tá dando manutenção em várias delas. Então vocês podem entrar em contato comigo pelo LinkedIn. Vou deixar meu LinkedIn aqui para vocês darem uma olhada. Eh, e aí a gente vai continuando batendo papo, cara. Vai ser um prazerzaço trocar essa ideia com vocês. Beleza? Até a próxima.
+
+
+
+
+01:41:00
+
+
+Lucian Fialho: Deixa eu mandar aqui o link do meu linkedinho para vocês me darem um salve. E tchau. A gente pode ir para uma próxima indo na prática. Vai ter inclusive. Putz, olha o mole que eu tô dando agora. Fica lá. Alguém aqui tá na comunidade CRO vai rolar em setembro. Em setembro vai rolar lá em São Paulo. Eu não vou saber exatamente a data. Eu acho que é dia 10 de setembro. Eh, eu vou mandar o link para vocês. Eu não sei se a Tácia vai me xingar, né? Será que eu tô falando alguma coisa, Gabriel, que a Tác não queria soltar? Não sei. Agora já era, né? Dia 10. setembro vai rolar o workshop de CRO, onde a gente vai pegar toda essa parte aqui e vai fazer lá no dia. Eh, só que aí na prática mesmo com cloud, usando copilot em alguns momentos, mas também usando cloud para poder mostrar para vocês como que funciona esse processo de conexão e configuração. Dia 10 de setembro lá em São Paulo, tá?
+
+
+
+
+01:41:51
+
+
+Lucian Fialho: Nem sei se eu podia estar contando isso aqui, mas como vocês falaram ali de ter um workshop, vai ter um workshop presencial lá em São Paulo. Belezinha, fechou. É isso, rapaziada. Tamo junto. p****, Marcos, que pena que você não conseguiu entrar mais cedo, mas vai tá gravado e disponível no Prime. E assim, o o Gabriel colocou aqui também um outro bate-papo que ele vai mandar aí de novo no chat, que eu aconselho você dar uma olhada aí, Marcos, porque a gente falou grande parte disso e no Prime pode ter alguma coisa que pode te ajudar também. Fechou? Galera, prazer estar com vocês aqui, p****. Quarta-feira, 8:30 da noite, vocês são muito nossos parceiros mesmo. Muito obrigado, Júlia, que já deve ser meia-noite e lá vai porrada. Aí estamos junto, tá? Muito obrigado pela presença de todos vocês. Ou meia-noite deve ser meia-noite aí. Tamamos junto, rapaziada. Conteúdo sobe no Prime, vai atualizando aí e vai me mandando mensagem lá no LinkedIn. Cara, eu quero trocar essa ideia com vocês por lá. Vocês ficam me abandonando e voltando, me abandonando e voltando, mas eu tô sempre lá, tá? Estamos junto aí, fechou? Valeu, boa noite a todos e tchau tchau.
+
+
+
+
+A transcrição foi encerrada após 01:42:57
+
+
+Esta transcrição editável foi gerada por computador e pode conter erros. As pessoas também podem alterar o texto depois que ele for criado.

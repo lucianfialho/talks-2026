@@ -1,0 +1,916 @@
+﻿📝 Observações
+set. 11, 2026
+Lucian / Taciana
+convidado Taciana Serafim Lucian Fialho
+Anexos Lucian / Taciana
+Registros da reunião Transcrição Gravação 
+
+
+
+
+Resumo
+Revisão de curso de CRO com alinhamento de papéis e estratégias para engajamento.
+
+Fundamentos e mercado de CRO
+Revisão de ementas e papéis em CRO. Inteligência Artificial viabiliza operações.
+
+Priorização e heurísticas práticas
+Apresentação do framework ICE e heurísticas. Discussão sobre custo cognitivo.
+
+Copywriting e testes práticos
+Abordagem de estágios de consciência e testes A/B. Avaliação de plataformas comunitárias.
+
+
+
+
+Decisões
+Precisa de mais conversa
+* Avaliação de infraestrutura para comunidade A escolha entre utilizar uma plataforma externa dedicada (Circle) ou manter as interações da comunidade exclusivamente no WhatsApp foi diferida para uma análise posterior de prós e contras.
+
+
+
+
+Próximas etapas
+* [Taciana Serafim] Incluir design no fluxo: Incluir slide adicional com fluxo de design entre as etapas de priorização e teste.
+* [Taciana Serafim] Adicionar QR code: Adicionar um slide com código QR para a ferramenta de diagnóstico da CRO Brasil ao final da apresentação.
+* [Taciana Serafim] Reorganizar introdução: Reorganizar o conteúdo dos slides para incluir uma introdução focada no tamanho do mercado e nos problemas atuais, mantendo o storytelling.
+* [Taciana Serafim] Adicionar recomendação: Incluir o livro Enviezados de Rian Dutra como recomendação bibliográfica na apresentação.
+* [Taciana Serafim] Atualizar referência: Substituir a foto de Robert Cialdini pela capa do livro As Armas da Persuasão na apresentação.
+* [Taciana Serafim] Criar Notion: Preparar e compartilhar com os alunos um Notion com as recomendações de leitura e recursos discutidos.
+* [Lucian Fialho] Apresentar case: Contar o case da Duty Free durante a apresentação quando chegar na parte de estudos de caso.
+* [The group] Enviar links: Coordenar o envio do link da ferramenta de diagnóstico para os alunos através do grupo de WhatsApp.
+* [Lucian Fialho] Enviar Feedback Apresentação: Enviar por mensagem os pontos complementares sobre a jornada do usuário e outros temas pendentes para a palestra.
+* [Lucian Fialho] Incluir Case Ering: Adicionar o exemplo da empresa Ering no conteúdo destacando a utilização de dados qualitativos e a geração de hipóteses.
+* [Lucian Fialho] Indicar Participantes Eventos: Sugerir nomes de profissionais do setor de e-commerce para participarem das ações da Sinatra em setembro e outubro.
+
+
+
+
+Detalhes
+* Alinhamento de Conteúdo e Fundamentos de CRO: Taciana Serafim e Lucian Fialho revisaram os materiais de apoio e ementas de um curso focado em CRO (Conversion Rate Optimization), abordando conceitos fundamentais, princípios de cloud apresentados anteriormente por Messina e a estruturação inicial da narrativa de ensino (00:00:00).
+* Realidade do Mercado e Papéis em CRO: Taciana Serafim destacou a falsa premissa do mercado de que um profissional de CRO acumula diversas funções isoladamente, contrapondo com a realidade de que a Inteligência Artificial viabiliza operações quando combinada com habilidades humanas, detalhando também papéis específicos como digital analytics, estrategistas e desenvolvedores (00:01:25).
+* Processo, Coleta de Dados e Plano de Mensuração: Lucian Fialho sugeriu incluir a função de design no fluxo do processo de CRO e enfatizou a necessidade de planos de mensuração estruturados, diferenciando macroconversões (como compras no site americanas.com) de microconversões para embasar análises quantitativas e qualitativas (00:04:41).
+* Simplificação das Etapas do Ciclo de CRO: Taciana Serafim e Lucian Fialho debateram a simplificação do ciclo linear de CRO em etapas agrupadas — como coleta/análise e hipóteses/priorização —, visando otimizar a assimilação por parte de um público diversificado e gerenciar interrupções e ajustes de cronograma (00:06:39).
+* Integridade de Dados e Limitações da Inteligência Artificial: Lucian Fialho alertou sobre a regra de qualidade de dados ("shit in, shit out"), enfatizando que a Inteligência Artificial não substitui a análise estratégica humana nem corrige implementações incorretas em ferramentas como o Google Analytics, embora possa ser aplicada em testes de copywriting em força bruta (00:10:33) (00:15:26).
+* Frameworks de Priorização em CRO: Taciana Serafim apresentou o framework ICE para priorização de hipóteses, enquanto elus discutiram os desafios operacionais e gargalos de priorização em equipes multidisciplinares, considerando capacidades técnicas e de design, além de propor melhorias visuais nos slides explicativos (00:12:36).
+* Diagnóstico de Landing Pages e Ativação Prática: Taciana Serafim apresentou uma ferramenta de diagnóstico da CRO Brasil para landing pages, e Lucian Fialho sugeriu transformar a ferramenta em uma atividade prática interativa de 10 minutos utilizando QR codes e grupos de WhatsApp ao final da seção de dados de mercado para engajar a audiência (00:17:32).
+* Heurísticas e Atalhos para Tomada de Decisão: Taciana Serafim e Lucian Fialho discutiram o uso de heurísticas como atalhos mentais para a tomada de decisão dos usuários, incorporando conceitos do especialista André Moris e exemplos práticos de projetos anteriores da Métricas Boss para ilustrar o custo cognitivo das páginas (00:25:13).
+* Provas Sociais e Referências Bibliográficas de Persuasão: Taciana Serafim e Lucian Fialho abordaram a aplicação de provas sociais em projetos (como cases da Dutch Free e Métricas Boss) e recomendaram obras literárias fundamentais, incluindo *As armas da persuasão* de Robert Cialdini e *Enviezados* de Rian Dutra, discutindo também estratégias de links afiliados (00:28:13).
+* Avaliação de Plataformas e Dinâmicas de Comunidade: Taciana Serafim e Lucian Fialho avaliaram a viabilidade de adotar plataformas externas pagas (como o Circle, orçado em R$ 600) versus o uso contínuo de WhatsApp e Discord para a comunidade de CRO, concluindo que manter as interações próximas ao WhatsApp reduz atritos e barreiras de acesso (00:31:53).
+* Estruturas de Copywriting e Estágios de Consciência: Taciana Serafim apresentou conceitos fundamentais de copywriting, destacando os estágios de consciência do público e o modelo AIDA (atenção, interesse, desejo e ação), conectando a alteração de textos à formulação de hipóteses de otimização (00:42:04).
+* Mapeamento de Jornada e Tipos de Testes em CRO: Lucian Fialho reforçou a importância do mapeamento da jornada do usuário e da coleta de dados qualitativos junto a clientes (citando exemplos práticos com Zerezes, Ering e Aklin baseados em reclamações reais), além de listar variações de testes como A/B, MVT, fake door e rollout progressivo (00:44:09).
+* Planejamento de Eventos e Podcast: Taciana Serafim e Lucian Fialho expressaram preocupações sobre o cronograma de novos eventos propostos por Gustavo para setembro e outubro (relacionados a Sinatra, Minders e Quinoplex), alertando sobre o risco de canibalização de público e a necessidade de planejamento antecipado para a gravação do episódio 300 do podcast e engajamento de embaixadores e grupos GSO (00:46:52).
+
+
+
+
+Revise as anotações do Gemini para checar se estão corretas. Confira dicas e saiba como o Gemini faz anotações
+Como está a qualidade de destas observações? Responda a uma breve pesquisa para nos dar seu feedback, incluindo o quanto as observações foram úteis para o que você precisa.
+📖 Transcrição
+set. 11, 2026
+Lucian / Taciana - Transcrição
+00:00:00
+
+
+Taciana Serafim: na mesma página. Só vou colocar todo mundo na mesma página porque tem gente que não é necessariamente de CO. Deixa eu compartilhar aqui. Sive. Depois eu vou, nossa, eu fiz umas mudanças, eu acho que não refletiu. Depois eu vou saber de novo depois. Eh, eu queria ver contigo e com se vocês têm algum material de apoio para compartilhar com o pessoal também. Se não tiver, não tem problema. Mas aqui é aquele lance que eu te falei. Vou falar sobre os fundamentos que tava ali dentro da ementa do curso, né? Vou colocar todo mundo na mesma página, principalmente. Ih,
+Lucian Fialho: Parou de compartilhar sua tela.
+Taciana Serafim: é, tô com problema no computador, mas eu vou falando aqui só para você ter uma noção que o conteúdo eu te mandei lá no PDF, mas é nada de outro mundo,
+Lucian Fialho: Ah, eu vou abrir aqui o mesmo meu conteúdo.
+Taciana Serafim: tá?
+Lucian Fialho: Pera aí.
+Taciana Serafim: Beleza? Eu vou trazendo uma definição do que é Cro para colocar todo mundo na mesma página. Então, a minha narrativa vai ser: vocês entenderam os conceitos, os princípios ali na parte da manhã comcina sobre cloud.
+
+
+
+
+00:01:25
+
+
+Taciana Serafim: Antes da gente colocar em prática dentro do contexto do CRO, é importante que todo mundo saiba o que é CRO, por fazer CO. como funciona a estrutura de um time. Então, dentro de um contexto, o mercado ele muitas vezes acha, vende que CRO é uma pessoa que faz várias funções,
+Lucian Fialho: Угу.
+Taciana Serafim: não é uma realidade, mas com a IA isso passa a ser possível, desde que a gente tenha um ser humano que possa viabilizar ali com as skills que a gente vai propor aqui, que faça um processo que a gente pode dar o nome de CO. E aí vou contextualizando o que é, qual que é o impacto, então trazendo ali como se calcula para colocar todo mundo na mesma página. Tem muita gente que comprou e que eu vejo que algumas vieram da audiência do Messina, outros são pessoas curiosas que não são de de CRO, então por isso que eu entendo que vai ser relevante para eles. E tem gente que é de CRO, então vou passar pelo pelo ciclo também que além de ter um time, existe ciclo, etapa, uma estrutura para que seja feito ali o processo de CRO. E aí depois, e aí até eu tinha te falado, né, que eu vi que ficou um pouco redundante, porque eu usei acho que uns dois ou três slides para falar sobre estruturas.
+
+
+
+
+00:02:54
+
+
+Taciana Serafim: Eu acho que já atualizei aqui, mas eu vou falar um pouquinho sobre os papis. Eu vou focar na parte de, nem vou desdobrar tanto, vou focar em digital analytics pra parte de eh análises quantitativas e qualitativas e o que que essas pessoas costumam focar, a parte do CRO, o estrategista de CRO, o que ele costuma focar, e a parte de dev,
+Lucian Fialho: Então tá em qual slide?
+Taciana Serafim: de devção no 10.
+Lucian Fialho: Só para eu me Ah, tá, tá no aqui para mim ele tá no sete.
+Taciana Serafim: Eh,
+Lucian Fialho: Quatro posições do mesmo gol.
+Taciana Serafim: eu acho, eh, eu lembra que eu falei que ficou redondante que eu ia juscar,
+Lucian Fialho: Ah, tá. Entendi. Entendi. Entendi.
+Taciana Serafim: eu deixei ele.
+Lucian Fialho: É,
+Taciana Serafim: Deve tá para baixo,
+Lucian Fialho: mas na versão que eu já tô Não,
+Taciana Serafim: tá?
+Lucian Fialho: então na minha tá para cima,
+Taciana Serafim: Ele tem também.
+Lucian Fialho: na real.
+
+
+
+
+00:03:37
+
+
+Taciana Serafim: Ah, então tá.
+Lucian Fialho: É,
+Taciana Serafim: Então é que eu tirei o que tava embaixo.
+Lucian Fialho: então acho que esse pai eu já tô com a versão limpa. Já entendi.
+Taciana Serafim: Isso. Então, basicamente é isso. De Ah,
+Lucian Fialho: Deixa aí eu tentar compartilhar então que eu tô ficando meio perdido que aí eu compartilhei.
+Taciana Serafim: por favor. Tá, tá,
+Lucian Fialho: Deixa ver.
+Taciana Serafim: tá bom.
+Lucian Fialho: V ver aí.
+Taciana Serafim: Beleza. Então, que eu tinha falado contexto falando sobre o que é CRO,
+Lucian Fialho: Beleza.
+Taciana Serafim: como se calcula, pode ir para baixo, como se calcula o impacto. Então,
+Lucian Fialho: Aham.
+Taciana Serafim: como isso se reflete em números,
+Lucian Fialho: Onde mercado converte?
+Taciana Serafim: onde o mercado converte, dados de mercado, o fluxo,
+Lucian Fialho: Aham.
+Taciana Serafim: pode passar
+Lucian Fialho: Não tinha que ter um designer aqui não. Nesse fluxo
+Taciana Serafim: priorização teste e verdade, verdade, verdade, verdade.
+
+
+
+
+00:04:41
+
+
+Lucian Fialho: é porque tem o ex aqui, mas não tem aqui.
+Taciana Serafim: É verdade. Eu vou incluir, mas é é verdade.
+Lucian Fialho: Hum.
+Taciana Serafim: Antes entre o quatro e o cinco precisa ter alguém para fazer fazer essa parte de eu vou incluir.
+Lucian Fialho: É, mas porque aí eu vou pegar esse ponto seu 4 e c de desenvolvimento e vou falar que a gente tira assim porque eh eh aqui é o ciclo e não o o time, né? Então é é um pouco até do que eu tinha feito naquela outra palestra lá do dos handoffs, né? Então assim, a coleta de dados eh eu acho que é interessante você trazer porque eu até posso pegar um conteúdo do curso de Google Tag Manager para poder falar que não adianta nada. Eu não sei se eu falo ou se você fala, tá? Mas assim, eh eh falar sobre a necessidade de ter um plano de mensuração, como que a gente monta um plano de mensuração, muito porque a gente pode colocar um exercício ali no meio. Então beleza? Agora que vocês entenderam como funciona o processo de plano de mensuração, a gente vai trazer para vocês um exercício que vocês executam. Aí eu já tenho meio que um um template de exercício que a gente faz em conjunto mesmo.
+
+
+
+
+00:05:46
+
+
+Lucian Fialho: Então, ó, beleza? Eh, eu falo sobre macro e microconversão. a gente pega um exemplo de um site de um cliente que pode estar lá ou de alguém da internet e aí eu vou fazendo a jornada do usuário e falando, ó, aqui a macroconversão dentro da americanas.com. Aí o pessoal começa, ah, isso, isso, isso, isso aí, beleza. Então, a macroconversão é a compra, todo mundo tá acostumado a comprar. E aí como que a gente plano de mensuração da macro para as micros? Então, qual a etapa que antecede a micro? E aí a gente vai tendo o funil que a gente tá medindo, que é a o que vai ser necessário para que a gente tenha o básico de qual e quanto, sacou? Eu posso ou eu entrar nisso ou você entrar nisso.
+Taciana Serafim: Boa.
+Lucian Fialho: Aí eu não sei, a gente pode pensar.
+Taciana Serafim: Dá uma ida para baixo para eu ver se eu tô falando sobre isso.
+Lucian Fialho: Tá.
+Taciana Serafim: Me coleta de dados. Eu acho que eu não coloquei. Acho que eu não coloquei.
+
+
+
+
+00:06:39
+
+
+Taciana Serafim: Podemos colocar, tá?
+Lucian Fialho: É, não é porque acho que pode ser tanto você pegando, é porque assim, eu normalmente faço isso, tá? Não sei se é um caminho para você aí também de fazer.
+Taciana Serafim: Uhum.
+Lucian Fialho: É que assim, você você pegou aqui um ciclo, eu acho isso do c******, porque esse essa numeração que você dá pro conteúdo cria uma sequência lógica na cabeça das pessoas. Isso é muito f***. Só que aí eu acho que você talvez poderia entrar um você mostrou o ciclo, então você fala de maneira genérica sobre o ciclo e fala mais sobre os problemas, a dor. Aí você entra na coleta de dados e fala sobre a parte de coleta de dados. Aí você entra na parte de análise e fala só sobre a parte de análise.
+Taciana Serafim: Tá.
+Lucian Fialho: Aí você entra no outro só sobre hipótese e assim aí você vai dando meio que os problemas de cada um,
+Taciana Serafim: Vou te explicar um pouquinho.
+Lucian Fialho: entendeu?
+Taciana Serafim: Boa. O que que eu fiz? Eu tentei focar muito mais na parte de copywriting e a parte de comportamento do usuário, que é onde que eu vejo que a skill de Cro acaba sendo mais importante, porque a gente tinha falado a princípio, eu acho que dá para fazer, tá?
+
+
+
+
+00:07:40
+
+
+Taciana Serafim: a gente incluir isso daí e aí a gente entende como que a gente eita, seu também tá saindo
+Lucian Fialho: O meu também. O meu é HD, eu já falei. É HD. HD. Hã,
+Taciana Serafim: porque dentro porque é uma hora,
+Lucian Fialho: o meu HD.
+Taciana Serafim: é uma hora que a gente tinha colocado e dentro do que eu tinha colocado na ementa do curso, tava falando sobre mais essa parte, mas a gente pode colocar também até nos seus exercícios,
+Lucian Fialho: Ah, não. Tá tudo bem. Eu posso falar,
+Taciana Serafim: tá?
+Lucian Fialho: eu posso falar,
+Taciana Serafim: Isto.
+Lucian Fialho: eu posso falar no meu que eu vou ter mais tempo,
+Taciana Serafim: Iso.
+Lucian Fialho: porque é é exatamente isso que eu queria ter seu aqui, porque eu acho que tem que tá muito conectado o que a gente vai construir com relação ao cloud. Então beleza, na coleta de dados que a T falou lá no início, então assim, eu e o Gustavo, a gente sempre faz isso, de citar o conteúdo.
+Taciana Serafim: Boa.
+Lucian Fialho: Então você quando for falar sobre coleta de dados, você pode prometer:
+
+
+
+
+00:08:31
+
+
+Taciana Serafim: Eu já menciono que você vai trazer isso.
+Lucian Fialho: "Ó, essa etapa é fundamental pra gente,
+Taciana Serafim: Uhum.
+Lucian Fialho: porque sem isso a gente não tem um pilar de dados." Sou, por isso que eu falo, eu crio normalmente essas sequências lógicas numerais e aí eu crio um slide para poder nem que seja agrupado, porque coleta de dados e análise poderia estar dentro de um desse momento. Hipótese e priorização poderia estar num segundo momento. ele poderia est junto com design. E aí, relatório, escala poderia estar junto. Então assim, daria para você pegar esse esses passos. Eu gosto muito de fazer sete passos, tá? Eu acho que é muito bom assim,
+Taciana Serafim: Ô,
+Lucian Fialho: mas daria pra gente poder tentar fazer,
+Taciana Serafim: ô, Lu, me dá um minutinho. Eu tô aqui na casa da minha mãe cuidando dela e ela tá me ligando só para eu ver o que tá acontecendo.
+Lucian Fialho: pô. Vai lá,
+Taciana Serafim: Só um minutinho.
+Lucian Fialho: vai lá, vai lá.
+Taciana Serafim: Pronto, voltei.
+
+
+
+
+00:09:32
+
+
+Lucian Fialho: Aí é isso, tipo assim, a aqui eu vou sempre fazendo isso. Então, tipo, daria até para você juntar isso para poder ficar mais simples, como tem gente que é de fora desse mercado, tipo, juntar as etapas. Então, juntar coleta e análise, hipótese e priorização, teste, dev, relatório e escala, sacou?
+Taciana Serafim: Tá boa.
+Lucian Fialho: Porque aí você diminui a quantidade de passos e aí você consegue fazer um slide onde você só vai dar a ênfase. Ó, coleta de dados é importantíssima porque sem ela, e aqui você pode fazer esse gatilho, a gente não consegue ter mapeado quais são as ações que a gente vai desejar otimizar,
+Taciana Serafim: Tá.
+Lucian Fialho: sacou?
+Taciana Serafim: Ô Lu,
+Lucian Fialho: E aí?
+Taciana Serafim: se você achar que vale, lembra que a gente fez aquela aula paraa Fernanda, tem aquele slide de mensuração, dá para eu meter aí no negócio e você já falar pra gente seguir uma ordem,
+Lucian Fialho: Pode ser, pode. É porque, tipo assim, eu também não tenho problema em fazer os callbacks, não. Então, tipo,
+Taciana Serafim: tá?
+Lucian Fialho: eu posso pegar exatamente essa lista que você fez e colocar dentro do meu material, porque eu vou ter mais tempo para poder falar.
+
+
+
+
+00:10:33
+
+
+Lucian Fialho: Então,
+Taciana Serafim: Tá,
+Lucian Fialho: lembra quando a Tass falou, eu posso fazer a ênfase, eh,
+Taciana Serafim: tá bom.
+Lucian Fialho: lembra quando a Tá falou sobre coleta de dados? Eu tô falando sobre aquele ponto que ela trouxe número um e por que isso é importante. Aí eu mostro as ferramentas muito porque eu acho que uma das coisas que eu vou mais falar para eles lá é tudo que a gente tem que aprender antes de aprender o cloud especificamente, porque não adianta nada a gente fazer toda essa estrutura, querer colocar IA dentro do processo de de CRO. E aí eu acho que isso é uma coisa que você pode bater muito. Não adianta nada você colocar eu eu sou o cético, né? Eu sou o tóxico. Então, tipo assim, é é é isso, sacou? Então, não adianta nada você colocar IA dentro de uma operação que ela tá quebrada. Então, é s*** in, sheit out. Se você tá coletando o evento que é ação desejada que você quer otimizar e ele tá implementado errado e na maioria das vezes está, sacou, eu vou tentando ir ir levantando os pontos de atenção para esse cara depois ir para casa sabendo o plano prático do que ele tem que fazer para resolver aquela p****.
+
+
+
+
+00:11:34
+
+
+Lucian Fialho: Então assim, ó, então não esquece de chegar lá dentro do teu Google Analytic da ferramenta de análise que você tem ou que você vai querer ter para poder ver, cara, bate a quantidade de adição do produto ao carrinho, o purchase bate com a plataforma, porque tudo isso são sinais de mais implementações que vão c**** o teu Tcha B. E aí não tem ferramenta no mundo, sacou? Eu eu vou sendo esse cara mais tóxico assim para poder ler.
+Taciana Serafim: Boa. Tak.
+Lucian Fialho: Você vai, então tu pode, tipo, passar esse conceito indo assim do jeito que tá aqui, não tem problema. E aí eu pego cada uma dessas caixinhas e vou colocando tipo, ah, então nas hipóteses, p****, nas hipóteses a gente pode trabalhar especificamente pensando em como que a gente gera as hipóteses e como a gente prioriza as hipóteses. Por isso que eu falei, se você juntar as hipóteses com item três e quatro, você consegue fazer um pipeline de três itens só, três passos para ficar mais fácil pro cara gravar e aí você consegue juntar algumas coisas para dar uma porrada maior com relação à priorização, que é um p*** problema. Então, ó, já para avisar vocês, priorização é grande parte do problema.
+
+
+
+
+00:12:36
+
+
+Lucian Fialho: O problema, na maioria das vezes, não é a capacidade que o ser humano tem de gerar hipótese, é a capacidade que ele tem de priorizar isso dado a quantidade de coisa que ele tem. Porque assim, a priorização também deveria est ligada à capacidade de técnica que a gente tem de desenvolver, a capacidade de design de conseguir implementar aquelas telas. Então, eh eh eu vou indo assim, entendeu? Eu tô só tentando te ajudar também,
+Taciana Serafim: Não, perfeito. Não,
+Lucian Fialho: f***-se. Tipo assim,
+Taciana Serafim: e é e é até legal que você não é ótimo.
+Lucian Fialho: tu pode ir do jeito que você quiser, tá? Pelo amor de Deus.
+Taciana Serafim: Eu tô achando ótimo e tá muito conectado. Eu tentei trazer um framework porque meu pessoal funciona muito quando tem meio que uma receita. Então,
+Lucian Fialho: Lista, receita.
+Taciana Serafim: tô trazendo o ICE e é justamente isso para falar com que a priorização é o
+Lucian Fialho: Com certeza.
+Taciana Serafim: mais importante também nesse processo, visto que você tem que considerar, a gente tá falando de um time multidisciplinar, então tem que ter uma visão nessa priorização de todo time em que entenda qual é o impacto e que isso vai gerar tanto no negócio, mas também no desenvolvimento,
+
+
+
+
+00:13:35
+
+
+Lucian Fialho: Sim,
+Taciana Serafim: porque pode gerar um grande impacto.
+Lucian Fialho: sim. É,
+Taciana Serafim: Mas quão fácil é de viabilizar?
+Lucian Fialho: e e até tem uma parada interessante E até tem uma parada interessante com relação do ciclo, porque assim, o ciclo e a aqui ele tá como uma uma um ciclo linear, né?
+Taciana Serafim: Uhum.
+Lucian Fialho: Se se eu acho que esse slide aqui ele poderia ser inclusive com espaços no círculo,
+Taciana Serafim: Ai o meu,
+Lucian Fialho: tá ligado?
+Taciana Serafim: o meu quando eu fiz no Canva ele é assim, só que eu não consegui recriar ele no cloud.
+Lucian Fialho: Mas tu pode pedir para, ao invés dele fazer o círculo, ele fazer uma escadinha,
+Taciana Serafim: Ah, tá. Vou tentar.
+Lucian Fialho: entendeu? Que aí você pega esse conteúdo da da dos das colunas, né, das etapas, joga ele pra direita e usa o texto que tá embaixo na esquerda, só para poder complementar o que tá ali, entendeu? E aí você usa essa esse escadinha, sabe?
+Taciana Serafim: Uhum.
+Lucian Fialho: Só que eu acho que vai dar, mas é muito maneiro, muito maneiro.
+
+
+
+
+00:14:26
+
+
+Lucian Fialho: É,
+Taciana Serafim: Boa.
+Lucian Fialho: tô mais tentando tipo conectar os nossos assuntos mesmo, tá?
+Taciana Serafim: Não, total,
+Lucian Fialho: Que aí eu vou usar isso daqui com o que eu vou fazer aí.
+Taciana Serafim: total.
+Lucian Fialho: Beleza, continua.
+Taciana Serafim: Isso daí,
+Lucian Fialho: Desculpa que eu te interrompi,
+Taciana Serafim: esse daí vai sair do que tem a mesma coisa.
+Lucian Fialho: tá?
+Taciana Serafim: Basicamente esse slide 7, oito acabam sendo muito muito parecidos. Então, sai um, mantém só um,
+Lucian Fialho: Uhum.
+Taciana Serafim: mas que basicamente também vai falar sobre estrutura.
+Lucian Fialho: Угу.
+Taciana Serafim: E aí eu trago justamente pro benefício de ter a IA conectada quando você não time que você possa ter cada um fazendo seu papel. Então, em muitos casos, uma empresa, ela não vai ter eh um time multidisciplinar operando CO. Então ela vai ter o papel de uma pessoa que às vezes é a pessoa de CRO, um analista que vai executar CRO em growth, um analista de produto que vai est fazendo essa função e que atualmente é possível conectando a IA nesse processo.
+
+
+
+
+00:15:26
+
+
+Taciana Serafim: Então esse é o gancho pra gente começar a falar que a IA de fato vai mudar essa equação se tiver obviamente uma pessoa que orquestre tudo isso e aí trazer essa questão da IA pode ocupar essas cadeiras que a pessoa vai ter uma pessoa dirigindo o time, mas que dentro desse contexto vai ter um um uma IA que possibilita que tudo isso seja operado.
+Lucian Fialho: É,
+Taciana Serafim: E aí tem esses pontinhos.
+Lucian Fialho: e até a gente dizer também, né? Porque assim, quais são as etapas que a Iá substitui de fato, sacou? porque ela e eh a acho que uma coisa que a gente pode bater muito que é a IA não vai substituir o consumo humano eh eh disso daqui. Tipo, a parte de de análise estratégia e e ela ela é a parte que ainda a gente depende do humano. Por isso que eu quero, por isso que eu que tô querendo trazer,
+Taciana Serafim: Exatamente.
+Lucian Fialho: porque assim, tu pode colocar tipo,
+Taciana Serafim: Nesse aí, ó.
+Lucian Fialho: quais são as áreas que podem ser substituídas por a ou não, que aí eu acho que tá muito mais ligado à parte de implementação menos do que COP, estratégia analista,
+Taciana Serafim: Ja.
+
+
+
+
+00:16:28
+
+
+Lucian Fialho: porque assim, o COP, a gente pode fazer um brute force de tipo assim, ah, beleza, eu vou criar um multivariável agora com IA que vai testar 100 possibilidades e f***-se, deixa brigar lá, eu tenho tráfego para poder fazer. Então, tipo assim, a parte da cópia, a gente consegue testar n possibilidades agora, dado um contexto, mas a parte de de análise e estratégia não. Então, tu pode criar esse caminho assim, o que pode ser substituído por IA e o que que não pode ser substituído por IA.
+Taciana Serafim: Boa. Ontem o Bruno Perz compartilhou um material bem bacana que foi de um estudo que tinha, tipo, o cara chamava de H1 Hilman, eh, e cinco, que era onde ia substituiria. Eu vou te mandar esse que eu tirei uma foto, eu achei muito bacana e talvez caiba aí esse contexto, mas o contexto do 10 tem até ali no rodapé, que é justamente que as pessoas têm que entender, tem que ter repertório. Isso tudo vai ser possibilitado, mas a estratégia ela não pode ser terceirizada e ainda assim vai exigir um repertório, que aí por consequência a gente depois fala um pouquinho sobre esse repertório na parte de
+
+
+
+
+00:17:32
+
+
+Lucian Fialho: Угу.
+Taciana Serafim: copywritem comportamento. Mas aí eu aproveitei e coloquei, lembra que a gente tem aquela ferramenta que faz a análise do site?
+Lucian Fialho: Диагнозко.
+Taciana Serafim: Eu aproveitei para embarcar isso, para mostrar o quanto o Brasil é carente dessa parte que é fundamental, que é a parte de entender ali os problemas de Comunik. dentro das landing pages, porque inicialmente o CRO ele foi criado para isso, pra gente basicamente entender muito sobre proposta de valor e tudo mais. E isso conecta também com o que a gente tá vendo de projetar ali, principalmente nessa parte de COP e estrutura para que as LLMs consigam ler. Então aí eu embarco um pouquinho dando um contexto para que depois eu possa puxar o tema para falar de comportamento do usuário e também para de usabilidade, né? E para falar também sobre copyright. Aí,
+Lucian Fialho: É,
+Taciana Serafim: se você quiser ir descendo,
+Lucian Fialho: mas eu mas eu vou te falar aqui, eu meteria tipo assim uma uma pequena ação sua com um slide com link e aí os caras usam uma ferramenta na hora e ó, e a CRO Brasil tem uma ferramenta de diagnóstico que a gente vai testar agora. Então entra no site daí da CRO Brasil, tá aqui o link do QRC, a gente vai mandar para vocês no grupo.
+
+
+
+
+00:18:53
+
+
+Lucian Fialho: Eu não sei se vocês vão fazer isso, mas normalmente a gente cria um grupo dos alunos no WhatsApp pra gente poder conseguir mandar os links mais fáceis para eles
+Taciana Serafim: Ja.
+Lucian Fialho: poderem conseguir acessar no computador deles. Beleza? Então aí, ó, entra aí agora, faz o teste, coloca aí e escolhe um site. Pode ser o seu, pode ser o do seu time. Dá uma olhada. Olha o quanto a Iá eh, ela consegue ajudar e o quanto não, porque aí você faz uma pausa, porque você já vai estar um tempinho falando ali e é uma pausa muito curtinha, uns 5 minutinhos, onde a galera vai entrar, vai fazer a parada e tu matou 10 minutos com ele fazendo um exercício que vai entregar um pual para ele. Então, pô, essa ferramenta é gratuita, então você pode incluir isso daqui como uma das etapas do teu processo de, pô, entrou um cliente no onboarding, quer entender como que você agrega mais valor para ele no início do contrato,
+Taciana Serafim: Ко
+Lucian Fialho: por exemplo, ou quando você entrar, você pode usar ferramentas como essa, não para poder te dizer o que você tem que fazer, mas para poder te trazer um recorte inicial do depara, né?
+
+
+
+
+00:19:52
+
+
+Lucian Fialho: Porque eh, pô, eu tenho quando eu entrei minimamente, agora quando eu saí, assim, entendeu? Acho que é é um ponto interessante de tu colocar mais um slide aqui com o Qcode.
+Taciana Serafim: Boa.
+Lucian Fialho: Deixa a galera fazer. Tu ganha 10 minutinhos de conteúdo para beber uma água, dar uma respirada, eles ganham um p*** au porque vão fazer um teste na hora, sacou? E aí tu ganha uns minutinhos para dar uma respirada.
+Taciana Serafim: Boa. Adorei. E aí já aproveita e coloca mais gente para fazer fazer essa pesquisa. Mas aí segue na sequência da mesma questão os dados que foram interpretados da pesquisa,
+Lucian Fialho: Uhum.
+Taciana Serafim: que aí tudo vai conectar com as questões de usabilidade no final,
+Lucian Fialho: Ah, tá.
+Taciana Serafim: só Tá.
+Lucian Fialho: Ó, então você pode colocar esse essa ativação no final dela. Então agora que a gente viu como que tá o mercado, vamos ver como é que estão vocês.
+Taciana Serafim: Aham.
+Lucian Fialho: Então aí você coloca o link da ferramenta de Cro, eles fazem a ativação e dá uma pausinha para eles irem pro que é, entendeu?
+
+
+
+
+00:20:47
+
+
+Taciana Serafim: Então você, sua ideia é que a ativação seja feita por último, não no começo,
+Lucian Fialho: É no por último,
+Taciana Serafim: para que eles façam.
+Lucian Fialho: por último,
+Taciana Serafim: Tá, tá, tá, tá,
+Lucian Fialho: que aí você traz todo o conceito do cara,
+Taciana Serafim: tá.
+Lucian Fialho: puf, toma o áudio de novo,
+Taciana Serafim: Agora vamos ver como tá você.
+Lucian Fialho: porque o conteúdo, tipo assim, ele é muito assim, ele é, você vai vendo, né, o pico de atenção dele vai indo, então você começou o conteúdo. Então assim, uma coisa que me deixou até um pouco assim, eu falei:"Cara, esse slide ali ele é muito bom para tá no início, inclusive, porque, tipo assim,
+Taciana Serafim: Qual?
+Lucian Fialho: esses daqui que você colocou, só que como ela vai ter uma ativação,
+Taciana Serafim: Hum.
+Lucian Fialho: eu fico pensando se ela já não tá no lugar perfeito dela, porque assim, normalmente para você poder conseguir prender a atenção das pessoas, a gente, o Nélio ensinou isso, tipo assim, tenta usar alguma coisa que vai trazer de fato qual é a dor dele ou do mercado." Então isso daqui é uma p*** parada.
+
+
+
+
+00:21:37
+
+
+Lucian Fialho: Então vai se trazer autoridade. A gente analisou mais de não sei quantos sites, a gente vai analisar mais. E a gente tem agora 179 diagnósticos que são a amostragem que a gente tem no mercado brasileiro. Então assim,
+Taciana Serafim: É, eu pensei no storelling.
+Lucian Fialho: se você traz isso pro início,
+Taciana Serafim: Sim,
+Lucian Fialho: tu dá uma porrada no cara, tá ligado?
+Taciana Serafim: eu pensei, vou vou compartilhar contigo e você vê o que faz sentido. Por que que eu deixei ali? Para justificar o por minha ênfase vai ser falar sobre copywriting e o X,
+Lucian Fialho: Entendi, entendi,
+Taciana Serafim: entendeu?
+Lucian Fialho: entendi.
+Taciana Serafim: Se eu coloco no começo, eu fico pensando qual vai ser a ponte para eu conseguir puxar a minha
+Lucian Fialho: Mas às vezes tu pode deixar só um gancho,
+Taciana Serafim: narrativa.
+Lucian Fialho: pô. Você pode deixar um big number lá em cima falando, tipo assim, o primeiro slide, ao invés de você ir direto pro conteúdo, você pode fazer um prelúdiozinho de 5 minutos falando do tamanho do mercado, falando do tamanho do problema.
+
+
+
+
+00:22:35
+
+
+Lucian Fialho: Sacou?
+Taciana Serafim: Mas você não acha então talvez que a que o slide cinco caberia nisso que fala faz um benchmarking de mercado?
+Lucian Fialho: Concordo. Eu só acho que eu faria ele em três etapas. Então, tipo assim, eu faria exemplo de e-commerce. exemplo de geração de lead com dois slides separados que você vai falar pequenininho é uma vírgula. A troca do slide ela é só a vírgula, tá ligado? Para você poder passar.
+Taciana Serafim: Mhm.
+Lucian Fialho: Então assim, não tenha medo da quantidade de slide que você vai ter, tá ligado? Porque eu consigo ajustar o meu conteúdo para caber no tempo que você me entregar, tá ligado? Então assim,
+Taciana Serafim: B
+Lucian Fialho: e aí, tipo, se você começa com essa porrada e com essa porrada aqui, eu acho que acho que até essa daqui eu acho que vai tangibilizar o problema. E assim de novo, eu sou, tu tem que, a gente vai entender qual que vai ser a tua lá, mas tipo assim, eu sou o cara que eu sou, o cético, o tóxico, então vou falar:"Olha o tamanho da m**** que a gente tá dentro desse mercado." Yeah.
+
+
+
+
+00:23:32
+
+
+Lucian Fialho: sacou?
+Taciana Serafim: Perfeito.
+Lucian Fialho: Então, tipo assim,
+Taciana Serafim: Perfeito.
+Lucian Fialho: olha o quanto de oportunidade a gente não tem e olha quando a gente vai olhar para e-commerce e olha quando a gente vai olhar pra geração de lead. Então, é por isso que a gente tem que montar um processo de estrutura para poder otimizar a a conversão dentro dos sites. Mas o que é isso? Aí tu puxa o slide daqui, o que é SRO,
+Taciana Serafim: Boa, boa, boa. Perfeito.
+Lucian Fialho: e aí tu continua a partir dali aí,
+Taciana Serafim: É isso.
+Lucian Fialho: tá?
+Taciana Serafim: Boa.
+Lucian Fialho: Deixa eu pegar ali onde é que a gente tava,
+Taciana Serafim: Então,
+Lucian Fialho: que era aqui na conversão. Aí a gente finaliza com você fazendo a ativação.
+Taciana Serafim: isso.
+Lucian Fialho: E aí percebe o o a ação lá em cima. Você colocou um prelúdio para você poder entrar no assunto. E aí quando você eh eh entrar nessa parte do mercado, do mapa, a gente consegue ter uma pequena interação com os caras para tu manter eles ativos ali, porque já vai vir uma pica que é horística, entendeu?
+
+
+
+
+00:24:26
+
+
+Lucian Fialho: Então, tipo assim,
+Taciana Serafim: Mhm.
+Lucian Fialho: eu tô tentando puxar a atenção, porque assim, nesse momento pode ser um momento em que eu e você, eu não tô nem contando com esse mcina aí, tá? Não tô nem contando com a participação dele.
+Taciana Serafim: Ah, não. a parte dele na tarde, mano.
+Lucian Fialho: É, não tô nem contando, mas assim,
+Taciana Serafim: Totalmente
+Lucian Fialho: eu acho que o que é interessante ali é que tu vai ter meio que momentos onde eu e você, a gente vai na máquina das pessoas, sacou? A gente pode ir lá, pô,
+Taciana Serafim: boa.
+Lucian Fialho: mostra aí o que que você achou, qual que foi o resultado. Tipo assim, eu eu dependendo do tempo, se você tivesse mais tempo, eu ainda faria. Qual foi o principal problema que você encontrou dentro do seu negócio que você achava que não tinha, sacou? Dá para você até jogar algumas perguntas pra galera lá. Beleza? Mas aí f***-se também.
+Taciana Serafim: Boa.
+Lucian Fialho: Eu a adorei esse processo aqui.
+Taciana Serafim: Boa.
+
+
+
+
+00:25:13
+
+
+Lucian Fialho: Aí beleza aqui é orística.
+Taciana Serafim: Show. Isso. A gente vai falar de heurística num contexto geral, falar em como as pessoas eh hoje não têm mais atenção e que a heurística, na verdade, ela acaba sendo atalhos que encurtam os caminhos paraa tomada de decisão
+Lucian Fialho: p****, aqui tem o exemplo do André que eu acho perfeito que você poderia usar, citando ele inclusive das porque aí você pode você pode
+Taciana Serafim: das moedinhas cognitivas. Уhm.
+Lucian Fialho: botar, imagina, eu eu gosto muito de fazer isso, imagina o seguinte cenário. E aí tu vai lá e carrega uma página de um site muito c*****. Aí você dá o contexto, todo mundo aí você pode botar brincar com bagulho de moedinha de jogo e o c****** do Mário e tudo mais. E aí você coloca lá, tipo assim, eh eh eh todo usuário quando ele entra dentro do seu site, ele vai ter eh eh uma quantidade de moedinhas, aí você faz o pit inteiro igual o do André, tá ligado? E aí você corrobora para você poder falar. Então isso daqui é que é, sabe, no meio do caminho tu pode fazer isso.
+
+
+
+
+00:26:12
+
+
+Lucian Fialho: Mas acho que é o que tu tá fazendo aqui também, né,
+Taciana Serafim: Boa.
+Lucian Fialho: nessa parte do Serasa.
+Taciana Serafim: Na verdade, eu eu vou tangibilizar com exemplos tanto de projetos que eu já participei, quanto de exemplos de mercado, mas dá para colocar o print ali.
+Lucian Fialho: É, e tu e tu vai ter um insumo muito importante que é o site da galera que fez Ш.
+Taciana Serafim: também. É mesmo. A gente pode, como que a gente pode conectar isso?
+Lucian Fialho: Não, não. Só pode usar o exemplo. Sabe por quê? Eh, quando a gente for na máquina da galera para poder ver, e aí fez o teste, como é que foi? Pá, não sei o quê, tá testando isso daqui, tá testando aquilo dali? Tipo assim, a gente vai chegar lá para poder ver e aí tu vai ver quais são os principais problemas. E aí quando você vai falar sobre a relevância, então ó, fulano de tal, ô Rose, então é por isso que a gente tem que ter atenção. Eu uso muito isso, tá?
+Taciana Serafim: Gostei, gostei.
+
+
+
+
+00:27:01
+
+
+Taciana Serafim: A gente pode fazer meio que perguntas. levanta a mão quem aqui teve problemas com tempo de carregamento, com proposta de valor. Então, imagina que para cada problema existe um custo e esse custo são as moedinhas que a gente falou ali que vão sendo depositadas.
+Lucian Fialho: que o usuário vai gastando.
+Taciana Serafim: Boa.
+Lucian Fialho: Então, né, quando você tem o problema. Eh, e eu acho que tem um outro aqui que eu vi que era a parte de Eu dei uma olhada aqui, eu vou, a gente deve chegar nesse slide que eu achei muito bom também que você fala sobre eh uma parada lá que eu esqueci agora, mas continue.
+Taciana Serafim: Não, tranquilo. E aí a conexão do da ferramenta tá também com algumas horísticas conhecidas. E aí eu trouxe a do André Moris, que cuida ali da parte de comportamento humano, é bem reconhecido no mercado, principalmente no mercado,
+Lucian Fialho: É brasileiro esse mano.
+Taciana Serafim: eh, não, mercado internacional e ele atua muito com vendas complexas. Então, a gente acaba não falando da heurística de Nilsen, que é uma super reconhecida para e-commerce, mas que essa acaba sendo também possível de ser aplicada e trouxe exemplos.
+
+
+
+
+00:28:13
+
+
+Taciana Serafim: E aí a maioria desses projetos eu atuei, eu trouxe até inclusive do métricas que a gente fez a reformulação meio que também para vender nosso peixe, que somos especialistas e aplicamos isso no nosso dia a dia.
+Lucian Fialho: Ah.
+Taciana Serafim: Então eu vou falando sobre o que a gente fez para cada um dos tópicos. Então, para aumentar a confiança dos usuários que eram usuários de PME, que são pessoas que têm pequenos negócios, a gente incluiu dois tipos de formato, tanto a foto da pessoa com o depoimento, quanto um vídeo também trazendo quais foram os ganhos. Então, a gente fez toda uma pesquisa para entender quais eram as objeções, as dores e através da COP aplicada nesse pilar de confiança,
+Lucian Fialho: Угуm.
+Taciana Serafim: a gente desenvolveu essas duas maneiras aí de colocar dentro da página eh as provas sociais. E aí para cada um eu vou trazendo basicamente esses meio que benchmarking, sabe? Do que já foi feito ou do que eu considero. Tem coisas aí que são de mercado que tipo eu olhei e trouxe pro contexto, não necessariamente eu trabalhei. Você quiser ir passando para baixo, porque basicamente segue o mesmo padrão.
+Lucian Fialho: Ah.
+Taciana Serafim: Trouxe um exemplo de cada tópico do que seria isso daí.
+
+
+
+
+00:29:30
+
+
+Taciana Serafim: É de vocês, inclusive. M. que vocês fizeram da Dutch free quando eu ainda não estava.
+Lucian Fialho: Então, e aí eu posso entrar, entendeu? A gente pode, tipo assim, pô, esse case aí, tu pode me chamar e eu conto o case. Eu replico o case lá que o Gustavo Pronto.
+Taciana Serafim: Boa,
+Lucian Fialho: Beleza. Confirmação. Aí tem aqui o da Métricas Boys. Quem é Roberto Cialdini?
+Taciana Serafim: Robert Cialdini é um psicólogo americano e ele é muito conhecido e aí é uma
+Lucian Fialho: Eu
+Taciana Serafim: recomendação, eu não vou falar muito sobre ele, vou deixar como uma recomendação pro pessoal se aprofundar no tema para fazer a leitura do livro dele, que é As armas da persuasão, que justamente ele também traz Ã,
+Lucian Fialho: colocaria a foto do livro, tá? Ao invés de a foto do cara,
+Taciana Serafim: tá boa.
+Lucian Fialho: sacou?
+Taciana Serafim: Vai ser mais fácil das pessoas conectarem, né?
+Lucian Fialho: É,
+Taciana Serafim: É.
+Lucian Fialho: quem é Robert Celdini?
+
+
+
+
+00:30:17
+
+
+Lucian Fialho: Eu falaria tipo assim, as eh o que eu colocaria muito mais a ênfase pro livro. R$is armas da persuasão ou sei o cara f***-se,
+Taciana Serafim: Boa,
+Lucian Fialho: leum.
+Taciana Serafim: boa, boa, boa. Não, perfeito. E aí são os atalhos. Então, quando a gente pensa também em atalhos, que tá no livro do Caldini, existem esses atalhos que são muito conhecidos pra galera que trabalha com CO. Então, possivelmente as pessoas já devem ter ouvido falar quando a gente fala em escassez. É ótimo usar esses tipos de atalho,
+Lucian Fialho: p****,
+Taciana Serafim: mas também existem cuidados,
+Lucian Fialho: tem um livro, tem um livro,
+Taciana Serafim: atalhos mentais,
+Lucian Fialho: não, não é o atalhos mentais,
+Taciana Serafim: né?
+Lucian Fialho: é um que eu não tá aqui, eu dei aqui, ó. Esse livro aqui também é muito bom, ó. Pode, você pode colocar como referência bibliográfica aí, ó.
+Taciana Serafim: Ah,
+Lucian Fialho: Enviezados do Rian Dutre.
+
+
+
+
+00:31:06
+
+
+Taciana Serafim: do Riandutra. Muito bom.
+Lucian Fialho: É um brasileiro, só que eu normalmente opto por colocar brasileiro na nas bibliografias também.
+Taciana Serafim: Boa,
+Lucian Fialho: E é um livro bom,
+Taciana Serafim: boa, boa,
+Lucian Fialho: cara.
+Taciana Serafim: boa.
+Lucian Fialho: livro curtinho, tu pega e tu vê vários cases de desse lance de reciprocidade,
+Taciana Serafim: Nossa, ele é muito bom.
+Lucian Fialho: escassez, autoridade, compromisso. Ele tem tudo, basicamente tudo aqui dentro. É bem mano.
+Taciana Serafim: Boa. Vou incluir. Vou incluir isso. Depois a gente pode, eu tenho um material que eu tenho um notion só de recomendações pra galera.
+Lucian Fialho: É isso.
+Taciana Serafim: Acho que talvez vale até fazer um para para compartilhar.
+Lucian Fialho: Já mete um link de afiliado da Amazon, f***-se, tá ligado?
+Taciana Serafim: Boa ideia.
+Lucian Fialho: A minha, a Raíça tá na p**** de um clube do livro aqui que ela participa e cara, engajadíssimo,
+Taciana Serafim: Aham.
+Lucian Fialho: tá? É para ler livro de safadeza, mas p****, as meninas são engajadíssimas lá no livro, tá ligado?
+
+
+
+
+00:31:53
+
+
+Lucian Fialho: Bizarro,
+Taciana Serafim: Muito bom,
+Lucian Fialho: bizarro.
+Taciana Serafim: muito bom. Mas funciona, menino do céu, funciona demais. Tem umas coisas que é 16% assim e o custo é muito alto,
+Lucian Fialho: É,
+Taciana Serafim: então compensa mesmo.
+Lucian Fialho: e às vezes até um também para pra Creo Brasil,
+Taciana Serafim: Mas boa.
+Lucian Fialho: né? Um clube do Líba,
+Taciana Serafim: Então tem um tem um a gente tá com uma pesquisa,
+Lucian Fialho: tá ligado? Угуm.
+Taciana Serafim: né, para entender o que que as pessoas, os hábitos das pessoas, o que pra gente entender até o que desenvolver, né? Mas eu tava pensando muito da gente ter um ambiente meio que circle, sabe? É que para pagar é R$ 600 um circle. A gente já fez isso de pagar. Então, eu queria que a gente pensasse se a gente não consegue desenvolver, se isso não seria um custo melhor e aí dentro dele a gente fazer meio que um cerco, colocar também essa pegada de o GLA tinha, só que era em WordPress eh esse ambiente,
+Lucian Fialho: É, então,
+
+
+
+
+00:32:43
+
+
+Taciana Serafim: sabe?
+Lucian Fialho: mas eu acho que a min a minha única preocupação é sobre esses ambientes externos. Eu acho que a parada rola no WhatsApp, tá ligado? Rola no WhatsApp numa cal do meeting, tá ligado? Assim, gente, vocês querem entrar no Clube do Livro? a gente tem a a o seguinte processo. Ó, a gente vai ter a data que a gente vai liberar a data e assim conversa com a Raíça porque ela tem que ela faz junto com a menina, tipo assim, é um pipelinezinho que ela faz de elas votam no canal do WhatsApp para qual vai ser o livro do próximo e assim gera um nível de engajamento no WhatsApp especificamente, que eu acho que é um asset que tipo assim, ó, pra esse clube do livro desse mês vai ser patrocinado pela Minders porque eles sugeriram que a gente lesse esse livro aqui, entendeu?
+Taciana Serafim: Mas sabe, sabe qual que é o ponto?
+Lucian Fialho: E a parada rola toda dentro do WhatsApp,
+Taciana Serafim: Por exemplo,
+Lucian Fialho: Discord, tá? Muito simples e muito prática.
+Taciana Serafim: por que que eu tô pensando em ter um local? Por exemplo, a gente poderia ter um local que a gente tivesse, eu criei um, tá feio para caramba.
+
+
+
+
+00:33:38
+
+
+Taciana Serafim: Deixa eu ver se eu consigo achar aqui para te mostrar. Eu tenho um grupo de corrida, né? E aí, ô cacete. Lob não quer entrar. Vou te mostrar o que que eu que eu fiz. E tá feio. Não me julgue. Deixa eu fechar aqui, ó. Tá vendo? Clube de benefícios.
+Lucian Fialho: Uhum.
+Taciana Serafim: Aí, tipo, a gente vai tendo os cupons, que esses daqui não tem link direto, né? Mas poderia ter também, sei lá,
+Lucian Fialho: É,
+Taciana Serafim: links para
+Lucian Fialho: eu entendo, mas eu acho que as são, eu tô vendo, acompanhando da Raíça, é muito mais simples do que a gente imagina. É um grupo no WhatsApp igual a gente já tem e a rotina de entrar numa call do Bitin,
+Taciana Serafim: Mas aí você não acha que só dá certo porque é uma iniciativa,
+Lucian Fialho: tá ligado?
+Taciana Serafim: porque assim, o que que eu fico pensando, tipo, sei lá, eh, como é só o clube do livro, beleza, mas a gente Pode ter várias coisas, não só desconto, pode ter outras ações.
+
+
+
+
+00:34:52
+
+
+Taciana Serafim: Igual a gente fez na Copa aquele de gamification, meu Deus certo, um monte de gente engajou. Como que eu faria um gamification no WhatsApp?
+Lucian Fialho: Ah, dá,
+Taciana Serafim: Entendeu?
+Lucian Fialho: cara. conversa com a Raíça, a as mulheres, a Raíça tava querendo pagar a assinatura da irmã dela para entrar no grupo para poder votar no livro que ela queria numa enquete do WhatsApp. Eu acho que assim, a minha a minha parada é sempre eh quanto mais lugares você cria pro cara ter que se logar, menos você vai ter engajamento, porque a galera entrou na comunidade do CRO porque o WhatsApp tá na vida delas, cara. Sacou? Então assim,
+Taciana Serafim: P.
+Lucian Fialho: eh tá muito mais próximo. Eu acho que é cara, se você pegar, e eu tenho até acompanhado alguns podcasts que t feito isso também, você pega lá, cria a sala do Meeting, transcreve e entrega um PDF no próprio grupo com resumo. É mais simples do que ter uma p*** estrutura para colocar. E aí, cara, o link das esses links com descontos pode estar só dentro da comunidade CRO, não precisa ser um circle, sacou?
+
+
+
+
+00:35:52
+
+
+Lucian Fialho: Porque tu acaba, tipo, às vezes criando, porque eu lembro muito por causa do lance do próprio GLA, assim, que a galera tinha mais um lugar para dar manutenção e as pessoas que estavam na comunidade, elas tinham mais um lugar para poder entrar, para poder interagir com outras pessoas que elas já tinham dentro do grupo, entendeu? O ponto é só isso.
+Taciana Serafim: Não, eu acho que dá pra gente a gente pensar pós e contras. Eu vejo assim, por exemplo, eu tô numa comunidade de branding e eles são muito bons,
+Lucian Fialho: Uhum.
+Taciana Serafim: eles usam muito circle. Eu tô na comunidade da PM3, eles usam muito circle. Então assim,
+Lucian Fialho: Então, mas aí a PM3,
+Taciana Serafim: eu acho que sim,
+Lucian Fialho: tem a PM3 e a comunidade CRO, sacou?
+Taciana Serafim: mas por que que dá certo?
+Lucian Fialho: Eles tem gente, tá ligado? É tudo bem,
+Taciana Serafim: É,
+Lucian Fialho: eu entendi por que no deles dá certo, é porque a gente não sabe se dá certo, tá ligado? O que que é dar certo, tá ligado? A gente fica no escuro, tá ligado?
+
+
+
+
+00:36:50
+
+
+Lucian Fialho: dessas informações. E aí, às vezes, a gente já cometeu esse erro outras vezes, tipo assim, de espelhar muito o que o cara tava fazendo como plataforma e o c******. Aí quando a gente via, meu irmão, a gente tava f***** no meio de uma p**** da ferramenta que não tinha suporte para fazer o que a gente queria, a gente não conseguia desenvolver em cima dela. E aí acabou que foi pro c******, tipo assim, é isso, tipo, caiu, entendeu? Minhas únicas preocupações normalmente são essas de lógico, né? Ter uma interface que seja mais fácil pro cliente, né? no caso, a pessoa, o pessoal que tá na comunidade de interagir, sacou? Porque, pô, você quer ver uma das ações que a gente fez lá na comunidade do Prime,
+Taciana Serafim: Eu
+Lucian Fialho: que foi as ações que mais deram certo, tirando live, né, com rela com todas as lives e todos os conteúdos que a gente fez, era uma parada de uma bucha do mês que eu criei um canal dentro do Discord que eu fazia uma pergunta e todo mundo interagia.
+Taciana Serafim: lembro.
+Lucian Fialho: Tipo assim, 500 pessoas participando da bucha do mês, tá ligado?
+
+
+
+
+00:37:42
+
+
+Lucian Fialho: Então assim, eu acho que lógico 500, não tô chutando pr mas assim,
+Taciana Serafim: Uhum.
+Lucian Fialho: uma porrada de gente participando, todo mundo engajado em resolver o problema. Sacou? Então assim, eu acho que às vezes é se a gente tivesse feito essa mesma bucha do mês no circle, não teria tido a mesma aderência, porque a gente estaria tirando o cara do lugar de conforto dele, que foi o que fez ele entrar na comunidade, que é o WhatsApp.
+Taciana Serafim: Так.
+Lucian Fialho: Meu único ponto é esse de observar isso, porque assim, eh eh já fez outras ações externas, p****, gamificação da Copa do Mundo funcionou muito bem, o objetivo era engajar a galera e a galera engajou, engajou, engajou quanto? Beleza? Então faz porque a gente tem minimamente uma base de comparação e a gente consegue pivotar rápido para poder fazer a parada. Mas aí como tem custo, tipo assim, ou da ferramenta de de R$ 600 ou de desenvolver uma do zero e ter que assumir a manutenção disso, eu começaria do jeito mais simples possível e mais próximo das pessoas, porque o link do meeting, ele vai te dar transcrição bonitinha com tudo que aconteceu.
+
+
+
+
+00:38:38
+
+
+Lucian Fialho: Tu pode pegar e colocar ele dentro do teu cloud para fazer um p*** material. E eu tenho visto algumas pessoas fazendo isso em podcast. Eu tô para colocar isso na pauta das conversas de mim e do Gustavo, que é pegar a transcrição do episódio, agora que a gente as tem, né? Porque agora a gente tem as transcrições e a galera faz o material complementar que o cara só pode ter baixando,
+Taciana Serafim: Perfeito,
+Lucian Fialho: entendeu?
+Taciana Serafim: perfeito.
+Lucian Fialho: Sacou?
+Taciana Serafim: Tem uma questão e aí é pra gente pensar mesmo, tá? E aí eu eu paro por aqui, depois a gente volta com esse assunto. Mas na pesquisa a gente já teve meio que num notion que tinha o perfil das pessoas, faziam parte da comunidade. E na pesquisa que a gente tá rodando, o pessoal também fala que eu sei que tem toda aquela história. Ah, se Ford tivesse perguntado pra galera o que elas queriam, ia falar cavalos mais velozes e ele não teria feito o carro se ele tivesse dado ouvido a opinião das pessoas. concorda até um certo ponto. Acho que ouvir também as pessoas e criar a partir do que elas compartilham às vezes é relevante, mas eu acho que a gente pode entender se a gente tem caminhos para fazer alguma coisa ou mais simples que não exija tanto custo,
+
+
+
+
+00:39:49
+
+
+Lucian Fialho: É porque aí fica mais fácil de você fazer,
+Taciana Serafim: se talvez um notion Eu
+Lucian Fialho: testar e falhar rápido, sacou? Porque se ficou uma m**** se não teve aderência? Pô, galera, que que vocês acham de ter um clube do livro? Aí tu monta só o processo. Porque o clube, as meninas fazem a parada, tipo, é uma call que elas, elas têm um processo mesmo, tipo assim, parece que cada uma fala sobre um capítulo específico e aí como é um livro meio de de romance, o c******,
+Taciana Serafim: já testei Clube do Livro na Creo Brasil.
+Lucian Fialho: rola meio que entendi.
+Taciana Serafim: Não deu certo não.
+Lucian Fialho: Tudo bem.
+Taciana Serafim: Eu acho que o pessoal gosta de livro de safadeza.
+Lucian Fialho: Eu gosto. Eu vejo,
+Taciana Serafim: Esses liv esses livros de ficar vendo,
+Lucian Fialho: eu vejo pela e assim a comunidade da menina é paga,
+Taciana Serafim: de estudar, o pessoal não gosta não.
+Lucian Fialho: tá? Elas pagam para ter um lugar para debater sobre aquele assunto. Às vezes não é nem que a galera não se interessou, é que tá às vezes é que você não tem um uma base tão grande, porque assim, o Clube do Livre você não consegue fazer ele com 1000 pessoas.
+
+
+
+
+00:40:44
+
+
+Taciana Serafim: É.
+Lucian Fialho: Então, o clube do livre é algo que você vai fazer com 50, 60, 100 pessoas no máximo para você poder conseguir ter um produto interessante. É o valor que ele agrega pra comunidade mais do que porque assim, ele vai ter uma rotatividade, sacou? A ideia é ter 100 pessoas rotativo e não ter 1000 pessoas. Então, quantas pessoas a gente precisa ter no grupo da comunidade CRO para poder conseguir ter 100 rotativos para poder fazer isso?
+Taciana Serafim: Verdade.
+Lucian Fialho: Às vezes é porque a galera que tá ali na comunidade não tem essa parada, mas você vai ter três, quatro caras que querem para cacete e esse cara é o que vai vender a gente na maioria das vezes, entendeu? Mas eu concordo contigo sobre o L da Ford aí vai, continua.
+Taciana Serafim: Eugênio Schwarz, eu vou contestar aí, eu posso também mudar em vez de colocar a fotinho dele, colocar a foto do livro, mas basicamente eu tô falando de pessoas que criaram eram métodos que criaram estruturas. Então o André tem uma estrutura ali quando a gente olha de heurística, de comportamento humano, o Eudini, ele tem eh uma estrutura de copywriting, com certeza você já ouviu falar por conta do Nélio, que o Nélio traz isso, que isso pode até subir, que é a questão ali do aí, ó,
+
+
+
+
+00:42:04
+
+
+Lucian Fialho: Estágio de consciência.
+Taciana Serafim: a questão estágio de consciência. Exatamente. Então vou passar por ele, que também é importante quando a gente vai falar sobre copywriting, que nem sempre a pessoa tá pronta para comprar, e a gente entender que a gente tem que conhecer o nosso visitante para projetar, né, através do que a gente acredita ser o melhor para ele. É importante. E depois vem o método Aida, que é o mais conhecido e o mais replicado, seja em landing pages ou seja em vídeos para TikTok, Instagram, que atenção, interesse, desejo e o último a eu esqueci. Aí eu vou falar um pouquinho sobre ele e ação,
+Lucian Fialho: Ja. Não.
+Taciana Serafim: obrigado. Para falar sobre conversão e depois depois de passar por tudo isso, eu conecto com a parte de hipótese e mudar textos também são criar hipóteses. E aí, só para dar uma pincelada mesmo. para ter um gancho ali com a parte de hipóteses. E aí eu sigo ali falando de formatos de hipótese, como se estrutura uma hipótese,
+Lucian Fialho: a parte de priorização.
+Taciana Serafim: depois a parte de priorização,
+
+
+
+
+00:43:14
+
+
+Lucian Fialho: Ah, isso daqui que eu ia falar que eu tava sentindo,
+Taciana Serafim: um pouquinho isso.
+Lucian Fialho: eu eu tava sentindo falta disso daqui mais no início, tá? Tipo assim,
+Taciana Serafim: Sério?
+Lucian Fialho: é porque assim, aqui tu tá falando sobre o que é CO e assim pode ser uma ação de callback,
+Taciana Serafim: Isto.
+Lucian Fialho: tá? Tipo assim, tá falando o que que é CRO, como é e como se calcula, quais são os tipos de teste, sacou? E assim ou tipo assim, um slide depois desse daqui, ó, eu vou explicar mais lá na frente, mas teste AB CRO não é só teste AB. Então a gente tem isso, isso, isso, isso, isso. E aí quando você chega aqui embaixo que você vai falar sobre isso de novo, aí você faz um callback,
+Taciana Serafim: Eu lembro. Uhum.
+Lucian Fialho: sacou?
+Taciana Serafim: Boa. Ah, tipo, te venderam que ro era testa B,
+Lucian Fialho: É isso,
+Taciana Serafim: tá uma coisa meio que assim.
+Lucian Fialho: tá? E assim, e aí uma outra coisa que eu aí eu não não sei se você colocou aqui e eu tô sentindo falta também é de faça a p**** da jornada do teu usuário.
+
+
+
+
+00:44:09
+
+
+Lucian Fialho: Assim, acho que você pode colocar muito isso,
+Taciana Serafim: Hum.
+Lucian Fialho: por isso que eu falei,
+Taciana Serafim: Tá.
+Lucian Fialho: tipo assim, de colocar um slide meio que em cima de cada etapa falando sobre coleta de dados. Aí você fala o que aí aí eu posso fazer, tá? dado quant dado quali, porque aí eu posso entrar e falar, ó, e dado quali, ó, é dado de qualidade mes qualitativo, então é pesquisa, é você ir na loja, você fazer a jornada da p**** do teu usuário, sacou? Porque eu acho que isso daqui é uma um ganho indireto que a gente tem e e e que traz muito de nós, a gente num determinado momento a gente acaba se distanciando muito do produto que a gente mesmo vende, sacou? Então assim, qual é a forma da gente tá mais próximo da dor do nosso cliente? Então, p****, isso aqui é uma etapa que a gente tá desenhando na métricas boas. A gente foi na Zerezes, conseguiu trocar uma ideia com os caras de Zerezes para poder entender quais eram as dores e, pô, a gente tem um backlock gigantesco. Tipo assim, aqui tu pode falar, eu posso entrar no case aqui da ERNG.
+
+
+
+
+00:45:07
+
+
+Lucian Fialho: A gente tá montando um backlog de testes AB paraa Ering e com a Aklin, que vai ser 100% baseado nas reclamações do cliente. Então, olha como é que a gente vai conseguir resolver a dor de geração de hipótese com dados qualitativos, entendeu? Aí eu posso ir fazendo a dobra assim. A hora que você olhar para mim assim, eu eu já sinto que já dá para entrar na dobra, eu entro, sacou?
+Taciana Serafim: Não. E assim você também pode falar, tipo, tá, deixa eu só complementar aqui que aí eu vou saber que tem uma deixa boa e até bom porque aí eu já
+Lucian Fialho: Aham.
+Taciana Serafim: tomo uma água também, já me dá uma ajuda,
+Lucian Fialho: É isso,
+Taciana Serafim: entendeu? Pode falar,
+Lucian Fialho: é isso.
+Taciana Serafim: tá? Ó, e complementando aqui, pode puxar também.
+Lucian Fialho: É. E assim é é esse ponto de você fazer a jornada do usuário e criar um gatilho lá em cima falando que não é só teste B, tu nem precisa falar sobre outras as formas, mas você vai meter um não gigantesco, é só teste B e aí você fala sobre o mercado vias.
+
+
+
+
+00:46:01
+
+
+Lucian Fialho: ado a querer usar sempre a mesma metodologia. Uma outra coisa que eu não sei se você colocou aqui e aí eu vou dar um speed flow aqui para deixar gravado para você usar a transcrição depois, é,
+Taciana Serafim: Boa.
+Lucian Fialho: a gente tá falando sobre a parte de teste AB, a gente tá falando sobre os tipos de teste, né? Acho que aqui tu tá falando sobre teste AB, MVT e fake door. Acho que você pode colocar rollout progressivo também como uma opção de teste, tá ligado? Para você ir distribuindo isso como uma hipótese de produto.
+Taciana Serafim: Aha.
+Lucian Fialho: E aí a qual era a outra parte de fazer a jornada do usuário? Tinha uma outra coisa que eu tava vendo aqui que eu eu falei:"Cara, isso aqui podia ter, hein? esqueci, mas eu vou lembrar e eu mando para você no texto.
+Taciana Serafim: Isso me manda porque eu vou eh vou pegar final de semana para dar os últimos ajustes.
+Lucian Fialho: Eu tenho que fazer isso no sábado porque eu viajo no domingo. Tô cansadinho.
+Taciana Serafim: Nossa, eu imagino. Olha,
+Lucian Fialho: Tô pensa,
+
+
+
+
+00:46:52
+
+
+Taciana Serafim: eu não queria falar não, mas o o Gustavo, olha, você você me ajuda com o senhor Gustavo que ele meteu louco e enfiou mais dois eventos pra gente fazer. É da Sinatra. Aí, meu Deus do céu. Olha,
+Lucian Fialho: é quando que vai ser o evento?
+Taciana Serafim: setembro. Preciso, eu preciso de ajudas pra gente conseguir as galeras.
+Lucian Fialho: Setembro agora.
+Taciana Serafim: É.
+Lucian Fialho: Caramba.
+Taciana Serafim: final do mês e outro em Ele quer dois pro Sinatra, um em setembro, em outubro. Assim, me ajuda a segurar o ímpeto desse senhor porque tava
+Lucian Fialho: Então, mas tem que entender o porquê,
+Taciana Serafim: tudo sob controle.
+Lucian Fialho: né? É por quê?
+Taciana Serafim: Não,
+Lucian Fialho: Porque ele quer tirar alguma das entregas que a gente teria que ter para poder dar isso no lugar.
+Taciana Serafim: ele as é o que que
+Lucian Fialho: É isso.
+Taciana Serafim: acontece? Eh, a gente tava um tempo já organizando algumas coisas com Rafael, né? Só que ele meteu louco, tinha acho que quatro podcasts e no final das contas ele só fez um.
+
+
+
+
+00:47:56
+
+
+Taciana Serafim: Então o Gus teve a ideia de substituir. É ótimo mesmo pra gente. Eu só fico preocupada. Eu compartilhei isso com ele ontem, anteontem. Só fico preocupada porque é muita gente pra gente, a gente não tem eh gente suficiente para esse tanto de evento.
+Lucian Fialho: A gente tá canibalizando a quantidade, a gente a gente tá canibalizando os eventos que a gente quer que o cara esteja, sacou? É f***.
+Taciana Serafim: É isso.
+Lucian Fialho: Foi o que eu falei,
+Taciana Serafim: É só isso.
+Lucian Fialho: um mês de distância para um, a gente não tem nem tempo hábil para poder chamar as pessoas. Tipo assim, era mais fácil fazer esse evento em outubro quando a gente fosse fazer o Kinoplex. Bota o Sinatra como patrocinador, faz a ação onde vai ter ao invés de um episódio só, tenham três episódios e a galera participa. Aproveita e dá uma uma porrada só, tá ligado? Porque eu acho que é muito mais fácil a gente conseguir levar as pessoas que assim, a gente já deveria estar falando sobre episódio 300
+Taciana Serafim: A gente Ah,
+Lucian Fialho: nos podcasts, chamando a galera,
+
+
+
+
+00:48:55
+
+
+Taciana Serafim: tá falando.
+Lucian Fialho: sacou?
+Taciana Serafim: Aham.
+Lucian Fialho: O Gustavo já tinha que ter gravado o a tinha que ter gravado? uma cabeça de falar, ó, vai rolar dia tal, o episódio 300, vocês estão convidados, sacou? Se você quiser entrar, tem uma fila de espera, pá, porque senão a gente não tem tempo hábil e nem conhece tanta gente, tá ligado? Vai canibalizar uma coisa a outra.
+Taciana Serafim: É o que eu o que eu tô contando, chamar os embaixadores, que eles são ponta firme, então basicamente eles
+Lucian Fialho: É, eu acho que os embaixadores, eu acho que vai ser uma boa, porque como a gente coloca os embaixadores já sendo pessoas de nome, sacou? Eu acho que vai ser interessante, mas aí daqui a pouco a gente vai ter que ter 500 embaixadores para poder conseguir botar essa cantidade de evento.
+Taciana Serafim: E vai ter os GSO também agora. Então vai ser legal porque o GO junto com os nossos vai dar umas 20, 30 pessoas que estão em São Paulo e que tão começando um projeto com a gente. Só que são 60, então as é bastante gente.
+
+
+
+
+00:49:51
+
+
+Taciana Serafim: Mas eu já falei com o time, tá? A gente já tá criando um formulário pra gente soltar, pra gente mencionar que as pessoas podem se cadastrar e que a partir daí a gente vai selecionar quem vai participar.
+Lucian Fialho: É, então, mas assim, já tinha que ter cabeça pros episódios. Tem que tá, a gente tem que estar brifado para na hora de gravar ou gravar alguma cabeça, igual a gente fez lá no de gravar um vídeo rápido ali, chamando a galera pro episódio 300 com link nos episódios que vão sair daqui até outubro. Então, tipo assim,
+Taciana Serafim: Sim.
+Lucian Fialho: no episódio de semana que vem já deve assim, eu sei que eu tô metendo dele já que, né, p****, senão não dá, viado, senão a gente vai o o o quinoplex é grande para c****** para tu poder encher. Aí vai fazer o bagulho com duas, três pessoas vazias e vai ficar depois chorando.
+Taciana Serafim: É, não vai dar certo. Eu só compartilhei contigo porque eu preciso de ajuda mesmo para vocês pensarem em pessoas para que a gente possa chamar. Acho que isso é principalmente o do Rafa, o da Minders tá sobre controle,
+Lucian Fialho: Aha.
+Taciana Serafim: mas o do Rafa fica um pouco meio receosa com relação a quem nós vamos chamar, porque tem que ser pessoas de e-commerce.
+Lucian Fialho: Eu vou entrar aqui numa
+Taciana Serafim: Então, eh, depois eu vou pedir uma ajuda para vocês,
+Lucian Fialho: outra reunião com o cliente, eu te mando mensagem,
+Taciana Serafim: tá?
+Lucian Fialho: beleza?
+Taciana Serafim: Tá. Aí a gente conversa. Obrigada. Beijo.
+
+
+
+
+A transcrição foi encerrada após 00:51:18
+
+
+Esta transcrição editável foi gerada por computador e pode conter erros. As pessoas também podem alterar o texto depois que ele for criado.
