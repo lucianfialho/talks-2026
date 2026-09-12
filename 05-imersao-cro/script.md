@@ -1,827 +1,838 @@
-# Script.md — roteiro do facilitador
+# Roteiro do facilitador — Imersão CRO, bloco da tarde
 
-**Bloco das 15h00 às 18h00 · Lucian Fialho · co-facilitação: Taciana Serafim (14h–15h)**
-
-Este documento é para quem está no palco, não para o aluno — o aluno tem o
-`handout.md`. Cada bloco abaixo segue o mesmo formato: horário de início,
-duração, objetivo, o que está na tela, falas-chave (literais quando
-marcadas como tal), o que pode dar errado, e como cortar se a tarde atrasar.
-
-As falas marcadas com `>>` são **literais** — dizer exatamente assim, não
-parafrasear. O resto é direção de palco: pode adaptar ao momento.
-
-**Não cite número de página de nada** neste roteiro nem no palco — o
-material é impresso e a numeração muda na diagramação. O ponteiro correto é
-sempre "o guia de instalação, no fim do handout".
-
-## Antes de a sala abrir — checklist do facilitador
-
-- [ ] Claude Desktop aberto, logado na conta usada de manhã pela Taciana (a
-      mesma que os alunos usam).
-- [ ] Projeto "CRO" já criado no Desktop, **vazio** — as instruções de cada
-      skill entram ao vivo, no ritmo da sala, não pré-coladas. (Se o tempo
-      apertar demais em ensaio, ver "como cortar" do Bloco 2 para a exceção.)
-- [ ] Terminal do Claude Code aberto numa pasta com `05-imersao-cro/data`
-      copiada para dentro dela (`cp -r 05-imersao-cro/data ./data`), `claude`,
-      `duckdb` e `python3` funcionando na máquina de demonstração.
-- [ ] 3 URLs de backup prontas no slide do Bloco 2, para quem não trouxe
-      página própria: `magazineluiza.com.br`, `americanas.com.br`,
-      `mercadolivre.com.br` — abrir as três no navegador antes da sala
-      encher, para confirmar que carregam no wifi do local.
-- [ ] Demos gravadas de `srm-check` e `post-test-segments` disponíveis em
-      arquivo local (não em link que depende de internet) — é o plano B se o
-      wifi cair durante os blocos de Code.
-- [ ] **Impressão montada como um documento só:** `handout.md` seguido de
-      `instalacao.md`, nessa ordem, no mesmo material impresso — são dois
-      arquivos separados no repositório, mas o handout promete três vezes
-      "o guia de instalação está no fim deste material", e essa promessa só
-      é verdade se os dois forem encadernados juntos. Conferir antes de
-      imprimir, não no dia.
-- [ ] Handout impresso na mão, para apontar fisicamente "guia de instalação,
-      no fim do handout" quando disser a frase do break.
-- [ ] Time de apoio (quem circula durante o intervalo e a repescagem)
-      avisado que **agora são três instalações e um download**, Claude Code,
-      DuckDB, python3 e os arquivos do curso, não uma só — ver Bloco 3.
+**Evento:** 14/09/2026 · **Bloco:** 16h00–18h00 (elástico) · **Facilitador:** Lucian Fialho
+**Co-facilitação:** Taciana Serafim, 14h00–15h30 · **Coffee:** 15h30–16h00
 
 ---
 
-## Cronograma
+## Como usar este documento
 
-| Início | Duração | Bloco |
-|---|---|---|
-| 15h00 | 8min | Quatro cadeiras |
-| 15h08 | 22min | Cadeira do CRO — Desktop |
-| 15h30 | 20min | **BREAK** — instalação voluntária assistida |
-| 15h50 | 15min | `ice-score` — Desktop + repescagem de instalação |
-| 16h05 | 45min | Cadeira do Analytics — Code |
-| 16h50 | 25min | Cadeira do Dev — Code |
-| 17h15 | 20min | Segunda parede → copilot |
-| 17h35 | 10min | Fechamento |
-| 17h45 | 15min | Buffer |
+Este roteiro é para quem está no palco. Cada bloco tem: horário e duração alvo,
+objetivo, o que está na tela, **falas-chave literais**, o que o facilitador digita ao
+vivo, o que pode dar errado com a saída, e quanto o bloco comprime.
 
-Verificação aritmética (Step 2 da task): `8+22+20+15+45+25+20+10+15 = 180`.
-Rodado e confirmado — ver relatório da task para a saída literal.
+**Convenções:**
 
-**O trecho mais crítico do dia é 15h00–15h30** (Blocos 1+2 somados). Ele
-precisa terminar exatamente na parede — a tela mostrando
-`⚠️ FALTA EVIDÊNCIA` — porque é isso que justifica o café e sustenta a
-segunda metade da tarde. Se sobrar tempo aqui, alongue a leitura da tabela
-das 7 dimensões no Bloco 2; nunca alongue a abertura do Bloco 1.
+- Falas marcadas com `>>` são **literais**, tiradas das transcrições de reunião e da
+  live de 22/07. São falas do próprio facilitador — dizer assim, não parafrasear.
+  A fonte de cada uma está no relatório da task.
+- As transcrições são geradas por ASR e escrevem *"cloud"* / *"cloud code"* onde ele
+  disse **Claude** / **Claude Code**. Nas citações abaixo a palavra aparece corrigida
+  entre colchetes: `[Claude]`. O resto da fala está como saiu da boca dele, palavrão
+  incluído — é assim que ele fala no palco e é assim que funciona.
+- O vocabulário da Taciana (ciclo, papéis, heurística de Morys, template de hipótese,
+  ICE, formas de testar, checklist pré-Start, decisões pós-experimento) vem de
+  `notes/sources/taciana-cro-fundamentos.md` e **não se parafraseia**. Quando o
+  callback tocar nesse vocabulário, usar as palavras dela.
+- Não citar número de página de nada, no roteiro ou no palco.
 
 ---
 
-## Bloco 1 — 15h00 · 8min · Quatro cadeiras
+## 1. Cenários de tempo — a tabela mais útil do dia
 
-**Objetivo:** amarrar com o fechamento da Taciana e instalar a tese do dia:
-uma skill por cadeira, e a ferramenta que cada um usa hoje só preenche uma
-delas por completo.
+A Taciana entrega o palco; o bloco da tarde se ajusta ao que sobrar. Fala dele em 11/09:
 
-**Na tela:** slide com a citação de fechamento da Taciana (slide 44) e, em
-seguida, a tabela cadeira → skill → camada (a mesma do handout, seção 1).
+> `>>` **"não tenha medo da quantidade de slide que você vai ter, tá ligado? Porque eu
+> consigo ajustar o meu conteúdo para caber no tempo que você me entregar, tá ligado?"**
 
-**Falas-chave:**
+Por isso: **decidir o cenário no momento em que ela devolve o palco**, olhando o
+relógio, e não no meio do bloco. Anunciar nada disso para a sala — a turma não precisa
+saber que houve corte.
 
->> "A Taci terminou dizendo que o próximo desafio não é usar o Claude, é
->> transformá-lo em parte do seu processo. É exatamente isso que a gente vai
->> fazer nas próximas três horas."
+| Você recebeu | A — Antes do Claude | B — Primeiro contato | C — Anatomia da receita | D — A sua skill | Fechamento | Soma |
+|---|---|---|---|---|---|---|
+| **120 min** (16h00) | 30 | 25 | 30 | 30 | 5 | **120** |
+| **100 min** (16h20) | 30 | 15 | 20 | 30 | 5 | **100** |
+| **80 min** (16h40) | 30 | **B+C fundidos: 15** | — | 30 | 5 | **80** |
 
-Em seguida, retomar as quatro posições dela (Defesa/Leitura de campo —
-Digital Analytics; Meio-campo/Armação — Estrategista de CRO;
-Meio-campo/Criação — UX/Research; Ataque/Finalização — Dev/Experimentação) —
-1 frase por posição, sem reabrir o slide dela inteiro, só nomeando.
+**Como cada cenário se executa na prática:**
 
->> "Vamos preencher as quatro cadeiras. Uma skill por cadeira. E em 40
->> minutos você vai descobrir que a ferramenta que você escolheu preenche
->> uma só."
+- **120 min — o alvo.** Tudo roda como escrito. Se sobrar minuto no fim de C, ele vai
+  para D, não para B.
+- **100 min.** B perde a comparação CLI vs MCP e o tour de features (`/loop`,
+  `/schedule`, remote control) — fica só abrir, custo de prompt e o primeiro prompt.
+  C perde a dissecação linha a linha do exemplo e os hooks viram uma tela só: "existem,
+  servem para isso, o link está no grupo."
+- **80 min.** B e C deixam de ser blocos separados. Vira **um bloco único de 15 min**:
+  abrir o Claude Code, mostrar o `.md` de exemplo na tela e nomear as três partes da
+  receita (ingredientes, modo de preparo, output). Hooks e guardrails saem do palco e
+  viram link no grupo de WhatsApp. **A e D ficam intactos** — A é a autoridade do
+  facilitador, D é o que o aluno leva para casa.
 
-**Declarar em voz alta a cadeira que fica de fora — não deixar implícito:**
+**Ordem de corte, declarada:** B comprime primeiro, depois C, depois B e C fundem.
+**A e D nunca caem.** Se a Taciana estourar além dos 40 min (palco às 16h40+), não
+comprimir A nem D: cortar o Fechamento para 2 min e avisar a produção.
 
->> "Uma delas não entra na tarde de hoje: UX/Research. Não foi esquecimento
->> — é a cadeira que menos se resolve com skill e mais depende de pesquisa
->> com gente: entrevista, teste de usabilidade, sessão gravada. As outras
->> três — Analytics, CRO e Dev — a gente cobre com uma skill em cada uma."
-
-Mostrar a tabela do handout (CRO / Analytics / Dev × 7 skills × Desktop /
-Claude Code) — repare que ela já só lista essas três cadeiras, não as
-quatro da Taciana; é o mapa da tarde, não o mapa completo do time. Dizer,
-sem entrar em detalhe ainda: "as três primeiras rodam nas duas colunas; as
-quatro últimas só na direita — e o motivo disso é o assunto da tarde
-inteira."
-
-**O que pode dar errado:** parte da sala saiu para o café das 15h e ainda
-não voltou / está entrando. **Saída:** não parar para esperar; quem perder
-este bloco não perde exercício nenhum (é mapa, o próprio handout diz isso na
-seção 1) — só perde o gancho narrativo, que dá para recuperar em uma frase
-quando a pessoa senta.
-
-**Como cortar se atrasar:** este bloco não tem gordura — é 8 minutos para
-uma citação, quatro nomes e uma tabela. Se precisar cortar, corte a leitura
-das quatro posições uma a uma e vá direto da citação para a tese e a
-tabela. Nunca corte a citação de abertura, a frase da tese, nem a frase que
-declara UX/Research fora de escopo: uma sala que conta as cadeiras no slide
-do mapa percebe a ausência antes de você nomeá-la — dizer isso em voz alta é
-o que evita a pergunta incômoda no meio de outro bloco.
+**Se sobrar tempo** (ela terminar antes das 16h00): B e C voltam ao alvo e o excedente
+vai todo para D — é onde o tempo extra rende mais, porque é lá que o aluno trava.
 
 ---
 
-## Bloco 2 — 15h08 · 22min · Cadeira do CRO — Desktop
+## 2. As duas teses do bloco
 
-**Modo de interação:** narrado e espelhado — o facilitador executa no telão
-e a sala replica em tempo real no próprio Claude Desktop, projeto "CRO".
-Não há tempo de demo-depois-prática aqui; é simultâneo.
+O bloco inteiro sustenta duas afirmações, nesta ordem. A primeira é o que dá autoridade
+para a segunda.
 
-**Objetivo:** produzir, ao vivo, uma hipótese estruturada — e deixá-la
-travada por falta de evidência, de propósito, para abrir o gancho do
-intervalo.
+**Tese 1 — o pré-requisito.** Não adianta IA numa operação quebrada.
 
-**Sub-timing:**
+> `>>` **"uma das coisas que eu vou mais falar para eles lá é tudo que a gente tem que
+> aprender antes de aprender o [Claude] especificamente, porque não adianta nada a gente
+> fazer toda essa estrutura, querer colocar IA dentro do processo de de CRO."**
 
-| Janela | Duração | O quê |
-|---|---|---|
-| 15h08–15h14 | 6min | `heuristica-morys` — colar instrução, colar URL |
-| 15h14–15h20 | 6min | Rodar, ler o output, apontar a dimensão mais fraca |
-| 15h20–15h25 | 5min | `hipotese-estruturada` — colar instrução, montar hipótese com achado da Morys, **sem** dar número de evidência |
-| 15h25–15h28 | 3min | Rodar ao vivo, mostrar o bloqueio |
-| 15h28–15h30 | 2min | A parede + anúncio do break |
+> `>>` **"não adianta nada você colocar IA dentro de uma operação que ela tá quebrada.
+> Então, é shit in, shit out."**
 
-### 15h08–15h14 · `heuristica-morys`
+**Tese 2 — a receita.** Skill é receita em Markdown.
 
-**Na tela:** Claude Desktop, projeto "CRO" → Instruções do projeto, colando
-o texto de `skills/desktop/heuristica-morys.md` (handout, seção 2).
+> `>>` **"eu tento trabalhar como se a skill do [Claude], ela fosse uma receita mesmo.
+> (...) Dona Maria Braga, você tem lá ela começando pelos ingredientes (...) que vão ser
+> as fontes de dados que a gente vai consumir e a gente tem o modo de preparo."**
 
-Pedir à sala uma URL de página própria; se ninguém tiver, usar uma das 3 de
-backup do slide.
-
-**O que pode dar errado (trava prevista):** ninguém tem página própria para
-analisar. **Saída:** usar as 3 URLs de e-commerce brasileiro do slide — não
-parar o bloco para negociar qual página usar.
-
-### 15h14–15h20 · rodar e ler
-
-Colar a URL (e um print, se tiver) na conversa. Deixar a skill pedir os 4
-inputs (URL, print, conversão desejada, público) se você ainda não deu tudo
-— isso é o comportamento correto da skill, não um bug.
-
-**Na tela:** a tabela de 7 dimensões preenchida, score total, e as 2
-dimensões mais fracas apontadas.
-
-**Fala de transição:** "Rode `hipotese-estruturada` sobre a dimensão mais
-fraca" — é a própria skill que fecha assim; use a deixa dela para emendar no
-próximo passo sem parecer forçado.
-
-### 15h20–15h25 · `hipotese-estruturada` — montar sem evidência
-
-**Na tela:** colar o texto de `skills/desktop/hipotese-estruturada.md`
-embaixo do que já está nas instruções do projeto.
-
-Lembrar o template em voz alta antes de preencher — é o que a sala vai
-preencher à mão no handout daqui a pouco:
-
-    Se [mudarmos X], para [segmento Y], então [resultado Z], porque [evidência].
-
-Pegar o achado mais fraco da Morys e montar a hipótese na conversa **até o
-campo Evidência** — aí, deliberadamente, não dar nenhum número. Se alguém na
-sala tentar "ajudar" gritando um número, agradeça e diga que é exatamente
-isso que o próximo passo vai testar.
-
-### 15h25–15h28 · rodar e mostrar o bloqueio
-
-**Na tela:** o output da skill parando em `⚠️ FALTA EVIDÊNCIA`, com a lista
-do que faltaria para fechar.
-
-### 15h28–15h30 · A parede
-
->> "O Claude não está sendo teimoso. Ele está certo. E ele não consegue
->> buscar esse dado — não porque não sabe, porque não tem como. Café. Volta
->> em 20."
-
-Imediatamente depois, o anúncio do break (dito ainda dentro deste bloco,
-nos últimos segundos, ou já abrindo o Bloco 3 — não há corte visível para a
-sala):
-
->> "Quem quiser sair na frente: o guia de instalação está no fim do
->> handout. Instala enquanto toma café, eu fico aqui. É opcional — quem não
->> instalar continua acompanhando tudo."
-
-*(Desvio deliberado da fala do brief: o texto original cita "página 4 do
-handout"; a restrição global deste roteiro proíbe número de página, então a
-referência de local foi trocada por "no fim do handout", mantendo o resto
-literal. Ver relatório da task para o registro completo desse desvio.)*
-
-**O que pode dar errado:** o bloco atrasou e a parede não bate na tela às
-15h28 — sobra menos de 2 minutos para o anúncio do break, ou nenhum.
-**Saída:** o anúncio do break pode ser dito em cima da última tela ainda
-aberta (o `⚠️ FALTA EVIDÊNCIA`); não é necessário fechar a tela antes de
-falar. O que não pode acontecer é abrir o break sem a parede — ela é o
-gancho, sem ela o intervalo não tem por que existir na cabeça da sala.
-
-**Como cortar se atrasar:** primeiro corte a leitura detalhada da tabela de
-7 dimensões (ficar em "as duas mais fracas são X e Y", sem passar linha por
-linha); depois, se ainda faltar tempo, encurte o texto colado nas
-instruções do projeto (o facilitador pode ter uma versão resumida
-pré-copiada só para a demonstração, desde que a versão completa continue
-sendo a do handout para quem replica). Nunca corte a hipótese sem evidência
-nem a fala da parede — são o motivo de o break existir.
+O aluno **não recebe receita pronta.** Ele escreve a dele, a partir do processo que a
+empresa dele já tem. Esse é o entregável do dia.
 
 ---
 
-## Bloco 3 — 15h30 · 20min · BREAK — instalação voluntária assistida
+## 3. Mapa de callbacks — os 3 passos agrupados
 
-**Objetivo:** deixar quem quiser instalar o Claude Code, o DuckDB e o
-python3 durante o café, com apoio circulando, sem obrigar ninguém.
+A Taciana apresenta o ciclo de 7 passos. Para uma plateia diversa, a ênfase do bloco da
+tarde agrupa em **3 passos**, decisão de 11/09:
 
-**Dependência nova que aperta este bloco:** o guia de instalação
-(`instalacao.md`) ganhou um Passo 5 (DuckDB), um Passo 6 (python3) e um
-Passo 7 (baixar os arquivos do curso) que não existiam na versão original
-do material. Isso significa que **o intervalo agora cobre três instalações
-e um download, não uma** — Claude Code (Passos 0 a 4), DuckDB (Passo 5) e
-python3 (Passo 6), mais baixar os arquivos da imersão (Passo 7) — antes de
-chegar ao Passo 8 (skills + dataset). Os 20 minutos do break não mudaram; o
-que cabe neles ficou mais apertado.
+> `>>` **"juntar coleta e análise, hipótese e priorização, teste, dev, relatório e
+> escala, sacou? Porque aí você diminui a quantidade de passos e aí você consegue fazer
+> um slide onde você só vai dar a ênfase."**
 
-**O que fazer com isso, explicitamente:**
+A forma do callback, nas palavras dele:
 
-- No anúncio do break (Bloco 2), a frase manda a pessoa para "o guia de
-  instalação, no fim do handout", sem detalhar quantos passos são — isso é
-  proposital, para não assustar quem está só olhando de longe. Mas o time
-  de apoio que circula durante o café **precisa saber** que são 8 passos, e
-  que os passos 0–4 (terminal, Node, Claude Code, verificar, logar) são o
-  mínimo para acompanhar a próxima meia hora (Bloco 4, que continua 100% no
-  Desktop), enquanto os Passos 5–7 (DuckDB, python3, baixar os arquivos) só
-  importam a partir das 16h05.
-- Priorização do apoio durante os 20 minutos: ajudar primeiro quem está
-  travado nos Passos 0–4 (sem isso, a pessoa não acompanha nem o Bloco 4);
-  só depois ajudar quem já tem Claude Code e está tentando DuckDB, python3
-  ou o download dos arquivos.
-- **Ninguém deve ser empurrado a terminar tudo no mesmo café.** Se alguém
-  claramente não vai terminar os Passos 5–7 em 20 minutos, a orientação do
-  apoio é fechar o Claude Code primeiro (Passos 0–4) e deixar DuckDB,
-  python3 e o download dos arquivos para depois — exatamente o que o
-  próprio guia já diz ("se você travar aqui, ainda dá para acompanhar a
-  primeira metade inteira sem problema nenhum").
+> `>>` **"lembra quando a Tá falou sobre coleta de dados? Eu tô falando sobre aquele
+> ponto que ela trouxe número um e por que isso é importante. Aí eu mostro as
+> ferramentas."**
 
-**Na tela:** deixar um slide neutro (contagem regressiva ou o mapa das 4
-cadeiras de novo) — o facilitador não precisa narrar o break, só estar
-disponível.
-
-**O que pode dar errado:**
-
-| Trava | Sinal | Saída |
-|---|---|---|
-| Instalação estourou o break | Mais de 10 pessoas ainda tentando às 15h50 | Rodar `ice-score` (Desktop) e deixar o apoio circulando; ele é o bloco que existe justamente para isso |
-| Wifi caiu | Ninguém consegue baixar Node/Claude Code/DuckDB/python3, nem baixar o ZIP dos arquivos do curso | Avisar a sala que quem não conseguir agora tem o guia completo para levar para casa; seguir o dia com quem já tem ambiente pronto (a máquina de demonstração do facilitador não depende do wifi da sala para os blocos de Code, só a instalação de quem está tentando pela primeira vez depende) |
-
-**Como cortar se atrasar:** o break não corta — 20 minutos de intervalo são
-para a sala, não para o conteúdo. Se o Bloco 2 invadiu o horário do break,
-o café ainda começa na hora marcada (15h30 no relógio, mesmo que o
-conteúdo tenha vazado 1–2 minutos); quem precisar de mais tempo de
-instalação usa também a repescagem do Bloco 4.
-
----
-
-## Bloco 4 — 15h50 · 15min · `ice-score` — Desktop + repescagem de instalação
-
-**Modo de interação:** narrado e espelhado, igual ao Bloco 2 — este bloco
-roda 100% no Desktop, então quem ainda está instalando o Claude Code ou o
-DuckDB não fica de fora dele.
-
-**Objetivo:** fechar o degrau 1 (CRO no Desktop) priorizando o backlog de
-hipóteses, e fazer a checagem honesta de quem está pronto para o próximo
-degrau.
-
-**Sub-timing:**
-
-| Janela | Duração | O quê |
-|---|---|---|
-| 15h50–15h53 | 3min | Checagem de instalação (repescagem) |
-| 15h53–16h00 | 7min | `ice-score` — colar instrução, priorizar hipóteses |
-| 16h00–16h05 | 5min | Preencher a tabela ICE à mão + citação da Taciana |
-
-### 15h50–15h53 · Repescagem de instalação
-
-Perguntar direto para a sala, com mãos levantadas: "quem já tem `claude`
-rodando?" e, em seguida, "de quem levantou a mão, quem também já tem
-`duckdb`?".
-
-**A pergunta que este roteiro precisa responder em voz alta:** quem instalou
-só o Claude Code, sem o DuckDB, consegue acompanhar o Bloco 5 (16h05,
-Analytics)?
-
->> A resposta é não. `srm-check` e `post-test-segments` rodam `duckdb`
->> diretamente — sem ele instalado, o comando não existe na máquina, não
->> importa se o Claude Code está funcionando perfeitamente.
-
-**O que o facilitador faz com isso, nesta janela de 3 minutos:**
-
-1. Dizer a frase acima em voz alta — não deixar a lacuna implícita.
-2. Para quem só tem Claude Code: apontar o Passo 5 do guia (DuckDB) e pedir
-   para tentar durante este bloco (que não exige nada instalado) e, se não
-   conseguir a tempo, durante o próprio Bloco 5 — o apoio continua
-   circulando.
-3. Para quem não tem nem Claude Code: sem alternativa nova aqui além do que
-   já foi dito no break — seguir acompanhando no papel (handout, seção 6,
-   já traz os comandos e os resultados esperados impressos) e tentar a
-   instalação depois, em casa, com calma.
-4. Reforçar que isso não é fracasso pessoal: a instalação era opcional desde
-   o anúncio do break, e o handout foi desenhado para quem chega sem
-   ambiente nenhum continuar entendendo o que está acontecendo na tela.
-
-### 15h53–16h00 · `ice-score`
-
-**Na tela:** colar o texto de `skills/desktop/ice-score.md` nas instruções
-do projeto "CRO", embaixo do que já está lá. Listar a hipótese travada do
-Bloco 2 (a que ficou com `⚠️ FALTA EVIDÊNCIA`) junto com o exemplo de
-referência da Taciana (CEP no checkout mobile, que já tem evidência) para
-mostrar os dois casos lado a lado na mesma tabela ICE.
-
-**Fala-chave a reforçar (regra da skill):** hipótese com
-`⚠️ FALTA EVIDÊNCIA` tem Confiança no máximo 3 — dizer isso em voz alta
-quando o output aparecer, para a sala ver a régua se aplicando ao caso que
-ela viu travar 20 minutos atrás.
-
-### 16h00–16h05 · Preencher e fechar com a citação
-
-Deixar a sala preencher a tabela ICE em branco do handout (seção 5) com as
-próprias hipóteses, enquanto o facilitador fecha com:
-
-> "O score explicita critérios e organiza o backlog — use para ranking
-> relativo, não como veredito. O Dev participa estimando esforço e risco
-> técnico." — Taciana Serafim
-
-**O que pode dar errado:** a checagem de mãos levantadas mostra que mais da
-metade da sala ainda não tem `duckdb`. **Saída:** não é motivo para alongar
-a repescagem além dos 3 minutos previstos — seguir para `ice-score` no
-horário e deixar o apoio trabalhando em paralelo durante os 7 minutos
-seguintes, que não competem por atenção do facilitador.
-
-**Como cortar se atrasar:** a checagem de instalação (3min) não corta —
-é justamente o mecanismo que evita que o Bloco 5 comece com metade da sala
-perdida sem saber por quê. Se precisar de tempo, corte o preenchimento
-manual da tabela ICE (últimos 5 min) para depois, como tarefa de leva-para-
-casa — o handout já está desenhado para isso.
-
----
-
-## Bloco 5 — 16h05 · 45min · Cadeira do Analytics — Code
-
-**Modo de interação:** demo no telão, na máquina do facilitador, já com
-`claude` e `duckdb` instalados e logados de antemão — isso não depende de
-nada que aconteça na sala. **Atenção: isso não quer dizer que o bloco
-independe de wifi.** O caminho planejado (pedir à skill em linguagem
-natural: "roda srm-check em data/cro.db") passa pelo Claude Code, que
-depende da API da Anthropic — sem rede, ele não responde, para ninguém, nem
-para o facilitador. O que não depende de wifi são os comandos `duckdb` e
-`python3` por baixo da skill, que rodam contra o arquivo local — ver a saída
-de 3 níveis na tabela de travas deste bloco. Quem já tem `claude` e
-`duckdb` funcionando replica em paralelo; quem não tem acompanha pelos
-resultados impressos no handout (seção 6) — não fica sem exercício, fica
-sem terminal.
-
-**Objetivo:** mostrar por que `srm-check` vem antes de qualquer leitura de
-resultado, e onde o lift de um teste A/B realmente aconteceu quando se
-segmenta por device.
-
-**Critério do beta — dizer isto no início do bloco, antes de abrir
-qualquer terminal:**
-
->> "Tem acesso ao beta do analytics-copilot hoje, e não tem para todo
->> mundo. Quem sair daqui com `srm-check` rodando na própria máquina
->> entra."
-
-**Sub-timing:**
-
-| Janela | Duração | O quê |
-|---|---|---|
-| 16h05–16h07 | 2min | Critério do beta + objetivo do bloco |
-| 16h07–16h20 | 13min | `srm-check` em `data/cro.db` |
-| 16h20–16h23 | 3min | Transição: por que trocar de dataset |
-| 16h23–16h40 | 17min | `post-test-segments` em `data/cro-clean.db` |
-| 16h40–16h50 | 10min | Prática em paralelo + perguntas |
-
-### 16h07–16h20 · `srm-check`
-
-**O que digitar ao vivo:** o caminho planejado é pedir pelo nome à skill
-("roda srm-check em data/cro.db") e deixar o Claude Code orquestrar. O
-comando abaixo é **exatamente o que a skill roda por baixo** — o mesmo
-texto que está impresso no handout ao lado deste passo. Vale o facilitador
-saber isso de cor: é o que transforma uma queda de wifi de "bloco parado"
-em "roda o mesmo comando direto no terminal, sem a skill no meio" (nível 2
-da degradação — ver a tabela de travas deste bloco):
-
-```
-duckdb data/cro.db -c "SELECT experiment_variant, COUNT(DISTINCT user_pseudo_id) AS users FROM events_clean WHERE event_name = 'session_start' AND experiment_variant IS NOT NULL GROUP BY 1 ORDER BY 1;"
-```
-
-**Na tela — resultado esperado:**
-
-```
-control     4000
-variant_b   4400
-```
-
-```
-python3 -c "obs=[4000,4400]; n=sum(obs); exp=[n/2,n/2]; chi2=sum((o-e)**2/e for o,e in zip(obs,exp)); import math; p=math.erfc(math.sqrt(chi2/2)); print(f'chi2={chi2:.4f}  p={p:.3e}')"
-```
-
-**Na tela:** `chi2=19.0476  p=1.275e-05` → no telão, formatar como
-**χ²=19,0476 · p=1,275e-05** → veredito **🔴 SRM DETECTADO**.
-
-Dizer: "esse teste não tem resultado para ler. `data/cro.db` tem esse
-problema de propósito — é o dataset bruto, o que a skill existe para
-pegar."
-
-**O que pode dar errado (trava prevista):** alguém puxa para p-valor e poder
-estatístico. **Saída:** responder em uma frase — "p-valor aqui é a chance de
-essa diferença de tamanho aparecer por acaso se a divisão fosse
-realmente 50/50; é bem menor que 1%, por isso o alarme" — oferecer
-continuar a conversa no fim do bloco, e seguir. Não é a aula.
-
-### 16h20–16h23 · Transição de dataset — antecipar a confusão
-
-A sala acabou de ver a skill mandar parar diante de SRM. O próximo passo
-troca para `data/cro-clean.db`. Dizer isso explicitamente, antes que alguém
-pergunte:
-
-"`cro.db` é o dataset bruto, com o problema de propósito, para vocês verem a
-skill pegando. `cro-clean.db` é a versão já corrigida — é nela que a
-análise segmentada faz sentido. Não é a mesma régua sendo ignorada, é o
-próximo degrau."
-
-### 16h23–16h40 · `post-test-segments`
-
-**Antes de chamar a skill — fechar a pré-condição (~30s):** `post-test-segments`
-tem uma regra dura: só roda se o veredito de `srm-check` for 🟢. O único
-veredito que a sala viu até agora foi 🔴 (em `cro.db`). Sem rodar `srm-check`
-em `cro-clean.db` primeiro, a skill está sendo chamada logo depois do único
-veredito da sessão ter sido vermelho — e pode recusar ou pedir confirmação
-ao vivo. Rodar rápido, ainda dentro deste bloco, antes de pedir
-`post-test-segments`:
-
-```
-duckdb data/cro-clean.db -c "SELECT experiment_variant, COUNT(DISTINCT user_pseudo_id) AS users FROM events_clean WHERE event_name = 'session_start' AND experiment_variant IS NOT NULL GROUP BY 1 ORDER BY 1;"
-```
-
-**Resultado esperado:** `control 4000` / `variant_b 4000` → distribuição
-perfeita, χ²=0, p=1,0000 → veredito **🟢 SEM SRM**. Dizer: "mesmo teste,
-distribuição corrigida — e ele passa. Agora sim dá pra ler o resultado."
-Só então pedir `post-test-segments`.
-
-**Agregado:**
-
-```
-duckdb data/cro-clean.db -c "SELECT experiment_variant, COUNT(DISTINCT user_pseudo_id) AS users, COUNT(DISTINCT CASE WHEN converted=1 THEN user_pseudo_id END) AS conv, ROUND(100.0*COUNT(DISTINCT CASE WHEN converted=1 THEN user_pseudo_id END)/COUNT(DISTINCT user_pseudo_id),2) AS cr FROM events_clean WHERE experiment_variant IS NOT NULL GROUP BY 1 ORDER BY 1;"
-```
-
-control 4,33% → variant_b 5,30% (lift agregado +22,4%).
-
-**Por device:**
-
-```
-duckdb data/cro-clean.db -c "SELECT device_category, experiment_variant, COUNT(DISTINCT user_pseudo_id) AS users, ROUND(100.0*COUNT(DISTINCT CASE WHEN converted=1 THEN user_pseudo_id END)/COUNT(DISTINCT user_pseudo_id),2) AS cr FROM events_clean WHERE experiment_variant IS NOT NULL GROUP BY 1,2 ORDER BY 1,2;"
-```
-
-| Device | Control CR | Variant CR | Lift relativo |
+| Passo | Agrupa (vocabulário dela) | Onde o callback entra | O que o facilitador acrescenta |
 |---|---|---|---|
-| desktop | 4,19% | 4,88% | +16,5% |
-| mobile | 4,23% | 7,17% | +69,5% |
-| tablet | 4,56% | **3,78%** | **-17,1%** |
+| **1** | Coleta de Dados + Análise | Bloco A, abertura | Plano de mensuração; macro vs microconversão; checagem de implementação — shit in, shit out |
+| **2** | Hipóteses + Priorização + Design | Bloco A, meio | Como se gera e como se prioriza; quali como fonte de hipótese; *"priorização é grande parte do problema"* |
+| **3** | Testes + Relatórios + Escala | Bloco A, fim / Fechamento | Tipos de teste (A/B, MVT, fake door, rollout progressivo); o que vira skill e o que vira infra |
 
-**Este é o número que sustenta a fala sobre decisão.** Parar aqui e deixar a
-tela com o tablet negativo visível por alguns segundos antes de falar.
+**Nomear a Taciana em voz alta em cada um dos três.** O callback só funciona se ela for
+citada pelo nome — é o que amarra a tarde com a manhã e é o combinado entre os dois.
 
-Dizer: "segmento com lift negativo é achado, não ruído. Um teste que ganha
-no mobile e perde no tablet é decisão de rollout segmentado, não vencedor
-simples."
+**Observação de palco:** ele fecha ciclo e abre dúvida de propósito, a cada ~15 min.
 
-Recomendação, com vocabulário exato (não sinônimo):
+> `>>` **"eu sempre pego tipo assim, caralho, acho que eu vou fechar um ciclo aqui e
+> perguntar se a galera entendeu para poder abrir a dúvida pra galera."**
 
-| Decisão | Quando |
+---
+
+# BLOCO A — Antes do Claude
+
+**16h00–16h30 · 30 min · NÚCLEO — NUNCA CORTA**
+
+## Objetivo
+
+Estabelecer o pré-requisito antes de qualquer ferramenta aparecer, assumindo o papel do
+cético. Este bloco é a autoridade do facilitador para tudo que vem depois. Se ele não
+acontecer, o resto da tarde vira demo de ferramenta.
+
+## Na tela
+
+- Uma tela com os **3 passos agrupados** (Coleta+Análise · Hipótese+Priorização+Design ·
+  Teste+Relatório+Escala), amarrando visualmente com o ciclo de 7 que ela mostrou.
+- Uma tela de plano de mensuração: macroconversão → microconversões, no formato de
+  jornada. Exemplo dele: `americanas.com`.
+- Uma tela "shit in, shit out" — a checagem de implementação.
+- Telas de case: **Duty Free** e **Ering** (+ Zerezes e Aklin como exemplos de quali).
+
+**Nenhum terminal aberto neste bloco.** O Claude Code só aparece no Bloco B.
+
+## Roteiro falado
+
+### A.1 — Abertura e gancho com ela (3 min)
+
+Abrir com a frase de fechamento dela — é o gancho combinado:
+
+> "O próximo desafio não é usar o Claude. É transformá-lo em parte do seu processo de
+> CRO." *(frase de fechamento da Taciana — dizer que é dela)*
+
+E emendar o papel:
+
+> `>>` **"eu sou o cara que eu sou, o cético, o tóxico"**
+
+### A.2 — Callback 1: Coleta + Análise (10 min)
+
+Nomear o callback:
+
+> `>>` **"lembra quando a Tá falou sobre coleta de dados? Eu tô falando sobre aquele
+> ponto que ela trouxe número um e por que isso é importante. Aí eu mostro as
+> ferramentas."**
+
+**Plano de mensuração — o exercício de jornada na parede.** Puxar a macroconversão da
+sala, ao vivo, não de slide:
+
+> `>>` **"eu falo sobre macro e microconversão. a gente pega um exemplo de um site de um
+> cliente que pode estar lá ou de alguém da internet e aí eu vou fazendo a jornada do
+> usuário e falando, ó, aqui a macroconversão dentro da americanas.com. (...) E aí como
+> que a gente [faz o] plano de mensuração da macro para as micros? Então, qual a etapa
+> que antecede a micro?"**
+
+Perguntar para a sala, em voz alta: *"qual é a macroconversão do site de vocês?"* —
+depois *"qual é a etapa que antecede ela?"*, e ir montando o funil no quadro/na tela.
+
+**Shit in, shit out — a virada do bloco.** Aqui o tom muda:
+
+> `>>` **"não adianta nada você colocar IA dentro de uma operação que ela tá quebrada.
+> Então, é shit in, shit out. Se você tá coletando o evento que é ação desejada que você
+> quer otimizar e ele tá implementado errado e na maioria das vezes está"**
+
+E o plano prático que o aluno leva para casa — **esta é a fala mais importante do
+bloco A**:
+
+> `>>` **"não esquece de chegar lá dentro do teu Google Analytic[s], da ferramenta de
+> análise que você tem ou que você vai querer ter, para poder ver, cara, bate a
+> quantidade de adição do produto ao carrinho, o purchase bate com a plataforma, porque
+> tudo isso são sinais de mais implementações que vão cagar o teu teste A/B. E aí não tem
+> ferramenta no mundo"**
+
+Fechar o ciclo: *"quem aqui já conferiu se o purchase do Analytics bate com a
+plataforma? Levanta a mão."* — e deixar o silêncio trabalhar.
+
+### A.3 — Callback 2: Hipótese + Priorização + Design (10 min)
+
+> `>>` **"nas hipóteses a gente pode trabalhar especificamente pensando em como que a
+> gente gera as hipóteses e como a gente prioriza as hipóteses."**
+
+**O gargalo não é gerar, é priorizar** — avisar cedo, como ele mesmo faz:
+
+> `>>` **"já para avisar vocês, priorização é grande parte do problema."**
+
+> `>>` **"O problema, na maioria das vezes, não é a capacidade que o ser humano tem de
+> gerar hipótese, é a capacidade que ele tem de priorizar isso dado a quantidade de coisa
+> que ele tem. Porque assim, a priorização também deveria estar ligada à capacidade
+> técnica que a gente tem de desenvolver, a capacidade de design de conseguir implementar
+> aquelas telas."**
+
+Callback explícito ao **ICE Score** dela — usar o vocabulário dela, sem reexplicar o
+framework: ela já deu Impacto × Confiança × Facilidade, e ela já disse que o score
+"explicita critérios e organiza o backlog — use para ranking relativo, não como
+veredito."
+
+**Dado qualitativo como fonte de hipótese.** É aqui que entram os cases:
+
+> `>>` **"dado quali, ó, é dado de qualidade, mesmo — qualitativo. Então é pesquisa, é
+> você ir na loja, você fazer a jornada da porra do teu usuário"**
+
+> `>>` **"faça a porra da jornada do teu usuário"**
+
+> `>>` **"a gente num determinado momento a gente acaba se distanciando muito do produto
+> que a gente mesmo vende, sacou? Então assim, qual é a forma da gente estar mais próximo
+> da dor do nosso cliente?"**
+
+**Case Zerezes** (curto, 1 min — é o gancho de pesquisa qualitativa):
+
+> `>>` **"A gente foi na Zerezes, conseguiu trocar uma ideia com os caras de Zerezes para
+> poder entender quais eram as dores e, pô, a gente tem um backlog gigantesco."**
+
+**Case Ering — obrigatório, é ação dele definida em 11/09** (3 min):
+
+> `>>` **"A gente tá montando um backlog de testes A/B pra Ering e com a Aklin, que vai
+> ser 100% baseado nas reclamações do cliente. Então, olha como é que a gente vai
+> conseguir resolver a dor de geração de hipótese com dados qualitativos"**
+
+Complementar com o método, que ele já contou na live:
+
+> `>>` **"A gente trabalhou do ponto de vista qualitativo, indo na loja, entrevistando o
+> vendedor, com hotjar, com formulário no site, pra gente poder conseguir captar a
+> informação."**
+
+### A.4 — Callback 3: Teste + Relatório + Escala (5 min)
+
+Usar o vocabulário dela de formas de testar — **A/B, A/B/n, MVT, Redirect/Split URL,
+Fake Door, MAB, Personalização** — sem reexplicar, e acrescentar o que ele pediu para
+incluir em 11/09:
+
+> `>>` **"Acho que você pode colocar rollout progressivo também como uma opção de teste,
+> tá ligado? Para você ir distribuindo isso como uma hipótese de produto."**
+
+**Case Duty Free — obrigatório, é ação dele definida em 11/09**, quando chegar em
+estudos de caso:
+
+> `>>` **"esse case aí, tu pode me chamar e eu conto o case."**
+
+`[A CONFIRMAR: o conteúdo do case Duty Free. As transcrições registram que ele conta o
+case (prova social, trabalho feito com o Gustavo antes de a Taciana entrar), mas não
+registram números, hipótese testada nem resultado. Levantar com o Gustavo antes do dia —
+sem isso, o case vira menção de 20 segundos, não bloco.]`
+
+### A.5 — A ponte para o Claude (2 min)
+
+O que a IA substitui e o que não substitui — é a ponte honesta para o bloco B:
+
+> `>>` **"a IA não vai substituir o consumo humano disso daqui. Tipo, a parte de análise
+> e estratégia, ela é a parte que ainda a gente depende do humano."**
+
+> `>>` **"o copy, a gente pode fazer um brute force de tipo assim: ah, beleza, eu vou
+> criar um multivariável agora com IA que vai testar 100 possibilidades e foda-se, deixa
+> brigar lá, eu tenho tráfego para poder fazer. Então, tipo assim, a parte da cópia, a
+> gente consegue testar n possibilidades agora, dado um contexto, mas a parte de análise e
+> estratégia não."**
+
+Frase de virada: *"tudo isso que a gente viu até aqui é o que você tem que ter antes de
+abrir a ferramenta. Agora a gente abre."*
+
+## O que pode dar errado — e a saída
+
+| Risco | Saída |
 |---|---|
-| Implementar | A evidência sustenta a mudança e os guardrails ficaram estáveis. |
-| Iterar | A direção parece certa, mas a execução pode melhorar. |
-| Investigar | A evidência não é suficiente. Precisamos entender melhor. |
-| Abandonar | A hipótese não se sustentou. Aprendemos algo sobre o usuário. |
-| Nova hipótese | O resultado revelou um comportamento que não esperávamos. |
+| A sala não responde à pergunta da macroconversão | Não insistir. Usar `americanas.com` como exemplo dado e seguir — o ponto é o funil, não a participação |
+| Alguém puxa discussão longa de GA4 / GTM | "Esse é exatamente o ponto — e é assunto de um curso inteiro. Aqui o que importa é você sair sabendo que tem que conferir." Devolver ao roteiro |
+| A Taciana já cobriu plano de mensuração na parte dela | Ótimo: o callback fica mais curto e mais forte. Citar ela e ir direto para shit in, shit out. Ganha 4 min para D |
+| Case Duty Free sem material | Contar em 20 segundos como menção e ir para Ering, que tem material |
 
-Recomendação para este resultado: **Iterar** — agregado +22,4% e mobile
-+69,5% sustentam a direção, mas o tablet (-17,1%) precisa de ajuste antes
-de um rollout nos três devices.
+## Compressão
 
-### 16h40–16h50 · Prática em paralelo
-
-Quem tem ambiente pronto roda os mesmos comandos na própria máquina;
-facilitador circula (ou o apoio circula, se o facilitador estiver
-segurando perguntas). Quem não tem ambiente confere os números contra o
-handout impresso.
-
-**O que pode dar errado:**
-
-| Trava | Sinal | Saída |
-|---|---|---|
-| Wifi caiu | Claude Code para de responder para a sala inteira (a invocação da skill em linguagem natural depende da API da Anthropic; sem rede, `claude` não roda, mesmo com `duckdb` e o dado 100% locais) | Degradação em 3 níveis: **(1)** com wifi, pede à skill em linguagem natural, como planejado; **(2)** sem wifi, digita direto no terminal o comando `duckdb`/`python3` impresso no handout ao lado do passo — é exatamente o que a skill executava por baixo, o resultado é o mesmo, só sem a conversa; **(3)** sem wifi e sem ambiente (`duckdb` não instalado), acompanha as demos gravadas `04-contingencia-srm.mp4` e `05-contingencia-segmentos.mp4` (`notes/video-spec.md`) mais o handout impresso |
-| Muita gente sem `duckdb` mesmo depois da repescagem | Mais de metade da sala só observando | Manter o ritmo da demo no telão; não alongar o bloco por isso — a repescagem do Bloco 4 já foi o ponto de decisão |
-
-**Como cortar se atrasar:** primeiro corte os 10 minutos de prática em
-paralelo (passam a ser "pratique depois, com o handout"); depois, se ainda
-faltar tempo, encurte a explicação do agregado (`post-test-segments` passo
-1) para uma frase e vá direto para a tabela por device — é ela que carrega
-o achado que a tarde precisa. Nunca corte o `srm-check` nem a tabela por
-device com o tablet negativo.
+**Este bloco não comprime.** Em qualquer cenário de tempo ele roda em 30 min. Se a sala
+atrasar, o corte sai de B, nunca daqui.
 
 ---
 
-## Bloco 6 — 16h50 · 25min · Cadeira do Dev — Code
+# BLOCO B — Primeiro contato com o Claude Code
 
-**Primeiro candidato a cair inteiro** se a Taciana atrasou de manhã e comeu
-tempo do dia (ver tabela de travas gerais, no fim deste documento). Se este
-bloco for cortado, pular direto para o Bloco 7 (17h15) e mencionar
-`variante-builder` e `pre-flight-check` só de passagem, remetendo ao
-handout (seção 7) para quem quiser reproduzir sozinho.
+**16h30–16h55 · 25 min · comprime para 15 (e para 5, fundido com C, no cenário de 80)**
 
-**Objetivo:** mostrar o caminho da hipótese fechada até o código da
-variante, e por que o checklist pré-Start barra um teste sem métrica
-declarada.
+## Objetivo
 
-**Sub-timing:**
+O aluno abre o Claude Code pela primeira vez, entende custo e controle de prompt, e
+manda o primeiro prompt. Nada além disso. O aluno instala **só o Claude Code** — sem
+DuckDB, sem Python, sem clone de repositório.
 
-| Janela | Duração | O quê |
-|---|---|---|
-| 16h50–16h58 | 8min | `variante-builder` a partir da hipótese de referência |
-| 16h58–17h02 | 4min | Conferir os arquivos gerados |
-| 17h02–17h13 | 11min | `pre-flight-check` |
-| 17h13–17h15 | 2min | Frase de fechamento da Taciana |
+Fala dele em 16/07, sobre o próprio desconforto com o momento em que isso acontece:
 
-### 16h50–16h58 · `variante-builder`
+> `>>` **"Eles vão abrir o [Claude] no curso pela primeira vez, né, que eu acho um
+> absurdo. Eles tinham que ter aberto o [Claude] na primeira parte do curso já, tá
+> ligado?"**
 
-Usar a hipótese de referência da Taciana (CEP no checkout mobile), já que
-nem toda a sala vai chegar aqui com uma hipótese própria fechada:
+Isso é contexto para o facilitador, não fala de palco. O efeito prático: **assumir que
+ninguém abriu antes** e não pressupor nada.
 
-> "A hipótese é: se adicionarmos auto-preenchimento por CEP no checkout
-> mobile, então o completion aumentará 20%, porque 68% dos usuários mobile
-> abandonam nessa etapa. Gera a variante e roda o pre-flight."
+## Na tela
 
-**Na tela:** a skill escreve `variante-b.js` (guard de escopo por URL,
-idempotência, push no `dataLayer`) e `eventos.md` na pasta atual.
+Terminal do facilitador, fonte grande. Uma tela de apoio com a lista de features a
+mencionar. O link de instalação já está no grupo de WhatsApp desde antes do coffee.
 
-### 16h58–17h02 · Conferir
+## O que o facilitador digita ao vivo
 
 ```
-ls -la variante-b.js eventos.md
-node --check variante-b.js
+claude
 ```
 
-No Windows, o equivalente do `ls -la` é `Get-ChildItem variante-b.js,
-eventos.md` no PowerShell; `node --check variante-b.js` roda igual nos dois
-sistemas.
+Esperar a sala acompanhar. Depois, o primeiro prompt de verdade — algo que produza
+saída em texto, sem depender de conexão a fonte de dado externa.
 
-Sem erro no `node --check` = sintaxe válida. Dizer o aviso que a própria
-skill sempre encerra dizendo: "este código não foi testado no seu site."
+Depois, para mostrar o menu de recursos:
 
-### 17h02–17h13 · `pre-flight-check`
+```
+/
+```
 
-Pedir: "roda o pre-flight nessa variante". Os 8 itens são vocabulário exato
-da Taciana (não sinônimos):
+> `>>` **"quando você abre o [Claude] lá, tanto desktop quanto o [Claude Code] (...) tenta
+> digitar o barra dentro dele. Quem tiver aí aberto e nunca fez isso, aconselho fazer."**
 
-1. Hipótese escrita e compartilhada
-2. Controle definido e no ar
-3. Audiência e segmentação corretas
-4. QA aprovado em browsers diferentes
-5. Métrica primária e guardrails definidos
-6. Variante validada em mobile e desktop
-7. Eventos disparando nas duas versões
-8. Flickering e performance verificados
+## Roteiro falado
 
-Com o exemplo usado (sem tamanho de amostra nem critério de parada
-declarados), esperar: `🔴 NÃO SUBA — item 5 (métrica primária e
-guardrails)`. Dizer isso em voz alta antes de rodar, como previsão — o
-acerto reforça que a skill não é decorativa.
+### B.1 — Abrir e o custo do prompt (8 min)
 
-### 17h13–17h15 · Fechamento do bloco
+O enquadramento, definido em 16/07:
 
-> "Só então: START. Um erro de implementação não aparece no resultado — ele
-> aparece como um resultado que ninguém consegue explicar." — Taciana
-> Serafim
+> `>>` **"galera, a gente precisa garantir com relação a custo. Pô, como que a gente faz
+> para poder orientar e garantir o custo de prompt?"**
 
-**O que pode dar errado:**
+### B.2 — As features, em lista (7 min)
 
-| Trava | Sinal | Saída |
-|---|---|---|
-| Ninguém tem hipótese própria fechada | Perguntas de "e a minha?" atrapalhando o ritmo | Usar só o exemplo de referência para a demo; quem quiser aplicar na própria hipótese faz depois, com o handout |
-| `node --check` não está disponível na máquina de alguém | Pessoa trava tentando validar | Pular a validação de sintaxe para quem não tem Node — o importante pedagógico é o conteúdo dos dois arquivos gerados, não a validação em si |
+Ele mesmo definiu o inventário a cobrir:
 
-**Como cortar se atrasar:** primeiro corte a conferência de arquivos
-(`ls` + `node --check`, 4min) e vá direto do output da skill para o
-`pre-flight-check`; se ainda faltar tempo, corte o bloco inteiro (ver nota
-no topo) — ele é o primeiro a cair no cronograma geral.
+> `>>` **"Quais são as features do [Claude] code? Pô, tem a parte do [Claude] cowork, tem
+> a parte do schedule, tem a parte das tarefas, a gente fala disso, e tem a skill."**
 
----
+Mostrar `/loop` e `/schedule` como estão no `/`:
 
-## Bloco 7 — 17h15 · 20min · Segunda parede → copilot
+> `>>` **"O loop, ele automatiza aquilo dali como se fosse um cron job, né? De duas em
+> duas horas, de três em três horas, de quatro em quatro, de 15 em 15 minutos. E o
+> schedule ele vai conseguir fazer isso na nuvem para você poder rodar o pipeline
+> completo."**
 
-**Objetivo:** mostrar honestamente o que falta entre "rodou no meu dataset
-preparado" e "roda no seu GA4, toda segunda, sem terminal" — e apresentar o
-analytics-copilot como a resposta a essa lacuna, com os 3 vídeos de demo
-(`notes/video-spec.md`) tocando nos pontos certos.
+**Remote control** (30 segundos, é a piada que solta a sala):
 
-**Sub-timing:**
+> `>>` **"O segundo recurso é o remote control, que inclusive salva casamentos, né?
+> Porque a minha esposa acha que eu... 'ah, sai do computador'... e aí eu deixo o remote
+> control, vou pro meu telefone aqui, ó, e continuo mandando as paradas pro meu
+> computador."**
 
-| Janela | Duração | O quê |
-|---|---|---|
-| 17h15–17h16 | 1min | Fala de abertura + Vídeo 1 (slide 13, 45s) |
-| 17h16–17h18 | 2min | Quatro itens nomeados (slide 14) + frase honesta de cada |
-| 17h18–17h19 | 1min | Vídeo 2 (slide 15, 60s) — o copilot respondendo |
-| 17h19–17h20 | 1min | Vídeo 3 (slide 16, 30s) — o pipeline, reforçando "Agendamento" |
-| 17h20–17h35 | 15min | Perguntas da sala + transição para o Bloco 8 |
+**O comando perigoso** — mencionar para que saibam que existe, e dizer para não usar:
 
-### 17h15–17h16 · Abertura + Vídeo 1
+> `>>` **"esse daqui é o comando perigoso, beleza? Que é o danger skip permission. Não
+> aconselho vocês utilizarem nesse primeiro momento, mas ele é o comando que vai evitar
+> com que você fique apertando y e confirmando toda hora."**
 
->> "Isso rodou no meu dataset, que eu deixei pronto pra vocês. Pra rodar no
->> SEU GA4, toda segunda, sem você abrir o terminal — o que falta?"
+### B.3 — Por que terminal e não web (7 min)
 
-**Na tela:** avançar para o slide 13 e **clicar em play no vídeo**
-(`01-custo-setup.mp4`, 45s — o player tem `controls`, é clique simples).
-Narrar por cima, ao vivo, enquanto o vídeo roda mudo:
+> `>>` **"Muita gente fica copiando e colando o texto ainda, jogando pro chat GPT,
+> deixando ele analisar, copia, cola, volta. Isso daí é um fluxo meio ruim, porque quando
+> você tá na web ali, você não tem tanto acesso a conseguir brincar, por exemplo, com o
+> uso de um MCP local, que pode, por exemplo, abrir um navegador, ou usar recursos locais
+> da máquina que você tá trabalhando."**
 
-"Isso que vocês viram nos últimos comandos rodou porque o dataset já
-estava pronto. Pra rodar isso no SEU GA4 — não no meu — alguém passa por
-isto primeiro: escolher a property certa, autorizar o acesso, esperar o
-export terminar, e montar o schema que as skills esperam. Não é um passo,
-são vários, e o relógio não para durante nenhum deles."
+Se houver tempo e a sala aguentar, o ponto de CLI vs MCP (é o primeiro a cair na
+compressão):
 
-### 17h16–17h18 · Os quatro itens
+> `>>` **"o MCP na maioria das vezes ele acaba trazendo uma visão onde ele vai gastar
+> mais tokens do que a maioria das conexões de dados que a gente pode fazer através de
+> CLI. Então, ele acaba sendo um pouco mais caro em consumo de tokens."**
 
-**Na tela:** slide 14, listar os quatro itens (vocabulário do handout,
-seção 8):
+### B.4 — Git, em 60 segundos (3 min)
 
-- OAuth
-- ETL
-- Agendamento
-- Manutenção de schema
+Não ensinar Git. Só nomear por que existe:
 
-Para cada um, uma frase honesta (não suavizada) — usar o texto do handout
-como referência: OAuth é "fluxo de permissão real, por conta, que alguém
-precisa configurar e manter"; ETL é "alguém precisa extrair, transformar e
-carregar esses dados toda vez, de forma confiável"; Agendamento é "alguém —
-pessoa ou rotina — precisa disparar no dia certo, e reagir quando falhar
-silenciosamente"; Manutenção de schema é "cada mudança no GA4 é uma chance
-de as queries pararem de funcionar sem avisar".
+> `>>` **"vocês vão ter que dar uma olhada, uma pincelada no que que é o Git, nem que
+> seja porque é o lugar que você copia as skills. Tem que saber."**
 
-### 17h18–17h19 · Vídeo 2 — o copilot respondendo
+> `>>` **"vocês não precisam ser experts em GitHub, vocês precisam saber que que é isso
+> daqui, como que isso funciona, porque lá que vocês vão copiar a maioria das skills que
+> vocês vão pegar."**
 
->> "Foi exatamente por isso que a gente construiu o analytics-copilot."
+## O que pode dar errado — e a saída
 
-**Na tela:** avançar para o slide 15 e clicar em play
-(`02-copilot.mp4`, 60s). Narrar por cima:
+| Risco | Saída |
+|---|---|
+| Aluno não conseguiu instalar no coffee | Ele acompanha B e C **sem máquina**, de olho na tela. No bloco D trabalha em dupla com quem instalou — a permissão de dupla é explícita e vem do desenho do exercício |
+| Wifi do local cai | B e C rodam na máquina do facilitador, que é a única que precisa de rede. D é escrita de Markdown — funciona offline até a chamada do Skill Creator. Se a rede não voltar, ver "pontos de trava" |
+| Sala trava em erro de login/conta | Não debugar caso a caso no palco. Pedir para levantar a mão, seguir o roteiro, e resolver as mãos levantadas durante o bloco D, que é trabalho individual |
+| Alguém pergunta de DuckDB / gmp-cli / Copilot | Responder que é o stack do facilitador, não do exercício de hoje, e que o link vai para o grupo. **Não instalar nada na máquina de ninguém** |
 
-"A mesma pergunta que a gente acabou de responder na mão, com o terminal e
-o dataset que eu preparei — aqui, em linguagem natural, sem terminal, sem
-setup, contra o dado real do negócio. É a mesma tabela, o mesmo achado do
-tablet. A diferença é que ninguém aqui precisou saber o que é SRM para
-chegar nela."
+## Compressão
 
-### 17h19–17h20 · Vídeo 3 — o pipeline rodando sozinho
-
-**Na tela:** avançar para o slide 16 e clicar em play
-(`03-pipeline.mp4`, 30s). Narrar por cima, reforçando especificamente o
-item "Agendamento":
-
-"Isso é o que o `cro-weekly-pipeline` faria se vocês tivessem essa
-infraestrutura rodando: toda segunda, sem ninguém abrir terminal, sem
-ninguém lembrar de rodar nada — o relatório já está esperando."
-
-**O que pode dar errado:** a sala pergunta preço/prazo/disponibilidade do
-beta antes do CTA formal. **Saída:** responder que os detalhes vêm no
-fechamento e na conversa individual do buffer final; não interromper o
-fio dos quatro itens para negociar acesso ao vivo.
-
-**O que pode dar errado (vídeos):** o arquivo `.mp4` de algum dos três
-vídeos não está na máquina de demonstração (ver pendência em
-`notes/video-spec.md`, "Status de gravação"). **Saída:** pular a
-reprodução daquele vídeo específico e narrar a cena descrita em
-`notes/video-spec.md` como se fosse contada, não mostrada — a legenda
-abaixo do vídeo no slide já diz de qual demo se trata, então a sala não
-fica sem contexto; não travar o bloco tentando resolver o arquivo faltante
-ao vivo.
-
-**Como cortar se atrasar:** primeiro, encurtar a frase de cada um dos 4
-itens para uma linha só. Se ainda faltar tempo, corte o Vídeo 3 (é o mais
-curto e o menos crítico dos três — reforça "Agendamento", que já foi dito
-em palavras no item da lista); nunca corte o Vídeo 2, é a prova visual do
-CTA.
+- **Para 15 min:** cortar B.3 inteiro (CLI vs MCP e web vs terminal) e B.4. Fica abrir,
+  custo de prompt, `/`, primeiro prompt.
+- **Para 5 min (cenário 80, fundido com C):** só `claude`, o primeiro prompt e a frase
+  "isso aqui é onde a receita roda". Features, remote control, danger skip permission e
+  Git saem do palco e viram mensagem no grupo.
 
 ---
 
-## Bloco 8 — 17h35 · 10min · Fechamento
+# BLOCO C — Anatomia de uma receita (+ hooks e guardrails)
 
-**Objetivo:** fechar o dia com o ciclo real da Taciana (slide 6, "Um ciclo
-contínuo jogado por um time") — não uma lista das 7 skills, mas os 7 passos
-dela, mapeados contra o que a sala efetivamente cobriu hoje. O encaixe é
-imperfeito de propósito: os passos que ficam descobertos são o argumento do
-bloco seguinte já dado (17h15) e o gancho natural para o CTA.
+**16h55–17h25 · 30 min · comprime para 20 (e some para dentro de B no cenário de 80)**
 
-**Na tela:** a tabela dos 7 passos, com uma coluna extra marcando o que foi
-coberto hoje.
+## Objetivo
 
-**Falas-chave:**
+Dissecar **uma** skill pronta, ao vivo, nomeando as três partes da receita. O aluno sai
+sabendo o que ele vai escrever no bloco D. Depois, hooks e guardrails — por que existem
+e o que eles impedem.
 
-Abrir citando o nome do ciclo, sem parafrasear:
+## Na tela
 
->> "A Taciana fechou a manhã com isto: 'um ciclo contínuo jogado por um
->> time'. Sete passos. Vamos ver quantos a gente cobriu nas últimas três
->> horas."
+Um **único arquivo `.md`** aberto no editor/terminal, fonte grande. O exemplo é
+`skills/desktop/heuristica-morys.md` — escolhido porque é exatamente o que a Taciana
+apontou como o que mais agrega:
 
-Passar pelos 7 passos, pelo nome exato dela, marcando coberto/descoberto:
+> `>>` *(Taciana, 16/07)* **"a skill... que vai mais agregar é as partes de heurística,
+> de análises de site"**
 
-| # | Passo (nome exato) | Coberto hoje por | Status |
+Distribuição: pendrive ou cópia da tela. **Sem download, sem ZIP, sem git clone.**
+
+## Roteiro falado
+
+### C.1 — A receita (12 min)
+
+A definição, dita exatamente assim:
+
+> `>>` **"eu tento trabalhar como se a skill do [Claude], ela fosse uma receita mesmo. E
+> aí numa receita, quando a gente vai escrever uma receita ou a gente vai ler uma receita,
+> Dona Maria Braga, você tem lá ela começando pelos ingredientes, que a gente pode tentar
+> fazer o translate aqui pro nosso quadro de análise de dados, que vão ser as fontes de
+> dados que a gente vai consumir, e a gente tem o modo de preparo."**
+
+> `>>` **"a gente tem ingredientes, modo de preparo e como você vai consumir aquela
+> informação."**
+
+**Parte 1 — ingredientes.** Apontar na tela onde eles estão:
+
+> `>>` **"nos ingredientes, você vai definir quais são as fontes de dados que você quer
+> consumir e quais os dados que você quer extrair daquilo para aquela skill que você quer
+> fazer."**
+
+**Parte 2 — modo de preparo:**
+
+> `>>` **"o modo de preparo é a lista de steps que ele tem que fazer (...) você vai
+> montando a lista de passos que ele tem que executar para poder conseguir chegar num
+> produto final"**
+
+> `>>` **"quanto mais contexto a gente dá para essa lista, para esse método, esse modo de
+> preparo, melhor a gente vai conseguir ter o output no final."**
+
+**Parte 3 — o output, contratado.** Esta é a parte que a maioria esquece:
+
+> `>>` **"eu acho que tá muito bem definido o que que é o nosso output, o que que a gente
+> consome, né? (...) ele diz lá: essa receita é feita para três a seis pessoas, você pode
+> consumir assim, assim, assado, tem o prazo de validade de tanto. Eu acho que a gente tem
+> que deixar isso também contratado dentro da skill."**
+
+**Markdown, e a piada que desarma:**
+
+> `>>` **"Quem achou que não ia ter que escrever Markdown em pleno 2026, né? Tecnologia
+> tão antiga, mas que a gente tem utilizado bastante, muito porque é uma das formas que a
+> gente tem de escrever documentos um pouco mais semânticos em texto."**
+
+### C.2 — Não copie skill dos outros (5 min)
+
+Este trecho é o que torna o bloco D inevitável — ele explica por que o aluno tem que
+escrever a dele:
+
+> `>>` **"você nunca acredita cegamente na skill de uma pessoa. Você sempre traz essa
+> skill para dentro do seu [Claude Code] e entende como que ela pode ser boa pro teu fluxo
+> de trabalho. Nunca você sai copiando e colando."**
+
+> `>>` **"aquela skill é uma sequência, é uma receita dada por uma pessoa que tem um
+> fluxo de trabalho específico, que é o dela, sacou?"**
+
+> `>>` **"Nunca copie, principalmente se o cara sabe menos que você, tá ligado?"**
+
+E o problema de time, que é o argumento para o Skill Creator no bloco D:
+
+> `>>` **"cada um criou uma skill separada diferente do seu jeito, com seu contexto para
+> poder analisar dados. (...) A gente vai ter a IA procurando problema às vezes em coisas
+> que só eu peguei ou em coisas que só eu pensei."**
+
+> `>>` **"é muito importante que a gente tenha a mesma base para poder conseguir
+> construir essas skills."**
+
+Um aviso prático que vale ouro para quem vai escrever daqui a 10 minutos:
+
+> `>>` **"eu acho que vocês estão criando skills muito grandes"**
+
+### C.3 — Skill, slash command e hook: as três peças (5 min)
+
+A distinção, na definição dele:
+
+> `>>` **"as skills, elas são os textos que vão determinar as receitas de como aquilo tem
+> que ser implementado. O slash command é o atalho — é você dar um barra weekly report e
+> ele rodar um report, que é uma skill que vai puxar as informações de uma vez só para
+> você. E os hooks são os scripts que a gente consegue colocar ali automaticamente para
+> poder evitar que alguém faça uma merda muito grande."**
+
+### C.4 — Hooks e guardrails (8 min)
+
+A definição de hook:
+
+> `>>` **"os hooks é a maneira que a gente tem de conseguir deixar determinístico a
+> parada, sabe? É a maneira com que a gente tem de falar: '[Claude], ó, se o usuário
+> tentar fazer alguma coisa que vai excluir algum artigo, você bloqueia ele na hora.'"**
+
+Os eventos, nas palavras dele:
+
+> `>>` **"O primeiro é o session start. Então você consegue trigar alguma coisa toda vez
+> que a sessão ela inicia. (...) você pega o user prompt submit e você consegue ler o que
+> ele tá falando ali para poder conseguir analisar."**
+
+> `>>` **"a gente tem o pre tool use, ou seja, antes dele executar qualquer ação de
+> ferramenta do [Claude], você consegue entender o que que ele tá fazendo."**
+
+O guardrail concreto, mostrando o arquivo:
+
+> `>>` **"colocar um guard rail para detectar comandos destrutivos é fundamental"**
+
+> `>>` **"aqui eu disponibilizei um arquivo, um shell, que eu tô dizendo: ó, não pode
+> executar rm -rf, não pode executar drop table, não pode executar drop database. Ou seja,
+> toda vez que o [Claude], antes de executar uma função que poderia ser um drop table, ele
+> vai trigar o hook e vai travar a sessão pro usuário."**
+
+E a responsabilidade, que é o fecho moral do bloco:
+
+> `>>` **"nós como engenheiros de dados ou nós como analistas de dados, quando a gente
+> disponibiliza um dado para um terceiro, que é uma pessoa que não tem esse conhecimento
+> técnico, nós somos responsáveis por colocar esses guards lá dentro."**
+
+> `>>` **"Se você não sabe quem é que tem que fazer alguma coisa, porque provavelmente é
+> você que tem que fazer, né?"**
+
+**O aluno não escreve hook hoje.** Ele precisa saber que existe, o que impede, e onde
+achar os prontos — que vão para o grupo de WhatsApp.
+
+`[A CONFIRMAR: qual repositório/link exato dos hooks prontos vai para o grupo de
+WhatsApp. Na live de 22/07 ele compartilhou um link no chat, mas a transcrição não
+registra a URL.]`
+
+## O que pode dar errado — e a saída
+
+| Risco | Saída |
+|---|---|
+| Sala sem referência de Markdown | Mostrar `#` virando título na tela ao vivo. 30 segundos resolvem |
+| Alguém pede para instalar hooks agora | "Hoje ninguém escreve hook. Hoje todo mundo escreve receita." O link vai para o grupo |
+| Discussão sobre qual heurística usar (Morys vs Nielsen) | Devolver para o vocabulário dela: ela apresentou as 7 dimensões de Morys. Dizer que o exemplo usa a estrutura dela e seguir |
+| O `.md` de exemplo não abre / pendrive falha | Ler da tela projetada do facilitador. O aluno não precisa do arquivo para o bloco D |
+
+## Compressão
+
+- **Para 20 min:** cortar C.3 (a distinção skill/command/hook vira uma frase dentro de
+  C.4) e reduzir C.4 a **uma tela**: hooks existem, bloqueiam `rm -rf` e `drop table`, o
+  link está no grupo. C.1 e C.2 ficam intactos — são o que sustenta o bloco D.
+- **Cenário 80:** C não existe como bloco. Dentro dos 15 min fundidos com B, sobra apenas
+  a nomeação das três partes da receita (ingredientes · modo de preparo · output) sobre o
+  arquivo na tela. Hooks saem inteiros do palco.
+
+---
+
+# BLOCO D — A sua skill
+
+**17h25–17h55 · 30 min · NÚCLEO — NUNCA CORTA**
+
+## Objetivo
+
+**O entregável do dia: uma skill — a do processo de CRO da empresa do próprio aluno.**
+Três tempos: descrever → gerar → validar. O aluno sai com uma nota.
+
+O desenho, nas palavras dele em 16/07:
+
+> `>>` **"Galera, então, ó, a gente vai fazer agora um exercício que a gente vai
+> trabalhar, vocês vão trabalhar individualmente dentro das máquinas, mas, pô, vocês podem
+> fazer isso em grupo se quiserem, onde vocês vão descrever o processo de CRO, tal como
+> funciona na empresa de vocês, (...) vocês vão ter que debater sobre isso e sair para mim
+> com uma skill, beleza? Aí eu chego no final falando: ó, essa skill é o ponto que conecta
+> com toda a metodologia do que a gente viu aqui hoje."**
+
+> `>>` **"eles vão recriar a metodologia baseado no que eles entenderam do que você
+> falou"**
+
+## Na tela
+
+Uma tela fixa com **as quatro perguntas guia** — fica no telão o bloco inteiro, porque o
+aluno vai olhar para ela o tempo todo. Um cronômetro visível.
+
+## D.1 — Descrever (12 min)
+
+O aluno **não parte do zero**: parte de quatro perguntas fixas. Elas vêm exatamente do
+método que ele descreveu em 16/07:
+
+> `>>` **"eu mapeei quais são os cargos das pessoas, quais são os handoffs que elas
+> fazem, ou seja, quais são as conexões que elas fazem durante a semana, durante o mês,
+> quais são as interfaces que elas têm, e quais são os entregáveis de cada uma delas."**
+
+**As quatro perguntas na tela:**
+
+1. **Cargos** — quem são as pessoas envolvidas em conversão na sua empresa? Nome do
+   cargo, não "o time".
+2. **Handoffs** — quem entrega para quem, e em que momento? Semana, mês, sprint.
+3. **Entregáveis** — o que sai de cada etapa? Um documento, uma planilha, um ticket?
+4. **Ingredientes** — de onde vem o dado que alimenta cada etapa? Fonte nomeada, não
+   "os dados da empresa".
+
+**Direção de palco:** este é o momento de circular pela sala. É a mecânica que os dois
+combinaram em 11/09:
+
+> `>>` **"a gente vai na máquina das pessoas, sacou? A gente pode ir lá: pô, mostra aí o
+> que que você achou, qual que foi o resultado."**
+
+Cinco minutos dentro do D.1, anunciar em voz alta: **"quem está travado, levanta a mão —
+dupla é permitida e é uma boa ideia."** É a saída de quem não instalou e de quem não
+sabe descrever o processo da própria empresa.
+
+Se alguém disser *"na minha empresa não tem processo de CRO"* — a resposta correta é:
+**descreva o que existe hoje, mesmo que seja informal.** Um processo ruim descrito é
+material; um processo inventado não é.
+
+## D.2 — Gerar (8 min)
+
+O Skill Creator, com o argumento que já foi plantado no C.2:
+
+> `>>` **"é uma skill que cria skills. (...) Você dá um barra skill creator dentro do teu
+> [Claude Code] e ele vai criar um passo a passo, um loop que vai extrair as informações
+> daquela sessão para poder conseguir gerar uma skill que você consegue replicar isso
+> automaticamente."**
+
+> `>>` **"é usar o skill creator, porque ele vai seguir um passo a passo que minimamente
+> vai trazer um equilíbrio maior sobre o teu time criando várias skills, sabe? Vai ter uma
+> metodologia ali por trás que o [Claude] vai seguir."**
+
+**O que o facilitador digita ao vivo**, na máquina dele, uma vez, antes de soltar a sala:
+
+```
+/skill-creator
+```
+
+E na conversa: colar a descrição do D.1 e pedir a skill.
+
+**Plano B declarado:** se o Skill Creator se comportar diferente do ensaiado, o caminho
+manual funciona igual — o aluno escreve o `.md` à mão, com os três blocos que ele
+aprendeu no C.1: ingredientes, modo de preparo, output. A skill não deixa de existir
+porque a ferramenta falhou.
+
+## D.3 — Validar (10 min)
+
+O validador foi desenhado por ele em 16/07:
+
+> `>>` **"eu posso fazer uma skill que é um antipattern da sua, que você vai colocar
+> quais são os pontos de avaliação pra gente poder fazer um validador de skill."**
+
+> `>>` **"Ponto. Entrega com o cara saindo com a notinha e tá tudo certo."**
+
+**O que o aluno digita:**
+
+```
+/valida-skill-cro
+```
+
+E aponta o `SKILL.md` que acabou de gerar.
+
+O validador devolve nota por critério e, para cada ponto abaixo do máximo, **a pergunta
+exata que a skill não responde**. Os critérios são os mesmos quatro do D.1 mais o modo
+de preparo — o aluno reconhece a tela.
+
+**O facilitador lê uma nota em voz alta**, de um voluntário, incluindo as lacunas. É o
+momento mais útil do bloco: mostra que a nota não é julgamento, é lista de perguntas em
+aberto.
+
+`[A CONFIRMAR: a calibração do validador. O desenho pede calibrar com três exemplos antes
+do evento — uma skill boa, uma vaga e uma que descreve ferramenta em vez de processo — e
+essa calibração ainda não foi rodada. Sem ela, há risco de nota alta para skill ruim.]`
+
+`[A CONFIRMAR: o nome exato do slash command do validador na máquina do aluno. O arquivo
+no repositório está em skills/code/valida-skill-cro/, mas a forma de distribuição para a
+máquina do aluno (cópia manual, pendrive ou link) não está decidida — e o aluno instala
+só o Claude Code, sem git clone.]`
+
+## O que pode dar errado — e a saída
+
+| Risco | Saída |
+|---|---|
+| Aluno não sabe descrever o processo da empresa dele | O bloco A já expôs as etapas. As quatro perguntas na tela dão o esqueleto. Se ainda travar: dupla |
+| Skill Creator se comporta diferente do ensaiado | Caminho manual — escrever o `.md` à mão com os três blocos do C.1. Anunciar como plano previsto, não como falha |
+| Validador não roda na máquina do aluno | O facilitador roda **na máquina dele**, com a skill de dois ou três voluntários, na tela. O resto recebe o critério e se autoavalia |
+| Validador dá nota alta para skill claramente ruim | Ler a nota em voz alta e discordar publicamente, apontando a lacuna. Honestidade vale mais que a ferramenta |
+| Turma inteira atrasa e faltam 10 min | Cortar o D.3 individual: o facilitador roda o validador de **um** voluntário na tela, e todo mundo leva o comando para rodar em casa. D.1 e D.2 não cortam |
+
+## Compressão
+
+**Este bloco não comprime.** Em qualquer cenário ele roda em 30 min. Se o tempo total
+for menor, o corte já saiu de B e C.
+
+---
+
+# FECHAMENTO
+
+**17h55–18h00 · 5 min · NÚCLEO**
+
+## Objetivo
+
+Mapear a skill que o aluno acabou de criar contra os 3 passos, e dizer o que escala.
+
+## Roteiro falado
+
+**O fecho combinado**, palavras dele:
+
+> `>>` **"essa skill é o ponto que conecta com toda a metodologia do que a gente viu aqui
+> hoje."**
+
+Percorrer os três passos apontando onde a skill do aluno toca cada um:
+
+- **Passo 1 — Coleta + Análise:** os *ingredientes* da skill dele são as fontes de dado.
+  Se estiverem vagos, é ali que a operação está quebrada. Shit in, shit out.
+- **Passo 2 — Hipótese + Priorização + Design:** os *handoffs* que ele nomeou são
+  exatamente onde a priorização trava.
+- **Passo 3 — Teste + Relatório + Escala:** os *entregáveis* que ele nomeou são o que vira
+  relatório e o que vira escala.
+
+**O que escala** — a skill dele é o arquivo que o time inteiro pluga:
+
+> `>>` **"eles saem podendo plugar a sua própria metodologia .md, que é o arquivo
+> markdown, que vai ser a visão dele ou do time dele sobre CRO"**
+
+**A régua honesta, que fecha a tarde:**
+
+> `>>` **"elas são sempre a etapa inicial do teu trabalho"** *(sobre skills e navegação
+> agêntica)*
+
+> `>>` **"é sempre o ponto de partida, tá? Não é nunca o início e o fim."**
+
+**Encerramento operacional:** os links de hoje — hooks prontos, o `.md` de exemplo, o
+validador — vão para o **grupo de WhatsApp da turma**. Definido como canal em 11/09.
+
+`[A CONFIRMAR: se há CTA de produto no fim (Analytics Copilot / lista de espera). Nada
+nas transcrições de alinhamento com a Taciana define isso para o evento presencial — a
+menção ao Copilot aparece só na live pública de 22/07. Decidir com ela antes do dia.]`
+
+---
+
+# Checklist de pré-evento
+
+## D-2 e D-1 (12 e 13/09)
+
+- [ ] **Ensaiar o bloco D ponta a ponta na máquina do dia** — descrever, `/skill-creator`,
+      `/valida-skill-cro`. Cronometrar. É o único bloco que não tem plano de corte.
+- [ ] **Calibrar o validador com três exemplos:** uma skill boa, uma vaga, uma que
+      descreve ferramenta em vez de processo. Conferir se a nota separa os três.
+- [ ] Confirmar com a Taciana **o horário real de entrega do palco** e anotar aqui:
+      `[A CONFIRMAR: horário de entrega do palco]`
+- [ ] Confirmar se o **Messina participa da parte da tarde**. Em 11/09 ele disse
+      *"não tô nem contando com a participação dele"* — o roteiro está escrito sem ele.
+- [ ] Levantar o material do **case Duty Free** com o Gustavo (ver `[A CONFIRMAR]` no
+      bloco A).
+- [ ] Decidir e travar a **forma de distribuição** do `.md` de exemplo e do validador:
+      pendrive, cópia de tela ou link no grupo. Sem git clone.
+- [ ] Fechar os links que vão para o grupo: hooks prontos, `.md` de exemplo, validador.
+
+## D-0, antes de a sala abrir
+
+- [ ] **Grupo de WhatsApp da turma criado** e o link de instalação do Claude Code já
+      postado (antes do coffee, não depois).
+- [ ] Claude Code funcionando na máquina do facilitador, logado, com tokens disponíveis.
+      *(Na live de 22/07 ele ficou sem tokens no meio — não repetir.)*
+- [ ] Fonte do terminal aumentada e testada do fundo da sala.
+- [ ] `/skill-creator` e `/valida-skill-cro` testados **na máquina do dia**, na rede do
+      local.
+- [ ] O `.md` de exemplo aberto e pronto para projetar.
+- [ ] Tela das **quatro perguntas guia** do bloco D pronta e testada no projetor.
+- [ ] Cronômetro visível para a sala.
+- [ ] Testar o wifi do local com o Claude Code rodando de verdade, não só carregando uma
+      página.
+- [ ] Confirmar com a produção: `[A CONFIRMAR: tomadas suficientes para as máquinas da
+      turma durante duas horas]`
+
+## Nos 60 segundos em que a Taciana entrega o palco
+
+- [ ] Olhar o relógio e **escolher o cenário** (120 / 100 / 80) na tabela da seção 1.
+- [ ] Anotar mentalmente o horário-limite de início do bloco D: **hora de término menos
+      35 min**. Esse é o único horário que não pode escorregar.
+
+---
+
+# Pontos de trava — e a saída de cada um
+
+| # | Trava | Sinal de que aconteceu | Saída |
 |---|---|---|---|
-| 1 | Coleta de Dados | — | **descoberto** |
-| 2 | Análise | `heuristica-morys`, `srm-check`, `post-test-segments` | coberto |
-| 3 | Hipóteses | `hipotese-estruturada` | coberto |
-| 4 | Priorização | `ice-score` | coberto |
-| 5 | Testes | `variante-builder`, `pre-flight-check` | coberto |
-| 6 | Relatórios | — | **descoberto** |
-| 7 | Escala | — | **descoberto** |
-
->> "Quatro dos sete passos do ciclo dela, cobertos em três horas, com uma
->> skill em cada um. Os três que faltam — Coleta de Dados, Relatórios e
->> Escala — não são acaso: são exatamente os três que pedem infraestrutura
->> contínua, não uma conversa pontual. É o mesmo problema que a gente já
->> nomeou às 17h15: OAuth, ETL, agendamento, manutenção de schema."
-
-Fechar com a frase do rodapé do slide 6, também literal:
-
->> "CRO é um esporte coletivo: nenhuma dessas competências resolve
->> conversão sozinha, e nenhuma etapa do ciclo pertence a uma única pessoa.
->> Em times pequenos, alguém acumula vários papéis; em times maduros, eles
->> se distribuem entre especialistas."
-
-E a frase de continuidade do ciclo, para amarrar com "segunda-feira
-seguinte" do handout:
-
->> "O passo 7 alimenta o passo 1: o aprendizado de uma rodada define onde a
->> próxima começa."
-
-**Para levar (conteúdo do handout, seção 9 — só apontar, não reler):**
-
-- Repositório: `github.com/lucianfialho/talks-2026`, pasta
-  `05-imersao-cro/`.
-- Reinstalação do zero: `skills/README.md`.
-- Ação de segunda-feira: `heuristica-morys` numa página real →
-  `hipotese-estruturada` no achado mais fraco → `ice-score` se tiver mais
-  de uma ideia.
-- Quem entrou no beta (critério anunciado às 16h05): confirmar acesso
-  individualmente com o facilitador — isso vira o assunto do buffer.
-
-**O que pode dar errado:** este fechamento tem mais conteúdo do que a
-versão anterior (7 passos nomeados + mapeamento + 3 citações literais +
-"para levar") — 10 minutos é apertado mesmo cortando tudo que dá para
-cortar. **Estimativa honesta: isto tende a estourar para 12–13 minutos** em
-ritmo de palco normal, não só em ensaio malfeito. **Saída:** este é
-exatamente o tipo de estouro para o qual o Bloco 9 (buffer, 15min) existe —
-não espremer o conteúdo para caber à força nos 10min; se passar 2-3
-minutos, é o buffer absorvendo, não um erro de execução.
-
-**Como cortar se atrasar (além de usar o buffer):** primeiro corte o "para
-levar" (é 100% redundante com o handout impresso, que a sala já tem em
-mãos); depois, se ainda faltar tempo, corte a citação de continuidade
-("o passo 7 alimenta o passo 1") e a frase do rodapé, mantendo só a tabela
-dos 7 passos e a linha "quatro de sete, e os três que faltam pedem
-infraestrutura" — é ela que carrega o gancho para o CTA. Nunca corte a
-tabela dos 7 passos nem a marcação dos 3 descobertos: é o fechamento do
-arco do dia.
+| 1 | **Taciana estoura o horário** | Palco entregue depois das 16h00 | Escolher o cenário na tabela da seção 1. B comprime, depois C, depois fundem. A e D não caem |
+| 2 | **Aluno não instalou o Claude Code** | Mão levantada no início de B | Acompanha A, B e C sem máquina. Em D, dupla com quem instalou. Não parar o bloco para instalar |
+| 3 | **Wifi cai** | Prompt não responde na máquina do facilitador | A não depende de rede. B e C rodam na tela do facilitador. D: o aluno escreve o `.md` à mão (plano B do D.2) e o validador vai para casa |
+| 4 | **Skill Creator não se comporta como no ensaio** | Saída diferente, loop travado | Caminho manual: o `.md` à mão com ingredientes + modo de preparo + output. Anunciar como plano previsto |
+| 5 | **Validador não roda na máquina do aluno** | Comando não encontrado | Facilitador roda na máquina dele com 2–3 voluntários, na tela. Os outros se autoavaliam pelos critérios |
+| 6 | **Validador dá nota alta para skill ruim** | Nota 8+ numa skill sem cargos nem handoffs | Discordar em voz alta e apontar a lacuna. A honestidade vale mais que a ferramenta |
+| 7 | **Aluno não sabe descrever o processo da empresa** | Tela em branco depois de 5 min no D.1 | "Descreva o que existe hoje, mesmo informal." As quatro perguntas são o esqueleto. Dupla como saída |
+| 8 | **Sala trava em debate longo (GA4, ferramenta, framework)** | Uma pessoa dominando 3+ min | Reconhecer, dizer que é assunto de curso inteiro, devolver ao ponto. Retomar a linha do bloco |
+| 9 | **O bloco D vai começar com menos de 30 min** | Relógio | Cortar o Fechamento para 2 min e avisar a produção. D não encolhe |
+| 10 | **Material de case indisponível (Duty Free)** | Sem número, sem hipótese, sem resultado | Contar como menção de 20 segundos e ir para Ering, que tem material. Não inventar número |
 
 ---
 
-## Bloco 9 — 17h45 · 15min · Buffer
+## Fontes
 
-**Objetivo:** absorver qualquer atraso acumulado, responder perguntas
-individuais, confirmar acesso ao beta pessoa a pessoa, e dar suporte final
-a quem ainda está travado em alguma instalação.
+Este roteiro foi escrito a partir de, nesta ordem de autoridade:
 
-**Uso, em ordem de prioridade se o tempo for curto:**
+1. `docs/superpowers/specs/2026-09-12-imersao-cro-v2-design.md`
+2. `notes/sources/reuniao-taciana-2026-07-16-transcricao.txt`
+3. `notes/sources/reuniao-taciana-2026-09-11-transcricao.txt`
+4. `notes/sources/live-claude-code-2026-07-22-transcricao.txt`
+5. `notes/sources/taciana-cro-fundamentos.md`
 
-1. Se o dia atrasou, este é o tempo que absorve — não é preciso avisar a
-   sala que "isso era buffer", só usar.
-2. Confirmação individual de acesso ao beta do analytics-copilot para quem
-   cumpriu o critério das 16h05.
-3. Perguntas que ficaram pendentes dos blocos anteriores (em especial a
-   pergunta de estatística do Bloco 5, se alguém quis continuar depois).
-4. Suporte final de instalação para quem ainda não conseguiu Claude Code
-   ou DuckDB — sem pressa, a sala já está tecnicamente encerrada aqui.
+Toda fala marcada `>>` é literal de uma dessas transcrições. Onde o roteiro precisaria de
+informação que não está em nenhuma delas, há um marcador `[A CONFIRMAR: ...]` — nenhum
+conteúdo técnico foi inventado para preencher lacuna.
 
-**O que pode dar errado:** nada específico — é o próprio amortecedor do
-dia. Se sobrar buffer inteiro sem uso, está tudo bem; não é obrigatório
-preencher os 15 minutos com conteúdo novo.
-
----
-
-## Pontos de trava gerais (não ligados a um bloco só)
-
-| Trava | Sinal | Saída |
-|---|---|---|
-| Instalação estourou o break | Mais de 10 pessoas ainda tentando às 15h50 | Rodar `ice-score` (Desktop) e deixar o apoio circulando; ele é o bloco que existe justamente para isso |
-| Taciana atrasou e comeu tempo | Começar depois das 15h05 | Cortar o bloco da cadeira do Dev (16h50, 25min) inteiro; ele é o primeiro a cair |
-| Wifi caiu | No Bloco 5 (Analytics, Code): Claude Code para de responder para a sala inteira, porque invocar a skill em linguagem natural depende da API da Anthropic — `duckdb` e o dado são locais, mas isso não ajuda se ninguém consegue chegar até eles pela skill. Nos blocos de CRO (Desktop): skills param igual, mesmo motivo | No Bloco 5, degradação em 3 níveis — ver a tabela de travas desse bloco: (1) pedir à skill normalmente, (2) sem wifi, digitar direto o comando `duckdb`/`python3` impresso no handout (mesmo resultado, sem a conversa), (3) sem wifi e sem ambiente, demos gravadas `04-contingencia-srm.mp4`/`05-contingencia-segmentos.mp4` (`notes/video-spec.md`) + handout impresso. Nos blocos de CRO, não há comando local equivalente — a saída é seguir só com quem já tem ambiente e reforçar que o material fica disponível para depois |
-| Pergunta longa sobre estatística no bloco de SRM | Uma pessoa puxando para p-valor e poder | Responder em uma frase, oferecer conversar no fim, seguir. Não é a aula. |
-| Ninguém tem página própria para analisar | Bloco das 15h08 trava | Ter 3 URLs de e-commerce brasileiro prontas no slide, para quem não trouxe |
-| Quem só instalou Claude Code (sem DuckDB) chega ao Bloco 5 | Pessoa com terminal funcionando mas `duckdb: command not found` | Ela acompanha o Bloco 5 pelos resultados impressos no handout (seção 6), não pelo próprio terminal; instala o DuckDB depois, em casa — não é possível rodar `srm-check` ou `post-test-segments` sem ele, e fingir que dá seria pior do que admitir o limite |
+**Soma das durações alvo:** 30 + 25 + 30 + 30 + 5 = **120 min**.
