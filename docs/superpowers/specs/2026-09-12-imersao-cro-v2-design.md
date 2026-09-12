@@ -104,11 +104,19 @@ Mecânica em três tempos:
 1. **Descrever** — o aluno mapeia o processo da empresa dele: quais cargos existem, quais
    handoffs acontecem, quais são os entregáveis de cada etapa. Trabalho individual, com
    permissão explícita de fazer em dupla.
-2. **Gerar** — o Skill Creator do Claude Code transforma a descrição em skill.
+2. **Gerar** — o Skill Creator transforma a descrição em skill. **Ele não vem com o
+   Claude Code:** é o plugin `skill-creator@claude-plugins-official`, instalado com os
+   dois comandos `claude plugin marketplace add …` / `claude plugin install …`, que
+   rodam **fora** do REPL e só valem **na sessão seguinte**. Por isso a instalação é um
+   passo de palco (B.2), com a sala toda, e não pressuposto.
 3. **Validar** — roda o validador, que é *"uma skill que é um antipattern da sua"*, com
    pontos de avaliação definidos. Saída: **o aluno sai com uma nota**.
 
-O validador é material novo — não existe nada equivalente no repositório.
+O validador é material novo — não existia nada equivalente no repositório quando esta
+spec foi escrita. Ele agora vive em `05-imersao-cro/skills/code/valida-skill-cro/` e é
+**reproduzido por extenso no handout**, porque o aluno precisa instalá-lo à mão: a pasta
+`~/.claude/skills/` não existe numa configuração nova, e a skill só carrega depois de
+fechar e reabrir o Claude Code.
 
 ---
 
@@ -124,14 +132,24 @@ Ação do Lucian definida em 11/09:
 
 ## 7. Instalação — o que o aluno precisa
 
-**Só o Claude Code**, mais a conta Claude Pro que já é pré-requisito do curso.
+O Claude Code, mais a conta Claude Pro que já é pré-requisito do curso — **e as duas
+dependências de base que o Claude Code usa por baixo: Node.js e git.**
 
-Fora: DuckDB, Python, `gmp-cli`, `agent-browser`, clone de repositório. Nenhum deles é
-necessário para o exercício, e cada um é um ponto de falha num intervalo de 30 minutos
-com 50 pessoas majoritariamente sem terminal.
+**O git é dependência dura, não opcional.** O `claude plugin marketplace add` faz um
+`git clone` por baixo; sem git ele falha com `✘ Failed to add marketplace: Failed to
+clone marketplace repository`. Windows não traz git de fábrica e `npm install -g` não o
+instala; no mac sem Xcode Command Line Tools, o `xcode-select --install` abre um
+instalador gráfico que leva minutos. Como o B.2 (instalar o plugin) é declarado "nunca
+corta" e é o que habilita o entregável do dia, o git tem que estar instalado **antes**
+do evento — aviso pelo grupo de WhatsApp, e passo obrigatório no `instalacao.md`.
+
+Fora: DuckDB, Python, `gmp-cli`, `agent-browser`, clone do repositório do curso. Nenhum
+deles é necessário para o exercício, e cada um é um ponto de falha num intervalo de 30
+minutos com 50 pessoas majoritariamente sem terminal.
 
 O arquivo de exemplo a ser dissecado no bloco C é **um único `.md`**, distribuído por
-pendrive ou copiado da tela. Sem download, sem ZIP, sem git.
+pendrive ou copiado da tela. Sem download e sem ZIP, e o aluno não clona repositório —
+mas isso não quer dizer que git não seja usado: ele é, por baixo do plugin.
 
 ---
 
@@ -154,7 +172,10 @@ pendrive ou copiado da tela. Sem download, sem ZIP, sem git.
 | Risco | Mitigação |
 |---|---|
 | Taciana estoura e sobra menos de 2h | Ordem de corte declarada (§3); B e C comprimem, A e D não |
-| Aluno não consegue instalar o Claude Code no intervalo | Acompanha A inteiro sem máquina; em D trabalha em dupla com quem instalou |
+| Aluno não consegue instalar o Claude Code no intervalo | Acompanha A inteiro sem máquina (o bloco A é conceitual, sem ferramenta); em D trabalha em dupla com quem instalou |
+| **Aluno sem git no B.2** — o `plugin marketplace add` faz `git clone` por baixo e falha com `Failed to clone marketplace repository` | Avisar a turma pelo grupo de WhatsApp **antes do evento**; git como passo obrigatório no `instalacao.md`. No dia não há conserto de palco (mac: instalador gráfico; Windows: download): mão levantada, dupla no bloco D |
+| **Plugin ou skill instalados com a sessão aberta não aparecem** — o Claude Code só os carrega na sessão seguinte | Todos os documentos mandam sair (`/exit`) e reabrir (`claude`) depois de instalar; a conferência de sala acontece **depois** do reinício, nunca pela mensagem de sucesso |
+| **Comandos do plugin digitados dentro do REPL** viram prompt para o modelo e não instalam nada | Instrução explícita de `/exit` antes dos dois comandos, no `instalacao.md`, no `handout.md` e no `script.md`; sintoma na tabela de erros |
 | Aluno não sabe descrever o processo da própria empresa | O bloco A já expõe as etapas; a descrição é guiada por perguntas fixas, não em branco |
 | Skill Creator se comportar diferente do ensaiado | Ensaiar na máquina do dia; ter o caminho manual (escrever o `.md` à mão) como plano B |
 | Validador dar nota alta para skill ruim | Calibrar com 3 exemplos antes do evento: uma boa, uma vaga, uma sem processo |
