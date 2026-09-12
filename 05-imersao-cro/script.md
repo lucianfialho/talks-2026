@@ -65,6 +65,28 @@ saber que houve corte.
 **A e D nunca caem.** Se a Taciana estourar além dos 40 min (palco às 16h40+), não
 comprimir A nem D: cortar o Fechamento para 2 min e avisar a produção.
 
+### O piso: abaixo de 77 min a regra deixa de fechar
+
+A conta: A (30, não comprime) + B+C fundidos (15, que já é o mínimo) + D (30, não
+comprime) + Fechamento (2, já cortado) = **77 min**. Isso é palco entregue às **16h43**.
+Abaixo disso, *"A e D nunca comprimem"* vira aritmeticamente impossível, e fingir que
+não é só transfere o problema para o meio do bloco D, com a sala na mão.
+
+**Então, declarado antes, na ordem em que cai:**
+
+| Palco entregue | Total | O que cai |
+|---|---|---|
+| até 16h40 | 80+ | Nada além do já previsto: B+C fundidos em 15, Fechamento em 5 |
+| 16h43 | 77 | Fechamento cai para 2 min |
+| 16h45 | 75 | **Fechamento sai do palco.** O mapeamento contra os 3 passos vira uma frase dentro do próprio D, com a nota ainda na tela do aluno: *"repara que os teus ingredientes são o passo 1, os teus handoffs são o passo 2, os teus entregáveis são o passo 3"*. É o fecho combinado, dito em 40 segundos |
+| 16h50 | 70 | **B+C caem de 15 para 10:** só `claude`, os dois comandos do plugin, o reinício, e uma frase nomeando ingredientes · modo de preparo · output com o `.md` na tela. Sem dissecação, sem features, sem hooks |
+| depois de 16h50 | < 70 | **A regra quebra, e quem cede é o A, não o D.** A comprime para 20: mantém shit in/shit out e o plano de mensuração, perde os cases (Duty Free e Ering viram menção de 20 segundos). D fica intacto porque é o entregável — o aluno não pode sair sem a nota |
+| menos de 50 min | — | Não é mais compressão, é outro bloco. Avisar a produção **na hora da entrega do palco**, não no fim: ou se negocia estender, ou o entregável muda de *"sai com uma nota"* para *"sai com a skill, e roda o validador em casa"*. Nesse caso, dizer isso à sala em voz alta — a expectativa foi vendida, não se apaga em silêncio |
+
+**O único horário que não escorrega** continua sendo o início do bloco D: **hora de
+término menos 35 min**. Se o relógio disser que ele já passou, pular direto para o D, de
+onde quer que o bloco esteja.
+
 **A instalação do plugin do Skill Creator, dentro de B, também nunca cai** — nos três
 cenários, inclusive no B+C fundido de 80 min. Sem ela o exercício do bloco D não
 acontece, então ela tem a mesma prioridade de A e D. O espaço para ela sai de conteúdo
@@ -311,8 +333,17 @@ atrasar, o corte sai de B, nunca daqui.
 
 O aluno abre o Claude Code pela primeira vez, entende custo e controle de prompt,
 **instala o plugin do Skill Creator com o facilitador** e manda o primeiro prompt. Nada
-além disso. O aluno instala **só o Claude Code e este plugin** — sem DuckDB, sem
-Python, sem clone de repositório.
+além disso. O aluno instala **o Claude Code, as duas dependências de base dele (Node.js
+e git) e este plugin** — sem DuckDB, sem Python, e sem clonar o repositório do curso.
+
+**O git não é opcional e não é detalhe.** O `claude plugin marketplace add` faz um
+`git clone` por baixo; numa máquina sem git ele falha com `✘ Failed to add marketplace:
+Failed to clone marketplace repository`. Windows não traz git de fábrica e o
+`npm install -g` não instala. No mac sem Xcode Command Line Tools, o
+`xcode-select --install` abre um instalador **gráfico** que leva minutos — não é coisa
+de resolver no palco. Por isso o aviso vai para o grupo de WhatsApp **antes do evento**
+(ver checklist de pré-evento) e o git é passo obrigatório no `instalacao.md` (Passo 2),
+não o passo opcional do plugin.
 
 Fala dele em 16/07, sobre o próprio desconforto com o momento em que isso acontece:
 
@@ -331,8 +362,10 @@ sem chave configurada) passaria em silêncio, espalhada pela sala, e só aparece
 17h25, quando o D começa. Aqui, ao vivo, o facilitador roda com todo mundo, vê quem
 travou na hora e resolve — por isso este passo é tratado como **B.2, com a mesma
 prioridade dos blocos A e D: não cai em nenhum cenário**, nem no B+C fundido de 80 min.
-No `05-imersao-cro/instalacao.md` isso aparece como Passo 6, opcional e de
+No `05-imersao-cro/instalacao.md` isso aparece como Passo 7, opcional e de
 adiantamento — quem já rodou no intervalo só vê a confirmação de novo, sem problema.
+(O que **não** é opcional lá é o Passo 2, o git: sem ele o B.2 não roda em máquina
+nenhuma.)
 
 ## Na tela
 
@@ -372,31 +405,63 @@ O enquadramento, definido em 16/07:
 A fala de transição: *"antes de seguir, um passo técnico rápido, e eu quero ver todo
 mundo rodando comigo — vocês vão precisar disso lá no fim da tarde."*
 
-**O que a turma digita**, os dois comandos, um de cada vez, exatamente como estão:
+**Passo zero, e é onde a sala inteira erra:** a essa altura todo mundo está *dentro* do
+Claude Code (acabaram de abrir no B.1). Os dois comandos abaixo **não são comandos do
+Claude** — digitados lá dentro, viram prompt para o modelo, ele responde em prosa, nada
+é instalado, e ninguém vê a mensagem de sucesso. Dizer isso em voz alta antes de
+qualquer comando, e mandar todo mundo sair:
+
+```
+/exit
+```
+
+Esperar a sala voltar ao cursor do terminal. Só então, **os dois comandos**, um de cada
+vez, exatamente como estão:
 
 ```
 claude plugin marketplace add https://github.com/anthropics/claude-plugins-official
 ```
 
 Esperar a sala acompanhar. O sinal de que funcionou aparece na tela de cada um:
-`✔ Successfully added marketplace: claude-plugins-official` (ou, para quem já rodou no
-intervalo — Passo 6 do guia —, `already on disk`; os dois estão certos). Depois:
+`✔ Successfully added marketplace: claude-plugins-official (declared in user settings)`
+(ou, para quem já rodou no intervalo — Passo 7 do guia —,
+`✔ Marketplace 'claude-plugins-official' already on disk`; os dois estão certos).
+Depois:
 
 ```
 claude plugin install skill-creator@claude-plugins-official
 ```
 
-Sinal de sucesso: `✔ Successfully installed plugin: skill-creator@claude-plugins-official`
-(ou `already installed`, mesma coisa). Os dois comandos são idempotentes — rodar de novo
-não quebra nada, é por isso que dá para rodar com a sala toda ao mesmo tempo, sem
-perguntar antes quem já adiantou.
+Sinal de sucesso:
+`✔ Successfully installed plugin: skill-creator@claude-plugins-official (scope: user)`
+(ou `✔ Plugin "skill-creator@claude-plugins-official" is already installed`, mesma
+coisa). Os dois comandos são idempotentes — rodar de novo não quebra nada, é por isso
+que dá para rodar com a sala toda ao mesmo tempo, sem perguntar antes quem já adiantou.
 
-**Como confere que a sala inteira conseguiu, sem parar o bloco:** perguntar em voz
-alta, "quem viu as duas mensagens de sucesso, levanta a mão" — não é checagem
-máquina a máquina, é leitura rápida da sala. Quem não levantar a mão é a saída da linha
-3 da tabela de pontos de trava, mais abaixo: segue o bloco sem parar, e resolve em
-dupla no bloco D. **Não depurar erro de instalação individual aqui** — mesmo raciocínio
-já usado para erro de login: mão levantada, segue o roteiro, resolve durante o D.
+**Terceiro comando, e ele é obrigatório:** o plugin só carrega na **sessão seguinte**.
+Quem ficar na sessão antiga não vai ter `/skill-creator`, por mais que a instalação
+tenha dado certo. Então, com a sala:
+
+```
+claude
+```
+
+**Como confere que a sala inteira conseguiu, sem parar o bloco — e só DEPOIS do
+reinício:** com todo mundo de volta dentro do Claude Code, mandar digitar `/` e
+perguntar em voz alta, *"quem está vendo `skill-creator` na lista, levanta a mão"*. A
+checagem é essa, não a mensagem de sucesso: a mensagem de sucesso aparece mesmo em
+quem depois não reabriu, e é justamente isso que esconde a falha até as 17h25. Não é
+checagem máquina a máquina, é leitura rápida da sala. Quem não levantar a mão é a saída
+da linha 3 da tabela de pontos de trava, mais abaixo: segue o bloco sem parar, e
+resolve em dupla no bloco D. **Não depurar erro de instalação individual aqui** — mesmo
+raciocínio já usado para erro de login: mão levantada, segue o roteiro, resolve durante
+o D.
+
+**O erro que vai aparecer em quem não instalou o git:** uma frase começando em
+`✘ Failed to add marketplace:` e contendo `Failed to clone marketplace repository`.
+Não é wifi, não é conta, não é digitação. É git faltando — e não tem conserto de palco:
+no mac o instalador é gráfico e leva minutos, no Windows é um download do git-scm.com.
+Mão levantada, dupla no bloco D, instala em casa.
 
 ### B.3 — As features, em lista (7 min)
 
@@ -443,7 +508,10 @@ comeu o excedente), soltar como bônus:
 
 ### B.5 — Git, em 60 segundos (3 min)
 
-Não ensinar Git. Só nomear por que existe:
+Não ensinar Git — e não dizer que ele não é usado hoje, porque é mentira: ele já rodou
+na máquina de todo mundo no B.2, por baixo do `claude plugin marketplace add`. O
+enquadramento certo é *"vocês já usaram git hoje e nem viram"*. Depois, nomear por que
+existe:
 
 > `>>` **"vocês vão ter que dar uma olhada, uma pincelada no que que é o Git, nem que
 > seja porque é o lugar que você copia as skills. Tem que saber."**
@@ -456,6 +524,9 @@ Não ensinar Git. Só nomear por que existe:
 
 | Risco | Saída |
 |---|---|
+| **Aluno sem git na máquina** | O `claude plugin marketplace add` falha com `Failed to clone marketplace repository`. Não tem conserto de palco: mac pede instalador gráfico (minutos), Windows pede download do git-scm.com. Mão levantada, segue o bloco, **dupla no D** enquanto ele instala em paralelo. Se acontecer com muita gente, é sinal de que o aviso de pré-evento no WhatsApp não pegou — assumir e seguir |
+| **Sala digitou os comandos do plugin dentro do Claude Code** | Sintoma: o Claude responde em prosa sobre o comando, nenhum `✔` aparece. Nada foi instalado. Mandar `/exit` e repetir os dois comandos no terminal |
+| **Instalação deu sucesso mas `/skill-creator` não aparece** | Não reabriram o Claude Code. `/exit`, `claude`, e conferir de novo no `/` |
 | Aluno não conseguiu instalar no coffee | Ele acompanha B e C **sem máquina**, de olho na tela. No bloco D trabalha em dupla com quem instalou — a permissão de dupla é explícita e vem do desenho do exercício |
 | Aluno instalou o Claude Code mas o plugin do Skill Creator falhou no B.2 (erro de SSH, wifi, ou não levantou a mão a tempo) | Não parar o bloco. Ele acompanha C normalmente. No bloco D, dupla com quem tem o plugin funcionando, enquanto o facilitador (ou o próprio aluno, se der tempo) tenta de novo em paralelo — ver linha 3 dos pontos de trava |
 | Wifi do local cai | B e C rodam na máquina do facilitador, que é a única que precisa de rede. D é escrita de Markdown — funciona offline até a chamada do Skill Creator. Se a rede não voltar, ver "pontos de trava" |
@@ -496,7 +567,9 @@ apontou como o que mais agrega:
 > `>>` *(Taciana, 16/07)* **"a skill... que vai mais agregar é as partes de heurística,
 > de análises de site"**
 
-Distribuição: pendrive ou cópia da tela. **Sem download, sem ZIP, sem git clone.**
+Distribuição: pendrive ou cópia da tela. **Sem download e sem ZIP — e o aluno não
+clona o repositório do curso.** (Isso não quer dizer que não há git na máquina dele: há,
+desde o Passo 2 do guia, e foi ele que baixou o plugin no B.2.)
 
 ## Roteiro falado
 
@@ -743,6 +816,33 @@ O validador foi desenhado por ele em 16/07:
 
 > `>>` **"Ponto. Entrega com o cara saindo com a notinha e tá tudo certo."**
 
+**Como o validador chega na máquina do aluno:** o texto completo do `SKILL.md` está
+**impresso no handout**, na seção D.3, junto com as três etapas de instalação. O
+facilitador também posta o arquivo no grupo de WhatsApp no início do bloco D — o grupo
+é o caminho rápido, o handout é o caminho que não falha.
+
+**As três etapas, ditas em voz alta, nesta ordem** (é o que o handout traz, e o
+facilitador acompanha pela tela dele):
+
+1. **Criar a pasta.** `~/.claude/skills/valida-skill-cro/` no mac,
+   `%USERPROFILE%\.claude\skills\valida-skill-cro\` no Windows. Dizer explicitamente
+   que **a pasta `skills` ainda não existe** — o Claude Code não a cria na instalação;
+   numa máquina nova, dentro de `.claude` há só `.claude.json`, `backups`, `plugins` e
+   `settings.json`. O aluno cria as duas pastas pelo Finder / Explorador, sem terminal.
+2. **Salvar o `SKILL.md`.** Avisar do Notepad: no Windows ele salva `SKILL.md` como
+   `SKILL.md.txt` em silêncio, e o D.3 morre aí. Atalho recomendado de palco: **pedir ao
+   próprio Claude Code para salvar o arquivo** — colar o texto no chat e pedir para
+   gravar em `~/.claude/skills/valida-skill-cro/SKILL.md`, criando as pastas. Resolve
+   as etapas 1 e 2 de uma vez e é o caminho com menos coisa para dar errado numa sala
+   sem terminal.
+3. **Sair e reabrir o Claude Code** — `/exit`, depois `claude`. **Skill nova só carrega
+   na sessão seguinte.** Se a sala não reiniciar, `/valida-skill-cro` não aparece, e
+   parece que todo mundo errou a pasta. Este passo é tão obrigatório quanto os dois
+   anteriores — é a mesma armadilha do plugin no B.2.
+
+**A conferência é depois do reinício, não antes:** mandar digitar `/` e perguntar quem
+está vendo `valida-skill-cro` na lista.
+
 **O que o aluno digita:**
 
 ```
@@ -763,10 +863,10 @@ aberto.
 do evento — uma skill boa, uma vaga e uma que descreve ferramenta em vez de processo — e
 essa calibração ainda não foi rodada. Sem ela, há risco de nota alta para skill ruim.]`
 
-`[A CONFIRMAR: o nome exato do slash command do validador na máquina do aluno. O arquivo
-no repositório está em skills/code/valida-skill-cro/, mas a forma de distribuição para a
-máquina do aluno (cópia manual, pendrive ou link) não está decidida — e o aluno instala
-só o Claude Code, sem git clone.]`
+O nome do slash command é `/valida-skill-cro` — ele vem do campo `name` do frontmatter,
+que tem que bater com o nome da pasta. Por isso a instrução de palco insiste no nome
+exato da pasta: errar aí é o segundo motivo mais comum de o comando não aparecer, atrás
+só de não ter reiniciado a sessão.
 
 ## O que pode dar errado — e a saída
 
@@ -774,7 +874,8 @@ só o Claude Code, sem git clone.]`
 |---|---|
 | Aluno não sabe descrever o processo da empresa dele | O bloco A já expôs as etapas. As quatro perguntas na tela dão o esqueleto. Se ainda travar: dupla |
 | Skill Creator se comporta diferente do ensaiado | Caminho manual — escrever o `.md` à mão com os três blocos do C.1. Anunciar como plano previsto, não como falha |
-| Validador não roda na máquina do aluno | O facilitador roda **na máquina dele**, com a skill de dois ou três voluntários, na tela. O resto recebe o critério e se autoavalia |
+| Validador não roda na máquina do aluno | Antes de tratar como falha, checar as duas causas banais: **não reabriu o Claude Code** depois de salvar (`/exit` + `claude`) e **nome da pasta diferente de `valida-skill-cro`**. Se ainda assim não rodar: o facilitador roda **na máquina dele**, com a skill de dois ou três voluntários, na tela. O resto recebe o critério e se autoavalia |
+| Arquivo salvo como `SKILL.md.txt` (Windows/Notepad) | Sintoma idêntico ao de cima — comando não aparece. Pedir para ligar "Extensões de nomes de arquivo" no Explorador e renomear. Ou refazer pelo atalho: pedir ao próprio Claude Code para salvar o arquivo |
 | Validador dá nota alta para skill claramente ruim | Ler a nota em voz alta e discordar publicamente, apontando a lacuna. Honestidade vale mais que a ferramenta |
 | Turma inteira atrasa e faltam 10 min | Cortar o D.3 individual: o facilitador roda o validador de **um** voluntário na tela, e todo mundo leva o comando para rodar em casa. D.1 e D.2 não cortam |
 
@@ -840,6 +941,23 @@ menção ao Copilot aparece só na live pública de 22/07. Decidir com ela antes
       comandos (`claude plugin marketplace add ...` e `claude plugin install
       skill-creator@claude-plugins-official`) e cronometrar quanto tempo leva de
       verdade, incluindo a espera pela mensagem de sucesso.
+- [ ] **AVISAR A TURMA NO GRUPO DE WHATSAPP, ANTES DO EVENTO, PARA INSTALAR O GIT.**
+      É o único item desta lista que não dá para resolver no dia: o `claude plugin
+      marketplace add` faz `git clone` por baixo, Windows não traz git de fábrica, o
+      `npm install -g` não instala, e no mac sem Command Line Tools o comando abre um
+      instalador **gráfico** que leva minutos. Mandar junto o guia de instalação e
+      apontar o **Passo 2** pelo nome. Sem esse aviso, uma fatia da sala chega no B.2
+      com `Failed to clone marketplace repository` e não há conserto de palco.
+- [ ] **Verificar, no ensaio, que plugin e skill só aparecem depois de reabrir o Claude
+      Code** — item obrigatório, não opcional. Instalar o plugin com uma sessão aberta,
+      digitar `/` e confirmar que `/skill-creator` **não** está lá; dar `/exit`, abrir
+      `claude`, digitar `/` e confirmar que agora **está**. Repetir o mesmo teste com o
+      `valida-skill-cro` salvo à mão em `~/.claude/skills/valida-skill-cro/SKILL.md`.
+      É a falha que some no B.2 e reaparece às 17h25 — ensaiar para saber o sintoma de
+      cor.
+- [ ] **Testar o caminho de instalação do validador na máquina do dia, do zero** — criar
+      as pastas `skills/` e `valida-skill-cro/` (elas não existem numa config nova),
+      salvar o `SKILL.md` copiado do handout, reabrir e rodar `/valida-skill-cro`.
 - [ ] **Calibrar o validador com três exemplos:** uma skill boa, uma vaga, uma que
       descreve ferramenta em vez de processo. Conferir se a nota separa os três.
 - [ ] Confirmar com a Taciana **o horário real de entrega do palco** e anotar aqui:
@@ -849,7 +967,9 @@ menção ao Copilot aparece só na live pública de 22/07. Decidir com ela antes
 - [ ] Levantar o material do **case Duty Free** com o Gustavo (ver `[A CONFIRMAR]` no
       bloco A).
 - [ ] Decidir e travar a **forma de distribuição** do `.md` de exemplo e do validador:
-      pendrive, cópia de tela ou link no grupo. Sem git clone.
+      pendrive, cópia de tela ou link no grupo — sem clonar o repositório do curso. O
+      texto dos dois já está impresso por extenso no handout, que é o caminho que não
+      falha; o que se decide aqui é só o atalho.
 - [ ] Fechar os links que vão para o grupo: hooks prontos, `.md` de exemplo, validador.
 
 ## D-0, antes de a sala abrir
@@ -860,7 +980,12 @@ menção ao Copilot aparece só na live pública de 22/07. Decidir com ela antes
       *(Na live de 22/07 ele ficou sem tokens no meio — não repetir.)*
 - [ ] Fonte do terminal aumentada e testada do fundo da sala.
 - [ ] `/skill-creator` e `/valida-skill-cro` testados **na máquina do dia**, na rede do
-      local.
+      local — os dois conferidos **depois** de um `/exit` + `claude`, não na sessão em
+      que foram instalados.
+- [ ] `git --version` respondendo na máquina do facilitador (é o que o B.2 usa por
+      baixo).
+- [ ] Texto do `valida-skill-cro` pronto para postar no grupo de WhatsApp no início do
+      bloco D (o handout já traz impresso; o grupo é o caminho rápido).
 - [ ] **Os dois comandos do plugin do Skill Creator testados na rede do local**
       (não só na rede de casa/escritório) — wifi de local de evento costuma ser mais
       lento ou filtrado, e é isso que vai rodar ao vivo com 50 pessoas ao mesmo tempo
@@ -886,6 +1011,8 @@ menção ao Copilot aparece só na live pública de 22/07. Decidir com ela antes
 | # | Trava | Sinal de que aconteceu | Saída |
 |---|---|---|---|
 | 1 | **Taciana estoura o horário** | Palco entregue depois das 16h00 | Escolher o cenário na tabela da seção 1. B comprime, depois C, depois fundem. A e D não caem |
+| 2a | **Aluno sem git no B.2** | `✘ Failed to add marketplace:` com `Failed to clone marketplace repository` na tela dele | Não parar o bloco e não tentar instalar git no palco (mac: instalador gráfico de minutos; Windows: download do git-scm.com). Mão levantada, segue B e C normalmente, e **no bloco D faz em dupla** com quem tem o plugin, enquanto instala o git em paralelo pelo guia (Passo 2). A nota sai igual |
+| 2b | **Plugin ou skill instalados com a sessão aberta** | Mensagem de sucesso apareceu, mas `/skill-creator` ou `/valida-skill-cro` não estão na lista do `/` | `/exit`, `claude`, conferir de novo. É a causa mais comum, e a conferência de sala sempre acontece **depois** do reinício, nunca antes |
 | 2 | **Aluno não instalou o Claude Code** | Mão levantada no início de B | Acompanha A, B e C sem máquina. Em D, dupla com quem instalou. Não parar o bloco para instalar |
 | 3 | **Aluno sem o plugin do Skill Creator quando o exercício (D) começa** | `/skill-creator` não aparece no `/` da máquina dele; mão levantada na checagem do B.2 ou no início do D.2 | Fazer em dupla com quem tem o plugin instalado, enquanto instala o dele em paralelo (os dois comandos do B.2, de novo). Não parar o bloco D para reinstalar — a dupla já resolve a entrega da nota |
 | 4 | **Wifi cai** | Prompt não responde na máquina do facilitador | A não depende de rede. B e C rodam na tela do facilitador. D: o aluno escreve o `.md` à mão (plano B do D.2) e o validador vai para casa |
