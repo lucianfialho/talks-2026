@@ -8,6 +8,7 @@ tags:
   - hands-on
   - plugin-skill-creator
   - handout-sync
+  - hooks-pretooluse
   - design-system
   - design-md
 covers:
@@ -18,6 +19,7 @@ covers:
   - data/
   - notes/
   - skills/
+  - hooks/
 specialist: content
 last_updated: "2026-09-13"
 status: filled

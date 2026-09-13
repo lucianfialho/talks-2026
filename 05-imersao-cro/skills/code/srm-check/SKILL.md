@@ -42,7 +42,24 @@ Assumindo alocação pretendida de 50/50 (confirme com o usuário se for outra):
 | 0,01 ≤ p < 0,05 | 🟡 **Suspeito** | Investigue antes de decidir. |
 | p ≥ 0,05 | 🟢 **SEM SRM** | Pode seguir para a análise segmentada. |
 
-## Passo 4 — se detectou SRM
+## Passo 4 — gravar o marcador (libera o hook)
+
+O hook `sem-srm-sem-resultado` bloqueia qualquer leitura de conversão/lift
+enquanto não existir `.cro/srm-ok` no projeto. **Só grave o marcador quando o
+veredito for 🟢.**
+
+    # veredito 🟢 — libera a leitura de resultado
+    mkdir -p .cro
+    printf 'SRM_OK  chi2=%s  p=%s  %s\n' "<chi2>" "<p>" "$(date '+%Y-%m-%d %H:%M')" > .cro/srm-ok
+
+Se o veredito for 🟡 ou 🔴, faça o contrário — apague o marcador, porque um
+teste que passou a ter SRM não pode continuar liberado:
+
+    rm -f .cro/srm-ok
+
+Diga ao usuário qual dos dois você fez.
+
+## Passo 5 — se detectou SRM
 
 Liste as causas mais comuns, nesta ordem:
 1. Redirect na variante B perdendo usuários no caminho

@@ -1,0 +1,79 @@
+#!/bin/bash
+# ---------------------------------------------------------------------------
+# Hook PreToolUse: sem-plano-sem-hipotese
+#
+# Bloqueia a skill `hipotese-estruturada` enquanto nao existir um
+# `plano-de-mensuracao.md` no diretorio do projeto.
+#
+# A regra: sem saber o que medir, hipotese e chute com template bonito.
+#
+# Protocolo (Claude Code 2.1.x): o payload chega em JSON no stdin, com
+# tool_name="Skill" e tool_input={"skill":"<nome>"}. Para bloquear,
+# escrevemos a mensagem no stderr e saimos com codigo 2.
+# ---------------------------------------------------------------------------
+
+PAYLOAD=$(cat)
+
+# --- extrator de JSON sem jq ------------------------------------------------
+# Caminho 1: python3 (presente na maioria das maquinas).
+# Caminho 2: sed, se python3 nao existir.
+json_get() {
+  if command -v python3 >/dev/null 2>&1; then
+    printf '%s' "$PAYLOAD" | python3 -c '
+import json, sys
+try:
+    d = json.load(sys.stdin)
+except Exception:
+    sys.exit(0)
+for k in sys.argv[1:]:
+    if not isinstance(d, dict):
+        sys.exit(0)
+    d = d.get(k)
+    if d is None:
+        sys.exit(0)
+print(d if isinstance(d, str) else "")
+' "$@" 2>/dev/null
+  else
+    # ultima chave pedida vira a chave procurada no texto cru
+    _k=""
+    for _a in "$@"; do _k="$_a"; done
+    printf '%s' "$PAYLOAD" \
+      | sed -n 's/.*"'"$_k"'"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p' \
+      | head -n 1
+  fi
+}
+
+TOOL=$(json_get tool_name)
+[ "$TOOL" = "Skill" ] || exit 0
+
+SKILL=$(json_get tool_input skill)
+case "$SKILL" in
+  *hipotese-estruturada*) ;;
+  *) exit 0 ;;
+esac
+
+# --- diretorio do projeto ---------------------------------------------------
+PROJ=$(json_get cwd)
+[ -n "$PROJ" ] || PROJ="${CLAUDE_PROJECT_DIR:-$PWD}"
+
+# Procura o plano ate 2 niveis abaixo da raiz do projeto.
+PLANO=$(find "$PROJ" -maxdepth 2 -iname 'plano-de-mensuracao*.md' 2>/dev/null | head -n 1)
+
+if [ -n "$PLANO" ]; then
+  exit 0
+fi
+
+# --- bloqueio ---------------------------------------------------------------
+{
+  echo "BLOQUEADO pelo hook sem-plano-sem-hipotese."
+  echo
+  echo "Nao existe plano-de-mensuracao.md neste projeto ($PROJ)."
+  echo "Sem saber o que medir, nao da pra gerar hipotese."
+  echo
+  echo "Como resolver:"
+  echo "  1. Crie o arquivo plano-de-mensuracao.md na raiz do projeto."
+  echo "  2. O modelo esta no handout: objetivo, metrica primaria,"
+  echo "     metricas de guardrail, segmento e fonte do dado."
+  echo "  3. Rode a skill hipotese-estruturada de novo."
+} >&2
+exit 2
