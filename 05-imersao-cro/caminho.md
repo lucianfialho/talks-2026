@@ -34,6 +34,17 @@
     reclamações do mês pra achar a principal dor com o site. (IA pra código
     já está muito avançada — dá pra fazer o extrator, ou analisar direto.)
 
+### Fecha o nó: tudo isso cabe num arquivo — `CRO.md`
+> Decisão 2026-09-13. É o CLAUDE.md da loja: o que o aluno aprendeu "antes de
+> aprender" vira contexto pro Claude. Convenção do workshop, não spec de mercado.
+
+- 8 seções: Negócio · Jornada em etapas · Plano de mensuração · Segmentos ·
+  Voz do cliente (SAC, vendas) · Perfil demográfico · Testes e backlog · Design → DESIGN.md
+- **Três preenchidas ao vivo** (Jornada, Plano de mensuração, Voz do cliente);
+  as outras cinco vão no template em `aluno/CRO.md`
+- Os hooks passam a exigir a seção "Plano de mensuração" do CRO.md (não mais
+  um `plano-de-mensuracao.md` separado)
+
 ## 4. Claude Code Desktop ou Terminal — quais as diferenças?
 
 - Claude Code Desktop — o que se perde
@@ -93,6 +104,9 @@
 - Falar sobre a **especificação criada pelo Google para extração de design system**
 - Talvez criar uma **skill que detecte esse design system**
   - dá pra usar uma skill pronta como base
+- Fecha com **dois arquivos, uma loja**: `CLAUDE.md` na pasta da loja com
+  `@CRO.md` (como a loja converte) e `@DESIGN.md` (como a loja parece).
+  Abriu o terminal na pasta, rodou `claude`, ele já leu os dois.
 
 ## 9. Anatomia de uma skill — a receita
 
