@@ -39,14 +39,23 @@ Por isso: **decidir o cenário no momento em que ela devolve o palco**, olhando 
 relógio, e não no meio do bloco. Anunciar nada disso para a sala — a turma não precisa
 saber que houve corte.
 
-| Você recebeu | A — Antes do Claude | B — Primeiro contato | C — Anatomia da receita | D — A sua skill | Fechamento | Soma |
-|---|---|---|---|---|---|---|
-| **120 min** (16h00) | 30 | 25 | 30 | 30 | 5 | **120** |
-| **100 min** (16h20) | 30 | 15 | 20 | 30 | 5 | **100** |
-| **80 min** (16h40) | 30 | **B+C fundidos: 15** | — | 30 | 5 | **80** |
+| Você recebeu | A — Antes do Claude | B — Primeiro contato | C — Anatomia da receita | D — A sua skill | Fechamento | Bônus | Soma |
+|---|---|---|---|---|---|---|---|
+| **mais de 120 min** (palco antes das 16h00) | 30 | 25 | 30 | 30 | 5 + obrigado | 6 a 30, emendados | **126 a 150** |
+| **120 min** (16h00) | 30 | 25 | 30 | 30 | 5 + obrigado | — | **120** |
+| **100 min** (16h20) | 30 | 15 | 20 | 30 | 5 + obrigado | — | **100** |
+| **80 min** (16h40) | 30 | **B+C fundidos: 15** | — | 30 | 5 + obrigado | — | **80** |
+
+O **obrigado** fecha o núcleo em qualquer um dos quatro cenários. Ele não é um slide de
+transição: é o ponto em que a apresentação está completa e o facilitador pode sair sem
+dever nada à sala. Tudo que vier depois dele é bônus — ver a seção **BÔNUS** no fim
+deste roteiro.
 
 **Como cada cenário se executa na prática:**
 
+- **Mais de 120 min — o cenário com sobra.** O núcleo roda inteiro e fecha no obrigado.
+  Os bônus entram **depois** disso, um a um, enquanto o relógio permitir. Detalhe do
+  critério de escolha na subseção *"O cenário com sobra"*, logo abaixo.
 - **120 min — o alvo.** Tudo roda como escrito. Se sobrar minuto no fim de C, ele vai
   para D, não para B.
 - **100 min.** B perde a comparação CLI vs MCP e o tour de features (`/loop`,
@@ -93,8 +102,52 @@ acontece, então ela tem a mesma prioridade de A e D. O espaço para ela sai de 
 de B que já era opcional em qualquer cenário (a comparação CLI vs MCP): ver seção do
 Bloco B.
 
-**Se sobrar tempo** (ela terminar antes das 16h00): B e C voltam ao alvo e o excedente
-vai todo para D — é onde o tempo extra rende mais, porque é lá que o aluno trava.
+**Se sobrar tempo** (ela terminar antes das 16h00): B e C voltam ao alvo, o excedente
+dentro do núcleo vai para D — é onde o tempo extra rende mais, porque é lá que o aluno
+trava — e o que continuar sobrando **depois do obrigado** vira bônus. Como escolher
+qual, logo abaixo.
+
+### O cenário com sobra: mais de 120 min
+
+Esta é a subseção que tira o cronograma da dependência do horário de entrega do palco.
+O núcleo termina no obrigado; o bônus é emendado ali, sem anunciar que era reserva.
+
+**Quanto cada bloco custa:**
+
+| Bônus | Tema | Alvo | Soma acumulada a partir dos 120 |
+|---|---|---|---|
+| 1 | Quanti × quali, com o case Zerezes | 6 min | 126 |
+| 3 | Matriz de quantos testes cabem | 6 min | 132 |
+| 2 | Case Duty Free | 6 min | 138 |
+| 5 | CLI × MCP — o benchmark | 6 min | 144 |
+| 4 | Hooks e guardrails na prática | 6 min | 150 |
+
+**Ordem sugerida de emenda: 1 → 3 → 2 → 5 → 4.** É a ordem que sai do assunto mais
+próximo do que a sala acabou de fazer (processo e dado) e vai andando para o mais
+técnico. Quem parar no meio para no lugar certo — cada bloco é fechado em si.
+
+**O critério para escolher qual puxar primeiro é ler a sala, não a tabela:**
+
+- **Turma que se acendeu em processo** — a que fez pergunta sobre plano de mensuração,
+  sobre como priorizar, sobre quantos testes dá para rodar: puxar **1 e 3**. São os dois
+  que continuam a conversa que ela mesma abriu.
+- **Turma que se acendeu em técnica** — a que perguntou de terminal, de token, de
+  segurança, de o que o Claude pode quebrar: puxar **4 e 5**. É onde a mão dela já
+  estava.
+- **O 2 (Duty Free) não é escolha de leitura de sala, é escolha de material.** Só entra
+  se o conteúdo tiver sido levantado com o Gustavo antes do dia. Se o `[A CONFIRMAR]`
+  do bloco continuar aberto na manhã do evento, ele sai da lista e não se tenta
+  improvisar no palco.
+
+**Duas regras de palco para os bônus:**
+
+1. **Não anunciar que é bônus.** Para a sala, é a continuação natural. Anunciar reserva
+   é dizer que havia conteúdo guardado, e isso desvaloriza o que já foi entregue.
+2. **Cada bloco fecha antes de o próximo começar.** Se o relógio acabar no meio, foi no
+   fim de um bloco, não no meio de uma frase.
+
+Tudo que não entrar ao vivo continua indo para o **PDF complementar** que o aluno leva —
+o bônus não é conteúdo perdido, é conteúdo que muda de canal.
 
 ---
 
@@ -929,6 +982,338 @@ validador — vão para o **grupo de WhatsApp da turma**. Definido como canal em
 nas transcrições de alinhamento com a Taciana define isso para o evento presencial — a
 menção ao Copilot aparece só na live pública de 22/07. Decidir com ela antes do dia.]`
 
+## O corte limpo — o obrigado
+
+**Última fala do núcleo. Dita de pé, olhando a sala, sem emenda:**
+
+> **"Obrigado."**
+
+É só isso, e é de propósito. Deck no slide **Obrigado**, luz na sala, aplauso.
+
+**O que este corte significa para quem está no palco:**
+
+- **A apresentação está completa aqui.** Se o relógio tiver acabado, acabou — a promessa
+  do dia foi entregue: o aluno sai com a skill dele escrita e com a nota do validador.
+  Nada ficou devendo.
+- **Ninguém na sala sabe que havia mais.** O obrigado não é "vou parar por aqui porque
+  o tempo acabou"; é o fim que estava escrito.
+- **Daqui em diante é tudo upside.** O que vem depois — a seção BÔNUS, logo abaixo —
+  só é emendado se sobrar relógio, e a decisão é do facilitador, na hora, sem aviso
+  para a sala.
+
+**Se não há tempo:** encerrar aqui, agradecer a Taciana em voz alta pelo nome, apontar o
+grupo de WhatsApp e sair.
+
+**Se há tempo:** não voltar ao fechamento nem recapitular. Emendar direto o primeiro
+bônus escolhido, como se fosse a continuação natural da tarde.
+
+---
+
+# BÔNUS — 30 min de reserva
+
+**Fora do núcleo · 5 blocos de ~6 min · soma 30 min**
+
+Esta seção existe por uma decisão do facilitador em 13/09:
+
+> `>>` **"deixa 30 minutos de conteúdo de reserva — eu faço isso de vez em quando: tu
+> mete um obrigado e depois mete uns bônus falando sobre coisas específicas."**
+
+**Como funciona:**
+
+- Cada bloco é **fechado em si**, sem dependência dos outros, e pode ser dado em
+  qualquer ordem.
+- Ordem sugerida e critério de escolha: seção 1, subseção *"O cenário com sobra"*.
+- Nenhum bloco é anunciado como bônus para a sala.
+- O que não entrar ao vivo vai para o **PDF complementar**.
+
+---
+
+## Bônus 1 — Quanti × quali, com o case Zerezes
+
+**~6 min**
+
+### Por que é bônus e não núcleo
+
+O núcleo já usa o dado qualitativo como **fonte de hipótese** (A.3) e já cita a Zerezes
+em uma frase. O que este bloco acrescenta é o aprofundamento do conceito: onde cada tipo
+de dado mora e o que "fazer quali" significa de verdade. É conceito, não mão na massa —
+e o entregável do dia é a skill escrita, não um conceito a mais. Rende muito mais
+contado do que lido, o que é exatamente o perfil de um bônus: se couber ao vivo, ganha;
+se não couber, o PDF dá conta.
+
+### Na tela
+
+- Slide **Dado quanti × dado quali** — duas colunas, onde cada um mora
+- Slide **Case Zerezes** — a fala do backlog + o veredito honesto
+
+### Falas-chave
+
+Abrir separando os dois, com o vocabulário dele (ditado em 12/09):
+
+> **Quantitativo é onde se armazena e se trabalha:** Mixpanel, Amplitude, Analytics.
+
+E então a virada, que é o ponto do bloco — quali **não é só pesquisa no site**:
+
+> `>>` **"dado quali, ó, é dado de qualidade, mesmo — qualitativo. Então é pesquisa, é
+> você ir na loja, você fazer a jornada da porra do teu usuário"**
+
+Os quatro movimentos concretos, nas palavras dele: **consumir os dados do SAC**, **ir na
+loja**, **fazer a compra**, **percorrer a jornada do próprio usuário**.
+
+O porquê:
+
+> `>>` **"a gente num determinado momento a gente acaba se distanciando muito do produto
+> que a gente mesmo vende, sacou? Então assim, qual é a forma da gente estar mais próximo
+> da dor do nosso cliente?"**
+
+E o veredito honesto, que é o que faz o bloco funcionar — dizer com a sala olhando:
+
+> **"É uma coisa que a gente fala muito e pouco a gente faz."**
+
+Fechar com a Zerezes como prova de que dá resultado:
+
+> `>>` **"A gente foi na Zerezes, conseguiu trocar uma ideia com os caras de Zerezes para
+> poder entender quais eram as dores e, pô, a gente tem um backlog gigantesco."**
+
+**Gancho de palco:** perguntar quem da sala já comprou no próprio site nos últimos 30
+dias, do carrinho ao recebimento. Deixar o silêncio trabalhar, igual ao do purchase no
+bloco A.
+
+---
+
+## Bônus 2 — Case Duty Free
+
+**~6 min**
+
+### Por que é bônus e não núcleo
+
+É um case que ele **se comprometeu a contar** (ação dele na reunião de 11/09), mas que
+hoje **não tem conteúdo em lugar nenhum** — nem número, nem hipótese, nem resultado. Um
+case sem conteúdo não pode sustentar minuto de núcleo: se não for levantado a tempo, o
+núcleo quebraria. Como bônus, a ausência não custa nada — o bloco simplesmente sai da
+lista e ninguém percebe. No núcleo (A.4) ele continua existindo como **menção de 20
+segundos**, que é o que o material atual suporta.
+
+### Na tela
+
+- Slide **Case Duty Free — estrutura**, com os campos vazios e visíveis
+
+### Estrutura do bloco
+
+O esqueleto abaixo é o que o bloco precisa. **Nenhum campo foi preenchido, porque
+nenhum deles está em qualquer fonte.**
+
+| Campo | Conteúdo |
+|---|---|
+| Contexto do cliente | `[A CONFIRMAR: que operação é, que porte, em que ano]` |
+| Como o case chegou | `[A CONFIRMAR: trabalho feito com o Gustavo antes de a Taciana entrar — confirmar o enquadramento]` |
+| O dado que originou | `[A CONFIRMAR: quanti, quali, ou os dois — e qual era o sinal]` |
+| A hipótese testada | `[A CONFIRMAR: hipótese no template dela — se mudarmos X, para Y, então Z, porque W]` |
+| A forma de teste | `[A CONFIRMAR: A/B, MVT, fake door, rollout progressivo — qual foi]` |
+| O resultado | `[A CONFIRMAR: número, direção e se foi conclusivo]` |
+| O que escalou depois | `[A CONFIRMAR: o que virou padrão na operação]` |
+
+### Falas-chave
+
+A única fala registrada sobre este case, na reunião de 11/09:
+
+> `>>` **"esse case aí, tu pode me chamar e eu conto o case."**
+
+### Regra do bloco
+
+**Não inventar número no palco.** Se o material não tiver sido levantado com o Gustavo
+até a manhã do dia 14, este bônus **não é dado** — puxa-se outro da lista. Já existe
+linha para isso nos pontos de trava (item 11).
+
+**Dependência:** item do checklist de pré-evento — *"Levantar o material do case Duty
+Free com o Gustavo"*.
+
+---
+
+## Bônus 3 — Matriz de quantos testes cabem
+
+**~6 min**
+
+### Por que é bônus e não núcleo
+
+É concreto e útil, e foi pedido nominalmente por ele (direção de 12/09). Mas é o tipo de
+conteúdo que **funciona como leitura**: uma matriz se consulta, não se assiste. E os
+cortes da matriz ainda não estão fechados, o que impediria de sustentá-la como núcleo.
+Como bônus, ela cabe ao vivo quando a sala está em clima de processo, e cabe no PDF
+sempre.
+
+### Na tela
+
+- Slide **As três entradas** — o que se mede para calcular
+- Slide **O que a matriz responde** — com os cortes ainda em aberto
+
+### O que ele pediu, textualmente (direção de 12/09)
+
+Uma matriz de **quantos testes e experimentos a operação suporta**, a partir de:
+
+- quantidade de pessoas acessando as páginas
+- quantas páginas de destino
+- quantos acessos
+
+E o motivo: serve para *"deixar mais fácil essa criação de padrões"*.
+
+### Falas-chave
+
+O enquadramento vem do gargalo que ele já declara no núcleo (A.3), e este bloco é a
+resposta prática dele:
+
+> `>>` **"já para avisar vocês, priorização é grande parte do problema."**
+
+> `>>` **"A priorização também deveria estar ligada à capacidade técnica que a gente tem
+> de desenvolver, a capacidade de design de conseguir implementar aquelas telas."**
+
+A ponte para dizer em voz alta: a matriz é o que transforma *"a gente tem 40 hipóteses"*
+em *"a gente consegue rodar N por mês"* — e é o N que reorganiza o backlog, não o
+ranking.
+
+### O que ainda falta para a matriz existir
+
+`[A CONFIRMAR: os cortes de tráfego da matriz — a partir de quantos acessos por página
+por semana uma página entra na conta, e quantos experimentos simultâneos cada faixa
+suporta. Nenhuma transcrição registra os números, e não há planilha na pasta data/.
+Definir com ele antes do dia ou dar o bloco só com as três entradas e o raciocínio.]`
+
+`[A CONFIRMAR: se a matriz considera páginas de destino como unidades independentes ou
+se agrupa por template — muda a conta inteira.]`
+
+**Plano B honesto, se os números não vierem:** dar o bloco como **método**, não como
+tabela — nomear as três entradas, mostrar que o resultado é um teto de experimentos
+simultâneos, e dizer que o corte exato depende do volume de cada operação. Funciona em
+6 minutos e não inventa nada.
+
+---
+
+## Bônus 4 — Hooks e guardrails na prática
+
+**~6 min**
+
+### Por que é bônus e não núcleo
+
+O núcleo (C.4) **nomeia** o conceito: hooks existem, servem para isso, os prontos vão
+para o grupo. Isso já basta para o dia. Este bloco é profundidade técnica sobre o que
+ele mesmo chamou do ponto mais técnico do material — e o público **não é de tecnologia**
+(direção de 12/09). Além disso, **o aluno não escreve hook hoje**: aprofundar não muda o
+entregável. É exatamente o perfil de reserva.
+
+> `>>` **"dentro dessa estrutura aqui, um pouquinho mais técnico, e eu acho que se p[ega]
+> esse aqui é o ponto mais técnico desse material, a gente tem os hooks"**
+
+### Na tela
+
+- Slide **O hook, do evento ao bloqueio** — o caminho em três nós
+- Slide **Peça pro Claude escrever o hook** — a saída para quem não escreve shell
+
+### Falas-chave
+
+**Começar pelo caminho que o C.4 não deu:** o problema de quem não é técnico, e a saída.
+
+> `>>` **"aqui é onde a gente tem um pouco mais de problema, né? porque a gente precisa
+> de ter um conhecimento técnico de fato pra gente poder conseguir fazer esses scripts
+> aqui em [bash]. Mas você também pode pedir para o próprio [Claude Code] criar esses
+> scripts para você."**
+
+E o processo dele, que é o que a sala leva embora:
+
+> `>>` **"vou trabalhar aqui numa camada onde eu preciso pensar em quais são os guard
+> rails que eu preciso colocar para construir esses hooks, cara. Vou pegar esses hooks,
+> vou trabalhar com [Claude Code] para poder criar ele e vou disponibilizar pra galera."**
+
+Só então o arquivo concreto, se o C.4 tiver sido comprimido ou cortado:
+
+> `>>` **"aqui eu disponibilizei um arquivo, um shell, que eu tô dizendo: ó, não pode
+> executar rm -rf, não pode executar drop table, não pode executar drop database. Ou seja,
+> toda vez que o [Claude], antes de executar uma função que poderia ser um drop table, ele
+> vai trigar o hook e vai travar a sessão pro usuário."**
+
+E o fecho, que é o que justifica o bloco existir para uma sala de CRO:
+
+> `>>` **"quando a Júlia me liga[r] mandar lá para alguém do time dela utilizar e consumir
+> informação, ela vai garantir com[o]: cara, uma merda muito grande essa pessoa não pode
+> fazer. Uma merda pequenininha, às vezes ela consegue, mas de uma muito grande ela nunca
+> vai conseguir fazer."**
+
+### Regra de encaixe — evitar repetir o núcleo
+
+**Se o C.4 rodou inteiro** (cenário de 120 min): começar este bônus direto em *"peça pro
+Claude escrever o hook"* e **não repetir** os três eventos nem o arquivo. Sobram ~6 min
+de método, que é o que não foi dado.
+
+**Se o C.4 caiu ou virou uma tela só** (cenários 100 e 80): dar o bloco inteiro, na
+ordem acima — os eventos, o arquivo, a responsabilidade.
+
+`[A CONFIRMAR: qual repositório/link exato dos hooks prontos vai para o grupo de
+WhatsApp — mesmo marcador aberto no C.4.]`
+
+---
+
+## Bônus 5 — CLI × MCP
+
+**~6 min**
+
+### Por que é bônus e não núcleo
+
+No núcleo, este conteúdo **já é declaradamente o primeiro a cair** — foi o que abriu
+espaço para a instalação do plugin no B.2, que não corta. Além disso é o **stack do
+facilitador**, não o exercício do aluno: nenhuma máquina da sala precisa disso para
+entregar a skill do dia. Como reserva é ótimo material — é pesquisa própria, tem número,
+e é o bloco que mais impressiona uma sala técnica.
+
+### Na tela
+
+- Slide **O benchmark** — cinco tarefas, os dois competidores, o veredito
+- Slide **O stack** — o que o CLI conecta, e o que ainda falta confirmar
+
+### Falas-chave
+
+A tese, que é a única parte que o núcleo às vezes dá:
+
+> `>>` **"o MCP na maioria das vezes ele acaba trazendo uma visão onde ele vai gastar
+> mais tokens do que a maioria das conexões de dados que a gente pode fazer através de
+> CLI. Então, ele acaba sendo um pouco mais caro em consumo de tokens."**
+
+E o que o núcleo nunca dá — **o benchmark próprio**, que é o conteúdo deste bloco:
+
+> `>>` **"a gente fez um benchmark de fato, né? A gente pegou cinco tarefas e deu as cinco
+> tarefas pro MCP do Google Analytics e pro CLI que a gente construiu. Em todas elas a
+> gente foi mais performático."**
+
+> `>>` **"Todas elas a gente foi mais performático do que eles com relação a consumo de
+> tokens."**
+
+O que foi construído e por quê:
+
+> `>>` **"pra gente poder conseguir consumir isso de uma maneira onde a gente economize
+> tokens comparados ao MCP, a gente criou aqui algumas bibliotecas que se conectam direto
+> dentro do [Claude Code]. (...) a gente tem o Google Marketing Platform CLI. Então a
+> gente consegue conectar GA4, Google Search Console, Google Ads, Google Tag Manager e o
+> Google BigQuery."**
+
+E a honestidade que evita o bloco virar propaganda — ele mesmo relativiza:
+
+> `>>` **"hoje com modelos de 1 milhão de contexto que a gente acaba tendo tanto no
+> [Claude] quanto em outras soluções, fica mais fácil da gente conseguir utilizar MCP
+> hoje. Mas eu sempre prezo por um cenário onde a gente consiga mitigar e economizar
+> bastante token para poder fazer a análise."**
+
+### O que falta
+
+`[A CONFIRMAR: os números exatos do benchmark — quais foram as cinco tarefas e qual a
+diferença de tokens em cada uma. A transcrição da live de 22/07 registra o veredito
+("em todas elas a gente foi mais performático") mas nenhum número. Puxar do artigo da
+newsletter antes do dia.]`
+
+`[A CONFIRMAR: o link do artigo da newsletter com o comparativo. Ele mandou no chat da
+live; a transcrição não registra a URL.]`
+
+**Regra:** se os números não vierem, dar o veredito qualitativo ("cinco tarefas, o CLI
+ganhou nas cinco em consumo de token") e apontar o artigo. **Não estimar percentual no
+palco.**
+
 ---
 
 # Checklist de pré-evento
@@ -972,6 +1357,18 @@ menção ao Copilot aparece só na live pública de 22/07. Decidir com ela antes
       falha; o que se decide aqui é só o atalho.
 - [ ] Fechar os links que vão para o grupo: hooks prontos, `.md` de exemplo, validador.
 
+### Só para os bônus (nada aqui bloqueia o núcleo)
+
+- [ ] **Duty Free (bônus 2):** o mesmo levantamento com o Gustavo já listado acima. Se
+      não vier, o bônus 2 sai da lista — decidir isso na manhã do dia 14, não no palco.
+- [ ] **Matriz (bônus 3):** fechar os cortes de tráfego, ou assumir o plano B (dar o
+      bloco como método, com as três entradas e sem tabela).
+- [ ] **Benchmark (bônus 5):** puxar do artigo da newsletter os números das cinco
+      tarefas e o link do artigo. Sem isso, só o veredito qualitativo.
+- [ ] **Decidir a lista viável de bônus** — quais dos cinco estão realmente dados — e
+      anotar aqui, para não precisar decidir isso com a sala olhando:
+      `[A CONFIRMAR: bônus liberados para o dia]`
+
 ## D-0, antes de a sala abrir
 
 - [ ] **Grupo de WhatsApp da turma criado** e o link de instalação do Claude Code já
@@ -1000,7 +1397,11 @@ menção ao Copilot aparece só na live pública de 22/07. Decidir com ela antes
 
 ## Nos 60 segundos em que a Taciana entrega o palco
 
-- [ ] Olhar o relógio e **escolher o cenário** (120 / 100 / 80) na tabela da seção 1.
+- [ ] Olhar o relógio e **escolher o cenário** (mais de 120 / 120 / 100 / 80) na tabela
+      da seção 1.
+- [ ] Se o palco vier **antes das 16h00**, não alargar os blocos do núcleo para preencher:
+      rodar o núcleo no alvo, fechar no obrigado e emendar bônus. A decisão de qual bônus
+      fica para depois do obrigado, com a sala já lida.
 - [ ] Anotar mentalmente o horário-limite de início do bloco D: **hora de término menos
       35 min**. Esse é o único horário que não pode escorregar.
 
@@ -1040,4 +1441,8 @@ Toda fala marcada `>>` é literal de uma dessas transcrições. Onde o roteiro p
 informação que não está em nenhuma delas, há um marcador `[A CONFIRMAR: ...]` — nenhum
 conteúdo técnico foi inventado para preencher lacuna.
 
-**Soma das durações alvo:** 30 + 25 + 30 + 30 + 5 = **120 min**.
+**Soma das durações alvo do núcleo:** 30 + 25 + 30 + 30 + 5 = **120 min**, fechando no
+obrigado.
+
+**Soma dos bônus:** 6 + 6 + 6 + 6 + 6 = **30 min** de reserva, fora do núcleo. Teto com
+tudo emendado: **150 min**.
