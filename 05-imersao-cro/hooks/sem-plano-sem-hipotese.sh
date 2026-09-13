@@ -2,8 +2,8 @@
 # ---------------------------------------------------------------------------
 # Hook PreToolUse: sem-plano-sem-hipotese
 #
-# Bloqueia a skill `hipotese-estruturada` enquanto nao existir um
-# `plano-de-mensuracao.md` no diretorio do projeto.
+# Bloqueia a skill `hipotese-estruturada` enquanto o projeto nao tiver um
+# `CRO.md` com a secao "Plano de mensuracao" preenchida.
 #
 # A regra: sem saber o que medir, hipotese e chute com template bonito.
 #
@@ -56,24 +56,57 @@ esac
 PROJ=$(json_get cwd)
 [ -n "$PROJ" ] || PROJ="${CLAUDE_PROJECT_DIR:-$PWD}"
 
-# Procura o plano ate 2 niveis abaixo da raiz do projeto.
-PLANO=$(find "$PROJ" -maxdepth 2 -iname 'plano-de-mensuracao*.md' 2>/dev/null | head -n 1)
+# --- a secao "Plano de mensuracao" tem conteudo? ----------------------------
+# Le do heading ate o proximo heading. Ignora linha em branco e comentario
+# HTML. Sobra alguma linha de tabela que nao seja o cabecalho nem o separador?
+# Entao esta preenchida. So awk: nao depende de python3 nem de jq.
+secao_preenchida() {
+  awk '
+    /^[[:space:]]*#/ {
+      if (dentro) exit
+      if (tolower($0) ~ /plano de mensura/) dentro = 1
+      next
+    }
+    dentro {
+      linha = $0
+      if (linha ~ /^[[:space:]]*$/) next
+      if (linha ~ /^[[:space:]]*<!--/) next
+      if (index(linha, "|") == 0) next
+      nu = linha; gsub(/[ \t|:-]/, "", nu)
+      if (nu == "") { sep = 1; next }   # separador |---|---|
+      if (sep) { achou = 1; exit }      # primeira linha depois do separador
+      linhas++
+      if (linhas > 1) { achou = 1; exit }
+    }
+    END { exit (achou ? 0 : 1) }
+  ' "$1"
+}
 
-if [ -n "$PLANO" ]; then
-  exit 0
-fi
+# Procura o CRO.md ate 2 niveis abaixo da raiz do projeto.
+CRO=""
+for f in $(find "$PROJ" -maxdepth 2 -iname 'CRO.md' 2>/dev/null); do
+  CRO="$f"
+  if secao_preenchida "$f"; then
+    exit 0
+  fi
+done
 
 # --- bloqueio ---------------------------------------------------------------
 {
   echo "BLOQUEADO pelo hook sem-plano-sem-hipotese."
   echo
-  echo "Nao existe plano-de-mensuracao.md neste projeto ($PROJ)."
+  if [ -z "$CRO" ]; then
+    echo "Nao existe CRO.md neste projeto ($PROJ)."
+  else
+    echo "O CRO.md existe ($CRO), mas a secao \"Plano de mensuracao\" esta vazia:"
+    echo "so tem o comentario de instrucao e o cabecalho da tabela."
+  fi
   echo "Sem saber o que medir, nao da pra gerar hipotese."
   echo
   echo "Como resolver:"
-  echo "  1. Crie o arquivo plano-de-mensuracao.md na raiz do projeto."
-  echo "  2. O modelo esta no handout: objetivo, metrica primaria,"
-  echo "     metricas de guardrail, segmento e fonte do dado."
+  echo "  1. Abra o CRO.md na raiz do projeto (o modelo esta em aluno/CRO.md)."
+  echo "  2. Na secao \"Plano de mensuracao\", escreva o KPI primario e"
+  echo "     preencha a tabela: etapa | evento | onde mede."
   echo "  3. Rode a skill hipotese-estruturada de novo."
 } >&2
 exit 2

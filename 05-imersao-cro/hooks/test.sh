@@ -1,6 +1,6 @@
 #!/bin/bash
 # ---------------------------------------------------------------------------
-# test.sh — roda os 6 casos (um que bloqueia e um que passa por hook).
+# test.sh — roda os casos de cada hook (bloqueio, liberacao e regressao).
 # Nao precisa do Claude: manda o JSON no stdin do script, como o Claude faria.
 # Uso: bash test.sh
 # ---------------------------------------------------------------------------
@@ -31,15 +31,40 @@ echo "Sandbox: $BOX"
 echo
 
 # --- 1. sem-plano-sem-hipotese ----------------------------------------------
-P=$(projeto sem-plano)
-checa "sem-plano-sem-hipotese  BLOQUEIA sem plano-de-mensuracao.md" \
-  sem-plano-sem-hipotese.sh \
-  "{\"cwd\":\"$P\",\"hook_event_name\":\"PreToolUse\",\"tool_name\":\"Skill\",\"tool_input\":{\"skill\":\"hipotese-estruturada\"}}" 2
+# O payload e sempre o mesmo; o que muda e o CRO.md dentro do projeto.
+hipotese() { printf '{"cwd":"%s","hook_event_name":"PreToolUse","tool_name":"Skill","tool_input":{"skill":"hipotese-estruturada"}}' "$1"; }
 
-P=$(projeto com-plano); : > "$P/plano-de-mensuracao.md"
-checa "sem-plano-sem-hipotese  PASSA com plano-de-mensuracao.md" \
-  sem-plano-sem-hipotese.sh \
-  "{\"cwd\":\"$P\",\"hook_event_name\":\"PreToolUse\",\"tool_name\":\"Skill\",\"tool_input\":{\"skill\":\"hipotese-estruturada\"}}" 0
+P=$(projeto sem-cro)
+checa "sem-plano-sem-hipotese  BLOQUEIA sem CRO.md" \
+  sem-plano-sem-hipotese.sh "$(hipotese "$P")" 2
+
+P=$(projeto cro-vazio)
+cat > "$P/CRO.md" <<'FIM'
+## 3. Plano de mensuracao
+<!-- KPI primario e guardrail; depois um evento por etapa e onde voce le o numero. -->
+
+| Etapa | Evento | Onde mede |
+|---|---|---|
+
+## 4. Segmentos que importam
+FIM
+checa "sem-plano-sem-hipotese  BLOQUEIA com a secao so no cabecalho" \
+  sem-plano-sem-hipotese.sh "$(hipotese "$P")" 2
+
+P=$(projeto cro-preenchido)
+cat > "$P/CRO.md" <<'FIM'
+## 3. Plano de mensuracao
+<!-- KPI primario e guardrail; depois um evento por etapa e onde voce le o numero. -->
+KPI primario: conversao sessao->pedido.
+
+| Etapa | Evento | Onde mede |
+|---|---|---|
+| Pagina de produto | view_item | GA4 |
+
+## 4. Segmentos que importam
+FIM
+checa "sem-plano-sem-hipotese  PASSA com a secao preenchida" \
+  sem-plano-sem-hipotese.sh "$(hipotese "$P")" 0
 
 # --- 2. sem-srm-sem-resultado -----------------------------------------------
 P=$(projeto sem-srm)

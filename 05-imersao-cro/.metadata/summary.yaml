@@ -11,6 +11,8 @@ tags:
   - hooks-pretooluse
   - design-system
   - design-md
+  - cro-md
+  - contexto-aluno
 covers:
   - script.md
   - handout.md
@@ -20,6 +22,7 @@ covers:
   - notes/
   - skills/
   - hooks/
+  - aluno/
 specialist: content
 last_updated: "2026-09-13"
 status: filled

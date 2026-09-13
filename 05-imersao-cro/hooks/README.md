@@ -6,7 +6,7 @@ consegue pular uma etapa do ciclo de CRO porque um script bloqueia.
 
 | Hook | Bloqueia | Exige |
 |---|---|---|
-| `sem-plano-sem-hipotese.sh` | a skill `hipotese-estruturada` | `plano-de-mensuracao.md` no projeto |
+| `sem-plano-sem-hipotese.sh` | a skill `hipotese-estruturada` | `CRO.md` com a seção "Plano de mensuração" preenchida |
 | `sem-srm-sem-resultado.sh` | comandos que leem resultado de teste A/B (`converted`, conversão, `lift`, `cro-clean.db`) | a skill `srm-check` ter dado 🟢 e gravado `.cro/srm-ok` |
 | `sem-design-sem-variante.sh` | a skill `variante-builder` e a escrita de `variante*.html/.css/.js` | `DESIGN.md` no projeto |
 
@@ -45,8 +45,8 @@ valendo.
 
 ## Testar que está funcionando
 
-Sem abrir o Claude, os seis casos (três que bloqueiam, três que passam) mais
-três de regressão:
+Sem abrir o Claude, os dez casos de cada hook — bloqueio, liberação e
+regressão:
 
 ```bash
 bash 05-imersao-cro/hooks/test.sh
@@ -60,8 +60,20 @@ Com o Claude aberto, num diretório vazio:
 Rode a skill hipotese-estruturada
 ```
 
-Tem que aparecer `BLOQUEADO pelo hook sem-plano-sem-hipotese`. Crie um
-`plano-de-mensuracao.md` na pasta e peça de novo: passa.
+Tem que aparecer `BLOQUEADO pelo hook sem-plano-sem-hipotese`. Copie o
+`aluno/CRO.md` para a pasta, preencha a seção "Plano de mensuração" e peça de
+novo: passa.
+
+## O que conta como "Plano de mensuração preenchido"
+
+O hook procura um `CRO.md` até 2 níveis abaixo da raiz do projeto, lê da linha
+`## ... Plano de mensuração ...` até o próximo heading e descarta linha em
+branco, comentário HTML (`<!-- ... -->`), o cabeçalho da tabela e o separador
+`|---|`. Se sobrar pelo menos uma linha de tabela, está preenchida.
+
+Ou seja: o template recém-copiado, com o comentário de instrução e a tabela
+vazia, ainda bloqueia. Basta uma linha `| etapa | evento | onde mede |` de
+verdade para liberar. A checagem é feita em `awk` — sem `jq`, sem `python3`.
 
 ## Como o `sem-srm-sem-resultado` sabe que o SRM rodou
 
