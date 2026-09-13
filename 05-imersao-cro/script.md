@@ -61,14 +61,14 @@ deste roteiro.
 - **100 min.** B perde a comparação CLI vs MCP e o tour de features (`/loop`,
   `/schedule`, remote control) — fica abrir, custo de prompt, **a instalação do plugin
   do Skill Creator (não corta)** e o primeiro prompt. C perde a dissecação linha a linha
-  do exemplo e os hooks viram uma tela só: "existem, servem para isso, o link está no
-  grupo."
+  do exemplo e os hooks viram uma tela só: "existem, servem para isso, quem quiser
+  aprofundar pesquisa depois."
 - **80 min.** B e C deixam de ser blocos separados. Vira **um bloco único de 15 min**:
   abrir o Claude Code, **instalar o plugin do Skill Creator com a sala (não corta —
   cabe primeiro, o resto se ajusta ao que sobrar)**, mostrar o `.md` de exemplo na tela
   e nomear as três partes da receita (ingredientes, modo de preparo, output). Hooks e
-  guardrails saem do palco e viram link no grupo de WhatsApp. **A e D ficam intactos** —
-  A é a autoridade do facilitador, D é o que o aluno leva para casa.
+  guardrails saem do palco e ficam de fora — sem menção nem link. **A e D ficam
+  intactos** — A é a autoridade do facilitador, D é o que o aluno leva para casa.
 
 **Ordem de corte, declarada:** B comprime primeiro, depois C, depois B e C fundem.
 **A e D nunca caem.** Se a Taciana estourar além dos 40 min (palco às 16h40+), não
@@ -386,17 +386,16 @@ atrasar, o corte sai de B, nunca daqui.
 
 O aluno abre o Claude Code pela primeira vez, entende custo e controle de prompt,
 **instala o plugin do Skill Creator com o facilitador** e manda o primeiro prompt. Nada
-além disso. O aluno instala **o Claude Code, as duas dependências de base dele (Node.js
-e git) e este plugin** — sem DuckDB, sem Python, e sem clonar o repositório do curso.
+além disso. O aluno instala **o Claude Code e o Node.js, a dependência de base dele, e
+este plugin** — sem DuckDB, sem Python, e sem clonar o repositório do curso.
 
-**O git não é opcional e não é detalhe.** O `claude plugin marketplace add` faz um
-`git clone` por baixo; numa máquina sem git ele falha com `✘ Failed to add marketplace:
-Failed to clone marketplace repository`. Windows não traz git de fábrica e o
-`npm install -g` não instala. No mac sem Xcode Command Line Tools, o
-`xcode-select --install` abre um instalador **gráfico** que leva minutos — não é coisa
-de resolver no palco. Por isso o aviso vai para o grupo de WhatsApp **antes do evento**
-(ver checklist de pré-evento) e o git é passo obrigatório no `instalacao.md` (Passo 2),
-não o passo opcional do plugin.
+**O git é usado por baixo do pano, e nem todo mundo vai ter.** O `claude plugin
+marketplace add` faz um `git clone` por baixo; numa máquina sem git ele falha com
+`✘ Failed to add marketplace: Failed to clone marketplace repository`. Não há aviso
+prévio à turma — não existe grupo da turma nem contato antes do evento, então todo
+mundo descobre isso ao vivo, no B.2. Quem não tiver git faz o B.2 em dupla, com quem
+tem, e instala o git depois, em casa; não há passo de instalação dedicado a isso no
+`instalacao.md`, só um aviso de uma linha dentro do passo do plugin.
 
 Fala dele em 16/07, sobre o próprio desconforto com o momento em que isso acontece:
 
@@ -415,15 +414,16 @@ sem chave configurada) passaria em silêncio, espalhada pela sala, e só aparece
 17h25, quando o D começa. Aqui, ao vivo, o facilitador roda com todo mundo, vê quem
 travou na hora e resolve — por isso este passo é tratado como **B.2, com a mesma
 prioridade dos blocos A e D: não cai em nenhum cenário**, nem no B+C fundido de 80 min.
-No `05-imersao-cro/instalacao.md` isso aparece como Passo 7, opcional e de
+No `05-imersao-cro/instalacao.md` isso aparece como Passo 6, opcional e de
 adiantamento — quem já rodou no intervalo só vê a confirmação de novo, sem problema.
-(O que **não** é opcional lá é o Passo 2, o git: sem ele o B.2 não roda em máquina
-nenhuma.)
+(Sem git na máquina, o B.2 não roda — mas isso não é aviso prévio: quem descobrir na
+hora faz o passo em dupla e instala o git depois.)
 
 ## Na tela
 
 Terminal do facilitador, fonte grande. Uma tela de apoio com a lista de features a
-mencionar. O link de instalação já está no grupo de WhatsApp desde antes do coffee.
+mencionar. Os dois comandos do B.2 estão grandes e legíveis num slide, com a URL
+completa; a mesma URL está impressa no handout, para quem preferir copiar de lá.
 
 ## O que o facilitador digita ao vivo
 
@@ -477,7 +477,7 @@ claude plugin marketplace add https://github.com/anthropics/claude-plugins-offic
 
 Esperar a sala acompanhar. O sinal de que funcionou aparece na tela de cada um:
 `✔ Successfully added marketplace: claude-plugins-official (declared in user settings)`
-(ou, para quem já rodou no intervalo — Passo 7 do guia —,
+(ou, para quem já rodou no intervalo — Passo 6 do guia —,
 `✔ Marketplace 'claude-plugins-official' already on disk`; os dois estão certos).
 Depois:
 
@@ -577,14 +577,14 @@ existe:
 
 | Risco | Saída |
 |---|---|
-| **Aluno sem git na máquina** | O `claude plugin marketplace add` falha com `Failed to clone marketplace repository`. Não tem conserto de palco: mac pede instalador gráfico (minutos), Windows pede download do git-scm.com. Mão levantada, segue o bloco, **dupla no D** enquanto ele instala em paralelo. Se acontecer com muita gente, é sinal de que o aviso de pré-evento no WhatsApp não pegou — assumir e seguir |
+| **Aluno sem git na máquina** | O `claude plugin marketplace add` falha com `Failed to clone marketplace repository`. Não tem conserto de palco: mac pede instalador gráfico (minutos), Windows pede download do git-scm.com. Mão levantada, segue o bloco, **dupla no D** enquanto ele instala em paralelo. Sem aviso prévio (não há grupo da turma), é esperado que aconteça com uma fatia da sala — assumir e seguir |
 | **Sala digitou os comandos do plugin dentro do Claude Code** | Sintoma: o Claude responde em prosa sobre o comando, nenhum `✔` aparece. Nada foi instalado. Mandar `/exit` e repetir os dois comandos no terminal |
 | **Instalação deu sucesso mas `/skill-creator` não aparece** | Não reabriram o Claude Code. `/exit`, `claude`, e conferir de novo no `/` |
 | Aluno não conseguiu instalar no coffee | Ele acompanha B e C **sem máquina**, de olho na tela. No bloco D trabalha em dupla com quem instalou — a permissão de dupla é explícita e vem do desenho do exercício |
 | Aluno instalou o Claude Code mas o plugin do Skill Creator falhou no B.2 (erro de SSH, wifi, ou não levantou a mão a tempo) | Não parar o bloco. Ele acompanha C normalmente. No bloco D, dupla com quem tem o plugin funcionando, enquanto o facilitador (ou o próprio aluno, se der tempo) tenta de novo em paralelo — ver linha 3 dos pontos de trava |
 | Wifi do local cai | B e C rodam na máquina do facilitador, que é a única que precisa de rede. D é escrita de Markdown — funciona offline até a chamada do Skill Creator. Se a rede não voltar, ver "pontos de trava" |
 | Sala trava em erro de login/conta | Não debugar caso a caso no palco. Pedir para levantar a mão, seguir o roteiro, e resolver as mãos levantadas durante o bloco D, que é trabalho individual |
-| Alguém pergunta de DuckDB / gmp-cli / Copilot | Responder que é o stack do facilitador, não do exercício de hoje, e que o link vai para o grupo. **Não instalar nada na máquina de ninguém** |
+| Alguém pergunta de DuckDB / gmp-cli / Copilot | Responder que é o stack do facilitador, não do exercício de hoje. **Não instalar nada na máquina de ninguém** |
 
 ## Compressão
 
@@ -597,7 +597,7 @@ que fazer.
 - **Para 5 min (cenário 80, fundido com C):** só `claude`, **o plugin do B.2** — os dois
   comandos, sem a fala de transição — o primeiro prompt e a frase
   "isso aqui é onde a receita roda". Features, remote control, danger skip permission e
-  Git saem do palco e viram mensagem no grupo.
+  Git saem do palco e ficam de fora — sem menção nem link.
 
 ---
 
@@ -621,8 +621,8 @@ apontou como o que mais agrega:
 > de análises de site"**
 
 Distribuição: pendrive ou cópia da tela. **Sem download e sem ZIP — e o aluno não
-clona o repositório do curso.** (Isso não quer dizer que não há git na máquina dele: há,
-desde o Passo 2 do guia, e foi ele que baixou o plugin no B.2.)
+clona o repositório do curso.** (Isso não quer dizer que não há git na máquina dele:
+para quem tem, foi ele que baixou o plugin no B.2; quem não tem, fez o B.2 em dupla.)
 
 ## Roteiro falado
 
@@ -739,19 +739,19 @@ E a responsabilidade, que é o fecho moral do bloco:
 > `>>` **"Se você não sabe quem é que tem que fazer alguma coisa, porque provavelmente é
 > você que tem que fazer, né?"**
 
-**O aluno não escreve hook hoje.** Ele precisa saber que existe, o que impede, e onde
-achar os prontos — que vão para o grupo de WhatsApp.
+**O aluno não escreve hook hoje.** Ele precisa saber que existe, o que impede, e o nome
+do repositório dos prontos, citado em voz alta e deixado na tela — não há grupo da
+turma para postar depois.
 
-`[A CONFIRMAR: qual repositório/link exato dos hooks prontos vai para o grupo de
-WhatsApp. Na live de 22/07 ele compartilhou um link no chat, mas a transcrição não
-registra a URL.]`
+`[A CONFIRMAR: qual repositório/link exato dos hooks prontos citar. Na live de 22/07
+ele compartilhou um link no chat, mas a transcrição não registra a URL.]`
 
 ## O que pode dar errado — e a saída
 
 | Risco | Saída |
 |---|---|
 | Sala sem referência de Markdown | Mostrar `#` virando título na tela ao vivo. 30 segundos resolvem |
-| Alguém pede para instalar hooks agora | "Hoje ninguém escreve hook. Hoje todo mundo escreve receita." O link vai para o grupo |
+| Alguém pede para instalar hooks agora | "Hoje ninguém escreve hook. Hoje todo mundo escreve receita." O nome do repositório fica na tela |
 | Discussão sobre qual heurística usar (Morys vs Nielsen) | Devolver para o vocabulário dela: ela apresentou as 7 dimensões de Morys. Dizer que o exemplo usa a estrutura dela e seguir |
 | O `.md` de exemplo não abre / pendrive falha | Ler da tela projetada do facilitador. O aluno não precisa do arquivo para o bloco D |
 
@@ -759,7 +759,8 @@ registra a URL.]`
 
 - **Para 20 min:** cortar C.3 (a distinção skill/command/hook vira uma frase dentro de
   C.4) e reduzir C.4 a **uma tela**: hooks existem, bloqueiam `rm -rf` e `drop table`, o
-  link está no grupo. C.1 e C.2 ficam intactos — são o que sustenta o bloco D.
+  nome do repositório fica citado na tela. C.1 e C.2 ficam intactos — são o que sustenta
+  o bloco D.
 - **Cenário 80:** C não existe como bloco. Dentro dos 15 min fundidos com B, a
   instalação do plugin do Skill Creator (B.2) roda primeiro e não corta; sobra o
   restante do tempo para abrir o Claude Code e nomear as três partes da receita
@@ -871,8 +872,9 @@ O validador foi desenhado por ele em 16/07:
 
 **Como o validador chega na máquina do aluno:** o texto completo do `SKILL.md` está
 **impresso no handout**, na seção D.3, junto com as três etapas de instalação. O
-facilitador também posta o arquivo no grupo de WhatsApp no início do bloco D — o grupo
-é o caminho rápido, o handout é o caminho que não falha.
+facilitador também deixa o arquivo aberto e ampliado na tela dele no início do bloco D
+— quem preferir copiar de lá em vez de digitar, pode; o handout é o caminho que não
+falha.
 
 **As três etapas, ditas em voz alta, nesta ordem** (é o que o handout traz, e o
 facilitador acompanha pela tela dele):
@@ -975,8 +977,10 @@ Percorrer os três passos apontando onde a skill do aluno toca cada um:
 
 > `>>` **"é sempre o ponto de partida, tá? Não é nunca o início e o fim."**
 
-**Encerramento operacional:** os links de hoje — hooks prontos, o `.md` de exemplo, o
-validador — vão para o **grupo de WhatsApp da turma**. Definido como canal em 11/09.
+**Encerramento operacional:** os links de hoje — o `.md` de exemplo e o validador — já
+estão impressos por extenso no handout; o nome do repositório de hooks ficou citado na
+tela, no C.4. Não há grupo da turma: decisão revista em 13/09 (não existe grupo de
+WhatsApp, e não há contato com a turma antes do evento).
 
 `[A CONFIRMAR: se há CTA de produto no fim (Analytics Copilot / lista de espera). Nada
 nas transcrições de alinhamento com a Taciana define isso para o evento presencial — a
@@ -1001,8 +1005,8 @@ menção ao Copilot aparece só na live pública de 22/07. Decidir com ela antes
   só é emendado se sobrar relógio, e a decisão é do facilitador, na hora, sem aviso
   para a sala.
 
-**Se não há tempo:** encerrar aqui, agradecer a Taciana em voz alta pelo nome, apontar o
-grupo de WhatsApp e sair.
+**Se não há tempo:** encerrar aqui, agradecer a Taciana em voz alta pelo nome, lembrar
+que o `.md` de exemplo e o validador já estão impressos no handout, e sair.
 
 **Se há tempo:** não voltar ao fechamento nem recapitular. Emendar direto o primeiro
 bônus escolhido, como se fosse a continuação natural da tarde.
@@ -1194,8 +1198,9 @@ simultâneos, e dizer que o corte exato depende do volume de cada operação. Fu
 
 ### Por que é bônus e não núcleo
 
-O núcleo (C.4) **nomeia** o conceito: hooks existem, servem para isso, os prontos vão
-para o grupo. Isso já basta para o dia. Este bloco é profundidade técnica sobre o que
+O núcleo (C.4) **nomeia** o conceito: hooks existem, servem para isso, o nome do
+repositório dos prontos fica na tela. Isso já basta para o dia. Este bloco é
+profundidade técnica sobre o que
 ele mesmo chamou do ponto mais técnico do material — e o público **não é de tecnologia**
 (direção de 12/09). Além disso, **o aluno não escreve hook hoje**: aprofundar não muda o
 entregável. É exatamente o perfil de reserva.
@@ -1246,8 +1251,8 @@ de método, que é o que não foi dado.
 **Se o C.4 caiu ou virou uma tela só** (cenários 100 e 80): dar o bloco inteiro, na
 ordem acima — os eventos, o arquivo, a responsabilidade.
 
-`[A CONFIRMAR: qual repositório/link exato dos hooks prontos vai para o grupo de
-WhatsApp — mesmo marcador aberto no C.4.]`
+`[A CONFIRMAR: qual repositório/link exato dos hooks prontos citar — mesmo marcador
+aberto no C.4.]`
 
 ---
 
@@ -1326,13 +1331,6 @@ palco.**
       comandos (`claude plugin marketplace add ...` e `claude plugin install
       skill-creator@claude-plugins-official`) e cronometrar quanto tempo leva de
       verdade, incluindo a espera pela mensagem de sucesso.
-- [ ] **AVISAR A TURMA NO GRUPO DE WHATSAPP, ANTES DO EVENTO, PARA INSTALAR O GIT.**
-      É o único item desta lista que não dá para resolver no dia: o `claude plugin
-      marketplace add` faz `git clone` por baixo, Windows não traz git de fábrica, o
-      `npm install -g` não instala, e no mac sem Command Line Tools o comando abre um
-      instalador **gráfico** que leva minutos. Mandar junto o guia de instalação e
-      apontar o **Passo 2** pelo nome. Sem esse aviso, uma fatia da sala chega no B.2
-      com `Failed to clone marketplace repository` e não há conserto de palco.
 - [ ] **Verificar, no ensaio, que plugin e skill só aparecem depois de reabrir o Claude
       Code** — item obrigatório, não opcional. Instalar o plugin com uma sessão aberta,
       digitar `/` e confirmar que `/skill-creator` **não** está lá; dar `/exit`, abrir
@@ -1352,10 +1350,11 @@ palco.**
 - [ ] Levantar o material do **case Duty Free** com o Gustavo (ver `[A CONFIRMAR]` no
       bloco A).
 - [ ] Decidir e travar a **forma de distribuição** do `.md` de exemplo e do validador:
-      pendrive, cópia de tela ou link no grupo — sem clonar o repositório do curso. O
-      texto dos dois já está impresso por extenso no handout, que é o caminho que não
-      falha; o que se decide aqui é só o atalho.
-- [ ] Fechar os links que vão para o grupo: hooks prontos, `.md` de exemplo, validador.
+      pendrive ou cópia de tela — sem clonar o repositório do curso. O texto dos dois
+      já está impresso por extenso no handout, que é o caminho que não falha; o que se
+      decide aqui é só o atalho.
+- [ ] Fechar o nome/link do repositório de hooks prontos, para citar em C.4 e no
+      Bônus 4 — não há grupo da turma para postar depois.
 
 ### Só para os bônus (nada aqui bloqueia o núcleo)
 
@@ -1371,8 +1370,6 @@ palco.**
 
 ## D-0, antes de a sala abrir
 
-- [ ] **Grupo de WhatsApp da turma criado** e o link de instalação do Claude Code já
-      postado (antes do coffee, não depois).
 - [ ] Claude Code funcionando na máquina do facilitador, logado, com tokens disponíveis.
       *(Na live de 22/07 ele ficou sem tokens no meio — não repetir.)*
 - [ ] Fonte do terminal aumentada e testada do fundo da sala.
@@ -1381,8 +1378,8 @@ palco.**
       que foram instalados.
 - [ ] `git --version` respondendo na máquina do facilitador (é o que o B.2 usa por
       baixo).
-- [ ] Texto do `valida-skill-cro` pronto para postar no grupo de WhatsApp no início do
-      bloco D (o handout já traz impresso; o grupo é o caminho rápido).
+- [ ] Texto do `valida-skill-cro` pronto para mostrar ampliado na tela no início do
+      bloco D (o handout já traz impresso — é o caminho que não falha).
 - [ ] **Os dois comandos do plugin do Skill Creator testados na rede do local**
       (não só na rede de casa/escritório) — wifi de local de evento costuma ser mais
       lento ou filtrado, e é isso que vai rodar ao vivo com 50 pessoas ao mesmo tempo
@@ -1412,7 +1409,7 @@ palco.**
 | # | Trava | Sinal de que aconteceu | Saída |
 |---|---|---|---|
 | 1 | **Taciana estoura o horário** | Palco entregue depois das 16h00 | Escolher o cenário na tabela da seção 1. B comprime, depois C, depois fundem. A e D não caem |
-| 2a | **Aluno sem git no B.2** | `✘ Failed to add marketplace:` com `Failed to clone marketplace repository` na tela dele | Não parar o bloco e não tentar instalar git no palco (mac: instalador gráfico de minutos; Windows: download do git-scm.com). Mão levantada, segue B e C normalmente, e **no bloco D faz em dupla** com quem tem o plugin, enquanto instala o git em paralelo pelo guia (Passo 2). A nota sai igual |
+| 2a | **Aluno sem git no B.2** | `✘ Failed to add marketplace:` com `Failed to clone marketplace repository` na tela dele | Não parar o bloco e não tentar instalar git no palco (mac: instalador gráfico de minutos; Windows: download do git-scm.com). Mão levantada, segue B e C normalmente, e **no bloco D faz em dupla** com quem tem o plugin, enquanto instala o git depois, em casa. A nota sai igual |
 | 2b | **Plugin ou skill instalados com a sessão aberta** | Mensagem de sucesso apareceu, mas `/skill-creator` ou `/valida-skill-cro` não estão na lista do `/` | `/exit`, `claude`, conferir de novo. É a causa mais comum, e a conferência de sala sempre acontece **depois** do reinício, nunca antes |
 | 2 | **Aluno não instalou o Claude Code** | Mão levantada no início de B | Acompanha A, B e C sem máquina. Em D, dupla com quem instalou. Não parar o bloco para instalar |
 | 3 | **Aluno sem o plugin do Skill Creator quando o exercício (D) começa** | `/skill-creator` não aparece no `/` da máquina dele; mão levantada na checagem do B.2 ou no início do D.2 | Fazer em dupla com quem tem o plugin instalado, enquanto instala o dele em paralelo (os dois comandos do B.2, de novo). Não parar o bloco D para reinstalar — a dupla já resolve a entrega da nota |

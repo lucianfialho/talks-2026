@@ -1,8 +1,8 @@
 # Guia de instalação — Claude Code
 
-Este guia é para o intervalo das 15h30. Os passos 0 a 6 levam uns 10 a 15
+Este guia é para o intervalo das 15h30. Os passos 0 a 5 levam uns 10 a 15
 minutos se tudo correr bem — são esses que valem a pena terminar antes do
-fim do intervalo. O Passo 7, no fim do guia, é opcional: só faça se sobrar
+fim do intervalo. O Passo 6, no fim do guia, é opcional: só faça se sobrar
 tempo. Se travar em algum passo, procure a frase exata que apareceu na sua
 tela na tabela "Quando der errado", mais abaixo. Se mesmo assim não sair do
 lugar, leia o quadro **"Não trave aqui"** no fim deste guia e siga para o
@@ -11,8 +11,7 @@ resto da tarde sem culpa.
 ## Antes de tudo — o que você precisa ter
 
 - Conta Claude Pro ativa (a mesma que você usou de manhã).
-- ~10 a 15 minutos — mais perto de 15 se o Passo 2 (git) precisar instalar
-  de verdade na sua máquina.
+- ~10 a 15 minutos, se tudo correr bem.
 
 Nada mais. Você não precisa saber o que é um terminal — este guia ensina.
 
@@ -87,59 +86,9 @@ recém-instalado. No Mac isso não é necessário.
 Depois de instalar, rode `node --version` de novo para confirmar que
 aparece um número de versão.
 
-## Passo 2 — instalar o git
+## Passo 2 — instalar o Claude Code
 
-O git é outro programa de base. Você **não vai aprender git hoje** e **não
-vai clonar repositório nenhum** — mas ele precisa existir na sua máquina,
-porque é ele que o Claude Code usa por baixo para baixar o plugin do Skill
-Creator, lá no Passo 7 e de novo em sala com o facilitador. Sem git, aquele
-comando falha — e é ele que habilita o exercício do fim da tarde.
-
-Ele **não vem junto** com o Node.js nem com o Claude Code: instalar o Claude
-Code (Passo 3) não instala o git. Por isso ele tem um passo só dele.
-
-Antes de instalar, verifique se já está aí. Digite e aperte `Enter`:
-
-```
-git --version
-```
-
-**Se aparecer algo como `git version 2.50.1`** (qualquer número serve): já
-está instalado, pule para o Passo 3.
-
-**Se aparecer `command not found: git` (Mac) ou uma frase com `git` e "não é
-reconhecido" (Windows):** siga o caminho do seu sistema abaixo.
-
-**No Mac:** digite e aperte `Enter`:
-
-```
-xcode-select --install
-```
-
-Vai abrir **uma janela do próprio macOS** — não é o terminal, é um instalador
-com botões. Clique em **"Instalar"** e aceite os termos. O download leva
-alguns minutos e é bem pesado; deixe rodando e não feche a janela. Quando o
-instalador disser que terminou, volte para o terminal (`Cmd+Tab` até achar o
-ícone do Terminal) e rode `git --version` de novo para confirmar que agora
-aparece um número de versão.
-
-Se em vez da janela aparecer a frase `xcode-select: note: Command line tools
-are already installed.`, o git já estava lá — rode `git --version` de novo e
-siga para o Passo 3.
-
-**No Windows:** o Windows **não vem com git de fábrica**, e ele não é
-instalado por nenhum comando deste guia — precisa ser baixado. Abra o
-navegador, vá em **git-scm.com**, e baixe o instalador do Windows. Abra o
-arquivo `.exe` baixado e clique em "Next"/"Avançar" até o fim, **aceitando
-todas as opções que já vêm marcadas** — não é preciso mudar nada nas telas
-de configuração. Depois de terminar, volte para a janela do PowerShell,
-**feche essa janela** (veja a definição de "fechar" no Passo 0) **e abra uma
-nova** repetindo o Passo 0, para o Windows reconhecer o programa
-recém-instalado. Então rode `git --version` para confirmar.
-
-## Passo 3 — instalar o Claude Code
-
-Com o Node.js e o git confirmados, digite e aperte `Enter`:
+Com o Node.js confirmado, digite e aperte `Enter`:
 
 ```
 npm install -g @anthropic-ai/claude-code
@@ -149,7 +98,7 @@ Isso baixa e instala o Claude Code. Pode levar um minuto — texto vai
 rolar na tela, isso é normal. Espere ele parar e voltar a mostrar o cursor
 piscando antes de digitar o próximo comando.
 
-## Passo 4 — verificar
+## Passo 3 — verificar
 
 Digite e aperte `Enter`:
 
@@ -158,9 +107,9 @@ claude --version
 ```
 
 Se aparecer um número de versão (algo como `2.1.268 (Claude Code)`), deu
-certo — o Claude Code está instalado. Vá para o Passo 5.
+certo — o Claude Code está instalado. Vá para o Passo 4.
 
-## Passo 5 — logar
+## Passo 4 — logar
 
 Digite e aperte `Enter`:
 
@@ -202,9 +151,9 @@ A sessão fecha e você volta a ver o cursor do terminal, do jeito que estava
 antes. Para entrar de novo, é só digitar `claude` e apertar `Enter` — você
 não precisa logar outra vez.
 
-Guarde `/exit`: ele volta a aparecer no Passo 7 e outra vez em aula.
+Guarde `/exit`: ele volta a aparecer no Passo 6 e outra vez em aula.
 
-## Passo 6 — onde colocar o arquivo do exercício
+## Passo 5 — onde colocar o arquivo do exercício
 
 O material que vai ser dissecado em aula é **um único arquivo `.md`** — sem
 download e sem ZIP. Você não vai clonar o repositório do curso: o arquivo
@@ -216,7 +165,7 @@ por exemplo, a Área de Trabalho. Não precisa estar dentro de nenhuma pasta
 específica nem ter nome fixo: quando chegar a hora de usá-lo em aula, você
 aponta o caminho desse arquivo para o Claude Code.
 
-## Passo 7 (opcional) — adiantar a instalação do Skill Creator
+## Passo 6 (opcional) — adiantar a instalação do Skill Creator
 
 **Este passo é opcional.** Ele **não** é pré-requisito para nada do que vem
 antes das 16h. Se sobrar tempo aqui no intervalo, você adianta e chega no
@@ -224,15 +173,15 @@ Bloco B da tarde na frente dos outros. **Se não sobrar tempo, sem problema
 nenhum** — o facilitador roda isso junto com a turma inteira, ao vivo, logo
 no início do Bloco B. Ninguém trava por não ter feito este passo agora.
 
-O que **não** é opcional é o Passo 2 (git): sem ele os comandos abaixo
-falham, aqui e também em sala.
+Este comando precisa de **git** instalado na máquina — quem não tiver, faz
+este passo em dupla com alguém que tenha e instala o git depois, em casa.
 
 O Skill Creator é uma ferramenta extra que vai ser usada só no fim da tarde,
 no exercício principal. Ela não vem instalada junto com o Claude Code —
 precisa ser adicionada à parte, com dois comandos.
 
 **Antes de digitar qualquer coisa: saia do Claude Code.** Se você fez o
-Passo 5, a sua janela está com a sessão do Claude Code aberta, e os dois
+Passo 4, a sua janela está com a sessão do Claude Code aberta, e os dois
 comandos abaixo **não são comandos do Claude** — são comandos do terminal.
 Digitados lá dentro, eles viram pergunta para o Claude, nada é instalado, e
 a mensagem de sucesso nunca aparece. Então digite primeiro:
@@ -316,19 +265,15 @@ nas versões mais comuns.
 |---|---|
 | `command not found: node` (mac) | Node não instalou. Refazer Passo 1. |
 | Uma frase com **node** e **"não é reconhecido"** (win) | Faltou "Add to PATH". Reinstalar marcando a caixa. |
-| `command not found: git` (mac) | git não instalou. Refazer Passo 2. |
-| Uma frase com **git** e **"não é reconhecido"** (win) | git não instalou, ou a janela do PowerShell é a antiga. Fechar e reabrir o terminal; se ainda assim não aparecer versão, refazer Passo 2. |
-| `xcode-select: note: Command line tools are already installed.` (mac) | Não é erro: o git já estava instalado. Rodar `git --version` para confirmar e seguir para o Passo 3. |
-| No Mac, abre uma **janela de instalador** em vez de o comando terminar no terminal | É o comportamento esperado do `xcode-select --install`: ele dispara o instalador gráfico do macOS. Clicar em "Instalar", esperar o download acabar (leva minutos), e só então voltar ao terminal e rodar `git --version`. Não é travamento. |
 | `EACCES: permission denied` (mac) | Rodar `sudo npm install -g @anthropic-ai/claude-code` e digitar a senha do computador. |
 | `command not found: claude` após instalar (mac) | Fechar e reabrir o terminal. |
 | Uma frase com **claude** e **"não é reconhecido"** (win) | Fechar e reabrir o terminal. |
 | `npm ERR! network` | Wifi. Tentar de novo; se insistir, usar o 4G do celular. |
 | Login não abre o navegador | Copiar a URL que apareceu no terminal e colar no navegador. |
-| Uma frase com **"Failed to clone marketplace repository"** (vem depois de `✘ Failed to add marketplace:`), ao adicionar o marketplace | Falta o git na máquina — o comando do Passo 7 faz um `git clone` por baixo. Volte ao **Passo 2** e instale o git; depois rode o comando do Passo 7 de novo. |
-| Uma frase com **"Permission denied"** e **"publickey"**, ao adicionar o marketplace | Você (ou alguém) digitou a versão resumida do comando do Passo 7, sem o `https://github.com/` na frente. Apague e digite de novo, copiando exatamente o bloco do Passo 7, começando em `https://`. |
-| Uma frase com **"not found in marketplace"**, ao instalar o `skill-creator` | O comando de adicionar o marketplace (o primeiro do Passo 7) não rodou com sucesso antes deste. Volte um comando, confira que apareceu a mensagem de sucesso dele, e só depois rode o comando de instalar de novo. |
-| Você digitou um comando do Passo 7 e, em vez da mensagem com `✔`, **o Claude respondeu em texto** — explicando o comando, ou perguntando o que você quer fazer | Você está **dentro** do Claude Code, e ali aquilo não é comando: é pergunta para o modelo. Nada foi instalado. Digite `/exit`, espere voltar o cursor do terminal, e rode o comando de novo. |
+| Uma frase com **"Failed to clone marketplace repository"** (vem depois de `✘ Failed to add marketplace:`), ao adicionar o marketplace | Falta o git nesta máquina. Faça este passo em dupla com alguém que tenha git, e instale o git depois, em casa. |
+| Uma frase com **"Permission denied"** e **"publickey"**, ao adicionar o marketplace | Você (ou alguém) digitou a versão resumida do comando do Passo 6, sem o `https://github.com/` na frente. Apague e digite de novo, copiando exatamente o bloco do Passo 6, começando em `https://`. |
+| Uma frase com **"not found in marketplace"**, ao instalar o `skill-creator` | O comando de adicionar o marketplace (o primeiro do Passo 6) não rodou com sucesso antes deste. Volte um comando, confira que apareceu a mensagem de sucesso dele, e só depois rode o comando de instalar de novo. |
+| Você digitou um comando do Passo 6 e, em vez da mensagem com `✔`, **o Claude respondeu em texto** — explicando o comando, ou perguntando o que você quer fazer | Você está **dentro** do Claude Code, e ali aquilo não é comando: é pergunta para o modelo. Nada foi instalado. Digite `/exit`, espere voltar o cursor do terminal, e rode o comando de novo. |
 | `/skill-creator` não aparece na lista quando você digita `/`, mesmo depois da mensagem de sucesso | O plugin só entra na próxima abertura do Claude Code. Digitar `/exit`, depois `claude`, e conferir de novo. |
 | Nenhuma linha acima bate com o que você está vendo | Não insista sozinho. Chame o facilitador e mostre a tela. |
 
@@ -351,7 +296,7 @@ a senha do computador normalmente e aperte `Enter`.
 >   combinado, não plano de emergência: senta ao lado de quem conseguiu
 >   instalar e vocês dois escrevem a skill juntos, na máquina de quem já
 >   está rodando. A nota sai igual.
-> - **E o Passo 7 (o do Skill Creator) nem precisa ser feito agora** — o
+> - **E o Passo 6 (o do Skill Creator) nem precisa ser feito agora** — o
 >   facilitador roda ele com a sala inteira, ao vivo, no início da parte da
 >   tarde.
 >

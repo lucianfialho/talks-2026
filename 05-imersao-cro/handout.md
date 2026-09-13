@@ -15,9 +15,10 @@ exatamente o que fazer para voltar ao jogo sozinho.
 > handout primeiro, guia de instalação em seguida. Toda referência abaixo a
 > **"o guia de instalação, no fim deste material"** está falando desse
 > segundo arquivo, encadernado logo depois deste. Você instala **o Claude
-> Code e mais dois programas de base que ele usa por baixo: o Node.js e o
-> git** — e nada além disso. Sem DuckDB, sem Python, e sem clonar o
-> repositório do curso.
+> Code e o Node.js**, a dependência de base que ele usa por baixo — e nada
+> além disso. Sem DuckDB, sem Python, e sem clonar o repositório do curso.
+> (O git também entra em cena mais tarde, no plugin do Skill Creator — sem
+> passo de instalação guiado: quem não tiver, faz esse exercício em dupla.)
 
 **Sobre as citações abaixo:** as falas marcadas como citação saem das
 transcrições do próprio Lucian e do material da Taciana Serafim. Onde o
@@ -188,14 +189,12 @@ O comando `/skill-creator`, usado só no fim da tarde no Bloco D, não vem
 pronto dentro do Claude Code assim que você instala — é um plugin oficial
 que precisa ser adicionado uma vez. Por isso ele entra aqui, no Bloco B, com
 a sala toda ao mesmo tempo: quem já adiantou este passo no intervalo (Passo
-7, opcional, do guia de instalação) vai ver a mesma mensagem de sucesso de
+6, opcional, do guia de instalação) vai ver a mesma mensagem de sucesso de
 novo — isso é sucesso, não erro, não uma falha.
 
-**Este passo precisa de duas coisas:** internet, e o **git** instalado na sua
-máquina (Passo 2 do guia). O comando abaixo faz um `git clone` por baixo do
-pano — sem git ele falha com uma frase que contém `Failed to clone
-marketplace repository`. Se o wifi cair aqui, veja o quadro **"Se a rede não
-voltar"**, logo abaixo.
+Este comando também precisa de **git** instalado na máquina — quem não
+tiver, faz este passo em dupla e instala o git depois, em casa. Se o wifi
+cair aqui, veja o quadro **"Se a rede não voltar"**, logo abaixo.
 
 **Primeiro: saia do Claude Code.** Os dois comandos abaixo são comandos do
 **terminal**, não do Claude. Se você digitar qualquer um deles dentro da
@@ -257,7 +256,7 @@ que você faz é:
   precisa do `/skill-creator`, faça em dupla com quem instalou antes da rede
   cair.
 - **Em casa, com internet:** rode os dois comandos do B.2 exatamente como
-  estão acima (eles também estão no guia de instalação, Passo 7), reabra o
+  estão acima (eles também estão no guia de instalação, Passo 6), reabra o
   Claude Code, e você fica com a mesma máquina que a sala.
 
 Não é a mesma situação de quem não instalou o Claude Code: ali a saída é a
@@ -313,9 +312,10 @@ terminal essa ponte existe.
 ## Git, em uma frase
 
 Você não vai aprender a **usar** Git hoje, e não vai clonar repositório
-nenhum. Mas ele já está na sua máquina desde o intervalo (Passo 2 do guia de
-instalação), porque o Claude Code usa o git por baixo do pano para baixar
-plugins — foi o que aconteceu agora há pouco, no B.2, sem você ver.
+nenhum. Mas se o comando do B.2 funcionou na sua máquina, é porque o git já
+está aí — foi ele que baixou o plugin por baixo do pano, agora há pouco, sem
+você ver. (Se você fez o B.2 em dupla, o git está na máquina de quem
+instalou.)
 
 O que você precisa saber é por que ele existe: é o lugar de onde a maioria
 das skills prontas circula.
@@ -513,8 +513,8 @@ E a responsabilidade, que fecha o argumento:
 > guards lá dentro." — Lucian Fialho
 
 `[A CONFIRMAR: o link exato dos hooks prontos ainda não estava fechado
-quando este handout foi escrito. O facilitador vai postar no grupo de
-WhatsApp da turma — confira lá se você não anotou durante a aula.]`
+quando este handout foi escrito. O facilitador cita o nome/link em voz alta
+e o deixa na tela durante o Bloco C — anote na hora.]`
 
 ---
 
@@ -611,7 +611,7 @@ toda.** Se você chegou agora e o comando `/skill-creator` não aparece quando
 você digita `/`, não pare para instalar sozinho: faça este exercício em
 dupla com alguém que já tem o plugin funcionando, enquanto instala o seu em
 paralelo — os mesmos dois comandos do B.2, listados no guia de instalação
-(Passo 7). Lembre dos dois detalhes que fazem esse comando falhar em
+(Passo 6). Lembre dos dois detalhes que fazem esse comando falhar em
 silêncio: ele roda **fora** do Claude Code (`/exit` primeiro), e o plugin só
 aparece **depois** de fechar e abrir o Claude Code de novo.
 
@@ -681,8 +681,8 @@ confere se a sua metodologia está completa:
 O texto completo do validador está **impresso aqui neste handout**, logo
 abaixo. Não depende de link, de pendrive nem de você ter copiado algo da
 tela a tempo: se o resto falhar, o papel na sua mão continua funcionando. O
-facilitador também posta o arquivo no grupo de WhatsApp — quando der,
-copiar de lá é mais rápido do que digitar.
+facilitador também deixa o arquivo aberto e ampliado na tela dele durante o
+D.3 — se preferir, copie de lá em vez de digitar.
 
 São três coisas, nesta ordem: **criar a pasta**, **salvar o arquivo**,
 **reabrir o Claude Code**. Cada uma tem um jeito de dar errado em silêncio, e
@@ -989,10 +989,11 @@ A régua honesta, que fecha a tarde:
 ## Links de hoje
 
 Os links prometidos ao longo da tarde — hooks prontos, o `.md` de exemplo
-(`heuristica-morys`) e o validador — vão para o **grupo de WhatsApp da
-turma**, criado antes do coffee. O `heuristica-morys` e o validador também
-estão impressos por extenso neste handout (Bloco C e D.3, respectivamente):
-se você perder o link, o papel resolve.
+(`heuristica-morys`) e o validador — não têm grupo de turma para chegar até
+você. O `heuristica-morys` e o validador já estão impressos por extenso
+neste handout (Bloco C e D.3, respectivamente): é o caminho que não falha.
+O link dos hooks fica só na tela do facilitador durante o Bloco C — anote o
+nome na hora, se quiser pesquisar depois.
 
 `[A CONFIRMAR: se há um convite de produto (analytics-copilot) no fechamento
 presencial. Nenhuma fonte usada para este handout confirma isso para o
