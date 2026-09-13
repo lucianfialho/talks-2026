@@ -213,9 +213,9 @@ citada pelo nome — é o que amarra a tarde com a manhã e é o combinado entre
 
 ## Objetivo
 
-Estabelecer o pré-requisito antes de qualquer ferramenta aparecer, assumindo o papel do
-cético. Este bloco é a autoridade do facilitador para tudo que vem depois. Se ele não
-acontecer, o resto da tarde vira demo de ferramenta.
+Estabelecer o pré-requisito antes de qualquer ferramenta aparecer. Este bloco é a
+autoridade do facilitador para tudo que vem depois. Se ele não acontecer, o resto da
+tarde vira demo de ferramenta.
 
 ## Na tela
 
@@ -237,9 +237,10 @@ Abrir com a frase de fechamento dela — é o gancho combinado:
 > "O próximo desafio não é usar o Claude. É transformá-lo em parte do seu processo de
 > CRO." *(frase de fechamento da Taciana — dizer que é dela)*
 
-E emendar o papel:
+E emendar a tese que organiza o bloco inteiro:
 
-> `>>` **"eu sou o cara que eu sou, o cético, o tóxico"**
+> `>>` **"o que a gente tem que aprender antes de aprender"** — e a regra que decorre
+> dela: mão na ferramenta só quando já existe aplicabilidade dela na etapa.
 
 ### A.2 — Callback 1: Coleta + Análise (10 min)
 
