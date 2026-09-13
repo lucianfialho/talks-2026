@@ -58,7 +58,7 @@ PROJ=$(json_get cwd)
 
 # --- a secao "Plano de mensuracao" tem conteudo? ----------------------------
 # Le do heading ate o proximo heading. Ignora linha em branco e comentario
-# HTML. Sobra alguma linha de tabela que nao seja o cabecalho nem o separador?
+# HTML (de uma ou varias linhas). Sobra alguma linha de tabela que nao seja o cabecalho nem o separador?
 # Entao esta preenchida. So awk: nao depende de python3 nem de jq.
 secao_preenchida() {
   awk '
@@ -70,7 +70,8 @@ secao_preenchida() {
     dentro {
       linha = $0
       if (linha ~ /^[[:space:]]*$/) next
-      if (linha ~ /^[[:space:]]*<!--/) next
+      if (coment) { if (index(linha, "-->")) coment = 0; next }
+      if (linha ~ /^[[:space:]]*<!--/) { if (!index(linha, "-->")) coment = 1; next }
       if (index(linha, "|") == 0) next
       nu = linha; gsub(/[ \t|:-]/, "", nu)
       if (nu == "") { sep = 1; next }   # separador |---|---|

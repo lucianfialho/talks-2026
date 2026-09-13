@@ -51,6 +51,11 @@ FIM
 checa "sem-plano-sem-hipotese  BLOQUEIA com a secao so no cabecalho" \
   sem-plano-sem-hipotese.sh "$(hipotese "$P")" 2
 
+P=$(projeto cro-template-cru)
+cat "$(dirname "$0")/../aluno/CRO.md" > "$P/CRO.md"
+checa "sem-plano-sem-hipotese  BLOQUEIA com o template do aluno sem editar" \
+  sem-plano-sem-hipotese.sh "$(hipotese "$P")" 2
+
 P=$(projeto cro-preenchido)
 cat > "$P/CRO.md" <<'FIM'
 ## 3. Plano de mensuracao
