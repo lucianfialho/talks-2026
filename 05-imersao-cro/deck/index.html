@@ -1258,7 +1258,7 @@ claude</pre>
           <span class="mono" style="font-size:16px;color:var(--stone);">github.com/makenotion/notion-mcp-server</span>
         </div>
       </div>
-      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">Instala com <span class="text-accent">claude mcp add</span>; o README de cada um tem a linha pronta. Hoje o GA4 vem pelo <span class="text-accent">gmp-cli</span>, que é CLI: mesma ideia, sem servidor.</p>
+      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">Instala com <span class="text-accent">claude mcp add</span>, ou colando a URL e pedindo. O do GA4 a gente conecta no nó 10.</p>
     </div>
   <footer class="slide-footer">
     <span>@lucianfialho</span>
@@ -1723,7 +1723,7 @@ Design system:    @DESIGN.md</pre>
   <div class="slide-main" style="gap:32px;">
       <p class="eyebrow accent">As sete partes</p>
       <div class="flex-col gap-16" style="font-family:var(--f-sans);font-size:var(--fs-lead);max-width:1600px;">
-        <div class="flex-row gap-32" style="align-items:baseline;"><span class="mono text-accent" style="min-width:60px;">01</span><span><strong>Onde mora</strong> — <span class="mono">~/.claude/skills/&lt;nome&gt;/SKILL.md</span>. O nome da pasta vira o comando.</span></div>
+        <div class="flex-row gap-32" style="align-items:baseline;"><span class="mono text-accent" style="min-width:60px;">01</span><span><strong>Onde mora</strong> — <span class="mono">~/.claude/skills/&lt;nome&gt;/SKILL.md</span>. O nome da pasta vira o comando. Num plugin, ganha prefixo: <span class="mono">/cro-ai-day:nome</span>.</span></div>
         <div class="flex-row gap-32" style="align-items:baseline;"><span class="mono text-accent" style="min-width:60px;">02</span><span><strong>A etiqueta</strong> — <span class="mono">name</span> e <span class="mono">description</span>. A description é o que faz ela disparar sozinha.</span></div>
         <div class="flex-row gap-32" style="align-items:baseline;"><span class="mono text-accent" style="min-width:60px;">03</span><span><strong>Ingredientes</strong> — o que ela precisa receber, e o que perguntar antes.</span></div>
         <div class="flex-row gap-32" style="align-items:baseline;"><span class="mono text-accent" style="min-width:60px;">04</span><span><strong>Modo de preparo</strong> — os passos, em ordem, executáveis. "Analise" não é passo.</span></div>
@@ -1747,7 +1747,7 @@ Design system:    @DESIGN.md</pre>
       <p class="eyebrow accent">As sete partes num arquivo real</p>
       <div class="flex-row gap-48" style="align-items:flex-start;">
         <div class="code-wrap" style="flex:1.35;">
-          <div class="code-head"><span><span style="color:var(--accent);font-weight:600;">01</span> ~/.claude/skills/heuristica-morys/SKILL.md</span><span>68 linhas no original</span></div>
+          <div class="code-head"><span><span style="color:var(--accent);font-weight:600;">01</span> cro-ai-day · skills/heuristica-morys/SKILL.md</span><span>68 linhas no original</span></div>
           <pre class="code-body" style="font-size:19px;line-height:1.55;padding:24px 32px;"><span style="color:var(--accent);font-weight:600;">02</span> ---
    name: heuristica-morys
    description: Varredura nas 7 dimensões de Morys.
@@ -1767,10 +1767,10 @@ Design system:    @DESIGN.md</pre>
 <span style="color:var(--accent);font-weight:600;">06</span> ## Output
    | Dimensão | Nota | Achado | Evidência na página |
    Score total X/Y · as 2 dimensões mais fracas
-   Termine com: "Rode hipotese-estruturada".</pre>
+   Termine com: "Rode /cro-ai-day:hipotese-estruturada".</pre>
         </div>
         <div class="flex-col gap-18" style="flex:1;font-family:var(--f-sans);font-size:var(--fs-body);">
-          <div class="flex-row gap-20" style="align-items:baseline;"><span class="mono text-accent" style="min-width:48px;">01</span><span><strong>Onde mora.</strong> A pasta chama <span class="mono">heuristica-morys</span>, então o comando é <span class="mono">/heuristica-morys</span>.</span></div>
+          <div class="flex-row gap-20" style="align-items:baseline;"><span class="mono text-accent" style="min-width:48px;">01</span><span><strong>Onde mora.</strong> A pasta chama <span class="mono">heuristica-morys</span> dentro do plugin, então o comando é <span class="mono">/cro-ai-day:heuristica-morys</span>.</span></div>
           <div class="flex-row gap-20" style="align-items:baseline;"><span class="mono text-accent" style="min-width:48px;">02</span><span><strong>A etiqueta.</strong> A description tem as frases que o aluno diria. É por isso que ela dispara sem o comando.</span></div>
           <div class="flex-row gap-20" style="align-items:baseline;"><span class="mono text-accent" style="min-width:48px;">03</span><span><strong>Ingredientes.</strong> Quatro coisas, pedidas antes de começar.</span></div>
           <div class="flex-row gap-20" style="align-items:baseline;"><span class="mono text-accent" style="min-width:48px;">04</span><span><strong>Modo de preparo.</strong> Sete dimensões, nota de 1 a 5, cada nota com evidência.</span></div>
@@ -1873,19 +1873,29 @@ Design system:    @DESIGN.md</pre>
     <span></span>
   </header>
   <div class="slide-main" style="justify-content:center; gap:40px;">
-      <p class="eyebrow accent">Ao vivo · gmp-cli</p>
-      <h2 style="font-family:var(--f-display);font-size:72px;line-height:1.1;letter-spacing:-0.02em;max-width:1500px;">
-        O GA4 respondendo<br>dentro do terminal
-      </h2>
-      <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--stone);max-width:1400px;">
-        Lembra do "por que terminal"? É aqui. O Claude puxa o dado, olha o padrão, aponta o problema.<br>
-        Sem exportar planilha, sem abrir dashboard.
-      </p>
+      <p class="eyebrow accent">Ao vivo · Google Analytics MCP</p>
+      <div class="flex-row gap-64" style="align-items:center;">
+        <div class="flex-col gap-24" style="flex:1;">
+          <h2 style="font-family:var(--f-display);font-size:72px;line-height:1.1;letter-spacing:-0.02em;">
+            O GA4 respondendo<br>dentro do terminal
+          </h2>
+          <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--stone);">
+            Lembra do "por que terminal"? É aqui. O Claude puxa o dado, olha o padrão, aponta o problema. Sem exportar planilha, sem abrir dashboard.
+          </p>
+        </div>
+        <div class="flex-col gap-16" style="flex:1;">
+          <div class="code-wrap">
+            <div class="code-head">conectar · uma vez</div>
+            <pre class="code-body" style="font-size:22px;line-height:1.7;"><span style="color:var(--accent);">&gt;</span> conecta o Google Analytics MCP pra mim:
+  github.com/googleanalytics/google-analytics-mcp</pre>
+          </div>
+          <div class="flex-col gap-8" style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">
+            <p>Ele vai precisar de três coisas suas: a conta Google que enxerga o GA4, um projeto no Google Cloud com as APIs de Analytics ligadas, e o Python. Ele instala e pede o login.</p>
+            <p class="mono">Oficial do Google. Servidor: <span class="text-accent">analytics-mcp</span>. Ferramentas: run_report, run_funnel_report, run_realtime_report. Passo a passo no PDF.</p>
+          </div>
+        </div>
+      </div>
     </div>
-  <footer class="slide-footer">
-    <span>@lucianfialho</span>
-    <span></span>
-  </footer>
 </article>
 
 <article class="slide">
@@ -1901,7 +1911,7 @@ Design system:    @DESIGN.md</pre>
       <div class="flex-row gap-64" style="font-family:var(--f-sans);font-size:var(--fs-subtitle);">
         <div class="flex-col gap-16" style="flex:1;">
           <p class="mono text-stone" style="font-size:var(--fs-small);">Hoje, ao vivo</p>
-          <p>GA4 via <span class="mono text-accent">gmp-cli</span><br>O site via <span class="mono text-accent">Claude in Chrome</span></p>
+          <p>GA4 via <span class="mono text-accent">Google Analytics MCP</span><br>O site via <span class="mono text-accent">Claude in Chrome</span></p>
         </div>
         <div style="width:1px;background:var(--rule);"></div>
         <div class="flex-col gap-16" style="flex:1;">
@@ -1961,92 +1971,11 @@ Design system:    @DESIGN.md</pre>
 
 <article class="slide noir">
   <header class="slide-header">
-    <span>Nó 12 — Exercício</span>
+    <span>Nó 12 — Entregável</span>
     <span></span>
   </header>
   <div class="slide-main" style="justify-content:center; gap:32px;">
       <p class="eyebrow noir-accent">Nó 12</p>
-      <h2 style="font-family:var(--f-display);font-size:104px;line-height:1.1;letter-spacing:-0.02em;">
-        O seu processo<br>vira uma skill
-      </h2>
-      <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--noir-ink-soft);max-width:1200px;">
-        Lembra da receita do nó 9? Agora os ingredientes são o time da sua empresa.
-      </p>
-    </div>
-  <footer class="slide-footer">
-    <span>@lucianfialho</span>
-    <span></span>
-  </footer>
-</article>
-
-<article class="slide">
-  <header class="slide-header">
-    <span>Nó 12 — Exercício</span>
-    <span>Passo 1 de 2</span>
-  </header>
-  <div class="slide-main" style="gap:40px;">
-      <p class="eyebrow accent">Descreva o processo de CRO da sua empresa</p>
-      <div class="flex-row gap-64" style="align-items:flex-start;">
-        <div class="flex-col gap-20" style="flex:1;font-family:var(--f-sans);font-size:var(--fs-lead);">
-          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:260px;font-size:var(--fs-body);">papéis</span><span>quem coleta, quem analisa, quem prioriza, quem sobe o teste</span></div>
-          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:260px;font-size:var(--fs-body);">handoffs</span><span>quem entrega pra quem, em que momento</span></div>
-          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:260px;font-size:var(--fs-body);">entregáveis</span><span>o que sai de cada etapa das 7 da Tá</span></div>
-          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:260px;font-size:var(--fs-body);">fontes</span><span>de onde vem o dado de cada etapa, com nome</span></div>
-        </div>
-        <div class="code-wrap" style="flex:1;">
-          <div class="code-head">claude</div>
-          <pre class="code-body" style="font-size:26px;line-height:1.7;">/skill-creator:skill-creator
-
-Quero uma skill com o processo de CRO
-da minha empresa. Me pergunta o que
-precisar. Papéis: … Handoffs: …</pre>
-        </div>
-      </div>
-      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">Não descreva a ferramenta. Descreva quem faz o quê. Se você travar numa seção, é a mesma lição do CRO.md: ainda não sabe.</p>
-    </div>
-  <footer class="slide-footer">
-    <span>@lucianfialho</span>
-    <span></span>
-  </footer>
-</article>
-
-<article class="slide">
-  <header class="slide-header">
-    <span>Nó 12 — Exercício</span>
-    <span>Passo 2 de 2 · validação ao vivo</span>
-  </header>
-  <div class="slide-main" style="gap:40px;">
-      <p class="eyebrow accent">Você sai sabendo a nota</p>
-      <div class="flex-row gap-64" style="align-items:flex-start;">
-        <div class="code-wrap" style="flex:1;">
-          <div class="code-head">claude</div>
-          <pre class="code-body" style="font-size:26px;line-height:1.7;">/cro-ai-day:valida-skill-cro
-~/.claude/skills/meu-processo-cro/SKILL.md</pre>
-        </div>
-        <div class="flex-col gap-14" style="flex:1;font-family:var(--f-sans);font-size:var(--fs-subtitle);">
-          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-stone" style="min-width:48px;">1</span><span>Papéis</span></div>
-          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-stone" style="min-width:48px;">2</span><span>Handoffs</span></div>
-          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-stone" style="min-width:48px;">3</span><span>Entregáveis</span></div>
-          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-stone" style="min-width:48px;">4</span><span>Ingredientes — fontes nomeadas</span></div>
-          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-stone" style="min-width:48px;">5</span><span>Modo de preparo — dá pra seguir?</span></div>
-          <p class="mono text-accent" style="font-size:var(--fs-small);margin-top:8px;">0, 1 ou 2 por critério. Nota de 0 a 10. E a pergunta exata que a sua skill não responde.</p>
-        </div>
-      </div>
-      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">Sinal de alerta que ela detecta: passos claríssimos e zero em papéis. Você descreveu uma ferramenta, não o processo.</p>
-    </div>
-  <footer class="slide-footer">
-    <span>@lucianfialho</span>
-    <span></span>
-  </footer>
-</article>
-
-<article class="slide noir">
-  <header class="slide-header">
-    <span>Nó 13 — Entregável</span>
-    <span></span>
-  </header>
-  <div class="slide-main" style="justify-content:center; gap:32px;">
-      <p class="eyebrow noir-accent">Nó 13</p>
       <h2 style="font-family:var(--f-display);font-size:104px;line-height:1.1;letter-spacing:-0.02em;">
         Um plugin de CRO<br>pro seu time
       </h2>
@@ -2062,7 +1991,7 @@ precisar. Papéis: … Handoffs: …</pre>
 
 <article class="slide">
   <header class="slide-header">
-    <span>Nó 13 — Entregável</span>
+    <span>Nó 12 — Entregável</span>
     <span>cro-plugin</span>
   </header>
   <div class="slide-main" style="gap:40px;">
@@ -2121,7 +2050,7 @@ claude plugin install cro-ai-day@cro-plugin</pre>
         Bônus
       </h2>
       <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--noir-ink-soft);max-width:1300px;">
-        Seis blocos independentes. Vocês escolhem. O que não couber está no PDF.
+        Sete blocos independentes. Vocês escolhem. O que não couber está no PDF.
       </p>
     </div>
   <footer class="slide-footer">
@@ -2157,13 +2086,95 @@ claude plugin install cro-ai-day@cro-plugin</pre>
         <div style="flex:1;"><strong>O orquestrador só lê a conclusão.</strong> Três relatórios curtos, não três conversas inteiras. É por isso que cabe: o contexto não estoura.</div>
         <div style="flex:1;"><strong>O QA pode dizer não.</strong> "Não pode subir" para o ciclo antes do dev gastar tempo. É o pre-flight da Tá com poder de veto.</div>
       </div>
-      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">Vem no plugin: <span class="text-accent">agents/analista.md · qa.md · dev.md</span>. A skill de metodologia que você escreveu no nó 12 é o que define quem faz o quê.</p>
+      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">Vem no plugin: <span class="text-accent">agents/analista.md · qa.md · dev.md</span>. A skill de metodologia do exercício, o próximo bônus, é o que define quem faz o quê.</p>
     </div>
   <footer class="slide-footer">
     <span>@lucianfialho</span>
     <span></span>
   </footer>
 </article>
+
+<article class="slide noir">
+  <header class="slide-header">
+    <span>Bônus — Exercício</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="justify-content:center; gap:32px;">
+      <p class="eyebrow noir-accent">Bônus · exercício</p>
+      <h2 style="font-family:var(--f-display);font-size:104px;line-height:1.1;letter-spacing:-0.02em;">
+        O seu processo<br>vira uma skill
+      </h2>
+      <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--noir-ink-soft);max-width:1200px;">
+        Lembra da receita do nó 9? Agora os ingredientes são o time da sua empresa. Pra fazer agora, se deu tempo, ou em casa com o PDF.
+      </p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Bônus — Exercício</span>
+    <span>Passo 1 de 2</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+      <p class="eyebrow accent">Descreva o processo de CRO da sua empresa</p>
+      <div class="flex-row gap-64" style="align-items:flex-start;">
+        <div class="flex-col gap-20" style="flex:1;font-family:var(--f-sans);font-size:var(--fs-lead);">
+          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:260px;font-size:var(--fs-body);">papéis</span><span>quem coleta, quem analisa, quem prioriza, quem sobe o teste</span></div>
+          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:260px;font-size:var(--fs-body);">handoffs</span><span>quem entrega pra quem, em que momento</span></div>
+          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:260px;font-size:var(--fs-body);">entregáveis</span><span>o que sai de cada etapa das 7 da Tá</span></div>
+          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:260px;font-size:var(--fs-body);">fontes</span><span>de onde vem o dado de cada etapa, com nome</span></div>
+        </div>
+        <div class="code-wrap" style="flex:1;">
+          <div class="code-head">claude</div>
+          <pre class="code-body" style="font-size:26px;line-height:1.7;">/skill-creator:skill-creator
+
+Quero uma skill com o processo de CRO
+da minha empresa. Me pergunta o que
+precisar. Papéis: … Handoffs: …</pre>
+        </div>
+      </div>
+      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">Não descreva a ferramenta. Descreva quem faz o quê. Se você travar numa seção, é a mesma lição do CRO.md: ainda não sabe.</p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Bônus — Exercício</span>
+    <span>Passo 2 de 2 · validação ao vivo</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+      <p class="eyebrow accent">Você sai sabendo a nota</p>
+      <div class="flex-row gap-64" style="align-items:flex-start;">
+        <div class="code-wrap" style="flex:1;">
+          <div class="code-head">claude</div>
+          <pre class="code-body" style="font-size:26px;line-height:1.7;">/cro-ai-day:valida-skill-cro
+~/.claude/skills/meu-processo-cro/SKILL.md</pre>
+        </div>
+        <div class="flex-col gap-14" style="flex:1;font-family:var(--f-sans);font-size:var(--fs-subtitle);">
+          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-stone" style="min-width:48px;">1</span><span>Papéis</span></div>
+          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-stone" style="min-width:48px;">2</span><span>Handoffs</span></div>
+          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-stone" style="min-width:48px;">3</span><span>Entregáveis</span></div>
+          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-stone" style="min-width:48px;">4</span><span>Ingredientes — fontes nomeadas</span></div>
+          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-stone" style="min-width:48px;">5</span><span>Modo de preparo — dá pra seguir?</span></div>
+          <p class="mono text-accent" style="font-size:var(--fs-small);margin-top:8px;">0, 1 ou 2 por critério. Nota de 0 a 10. E a pergunta exata que a sua skill não responde.</p>
+        </div>
+      </div>
+      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">Sinal de alerta que ela detecta: passos claríssimos e zero em papéis. Você descreveu uma ferramenta, não o processo.</p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
 
 <article class="slide">
   <header class="slide-header">
@@ -2198,7 +2209,7 @@ claude plugin install cro-ai-day@cro-plugin</pre>
       <h2 style="font-family:var(--f-display);font-size:72px;letter-spacing:-0.02em;max-width:1500px;">O relatório de segunda que se escreve sozinho</h2>
       <div class="code-wrap" style="max-width:1500px;">
         <div class="code-head">claude</div>
-        <pre class="code-body" style="font-size:26px;line-height:1.7;">/loop --cron "0 8 * * MON" "Puxa o GA4 da semana com o gmp-cli,
+        <pre class="code-body" style="font-size:26px;line-height:1.7;">/loop --cron "0 8 * * MON" "Puxa o GA4 da semana pelo MCP,
 compara com a anterior, escreve o resumo em relatorios/semana.md"</pre>
       </div>
       <div class="flex-col gap-16" style="font-family:var(--f-sans);font-size:var(--fs-lead);max-width:1500px;">

@@ -27,11 +27,30 @@ claude plugin install cro-ai-day@cro-plugin</pre>
     <thead><tr><th style="width:30%">Ferramenta</th><th style="width:26%">Para quê</th><th>Onde</th></tr></thead>
     <tbody>
       <tr><td><strong>Claude in Chrome</strong> — a extensão</td><td>Depois de instalar: <code>claude --chrome</code> e ele enxerga as abas.</td><td class="mono">chromewebstore.google.com/detail/<br>claude/fcoeoabgfenejglbffodgkkbkcdhcgfn</td></tr>
-      <tr><td><strong>gmp-cli</strong></td><td>GA4, GSC, Ads e BigQuery no terminal.</td><td class="mono">github.com/lucianfialho/gmp-cli</td></tr>
+      <tr><td><strong>Google Analytics MCP</strong> — oficial do Google</td><td>GA4 dentro da conversa: run_report, run_funnel_report, run_realtime_report. Experimental.</td><td class="mono">github.com/googleanalytics/<br>google-analytics-mcp</td></tr>
       <tr><td><strong>DESIGN.md</strong> — a especificação do Google</td><td>Formato aberto, com validador. Este material segue um.</td><td class="mono">github.com/google-labs-code/design.md</td></tr>
       <tr><td><strong>awesome-claude-code-hooks</strong></td><td>Hooks prontos por evento, para copiar e adaptar.</td><td class="mono">github.com/lucianfialho/<br>awesome-claude-code-hooks</td></tr>
     </tbody>
   </table>
+
+  <h3 class="rule" style="margin-top:7pt">Conectar o GA4 — o passo a passo por trás do "conecta pra mim"</h3>
+  <p>No workshop você colou a URL e pediu. Por trás, o Claude faz isto. Se travar em algum passo, é aqui que você confere.</p>
+  <ol>
+    <li><strong>Pré-requisitos:</strong> Python 3.10 ou mais novo, <code>pipx</code>, e a CLI <code>gcloud</code> do Google Cloud instalados.</li>
+    <li><strong>Um projeto no Google Cloud</strong> (console.cloud.google.com) com duas APIs ativadas: <em>Google Analytics Admin API</em> e <em>Google Analytics Data API</em>.</li>
+    <li><strong>Login, com a conta que enxerga o GA4:</strong></li>
+  </ol>
+  <pre>gcloud auth application-default login \
+  --scopes https://www.googleapis.com/auth/analytics.readonly,https://www.googleapis.com/auth/cloud-platform</pre>
+  <p>Ao terminar, o gcloud mostra o caminho de um arquivo de credenciais. Guarde.</p>
+  <ol start="4">
+    <li><strong>Registrar no Claude Code</strong>, trocando os dois valores em maiúsculas:</li>
+  </ol>
+  <pre>claude mcp add analytics-mcp --scope user \
+  -e "GOOGLE_APPLICATION_CREDENTIALS=CAMINHO_DO_ARQUIVO_DE_CREDENCIAIS" \
+  -e "GOOGLE_PROJECT_ID=ID_DO_SEU_PROJETO" \
+  -- pipx run analytics-mcp</pre>
+  <p>Sessão nova, e pergunte: "quais propriedades do GA4 você enxerga?". Se ele listar, está conectado. Fonte: README oficial em github.com/googleanalytics/google-analytics-mcp.</p>
 
   <h3 class="rule" style="margin-top:7pt">Documentação oficial</h3>
   <div class="grid3">

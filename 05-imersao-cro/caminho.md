@@ -134,9 +134,9 @@
 7. **Dissecar uma ao vivo** — abrir `heuristica-morys` e apontar cada parte
 
 ## 10. Análise — trazer os dados de comportamento
-> Callback na etapa 2 da Taciana. Aqui o gmp-cli ganha aplicabilidade.
+> Callback na etapa 2 da Taciana. Aqui o Google Analytics MCP ganha aplicabilidade (decisão 2026-09-14: MCP oficial no lugar do gmp-cli, porque o aluno vai conectar o dele).
 
-- **gmp-cli** pra puxar os dados de comportamento (GA4)
+- **Google Analytics MCP** (oficial) pra puxar os dados de comportamento; conectar = colar a URL e pedir
 
 ## 11. Geração de hipótese
 > Callback na etapa 3 da Taciana. Aqui o Claude in Chrome ganha aplicabilidade.
@@ -145,7 +145,8 @@
   que ele viu (não é gravação de sessão; é ele percorrendo)
 - Aplicar **Morys** (`heuristica-morys`)
 
-## 12. Exercício — o seu processo vira uma skill
+## Bônus (era nó 12) — Exercício: o seu processo vira uma skill
+> Decisão 2026-09-14: vira bônus. Se der tempo faz na sala; senão, em casa com o PDF.
 > Promessa da landing: "descrever o processo de CRO da sua empresa — papéis, handoffs
 > e entregáveis — e transformá-lo em uma Skill de metodologia". Callback no nó 9.
 
@@ -153,7 +154,7 @@
 - Passo 2: `/valida-skill-cro` dá nota 0–10 em 5 critérios e a pergunta que a skill não responde
 - ~20–25 min. Só cabe se a instalação virar pré-requisito da manhã (combinar com o Messina)
 
-## 13. Entregável — cro-plugin
+## 12. Entregável — cro-plugin
 > Promessa da landing: "plugin gratuito de CRO com Skills por papel (analista, QA, dev)
 > e a sua Skill de metodologia plugada nele".
 
