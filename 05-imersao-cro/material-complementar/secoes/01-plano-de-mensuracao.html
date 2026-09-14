@@ -9,7 +9,7 @@
 
   <h3>Por que isto vem antes de qualquer teste</h3>
   <p>Um teste A/B só existe porque alguém consegue contar duas coisas: quantas pessoas viram e quantas converteram. Se a contagem está errada, o teste não fica "menos preciso" — ele fica indecifrável. Você vê um número, não consegue explicar, e chuta.</p>
-  <p>A checagem de sempre, antes de tudo: o <code>purchase</code> do GA4 bate com os pedidos da plataforma? É a única conferência que dá pra fazer contra uma fonte externa, porque pedido existe no backoffice; evento de meio de funil não tem contraparte. Se o <code>purchase</code> não bate, o teste nasce morto — e não existe ferramenta que conserte.</p>
+  <p>A checagem de sempre, antes de tudo: o <code>purchase</code> do GA4 bate com os pedidos da plataforma? E os outros eventos estão disparando corretamente, na etapa certa, com os parâmetros certos? O <code>purchase</code> você confere contra o backoffice; os demais, no DebugView do GA4 fazendo a jornada. Se não bate, o teste nasce morto — e não existe ferramenta que conserte.</p>
   <p>Essa é também a razão do hook <code>sem-plano-sem-hipotese.sh</code> (seção 4): ele não deixa você gerar hipótese num projeto que ainda não tem plano de mensuração escrito.</p>
 
   <h3 class="rule">Passo 1 — dividir a jornada em etapas</h3>
