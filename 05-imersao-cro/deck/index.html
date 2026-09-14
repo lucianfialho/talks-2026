@@ -1598,7 +1598,7 @@ Design system:    @DESIGN.md</pre>
         <div class="flex-row gap-32" style="align-items:baseline;"><span class="mono text-accent" style="min-width:60px;">03</span><span><strong>Ingredientes</strong> — o que ela precisa receber, e o que perguntar antes.</span></div>
         <div class="flex-row gap-32" style="align-items:baseline;"><span class="mono text-accent" style="min-width:60px;">04</span><span><strong>Modo de preparo</strong> — os passos, em ordem, executáveis. "Analise" não é passo.</span></div>
         <div class="flex-row gap-32" style="align-items:baseline;"><span class="mono text-accent" style="min-width:60px;">05</span><span><strong>O que ela recusa</strong> — onde para e pede mais informação em vez de inventar.</span></div>
-        <div class="flex-row gap-32" style="align-items:baseline;"><span class="mono text-accent" style="min-width:60px;">06</span><span><strong>Como sai</strong> — formato fixo do output, pra comparar entre rodadas.</span></div>
+        <div class="flex-row gap-32" style="align-items:baseline;"><span class="mono text-accent" style="min-width:60px;">06</span><span><strong>Como sai</strong> — formato fixo do output, com coluna de evidência e um valor pra "não sei".</span></div>
         <div class="flex-row gap-32" style="align-items:baseline;"><span class="mono text-accent" style="min-width:60px;">07</span><span><strong>Dissecar uma ao vivo</strong> — agora.</span></div>
       </div>
     </div>
@@ -1649,6 +1649,46 @@ Design system:    @DESIGN.md</pre>
         </div>
       </div>
       <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">Markdown puro. Nada aqui é código. É uma receita escrita pra alguém que nunca viu a sua loja.</p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 9 — Anatomia de uma skill</span>
+    <span>A parte 06, com calma</span>
+  </header>
+  <div class="slide-main" style="gap:32px;">
+      <p class="eyebrow accent">Formato de saída</p>
+      <h2 style="font-family:var(--f-display);font-size:80px;line-height:1.05;letter-spacing:-0.02em;max-width:1600px;">
+        Resposta livre é onde o modelo <span class="text-accent">inventa</span>.<br>Formato fixo é a cerca.
+      </h2>
+      <div class="flex-row gap-64" style="align-items:flex-start;">
+        <div class="flex-col gap-16" style="flex:1;font-family:var(--f-sans);font-size:var(--fs-body);">
+          <div class="flex-row gap-20" style="align-items:baseline;"><span class="mono text-accent" style="min-width:48px;">01</span><span><strong>Coluna de evidência obrigatória.</strong> Nota sem "o que eu vi na página" não vale. Ele tem que mostrar de onde tirou.</span></div>
+          <div class="flex-row gap-20" style="align-items:baseline;"><span class="mono text-accent" style="min-width:48px;">02</span><span><strong>Um valor permitido pra "não sei".</strong> <span class="mono">n/d</span>, <span class="mono">não encontrado</span>. Sem essa saída, ele preenche o buraco com algo plausível.</span></div>
+          <div class="flex-row gap-20" style="align-items:baseline;"><span class="mono text-accent" style="min-width:48px;">03</span><span><strong>Escala fechada.</strong> 1 a 5, 0/1/2. E o "não sei" sai do denominador, não vira zero.</span></div>
+          <div class="flex-row gap-20" style="align-items:baseline;"><span class="mono text-accent" style="min-width:48px;">04</span><span><strong>Mesma tabela toda rodada.</strong> Só assim você compara terça com quinta e percebe quando ele mudou de ideia sem motivo.</span></div>
+        </div>
+        <div class="flex-col gap-14" style="flex:1;">
+          <div style="border:1px solid var(--rule);border-radius:var(--r-lg);padding:16px 22px;background:var(--bg-alt);">
+            <div class="mono text-accent" style="font-size:var(--fs-small);">/cro:heuristica-morys</div>
+            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--ink-soft);margin-top:4px;">| Dimensão | Nota | Achado | Evidência na página |. Dimensão sem material vira n/d e sai do score.</div>
+          </div>
+          <div style="border:1px solid var(--rule);border-radius:var(--r-lg);padding:16px 22px;background:var(--bg-alt);">
+            <div class="mono text-accent" style="font-size:var(--fs-small);">/cro:detecta-design-system</div>
+            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--ink-soft);margin-top:4px;">Cor que ele não mediu vira "não encontrado". Não vira um vermelho plausível.</div>
+          </div>
+          <div style="border:1px solid var(--rule);border-radius:var(--r-lg);padding:16px 22px;background:var(--bg-alt);">
+            <div class="mono text-accent" style="font-size:var(--fs-small);">/cro:valida-skill-cro</div>
+            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--ink-soft);margin-top:4px;">0, 1 ou 2 por critério, e a pergunta exata que a skill não responde. Nunca "está boa".</div>
+          </div>
+        </div>
+      </div>
+      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">Alucinação não se resolve pedindo "não invente". Se resolve não deixando espaço pra inventar.</p>
     </div>
   <footer class="slide-footer">
     <span>@lucianfialho</span>
