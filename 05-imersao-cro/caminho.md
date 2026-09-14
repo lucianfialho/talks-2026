@@ -2,7 +2,7 @@
 
 > Desenhado em conjunto, 13/09. Só entra aqui o que o Lucian desenhou ou aprovou.
 
-## 1. Pesquisa qualitativa (na sala, mão levantada)
+## ~~1. Pesquisa qualitativa~~ — slides removidos (2026-09-14); se quiser, faz de voz
 
 - Quem aqui usa ou já usou o Claude?
 - Quem aqui usa ou já usou o Claude Code?
