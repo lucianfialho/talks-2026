@@ -1453,7 +1453,7 @@ claude plugin install skill-creator@claude-plugins-official</pre>
         Enriquecer o contexto<br><span class="text-noir-accent">— design</span>
       </h2>
       <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--noir-ink-soft);max-width:1200px;">
-        De manhã, contexto pra pessoa decidir. Agora, contexto pro Claude.
+        No nó 3, contexto pra pessoa decidir. Agora, contexto pro Claude.
       </p>
     </div>
   <footer class="slide-footer">
@@ -1611,6 +1611,54 @@ Design system:    @DESIGN.md</pre>
 <article class="slide">
   <header class="slide-header">
     <span>Nó 9 — Anatomia de uma skill</span>
+    <span>Uma de verdade, dissecada</span>
+  </header>
+  <div class="slide-main" style="gap:28px;">
+      <p class="eyebrow accent">As sete partes num arquivo real</p>
+      <div class="flex-row gap-48" style="align-items:flex-start;">
+        <div class="code-wrap" style="flex:1.35;">
+          <div class="code-head"><span><span style="color:var(--accent);font-weight:600;">01</span> ~/.claude/skills/heuristica-morys/SKILL.md</span><span>68 linhas no original</span></div>
+          <pre class="code-body" style="font-size:19px;line-height:1.55;padding:24px 32px;"><span style="color:var(--accent);font-weight:600;">02</span> ---
+   name: heuristica-morys
+   description: Varredura nas 7 dimensões de Morys.
+     Use quando o usuário disser "analisar página",
+     "diagnóstico de CRO", "onde estou perdendo conversão".
+   ---
+<span style="color:var(--accent);font-weight:600;">03</span> ## Input necessário
+   1. A URL da página   2. Um print, desktop e mobile
+   3. Qual é a conversão desejada   4. Quem chega nela
+<span style="color:var(--accent);font-weight:600;">05</span> Se faltar o print, diga que a análise fica limitada
+   e peça confirmação. <span style="color:var(--accent);">Não invente o que está na página.</span>
+<span style="color:var(--accent);font-weight:600;">04</span> ## As 7 dimensões  ·  avalie cada uma de 1 a 5
+   Relevância · Confiança · Orientação · Estímulo
+   Segurança · Conveniência · Confirmação
+   Cada nota cita o que você viu. Sem material: n/d.
+   Não sugira solução ainda. Esta skill diagnostica.
+<span style="color:var(--accent);font-weight:600;">06</span> ## Output
+   | Dimensão | Nota | Achado | Evidência na página |
+   Score total X/Y · as 2 dimensões mais fracas
+   Termine com: "Rode hipotese-estruturada".</pre>
+        </div>
+        <div class="flex-col gap-18" style="flex:1;font-family:var(--f-sans);font-size:var(--fs-body);">
+          <div class="flex-row gap-20" style="align-items:baseline;"><span class="mono text-accent" style="min-width:48px;">01</span><span><strong>Onde mora.</strong> A pasta chama <span class="mono">heuristica-morys</span>, então o comando é <span class="mono">/heuristica-morys</span>.</span></div>
+          <div class="flex-row gap-20" style="align-items:baseline;"><span class="mono text-accent" style="min-width:48px;">02</span><span><strong>A etiqueta.</strong> A description tem as frases que o aluno diria. É por isso que ela dispara sem o comando.</span></div>
+          <div class="flex-row gap-20" style="align-items:baseline;"><span class="mono text-accent" style="min-width:48px;">03</span><span><strong>Ingredientes.</strong> Quatro coisas, pedidas antes de começar.</span></div>
+          <div class="flex-row gap-20" style="align-items:baseline;"><span class="mono text-accent" style="min-width:48px;">04</span><span><strong>Modo de preparo.</strong> Sete dimensões, nota de 1 a 5, cada nota com evidência.</span></div>
+          <div class="flex-row gap-20" style="align-items:baseline;"><span class="mono text-accent" style="min-width:48px;">05</span><span><strong>O que ela recusa.</strong> Sem print, não inventa. Sem material, n/d.</span></div>
+          <div class="flex-row gap-20" style="align-items:baseline;"><span class="mono text-accent" style="min-width:48px;">06</span><span><strong>Como sai.</strong> Tabela fixa, score, as duas mais fracas, e o próximo passo.</span></div>
+        </div>
+      </div>
+      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">Markdown puro. Nada aqui é código. É uma receita escrita pra alguém que nunca viu a sua loja.</p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 9 — Anatomia de uma skill</span>
     <span></span>
   </header>
   <div class="slide-main" style="justify-content:center; gap:40px;">
@@ -1619,7 +1667,7 @@ Design system:    @DESIGN.md</pre>
         <span class="mono text-accent">heuristica-morys</span><br>aberta na tela
       </h2>
       <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--stone);max-width:1400px;">
-        As 7 dimensões que a Taci apresentou de manhã — viradas em receita.<br>
+        As 7 dimensões que a Taci acabou de apresentar — viradas em receita.<br>
         Apontar cada uma das sete partes no arquivo.
       </p>
     </div>
@@ -1687,7 +1735,7 @@ Design system:    @DESIGN.md</pre>
         </div>
         <div style="width:1px;background:var(--rule);"></div>
         <div class="flex-col gap-16" style="flex:1;">
-          <p class="mono text-stone" style="font-size:var(--fs-small);">As da manhã, mesmo caminho</p>
+          <p class="mono text-stone" style="font-size:var(--fs-small);">As que a Taci mostrou, mesmo caminho</p>
           <p class="text-stone">Heatmap e gravação de sessão. Ferramenta de teste A/B. Pesquisa onsite. SAC.<br>MCP quando existe, CLI quando não, e o Claude escreve o conector se precisar.</p>
         </div>
       </div>
