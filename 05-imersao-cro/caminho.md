@@ -121,7 +121,9 @@
   `@CRO.md` (como a loja converte) e `@DESIGN.md` (como a loja parece).
   Abriu o terminal na pasta, rodou `claude`, ele já leu os dois.
 
-## 9. Anatomia de uma skill — a receita
+## ~~9. Anatomia de uma skill~~ — saiu (2026-09-14): o Messina cobre de manhã. Os slides foram removidos.
+
+## (antigo 9) Anatomia de uma skill — a receita
 
 1. **Onde mora** — `~/.claude/skills/<nome>/SKILL.md`. O nome da pasta vira o comando `/<nome>`
 2. **A etiqueta** — `name` e `description` no topo. A `description` é o que faz ela disparar
@@ -133,12 +135,12 @@
 6. **Como sai** — formato fixo do output, pra comparar entre rodadas
 7. **Dissecar uma ao vivo** — abrir `heuristica-morys` e apontar cada parte
 
-## 10. Análise — trazer os dados de comportamento
+## 9. Análise — trazer os dados de comportamento
 > Callback na etapa 2 da Taciana. Aqui o Google Analytics MCP ganha aplicabilidade (decisão 2026-09-14: MCP oficial no lugar do gmp-cli, porque o aluno vai conectar o dele).
 
 - **Google Analytics MCP** (oficial) pra puxar os dados de comportamento; conectar = colar a URL e pedir
 
-## 11. Geração de hipótese
+## 10. Geração de hipótese
 > Callback na etapa 3 da Taciana. Aqui o Claude in Chrome ganha aplicabilidade.
 
 - **Claude in Chrome** navega o site fazendo a jornada — e a heurística roda em cima do
@@ -154,7 +156,7 @@
 - Passo 2: `/valida-skill-cro` dá nota 0–10 em 5 critérios e a pergunta que a skill não responde
 - ~20–25 min. Só cabe se a instalação virar pré-requisito da manhã (combinar com o Messina)
 
-## 12. Entregável — cro-plugin
+## 11. Entregável — cro-plugin
 > Promessa da landing: "plugin gratuito de CRO com Skills por papel (analista, QA, dev)
 > e a sua Skill de metodologia plugada nele".
 

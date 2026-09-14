@@ -1258,7 +1258,7 @@ claude</pre>
           <span class="mono" style="font-size:16px;color:var(--stone);">github.com/makenotion/notion-mcp-server</span>
         </div>
       </div>
-      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">Instala com <span class="text-accent">claude mcp add</span>, ou colando a URL e pedindo. O do GA4 a gente conecta no nó 10.</p>
+      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">Instala com <span class="text-accent">claude mcp add</span>, ou colando a URL e pedindo. O do GA4 a gente conecta no nó 9.</p>
     </div>
   <footer class="slide-footer">
     <span>@lucianfialho</span>
@@ -1276,7 +1276,7 @@ claude</pre>
       <div class="flex-row gap-64" style="align-items:center;">
         <div class="flex-col gap-24" style="flex:1;">
           <h2 style="font-family:var(--f-display);font-size:72px;line-height:1.05;letter-spacing:-0.02em;">O Claude navega no <span class="text-accent">seu</span> navegador, logado como você</h2>
-          <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--stone);">Faz a jornada da loja, abre o carrinho, lê o checkout, e conta o que viu. É a extensão que o nó 11 usa pra rodar Morys em cima da página real.</p>
+          <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--stone);">Faz a jornada da loja, abre o carrinho, lê o checkout, e conta o que viu. É a extensão que o nó 10 usa pra rodar Morys em cima da página real.</p>
           <div class="code-wrap">
             <div class="code-head">instalar · Chrome Web Store</div>
             <pre class="code-body" style="font-size:20px;line-height:1.6;">chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn</pre>
@@ -1747,163 +1747,11 @@ Design system:    @DESIGN.md</pre>
 
 <article class="slide noir">
   <header class="slide-header">
-    <span>Nó 9 — Anatomia de uma skill</span>
+    <span>Nó 9 — Análise</span>
     <span></span>
   </header>
   <div class="slide-main" style="justify-content:center; gap:32px;">
-      <p class="eyebrow noir-accent">Nó 9</p>
-      <h2 style="font-family:var(--f-display);font-size:104px;line-height:1.1;letter-spacing:-0.02em;">
-        Anatomia de<br>uma skill
-      </h2>
-      <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--noir-ink-soft);max-width:1200px;">
-        A receita, parte por parte.
-      </p>
-    </div>
-  <footer class="slide-footer">
-    <span>@lucianfialho</span>
-    <span></span>
-  </footer>
-</article>
-
-<article class="slide">
-  <header class="slide-header">
-    <span>Nó 9 — Anatomia de uma skill</span>
-    <span></span>
-  </header>
-  <div class="slide-main" style="gap:32px;">
-      <p class="eyebrow accent">As sete partes</p>
-      <div class="flex-col gap-16" style="font-family:var(--f-sans);font-size:var(--fs-lead);max-width:1600px;">
-        <div class="flex-row gap-32" style="align-items:baseline;"><span class="mono text-accent" style="min-width:60px;">01</span><span><strong>Onde mora</strong> — <span class="mono">~/.claude/skills/&lt;nome&gt;/SKILL.md</span>. O nome da pasta vira o comando. Num plugin, ganha prefixo: <span class="mono">/cro-ai-day:nome</span>.</span></div>
-        <div class="flex-row gap-32" style="align-items:baseline;"><span class="mono text-accent" style="min-width:60px;">02</span><span><strong>A etiqueta</strong> — <span class="mono">name</span> e <span class="mono">description</span>. A description é o que faz ela disparar sozinha.</span></div>
-        <div class="flex-row gap-32" style="align-items:baseline;"><span class="mono text-accent" style="min-width:60px;">03</span><span><strong>Ingredientes</strong> — o que ela precisa receber, e o que perguntar antes.</span></div>
-        <div class="flex-row gap-32" style="align-items:baseline;"><span class="mono text-accent" style="min-width:60px;">04</span><span><strong>Modo de preparo</strong> — os passos, em ordem, executáveis. "Analise" não é passo.</span></div>
-        <div class="flex-row gap-32" style="align-items:baseline;"><span class="mono text-accent" style="min-width:60px;">05</span><span><strong>O que ela recusa</strong> — onde para e pede mais informação em vez de inventar.</span></div>
-        <div class="flex-row gap-32" style="align-items:baseline;"><span class="mono text-accent" style="min-width:60px;">06</span><span><strong>Como sai</strong> — formato fixo do output, com coluna de evidência e um valor pra "não sei".</span></div>
-        <div class="flex-row gap-32" style="align-items:baseline;"><span class="mono text-accent" style="min-width:60px;">07</span><span><strong>Dissecar uma ao vivo</strong> — agora.</span></div>
-      </div>
-    </div>
-  <footer class="slide-footer">
-    <span>@lucianfialho</span>
-    <span></span>
-  </footer>
-</article>
-
-<article class="slide">
-  <header class="slide-header">
-    <span>Nó 9 — Anatomia de uma skill</span>
-    <span>Uma de verdade, dissecada</span>
-  </header>
-  <div class="slide-main" style="gap:28px;">
-      <p class="eyebrow accent">As sete partes num arquivo real</p>
-      <div class="flex-row gap-48" style="align-items:flex-start;">
-        <div class="code-wrap" style="flex:1.35;">
-          <div class="code-head"><span><span style="color:var(--accent);font-weight:600;">01</span> cro-ai-day · skills/heuristica-morys/SKILL.md</span><span>68 linhas no original</span></div>
-          <pre class="code-body" style="font-size:19px;line-height:1.55;padding:24px 32px;"><span style="color:var(--accent);font-weight:600;">02</span> ---
-   name: heuristica-morys
-   description: Varredura nas 7 dimensões de Morys.
-     Use quando o usuário disser "analisar página",
-     "diagnóstico de CRO", "onde estou perdendo conversão".
-   ---
-<span style="color:var(--accent);font-weight:600;">03</span> ## Input necessário
-   1. A URL da página   2. Um print, desktop e mobile
-   3. Qual é a conversão desejada   4. Quem chega nela
-<span style="color:var(--accent);font-weight:600;">05</span> Se faltar o print, diga que a análise fica limitada
-   e peça confirmação. <span style="color:var(--accent);">Não invente o que está na página.</span>
-<span style="color:var(--accent);font-weight:600;">04</span> ## As 7 dimensões  ·  avalie cada uma de 1 a 5
-   Relevância · Confiança · Orientação · Estímulo
-   Segurança · Conveniência · Confirmação
-   Cada nota cita o que você viu. Sem material: n/d.
-   Não sugira solução ainda. Esta skill diagnostica.
-<span style="color:var(--accent);font-weight:600;">06</span> ## Output
-   | Dimensão | Nota | Achado | Evidência na página |
-   Score total X/Y · as 2 dimensões mais fracas
-   Termine com: "Rode /cro-ai-day:hipotese-estruturada".</pre>
-        </div>
-        <div class="flex-col gap-18" style="flex:1;font-family:var(--f-sans);font-size:var(--fs-body);">
-          <div class="flex-row gap-20" style="align-items:baseline;"><span class="mono text-accent" style="min-width:48px;">01</span><span><strong>Onde mora.</strong> A pasta chama <span class="mono">heuristica-morys</span> dentro do plugin, então o comando é <span class="mono">/cro-ai-day:heuristica-morys</span>.</span></div>
-          <div class="flex-row gap-20" style="align-items:baseline;"><span class="mono text-accent" style="min-width:48px;">02</span><span><strong>A etiqueta.</strong> A description tem as frases que o aluno diria. É por isso que ela dispara sem o comando.</span></div>
-          <div class="flex-row gap-20" style="align-items:baseline;"><span class="mono text-accent" style="min-width:48px;">03</span><span><strong>Ingredientes.</strong> Quatro coisas, pedidas antes de começar.</span></div>
-          <div class="flex-row gap-20" style="align-items:baseline;"><span class="mono text-accent" style="min-width:48px;">04</span><span><strong>Modo de preparo.</strong> Sete dimensões, nota de 1 a 5, cada nota com evidência.</span></div>
-          <div class="flex-row gap-20" style="align-items:baseline;"><span class="mono text-accent" style="min-width:48px;">05</span><span><strong>O que ela recusa.</strong> Sem print, não inventa. Sem material, n/d.</span></div>
-          <div class="flex-row gap-20" style="align-items:baseline;"><span class="mono text-accent" style="min-width:48px;">06</span><span><strong>Como sai.</strong> Tabela fixa, score, as duas mais fracas, e o próximo passo.</span></div>
-        </div>
-      </div>
-      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">Markdown puro. Nada aqui é código. É uma receita escrita pra alguém que nunca viu a sua loja.</p>
-    </div>
-  <footer class="slide-footer">
-    <span>@lucianfialho</span>
-    <span></span>
-  </footer>
-</article>
-
-<article class="slide">
-  <header class="slide-header">
-    <span>Nó 9 — Anatomia de uma skill</span>
-    <span>A parte 06, com calma</span>
-  </header>
-  <div class="slide-main" style="gap:32px;">
-      <p class="eyebrow accent">Formato de saída</p>
-      <h2 style="font-family:var(--f-display);font-size:80px;line-height:1.05;letter-spacing:-0.02em;max-width:1600px;">
-        Resposta livre é onde o modelo <span class="text-accent">inventa</span>.<br>Formato fixo é a cerca.
-      </h2>
-      <div class="flex-row gap-64" style="align-items:flex-start;">
-        <div class="flex-col gap-16" style="flex:1;font-family:var(--f-sans);font-size:var(--fs-body);">
-          <div class="flex-row gap-20" style="align-items:baseline;"><span class="mono text-accent" style="min-width:48px;">01</span><span><strong>Coluna de evidência obrigatória.</strong> Nota sem "o que eu vi na página" não vale. Ele tem que mostrar de onde tirou.</span></div>
-          <div class="flex-row gap-20" style="align-items:baseline;"><span class="mono text-accent" style="min-width:48px;">02</span><span><strong>Um valor permitido pra "não sei".</strong> <span class="mono">n/d</span>, <span class="mono">não encontrado</span>. Sem essa saída, ele preenche o buraco com algo plausível.</span></div>
-          <div class="flex-row gap-20" style="align-items:baseline;"><span class="mono text-accent" style="min-width:48px;">03</span><span><strong>Escala fechada.</strong> 1 a 5, 0/1/2. E o "não sei" sai do denominador, não vira zero.</span></div>
-          <div class="flex-row gap-20" style="align-items:baseline;"><span class="mono text-accent" style="min-width:48px;">04</span><span><strong>Mesma tabela toda rodada.</strong> Só assim você compara terça com quinta e percebe quando ele mudou de ideia sem motivo.</span></div>
-        </div>
-        <div class="flex-col gap-14" style="flex:1;">
-          <div style="border:1px solid var(--rule);border-radius:var(--r-lg);padding:16px 22px;background:var(--bg-alt);">
-            <div class="mono text-accent" style="font-size:var(--fs-small);">/cro-ai-day:heuristica-morys</div>
-            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--ink-soft);margin-top:4px;">| Dimensão | Nota | Achado | Evidência na página |. Dimensão sem material vira n/d e sai do score.</div>
-          </div>
-          <div style="border:1px solid var(--rule);border-radius:var(--r-lg);padding:16px 22px;background:var(--bg-alt);">
-            <div class="mono text-accent" style="font-size:var(--fs-small);">/cro-ai-day:detecta-design-system</div>
-            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--ink-soft);margin-top:4px;">Cor que ele não mediu vira "não encontrado". Não vira um vermelho plausível.</div>
-          </div>
-          <div style="border:1px solid var(--rule);border-radius:var(--r-lg);padding:16px 22px;background:var(--bg-alt);">
-            <div class="mono text-accent" style="font-size:var(--fs-small);">/cro-ai-day:valida-skill-cro</div>
-            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--ink-soft);margin-top:4px;">0, 1 ou 2 por critério, e a pergunta exata que a skill não responde. Nunca "está boa".</div>
-          </div>
-        </div>
-      </div>
-      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">Alucinação não se resolve pedindo "não invente". Se resolve não deixando espaço pra inventar.</p>
-    </div>
-  <footer class="slide-footer">
-    <span>@lucianfialho</span>
-    <span></span>
-  </footer>
-</article>
-
-<article class="slide">
-  <header class="slide-header">
-    <span>Nó 9 — Anatomia de uma skill</span>
-    <span></span>
-  </header>
-  <div class="slide-main" style="justify-content:center; gap:40px;">
-      <p class="eyebrow accent">Ao vivo</p>
-      <h2 style="font-family:var(--f-display);font-size:88px;line-height:1.1;letter-spacing:-0.02em;">
-        <span class="mono text-accent">heuristica-morys</span><br>aberta na tela
-      </h2>
-      <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--stone);max-width:1400px;">
-        As 7 dimensões que a Taci acabou de apresentar — viradas em receita.<br>
-        Apontar cada uma das sete partes no arquivo.
-      </p>
-    </div>
-  <footer class="slide-footer">
-    <span>@lucianfialho</span>
-    <span></span>
-  </footer>
-</article>
-
-<article class="slide noir">
-  <header class="slide-header">
-    <span>Nó 10 — Análise</span>
-    <span></span>
-  </header>
-  <div class="slide-main" style="justify-content:center; gap:32px;">
-      <p class="eyebrow noir-accent">Nó 10 · callback na etapa 2 da Taci</p>
+      <p class="eyebrow noir-accent">Nó 9 · callback na etapa 2 da Taci</p>
       <h2 style="font-family:var(--f-display);font-size:104px;line-height:1.1;letter-spacing:-0.02em;">
         Análise
       </h2>
@@ -1919,7 +1767,7 @@ Design system:    @DESIGN.md</pre>
 
 <article class="slide">
   <header class="slide-header">
-    <span>Nó 10 — Análise</span>
+    <span>Nó 9 — Análise</span>
     <span></span>
   </header>
   <div class="slide-main" style="justify-content:center; gap:40px;">
@@ -1950,7 +1798,7 @@ Design system:    @DESIGN.md</pre>
 
 <article class="slide">
   <header class="slide-header">
-    <span>Nó 10 — Análise</span>
+    <span>Nó 9 — Análise</span>
     <span>Conectividade</span>
   </header>
   <div class="slide-main" style="gap:40px;">
@@ -1979,11 +1827,11 @@ Design system:    @DESIGN.md</pre>
 
 <article class="slide noir">
   <header class="slide-header">
-    <span>Nó 11 — Geração de hipótese</span>
+    <span>Nó 10 — Geração de hipótese</span>
     <span></span>
   </header>
   <div class="slide-main" style="justify-content:center; gap:32px;">
-      <p class="eyebrow noir-accent">Nó 11 · callback na etapa 3 da Taci</p>
+      <p class="eyebrow noir-accent">Nó 10 · callback na etapa 3 da Taci</p>
       <h2 style="font-family:var(--f-display);font-size:104px;line-height:1.1;letter-spacing:-0.02em;">
         Geração de<br>hipótese
       </h2>
@@ -1999,7 +1847,7 @@ Design system:    @DESIGN.md</pre>
 
 <article class="slide">
   <header class="slide-header">
-    <span>Nó 11 — Geração de hipótese</span>
+    <span>Nó 10 — Geração de hipótese</span>
     <span></span>
   </header>
   <div class="slide-main" style="justify-content:center; gap:40px;">
@@ -2021,11 +1869,11 @@ Design system:    @DESIGN.md</pre>
 
 <article class="slide noir">
   <header class="slide-header">
-    <span>Nó 12 — Entregável</span>
+    <span>Nó 11 — Entregável</span>
     <span></span>
   </header>
   <div class="slide-main" style="justify-content:center; gap:32px;">
-      <p class="eyebrow noir-accent">Nó 12</p>
+      <p class="eyebrow noir-accent">Nó 11</p>
       <h2 style="font-family:var(--f-display);font-size:104px;line-height:1.1;letter-spacing:-0.02em;">
         Um plugin de CRO<br>pro seu time
       </h2>
@@ -2041,7 +1889,7 @@ Design system:    @DESIGN.md</pre>
 
 <article class="slide">
   <header class="slide-header">
-    <span>Nó 12 — Entregável</span>
+    <span>Nó 11 — Entregável</span>
     <span>cro-plugin</span>
   </header>
   <div class="slide-main" style="gap:40px;">
@@ -2155,7 +2003,7 @@ claude plugin install cro-ai-day@cro-plugin</pre>
         O seu processo<br>vira uma skill
       </h2>
       <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--noir-ink-soft);max-width:1200px;">
-        Lembra da receita do nó 9? Agora os ingredientes são o time da sua empresa. Pra fazer agora, se deu tempo, ou em casa com o PDF.
+        Lembra da anatomia de skill que vocês viram de manhã? Agora os ingredientes são o time da sua empresa. Pra fazer agora, se deu tempo, ou em casa com o PDF.
       </p>
     </div>
   <footer class="slide-footer">
