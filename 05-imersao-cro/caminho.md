@@ -13,6 +13,9 @@
 ## 3. Back to Basics
 
 ### A importância de fazer a jornada do seu usuário
+> Slide "5 minutos · no seu computador" logo depois (2026-09-14): abre a loja, vai até o
+> pagamento, anota onde dói. Não é exercício; alimenta a seção 2 (Jornada) do CRO.md no nó 5.
+> Custa +5 min na conta de tempo.
 ↔ conecta com "Dividir a jornada em etapas" (abaixo)
 
 ### A importância do plano de mensuração
