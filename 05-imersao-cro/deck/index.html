@@ -1187,6 +1187,47 @@ claude</pre>
 <article class="slide">
   <header class="slide-header">
     <span>Nó 5 — O Claude por dentro</span>
+    <span>MCP · o que é</span>
+  </header>
+  <div class="slide-main" style="gap:32px;">
+      <p class="eyebrow accent">O Claude por dentro · MCP</p>
+      <h2 style="font-family:var(--f-display);font-size:72px;letter-spacing:-0.02em;">
+        <span class="text-accent">MCP</span> — um protocolo. Uma tomada padrão entre o Claude e qualquer ferramenta.
+      </h2>
+      <div style="display:grid;grid-template-columns:1fr 60px 1.1fr 60px 1.4fr;gap:16px;align-items:center;width:100%;">
+        <div><div style="border:1px solid var(--noir-bg);background:var(--noir-bg);color:var(--noir-ink);border-radius:var(--r-lg);padding:18px 24px;text-align:center;">
+              <div class="mono" style="font-size:22px;">Claude Code</div><div style="font-family:var(--f-sans);font-size:18px;color:var(--stone);margin-top:4px;">ou claude.ai, ou Cowork</div>
+            </div></div>
+        <div style="text-align:center;font-family:var(--f-display);font-size:56px;color:var(--stone);">⟷</div>
+        <div><div style="border:1px solid var(--rule);background:var(--bg-alt);color:var(--ink);border-radius:var(--r-lg);padding:18px 24px;text-align:center;">
+              <div class="mono" style="font-size:22px;">servidor MCP</div><div style="font-family:var(--f-sans);font-size:18px;color:var(--stone);margin-top:4px;">um por ferramenta. Traduz "me dá o funil da semana" pra chamada de API.</div>
+            </div></div>
+        <div style="text-align:center;font-family:var(--f-display);font-size:56px;color:var(--stone);">⟷</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;"><div style="border:1px solid var(--rule);background:var(--bg);color:var(--ink);border-radius:var(--r-lg);padding:18px 24px;text-align:center;">
+              <div class="mono" style="font-size:22px;">GA4</div><div style="font-family:var(--f-sans);font-size:18px;color:var(--stone);margin-top:4px;">dados</div>
+            </div><div style="border:1px solid var(--rule);background:var(--bg);color:var(--ink);border-radius:var(--r-lg);padding:18px 24px;text-align:center;">
+              <div class="mono" style="font-size:22px;">Zendesk</div><div style="font-family:var(--f-sans);font-size:18px;color:var(--stone);margin-top:4px;">SAC</div>
+            </div><div style="border:1px solid var(--rule);background:var(--bg);color:var(--ink);border-radius:var(--r-lg);padding:18px 24px;text-align:center;">
+              <div class="mono" style="font-size:22px;">Notion</div><div style="font-family:var(--f-sans);font-size:18px;color:var(--stone);margin-top:4px;">backlog</div>
+            </div><div style="border:1px solid var(--rule);background:var(--bg);color:var(--ink);border-radius:var(--r-lg);padding:18px 24px;text-align:center;">
+              <div class="mono" style="font-size:22px;">Planilha</div><div style="font-family:var(--f-sans);font-size:18px;color:var(--stone);margin-top:4px;">a sua</div>
+            </div></div>
+      </div>
+      <div class="flex-row gap-64" style="font-family:var(--f-sans);font-size:var(--fs-body);color:var(--ink);">
+        <div style="flex:1;"><strong>Antes:</strong> cada app fazia a própria integração com cada ferramenta. Dez apps, dez ferramentas, cem integrações.</div>
+        <div style="flex:1;"><strong>Com MCP:</strong> a ferramenta publica um servidor uma vez. Qualquer Claude liga nele. Aberto, criado pela Anthropic em 2024, adotado por Google, Microsoft, Notion.</div>
+        <div style="flex:1;"><strong>Você já usou:</strong> os "conectores" do claude.ai são MCP com botão. No terminal é <span class="mono">claude mcp add</span>.</div>
+      </div>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 5 — O Claude por dentro</span>
     <span>MCP</span>
   </header>
   <div class="slide-main" style="gap:32px;">
