@@ -64,6 +64,8 @@
 > Ordem interna talvez diferente da listada.
 
 - Instalar. A ideia é trabalhar direto no **Claude Code terminal**
+  - Decisão 2026-09-14: passa rápido (~3 min). A maioria instala de manhã com o Messina;
+    o slide fica como referência pra quem não instalou. O que se faz de verdade é o kit (plugins).
 - Por que terminal: mais acesso, conectar coisas, gerenciar a extensão do Chrome
   (**Claude in Chrome**)
 - Conceitos básicos, em cima de como o Claude Code funciona:
