@@ -3,44 +3,1897 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Quatro cadeiras — Imersão Claude para CRO</title>
+<title>Imersão Claude para CRO — tarde</title>
 <link rel="stylesheet" href="deck-styles.css">
+<style>
+/* Instrument Serif só tem peso 400: nunca deixar o UA sintetizar bold */
+h1, h2, h3, .display, [style*="--f-display"] { font-weight: 400; }
+
+  /* slide-local overrides */
+  .slide-main { flex: 1; display: flex; flex-direction: column; }
+
+  /* ── Cover ── */
+  .cover-tag {
+    font-family: var(--f-mono);
+    font-size: var(--fs-micro);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 48px;
+  }
+  .cover-title {
+    font-family: var(--f-display);
+    font-size: 108px;
+    line-height: 1.01;
+    letter-spacing: -0.025em;
+    max-width: 1480px;
+    margin-bottom: 64px;
+  }
+  .cover-meta {
+    font-family: var(--f-mono);
+    font-size: var(--fs-small);
+    color: var(--stone);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── Funnel slide ── */
+  .funnel-row {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .funnel-bar {
+    height: 8px;
+    background: var(--accent);
+    border-radius: 2px;
+    transition: width 0.4s;
+  }
+  .funnel-label {
+    font-family: var(--f-display);
+    font-size: 80px;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+  }
+  .funnel-pct {
+    font-family: var(--f-mono);
+    font-size: var(--fs-small);
+    color: var(--stone);
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+  /* ── Stats grid ── */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    flex: 1;
+  }
+  .stats-cell {
+    background: var(--bg-alt);
+    padding: 56px 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .stats-cell .big {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-size: 180px;
+    line-height: 0.82;
+    letter-spacing: -0.05em;
+    color: var(--ink);
+  }
+  .stats-cell .big .accent { color: var(--accent); }
+  .stats-cell .label {
+    font-family: var(--f-mono);
+    font-size: var(--fs-micro);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--stone);
+    margin-top: 8px;
+  }
+
+  /* ── Section divider ── */
+  .section-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .section-number {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-size: 340px;
+    line-height: 0.8;
+    letter-spacing: -0.04em;
+    color: var(--noir-accent);
+    text-align: right;
+    align-self: flex-end;
+  }
+
+  /* ── Tool comparison ── */
+  .tool-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+    flex: 1;
+  }
+  .tool-card {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 48px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .tool-card.highlight { border-color: var(--accent); background: color-mix(in oklab, var(--accent) 6%, transparent); }
+  .tool-name {
+    font-family: var(--f-mono);
+    font-size: 28px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .tool-name.accent { color: var(--accent); }
+  .tool-desc {
+    font-family: var(--f-sans);
+    font-size: var(--fs-body);
+    line-height: 1.4;
+    color: var(--ink-soft);
+  }
+  .tool-badge {
+    display: inline-block;
+    font-family: var(--f-mono);
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 6px 14px;
+    border-radius: 2px;
+    background: var(--accent);
+    color: white;
+    align-self: flex-start;
+    margin-top: auto;
+  }
+  .tool-badge.muted { background: var(--rule); color: var(--stone); }
+
+  /* ── Routines grid ── */
+  .routine-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    flex: 1;
+    align-items: start;
+  }
+  .routine-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .routine-type {
+    font-family: var(--f-mono);
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+  }
+  .routine-name {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-size: 52px;
+    line-height: 1.0;
+    letter-spacing: -0.015em;
+  }
+  .routine-desc {
+    font-family: var(--f-sans);
+    font-size: var(--fs-small);
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+
+  /* ── Schedule/loop ── */
+  .schedule-hero {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .schedule-card {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  /* ── Bifurcation ── */
+  .bif-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    flex: 1;
+  }
+  .bif-option {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 56px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .bif-option.left { border-color: var(--rule); }
+  .bif-option.right { border-color: var(--accent); background: color-mix(in oklab, var(--accent) 5%, transparent); }
+  .bif-vote {
+    font-family: var(--f-mono);
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+  .bif-vote.left { color: var(--stone); }
+  .bif-vote.right { color: var(--accent); }
+  .bif-label {
+    font-family: var(--f-display);
+    font-size: 60px;
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+  }
+  .bif-detail {
+    font-family: var(--f-sans);
+    font-size: var(--fs-small);
+    line-height: 1.5;
+    color: var(--stone);
+    margin-top: auto;
+  }
+
+  /* ── Sources orbit placeholder ── */
+  .sources-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    flex: 1;
+    align-items: center;
+  }
+  .source-chip {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 28px 24px;
+    text-align: center;
+    font-family: var(--f-mono);
+    font-size: 22px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--stone);
+  }
+  .source-chip.center {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+    font-size: 26px;
+    grid-column: 2 / 4;
+    padding: 40px 24px;
+  }
+
+  /* ── 20x stat ── */
+  .stat-20x {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-size: 480px;
+    line-height: 0.82;
+    letter-spacing: -0.05em;
+    color: var(--accent);
+  }
+  .stat-20x-unit {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-size: 120px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+  }
+
+  /* ── CLI cards ── */
+  .cli-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    flex: 1;
+  }
+  .cli-card {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 56px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .cli-card-name {
+    font-family: var(--f-mono);
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .cli-card-desc {
+    font-family: var(--f-sans);
+    font-size: var(--fs-body);
+    line-height: 1.4;
+    color: var(--ink-soft);
+  }
+
+  /* ── WAPE stats ── */
+  .wape-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    flex: 1;
+  }
+  .wape-row {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+  .wape-label {
+    font-family: var(--f-mono);
+    font-size: var(--fs-small);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    width: 300px;
+    flex-shrink: 0;
+  }
+  .wape-bar-wrap {
+    flex: 1;
+    height: 24px;
+    background: var(--bg-alt);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .wape-bar {
+    height: 100%;
+    border-radius: 2px;
+    background: var(--stone-2);
+  }
+  .wape-bar.winner { background: var(--accent); }
+  .wape-val {
+    font-family: var(--f-mono);
+    font-size: var(--fs-body);
+    font-weight: 600;
+    width: 140px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .wape-val.winner { color: var(--accent); }
+
+  /* ── Immutable slide ── */
+  .immutable-quote {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-size: 88px;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    max-width: 1500px;
+  }
+
+  /* ── Principles list ── */
+  .principles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    flex: 1;
+  }
+  .principle-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+  }
+  .principle-num {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-size: 100px;
+    line-height: 0.85;
+    color: var(--accent);
+    flex-shrink: 0;
+    width: 80px;
+  }
+  .principle-text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 16px;
+  }
+  .principle-head {
+    font-family: var(--f-sans);
+    font-size: 44px;
+    font-weight: 600;
+    line-height: 1.1;
+  }
+  .principle-sub {
+    font-family: var(--f-sans);
+    font-size: var(--fs-body);
+    line-height: 1.45;
+    color: var(--stone);
+  }
+
+  /* ── Recap ── */
+  .recap-items {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    flex: 1;
+    justify-content: center;
+  }
+  .recap-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 48px;
+  }
+  .recap-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .recap-text {
+    font-family: var(--f-display);
+    font-size: 52px;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    flex: 1;
+  }
+
+  /* ── CTA slide ── */
+  .cta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    flex: 1;
+    align-items: center;
+  }
+  .qr-box {
+    background: var(--bg-alt);
+    border-radius: 4px;
+    aspect-ratio: 1;
+    max-height: 640px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 48px;
+  }
+  .qr-placeholder {
+    width: 400px;
+    height: 400px;
+    background: var(--ink);
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 6px;
+    padding: 24px;
+  }
+  .qr-cell {
+    background: var(--bg);
+    border-radius: 1px;
+  }
+  .qr-cell.on { background: var(--ink); }
+  .qr-url {
+    font-family: var(--f-mono);
+    font-size: var(--fs-small);
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+  }
+  .cta-paths {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .cta-path {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 24px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .cta-path.highlight { border-color: var(--accent); }
+  .cta-path-label {
+    font-family: var(--f-mono);
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--stone);
+  }
+  .cta-path.highlight .cta-path-label { color: var(--accent); }
+  .cta-path-name {
+    font-family: var(--f-display);
+    font-size: 36px;
+    font-style: italic;
+  }
+  .cta-path-desc {
+    font-family: var(--f-sans);
+    font-size: var(--fs-small);
+    color: var(--stone);
+    line-height: 1.5;
+  }
+
+  /* ── Twitter handles ── */
+  .handles-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    flex: 1;
+    align-content: center;
+  }
+  .handle-item {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .handle-at {
+    font-family: var(--f-mono);
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .handle-name {
+    font-family: var(--f-sans);
+    font-size: var(--fs-small);
+    color: var(--stone);
+  }
+
+  /* ── Hand-raise question ── */
+  .hand-question {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .hand-q-text {
+    font-family: var(--f-display);
+    font-size: 110px;
+    line-height: 1.0;
+    letter-spacing: -0.025em;
+    max-width: 1400px;
+  }
+  .hand-q-text em { font-style: italic; color: var(--accent); }
+
+  /* ── Ato5 setup ── */
+  .loop-hero {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  /* ── Obrigado ── */
+  .obrigado-title {
+    font-family: var(--f-display);
+    font-size: 180px;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+  }
+#vote-panel { user-select:none; }
+
+</style>
 <script src="deck-stage.js" defer></script>
 </head>
 <body>
 <deck-stage>
 
-<section class="slide"><div class="slide-main" style="justify-content:center; gap:48px;"><p style="font-family:var(--f-mono);font-size:var(--fs-small);color:var(--accent);text-transform:uppercase;letter-spacing:0.12em;">Imersão Claude para CRO — 14 set 2026</p><h1 style="font-family:var(--f-display);font-style:italic;font-size:88px;line-height:1.15;letter-spacing:-0.02em;max-width:1500px;color:var(--fg);"> "O próximo desafio não é usar o Claude.<br>É transformá-lo em parte do seu processo de CRO." </h1><p style="font-family:var(--f-mono);font-size:var(--fs-small);color:var(--stone);text-transform:uppercase;letter-spacing:0.08em;">— Taciana Serafim</p></div></section>
+<article class="slide">
+  <header class="slide-header">
+    <span>Métricas Boss · 2026</span>
+    <span>Imersão Claude para CRO</span>
+  </header>
+  <div class="slide-main" style="justify-content:center; gap:40px;">
+    <div class="cover-tag">Bloco da tarde · 14 set 2026</div>
+    <div class="cover-title display">
+      Do processo de CRO<br>à sua própria <em style="font-style:italic;color:var(--accent)">skill</em>
+    </div>
+    <div class="cover-meta">Lucian Fialho — Métricas Boss</div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
 
-<section class="slide"><div class="slide-main" style="justify-content:center; align-items:center; text-align:center;"><h2 style="font-family:var(--f-display);font-size:120px;line-height:1.15;letter-spacing:-0.02em;color:var(--fg);"> Quatro cadeiras.<br><span style="color:var(--accent);">Uma skill por cadeira.</span></h2></div></section>
+<article class="slide">
+  <header class="slide-header">
+    <span>Pesquisa qualitativa</span>
+    <span>Mão levantada · 1</span>
+  </header>
+  <div class="hand-question">
+    <div class="eyebrow accent" style="margin-bottom:40px;">Mão levantada —</div>
+    <div class="hand-q-text">Quem aqui usa ou<br>já usou o <em>Claude</em>?</div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
 
-<section class="slide"><div class="slide-main" style="gap:40px;"><h2 style="font-family:var(--f-display);font-size:52px;letter-spacing:-0.02em;color:var(--fg);">O mapa da tarde</h2><table style="width:100%;border-collapse:collapse;font-size:28px;"><thead><tr style="border-bottom:1px solid var(--rule);"><th style="text-align:left;padding:14px 0;font-family:var(--f-mono);font-size:var(--fs-small);color:var(--stone);font-weight:400;">Cadeira</th><th style="text-align:left;padding:14px 0;font-family:var(--f-mono);font-size:var(--fs-small);color:var(--stone);font-weight:400;">Skill</th><th style="text-align:left;padding:14px 0;font-family:var(--f-mono);font-size:var(--fs-small);color:var(--stone);font-weight:400;">Camada</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--rule);"><td style="padding:16px 0;color:var(--stone);font-family:var(--f-mono);font-size:var(--fs-small);">CRO</td><td style="padding:16px 0;font-family:var(--f-display);">heuristica-morys</td><td style="padding:16px 0;"></td></tr><tr style="border-bottom:1px solid var(--rule);"><td style="padding:16px 0;color:var(--stone);font-family:var(--f-mono);font-size:var(--fs-small);">CRO</td><td style="padding:16px 0;font-family:var(--f-display);">hipotese-estruturada</td><td style="padding:16px 0;"></td></tr><tr style="border-bottom:1px solid var(--rule);"><td style="padding:16px 0;color:var(--stone);font-family:var(--f-mono);font-size:var(--fs-small);">CRO</td><td style="padding:16px 0;font-family:var(--f-display);">ice-score</td><td style="padding:16px 0;"></td></tr><tr style="border-bottom:1px solid var(--rule);"><td style="padding:16px 0;color:var(--stone);font-family:var(--f-mono);font-size:var(--fs-small);">Analytics</td><td style="padding:16px 0;font-family:var(--f-display);">srm-check</td><td style="padding:16px 0;"></td></tr><tr style="border-bottom:1px solid var(--rule);"><td style="padding:16px 0;color:var(--stone);font-family:var(--f-mono);font-size:var(--fs-small);">Analytics</td><td style="padding:16px 0;font-family:var(--f-display);">post-test-segments</td><td style="padding:16px 0;"></td></tr><tr style="border-bottom:1px solid var(--rule);"><td style="padding:16px 0;color:var(--stone);font-family:var(--f-mono);font-size:var(--fs-small);">Dev</td><td style="padding:16px 0;font-family:var(--f-display);">variante-builder</td><td style="padding:16px 0;"></td></tr><tr><td style="padding:16px 0;color:var(--stone);font-family:var(--f-mono);font-size:var(--fs-small);">Dev</td><td style="padding:16px 0;font-family:var(--f-display);">pre-flight-check</td><td style="padding:16px 0;"></td></tr></tbody></table></div></section>
+<article class="slide">
+  <header class="slide-header">
+    <span>Pesquisa qualitativa</span>
+    <span>Mão levantada · 2</span>
+  </header>
+  <div class="hand-question">
+    <div class="eyebrow accent" style="margin-bottom:40px;">Mão levantada —</div>
+    <div class="hand-q-text">Quem aqui usa ou<br>já usou o <em>Claude Code</em>?</div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
 
-<section class="slide"><div class="slide-main" style="gap:36px;"><h2 style="font-family:var(--f-display);font-size:52px;letter-spacing:-0.02em;color:var(--fg);">As 7 dimensões de Morys</h2><div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(4,1fr);gap:28px 64px;"><div><p style="font-family:var(--f-display);font-size:34px;color:var(--accent);">Relevância</p><p style="font-family:var(--f-mono);font-size:20px;color:var(--stone);">A proposta de valor ajuda a resolver as dores do cliente?</p></div><div><p style="font-family:var(--f-display);font-size:34px;color:var(--accent);">Confiança</p><p style="font-family:var(--f-mono);font-size:20px;color:var(--stone);">São usadas celebridades ou autoridades como depoimentos?</p></div><div><p style="font-family:var(--f-display);font-size:34px;color:var(--accent);">Orientação</p><p style="font-family:var(--f-mono);font-size:20px;color:var(--stone);">O CTA principal é visível e fácil de achar?</p></div><div><p style="font-family:var(--f-display);font-size:34px;color:var(--accent);">Estímulo</p><p style="font-family:var(--f-mono);font-size:20px;color:var(--stone);">A percepção de preço e risco está bem projetada?</p></div><div><p style="font-family:var(--f-display);font-size:34px;color:var(--accent);">Segurança</p><p style="font-family:var(--f-mono);font-size:20px;color:var(--stone);">Existe uma página de perguntas frequentes?</p></div><div><p style="font-family:var(--f-display);font-size:34px;color:var(--accent);">Conveniência</p><p style="font-family:var(--f-mono);font-size:20px;color:var(--stone);">Os formulários realmente são convenientes?</p></div><div><p style="font-family:var(--f-display);font-size:34px;color:var(--accent);">Confirmação</p><p style="font-family:var(--f-mono);font-size:20px;color:var(--stone);">A página mostra razões racionalmente boas para a decisão de compra?</p></div></div></div></section>
+<article class="slide">
+  <header class="slide-header">
+    <span>Pesquisa qualitativa</span>
+    <span>Mão levantada · 3</span>
+  </header>
+  <div class="hand-question">
+    <div class="eyebrow accent" style="margin-bottom:40px;">Mão levantada —</div>
+    <div class="hand-q-text">Quem aqui usa o Claude Code<br><em>no terminal</em>?</div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
 
-<section class="slide"><div class="slide-main" style="gap:48px;"><h2 style="font-family:var(--f-display);font-size:52px;letter-spacing:-0.02em;color:var(--fg);">O template da hipótese</h2><p style="font-family:var(--f-mono);font-size:34px;line-height:1.6;color:var(--fg);background:var(--bg-alt, transparent);border-left:4px solid var(--accent);padding-left:32px;"> Se [mudarmos X], para [segmento Y],<br>então [resultado Z], porque [evidência]. </p><table style="width:100%;border-collapse:collapse;font-size:26px;margin-top:16px;"><tbody><tr style="border-bottom:1px solid var(--rule);"><td style="padding:14px 0;width:280px;font-family:var(--f-mono);font-size:var(--fs-small);color:var(--accent);">Observação</td><td style="padding:14px 0;font-family:var(--f-display);color:var(--stone);">Unidade + contexto</td></tr><tr style="border-bottom:1px solid var(--rule);"><td style="padding:14px 0;font-family:var(--f-mono);font-size:var(--fs-small);color:var(--accent);">Intervenção</td><td style="padding:14px 0;font-family:var(--f-display);color:var(--stone);">A mudança proposta</td></tr><tr style="border-bottom:1px solid var(--rule);"><td style="padding:14px 0;font-family:var(--f-mono);font-size:var(--fs-small);color:var(--accent);">Resultado esperado</td><td style="padding:14px 0;font-family:var(--f-display);color:var(--stone);">Métrica + magnitude</td></tr><tr><td style="padding:14px 0;font-family:var(--f-mono);font-size:var(--fs-small);color:var(--accent);">Evidência</td><td style="padding:14px 0;font-family:var(--f-display);color:var(--stone);">Dados que suportam</td></tr></tbody></table></div></section>
+<article class="slide">
+  <header class="slide-header">
+    <span>Apresentação</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="flex-direction:row; align-items:center; gap:80px;">
+      <div style="flex-shrink:0;">
+        <img src="lucian.jpg" alt="Lucian Fialho"
+          style="width:360px; height:360px; border-radius:50%; object-fit:cover; display:block; filter:grayscale(15%);">
+      </div>
+      <div class="flex-col gap-32" style="flex:1;">
+        <div class="flex-col gap-16">
+          <p class="eyebrow accent">Olá 🖖</p>
+          <h1 style="font-family:var(--f-display);font-size:80px;line-height:.95;letter-spacing:-0.025em;">Lucian<br>Fialho</h1>
+        </div>
+        <div style="width:48px;height:3px;background:var(--accent);"></div>
+        <div class="flex-col gap-20">
+          <p style="font-family:var(--f-sans);font-size:var(--fs-lead);line-height:1.4;color:var(--ink);">
+            Co-Fundador e <em style="font-style:italic;color:var(--accent);">Goku</em> da Métricas Boss<br>
+            Programador desde que me entendo por gente.
+          </p>
+          <p style="font-family:var(--f-sans);font-size:var(--fs-body);line-height:1.5;color:var(--ink-soft);">
+            Não sou palestrante. Não sou influenciador.<br>
+            Não trouxe nenhuma fórmula mágica para o sucesso.
+          </p>
+        </div>
+        <p class="mono" style="font-size:var(--fs-small);color:var(--stone);letter-spacing:.04em;">@lucianfialho</p>
+      </div>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
 
-<section class="slide"><div class="slide-main" style="justify-content:center; align-items:center;"><p style="font-family:var(--f-mono);font-size:110px;font-weight:600;letter-spacing:-0.01em;color:var(--accent);white-space:nowrap;">⚠️ FALTA EVIDÊNCIA</p></div></section>
+<article class="slide noir">
+  <header class="slide-header">
+    <span>Nó 3 — Back to Basics</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="justify-content:center; gap:32px;">
+      <p class="eyebrow noir-accent">Nó 3</p>
+      <h2 style="font-family:var(--f-display);font-size:120px;letter-spacing:-0.02em;">
+        Back to Basics
+      </h2>
+      <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--noir-ink-soft);max-width:1200px;">
+        O que a gente tem que aprender antes de aprender.
+      </p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
 
-<section class="slide"><div class="slide-main" style="justify-content:center; align-items:center; text-align:center; gap:40px;"><p style="font-family:var(--f-display);font-size:140px;letter-spacing:-0.02em;color:var(--fg);">Café <span style="color:var(--accent);">·</span> 20 min</p><p style="font-family:var(--f-mono);font-size:var(--fs-small);color:var(--stone);text-transform:uppercase;letter-spacing:0.08em;">Instalação opcional — guia no fim do handout</p></div></section>
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 3 — Back to Basics</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="justify-content:center; align-items:center; text-align:center; gap:40px;">
+      <h2 style="font-family:var(--f-display);font-size:88px;line-height:1.15;letter-spacing:-0.02em;max-width:1500px;">
+        Não adianta colocar IA numa<br>operação que está <span class="text-accent">quebrada</span>.
+      </h2>
+      <p class="mono" style="font-size:var(--fs-subtitle);color:var(--stone);">
+        shit in, shit out
+      </p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
 
-<section class="slide"><div class="slide-main" style="justify-content:center; gap:56px;"><h2 style="font-family:var(--f-display);font-size:88px;letter-spacing:-0.02em;color:var(--fg);"> Impacto <span style="color:var(--accent);">×</span> Confiança <span style="color:var(--accent);">×</span> Facilidade </h2><p style="font-family:var(--f-mono);font-size:28px;color:var(--stone);max-width:1300px;line-height:1.6;"> "Use para ranking relativo, não como veredito." </p></div></section>
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 3 — Back to Basics</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="justify-content:center; gap:40px;">
+      <p class="eyebrow accent">Back to Basics · 1 de 3</p>
+      <h2 style="font-family:var(--f-display);font-size:80px;line-height:1.1;letter-spacing:-0.02em;max-width:1500px;">
+        Faça a jornada<br>do seu usuário.
+      </h2>
+      <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--stone);max-width:1300px;">
+        Entre no site. Procure o produto. Coloque no carrinho. Vá até o fim.<br>
+        Se você nunca fez, você não sabe onde dói.
+      </p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
 
-<section class="slide"><div class="slide-main" style="justify-content:center; align-items:center; text-align:center; gap:40px;"><p style="font-family:var(--f-mono);font-size:var(--fs-small);color:var(--accent);text-transform:uppercase;letter-spacing:0.12em;">Acesso beta — analytics-copilot</p><h2 style="font-family:var(--f-display);font-size:64px;line-height:1.3;letter-spacing:-0.02em;max-width:1400px;color:var(--fg);"> Quem sair daqui com <span style="font-family:var(--f-mono);color:var(--accent);">srm-check</span> rodando na própria máquina entra. </h2></div></section>
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 3 — Back to Basics</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="gap:48px;">
+      <p class="eyebrow accent">Back to Basics · 2 de 3</p>
+      <h2 style="font-family:var(--f-display);font-size:72px;line-height:1.1;letter-spacing:-0.02em;">
+        Plano de mensuração
+      </h2>
+      <div class="flex-col gap-24" style="font-family:var(--f-sans);font-size:var(--fs-subtitle);max-width:1500px;">
+        <div class="flex-row gap-24" style="align-items:baseline;">
+          <span class="mono text-accent" style="min-width:60px;">01</span>
+          <span>Dividir a jornada em etapas <span class="text-stone">— as que você acabou de percorrer</span></span>
+        </div>
+        <div class="flex-row gap-24" style="align-items:baseline;">
+          <span class="mono text-accent" style="min-width:60px;">02</span>
+          <span>Definir quais informações enriquecem cada comportamento</span>
+        </div>
+        <div class="flex-row gap-24" style="align-items:baseline;">
+          <span class="mono text-accent" style="min-width:60px;">03</span>
+          <span class="text-stone">Material complementar — o aprofundamento vai no PDF</span>
+        </div>
+      </div>
+      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">
+        É o que precisa estar pronto antes de pensar em teste A/B.
+      </p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
 
-<section class="slide"><div class="slide-main" style="gap:56px;"><h2 style="font-family:var(--f-display);font-size:52px;letter-spacing:-0.02em;color:var(--fg);">srm-check em data/cro.db</h2><div style="display:flex;align-items:flex-end;gap:80px;height:360px;"><div style="display:flex;flex-direction:column;align-items:center;gap:20px;"><div style="width:180px;height:280px;background:var(--stone-2);border-radius:6px 6px 0 0;"></div><p style="font-family:var(--f-mono);font-size:32px;color:var(--fg);">control<br><span style="font-size:40px;">4000</span></p></div><div style="display:flex;flex-direction:column;align-items:center;gap:20px;"><div style="width:180px;height:308px;background:var(--accent);border-radius:6px 6px 0 0;"></div><p style="font-family:var(--f-mono);font-size:32px;color:var(--fg);">variant_b<br><span style="font-size:40px;">4400</span></p></div><div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:20px;padding-left:40px;border-left:1px solid var(--rule);"><p style="font-family:var(--f-mono);font-size:36px;color:var(--fg);">χ²=19,0476 · p=1,275e-05</p><p style="font-family:var(--f-display);font-size:48px;color:var(--accent);">🔴 SRM DETECTADO</p></div></div></div></section>
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 3 — Back to Basics</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="justify-content:center; gap:40px;">
+      <p class="eyebrow accent">Back to Basics · a checagem</p>
+      <h2 style="font-family:var(--f-display);font-size:72px;line-height:1.1;letter-spacing:-0.02em;max-width:1500px;">
+        Antes de qualquer teste:
+      </h2>
+      <div class="flex-col gap-24" style="font-family:var(--f-sans);font-size:var(--fs-subtitle);max-width:1400px;">
+        <p>O <span class="mono text-accent">add_to_cart</span> bate com o carrinho?</p>
+        <p>O <span class="mono text-accent">purchase</span> bate com a plataforma?</p>
+        <p class="text-stone">Se não bate, o teste nasce morto — e não existe ferramenta que conserte.</p>
+      </div>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
 
-<section class="slide"><div class="slide-main" style="gap:44px;"><h2 style="font-family:var(--f-display);font-size:52px;letter-spacing:-0.02em;color:var(--fg);">post-test-segments — por device</h2><table style="width:100%;border-collapse:collapse;font-size:34px;"><thead><tr style="border-bottom:1px solid var(--rule);"><th style="text-align:left;padding:14px 0;font-family:var(--f-mono);font-size:var(--fs-small);color:var(--stone);font-weight:400;">Device</th><th style="text-align:right;padding:14px 0;font-family:var(--f-mono);font-size:var(--fs-small);color:var(--stone);font-weight:400;">Control CR</th><th style="text-align:right;padding:14px 0;font-family:var(--f-mono);font-size:var(--fs-small);color:var(--stone);font-weight:400;">Variant CR</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--rule);"><td style="padding:20px 0;font-family:var(--f-display);">Desktop</td><td style="padding:20px 0;text-align:right;font-family:var(--f-mono);color:var(--stone);">4,19%</td><td style="padding:20px 0;text-align:right;font-family:var(--f-mono);color:var(--fg);">4,88%</td></tr><tr style="border-bottom:1px solid var(--rule);"><td style="padding:20px 0;font-family:var(--f-display);">Mobile</td><td style="padding:20px 0;text-align:right;font-family:var(--f-mono);color:var(--stone);">4,23%</td><td style="padding:20px 0;text-align:right;font-family:var(--f-mono);color:var(--accent);">7,17%</td></tr><tr><td style="padding:20px 0;font-family:var(--f-display);">Tablet</td><td style="padding:20px 0;text-align:right;font-family:var(--f-mono);color:var(--stone);">4,56%</td><td style="padding:20px 0;text-align:right;font-family:var(--f-mono);color:var(--accent-2);font-weight:600;">3,78%</td></tr></tbody></table><p style="font-family:var(--f-mono);font-size:28px;color:var(--stone);margin-top:8px;">"Winner e loser é uma leitura pobre do resultado."</p></div></section>
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 3 — Back to Basics</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="gap:48px;">
+      <p class="eyebrow accent">Back to Basics · 3 de 3</p>
+      <h2 style="font-family:var(--f-display);font-size:72px;line-height:1.1;letter-spacing:-0.02em;">
+        Dados qualitativos<br><span class="text-stone">enriquecimento de contexto</span>
+      </h2>
+      <div class="flex-row gap-64" style="font-family:var(--f-sans);font-size:var(--fs-subtitle);">
+        <div class="flex-col gap-16" style="flex:1;">
+          <p class="mono text-accent" style="font-size:var(--fs-small);">Onsite</p>
+          <p>Ferramentas de pesquisa no site</p>
+        </div>
+        <div class="flex-col gap-16" style="flex:1;">
+          <p class="mono text-accent" style="font-size:var(--fs-small);">Interno — olhar pra dentro de casa</p>
+          <p>Objeções, com o time de vendas</p>
+          <p>Perfil demográfico de quem já comprou</p>
+          <p>Dados do SAC</p>
+        </div>
+      </div>
+      <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--stone);max-width:1400px;">
+        É uma coisa que a gente fala muito e pouca gente faz.
+      </p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
 
-<section class="slide"><div class="slide-main" style="gap:56px;"><h2 style="font-family:var(--f-display);font-size:52px;letter-spacing:-0.02em;color:var(--fg);">Da hipótese ao código</h2><div style="display:flex;align-items:stretch;gap:24px;"><div style="flex:1;padding:36px 28px;border:1px solid var(--rule);border-radius:12px;display:flex;flex-direction:column;gap:14px;"><p style="font-family:var(--f-display);font-size:36px;color:var(--accent);">Construir</p><p style="color:var(--stone);font-size:22px;font-family:var(--f-mono);">Controle e variante</p></div><div style="display:flex;align-items:center;font-size:40px;color:var(--accent);">→</div><div style="flex:1;padding:36px 28px;border:1px solid var(--rule);border-radius:12px;display:flex;flex-direction:column;gap:14px;"><p style="font-family:var(--f-display);font-size:36px;color:var(--accent);">Configurar</p><p style="color:var(--stone);font-size:22px;font-family:var(--f-mono);">Ferramenta de experimentação</p></div><div style="display:flex;align-items:center;font-size:40px;color:var(--accent);">→</div><div style="flex:1;padding:36px 28px;border:1px solid var(--rule);border-radius:12px;display:flex;flex-direction:column;gap:14px;"><p style="font-family:var(--f-display);font-size:36px;color:var(--accent);">Instrumentar</p><p style="color:var(--stone);font-size:22px;font-family:var(--f-mono);">Eventos do experimento</p></div><div style="display:flex;align-items:center;font-size:40px;color:var(--accent);">→</div><div style="flex:1;padding:36px 28px;border:1px solid var(--rule);border-radius:12px;display:flex;flex-direction:column;gap:14px;"><p style="font-family:var(--f-display);font-size:36px;color:var(--accent);">Validar</p><p style="color:var(--stone);font-size:22px;font-family:var(--f-mono);">QA em dispositivos e browsers</p></div></div><p style="font-family:var(--f-mono);font-size:var(--fs-small);color:var(--stone);">variante-builder → Construir · Configurar · Instrumentar &nbsp;&nbsp;|&nbsp;&nbsp; pre-flight-check → Validar</p></div></section>
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 3 — Back to Basics</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="justify-content:center; gap:40px;">
+      <p class="eyebrow accent">Case · Hering</p>
+      <h2 style="font-family:var(--f-display);font-size:72px;line-height:1.1;letter-spacing:-0.02em;max-width:1500px;">
+        Zendesk → IA lê todas as<br>reclamações do mês → backlog
+      </h2>
+      <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--stone);max-width:1400px;">
+        Qual é a principal dor do cliente com o site? A resposta já estava no SAC.<br>
+        Ninguém tinha lido tudo de uma vez.
+      </p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
 
-<section class="slide"><div class="slide-main" style="gap:56px;"><h2 style="font-family:var(--f-display);font-size:64px;line-height:1.25;letter-spacing:-0.02em;max-width:1500px;color:var(--fg);">E no <span style="color:var(--accent);">SEU</span> GA4, toda segunda?</h2><div style="display:flex;gap:32px;"><div style="flex:1;padding:32px 8px;border-top:2px solid var(--accent);"><p style="font-family:var(--f-display);font-size:40px;color:var(--fg);">OAuth</p></div><div style="flex:1;padding:32px 8px;border-top:2px solid var(--accent);"><p style="font-family:var(--f-display);font-size:40px;color:var(--fg);">ETL</p></div><div style="flex:1;padding:32px 8px;border-top:2px solid var(--accent);"><p style="font-family:var(--f-display);font-size:40px;color:var(--fg);">Agendamento</p></div><div style="flex:1;padding:32px 8px;border-top:2px solid var(--accent);"><p style="font-family:var(--f-display);font-size:36px;color:var(--fg);">Manutenção de schema</p></div></div></div></section>
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 3 — Back to Basics</span>
+    <span>O que você aprendeu antes de aprender</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+      <p class="eyebrow accent">Tudo isso cabe num arquivo</p>
+      <h2 style="font-family:var(--f-display);font-size:72px;letter-spacing:-0.02em;">
+        <span class="mono text-accent">CRO.md</span> — a loja explicada pra quem nunca entrou nela
+      </h2>
+      <div class="flex-row gap-64">
+        <div class="flex-col gap-14" style="flex:1;font-family:var(--f-sans);font-size:var(--fs-subtitle);">
+        <div class="flex-row gap-24" style="align-items:baseline;">
+          <span class="mono text-stone" style="min-width:48px;font-size:var(--fs-small);">01</span>
+          <span style="color:var(--stone);">Negócio</span>
+        </div>
+        <div class="flex-row gap-24" style="align-items:baseline;">
+          <span class="mono text-stone" style="min-width:48px;font-size:var(--fs-small);">02</span>
+          <span style="color:var(--ink);">Jornada em etapas<span class="mono text-accent" style="font-size:16px;margin-left:12px;">hoje</span></span>
+        </div>
+        <div class="flex-row gap-24" style="align-items:baseline;">
+          <span class="mono text-stone" style="min-width:48px;font-size:var(--fs-small);">03</span>
+          <span style="color:var(--ink);">Plano de mensuração<span class="mono text-accent" style="font-size:16px;margin-left:12px;">hoje</span></span>
+        </div>
+        <div class="flex-row gap-24" style="align-items:baseline;">
+          <span class="mono text-stone" style="min-width:48px;font-size:var(--fs-small);">04</span>
+          <span style="color:var(--stone);">Segmentos que importam</span>
+        </div>
+        <div class="flex-row gap-24" style="align-items:baseline;">
+          <span class="mono text-stone" style="min-width:48px;font-size:var(--fs-small);">05</span>
+          <span style="color:var(--ink);">Voz do cliente — SAC, vendas<span class="mono text-accent" style="font-size:16px;margin-left:12px;">hoje</span></span>
+        </div>
+        <div class="flex-row gap-24" style="align-items:baseline;">
+          <span class="mono text-stone" style="min-width:48px;font-size:var(--fs-small);">06</span>
+          <span style="color:var(--stone);">Perfil demográfico</span>
+        </div>
+        <div class="flex-row gap-24" style="align-items:baseline;">
+          <span class="mono text-stone" style="min-width:48px;font-size:var(--fs-small);">07</span>
+          <span style="color:var(--stone);">Testes e backlog</span>
+        </div>
+        <div class="flex-row gap-24" style="align-items:baseline;">
+          <span class="mono text-stone" style="min-width:48px;font-size:var(--fs-small);">08</span>
+          <span style="color:var(--stone);">Design → DESIGN.md</span>
+        </div>
+        </div>
+        <div class="flex-col gap-24" style="flex:1;font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--stone);">
+          <p>Primeiro serve pra <strong style="color:var(--ink);">você</strong>: se não consegue escrever a seção, é porque ainda não sabe.</p>
+          <p>Depois serve pro <strong style="color:var(--ink);">Claude</strong>: é o que ele lê antes de qualquer análise, hipótese ou variante.</p>
+          <p class="mono" style="font-size:var(--fs-small);">Três seções a gente preenche hoje. As outras cinco vão no template.</p>
+        </div>
+      </div>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
 
-<section class="slide"><div class="slide-main" style="gap:32px;"><h2 style="font-family:var(--f-display);font-size:52px;letter-spacing:-0.02em;color:var(--fg);">analytics-copilot — a resposta</h2><div style="flex:1;display:flex;align-items:center;justify-content:center;background:#0B0B09;border-radius:8px;overflow:hidden;"><video src="assets/02-copilot.mp4" muted playsinline controls style="max-width:100%;max-height:100%;"></video></div></div></section>
+<article class="slide noir">
+  <header class="slide-header">
+    <span>Nó 4 — Desktop ou terminal</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="justify-content:center; gap:32px;">
+      <p class="eyebrow noir-accent">Nó 4</p>
+      <h2 style="font-family:var(--f-display);font-size:104px;line-height:1.1;letter-spacing:-0.02em;">
+        Claude Code Desktop<br>ou terminal?
+      </h2>
+      <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--noir-ink-soft);max-width:1200px;">
+        Não é "qual é melhor". É o que se perde em cada um.
+      </p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
 
-<section class="slide"><div class="slide-main" style="gap:28px;"><h2 style="font-family:var(--f-display);font-size:48px;letter-spacing:-0.02em;color:var(--fg);">Um ciclo contínuo jogado por um time</h2><table style="width:100%;border-collapse:collapse;font-size:24px;"><thead><tr style="border-bottom:1px solid var(--rule);"><th style="text-align:left;padding:10px 0;font-family:var(--f-mono);font-size:20px;color:var(--stone);font-weight:400;">#</th><th style="text-align:left;padding:10px 0;font-family:var(--f-mono);font-size:20px;color:var(--stone);font-weight:400;">Passo</th><th style="text-align:left;padding:10px 0;font-family:var(--f-mono);font-size:20px;color:var(--stone);font-weight:400;">Quem</th><th style="text-align:left;padding:10px 0;font-family:var(--f-mono);font-size:20px;color:var(--stone);font-weight:400;">Coberto hoje por</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--rule);background:color-mix(in oklab, var(--accent) 12%, transparent);"><td style="padding:12px 0;font-family:var(--f-mono);color:var(--stone);">1</td><td style="padding:12px 0;font-family:var(--f-display);font-size:28px;">Coleta de Dados</td><td style="padding:12px 0;font-family:var(--f-mono);font-size:18px;color:var(--stone);">ANALYTICS</td><td style="padding:12px 0;font-family:var(--f-mono);color:var(--accent-2);font-weight:600;">⚠️ descoberto</td></tr><tr style="border-bottom:1px solid var(--rule);"><td style="padding:12px 0;font-family:var(--f-mono);color:var(--stone);">2</td><td style="padding:12px 0;font-family:var(--f-display);font-size:28px;">Análise</td><td style="padding:12px 0;font-family:var(--f-mono);font-size:18px;color:var(--stone);">ANALYTICS + CRO</td><td style="padding:12px 0;font-family:var(--f-mono);font-size:18px;color:var(--fg);">heuristica-morys, srm-check, post-test-segments</td></tr><tr style="border-bottom:1px solid var(--rule);"><td style="padding:12px 0;font-family:var(--f-mono);color:var(--stone);">3</td><td style="padding:12px 0;font-family:var(--f-display);font-size:28px;">Hipóteses</td><td style="padding:12px 0;font-family:var(--f-mono);font-size:18px;color:var(--stone);">CRO</td><td style="padding:12px 0;font-family:var(--f-mono);font-size:18px;color:var(--fg);">hipotese-estruturada</td></tr><tr style="border-bottom:1px solid var(--rule);"><td style="padding:12px 0;font-family:var(--f-mono);color:var(--stone);">4</td><td style="padding:12px 0;font-family:var(--f-display);font-size:28px;">Priorização</td><td style="padding:12px 0;font-family:var(--f-mono);font-size:18px;color:var(--stone);">CRO + TIME</td><td style="padding:12px 0;font-family:var(--f-mono);font-size:18px;color:var(--fg);">ice-score</td></tr><tr style="border-bottom:1px solid var(--rule);"><td style="padding:12px 0;font-family:var(--f-mono);color:var(--stone);">5</td><td style="padding:12px 0;font-family:var(--f-display);font-size:28px;">Testes</td><td style="padding:12px 0;font-family:var(--f-mono);font-size:18px;color:var(--stone);">CRO + DEV</td><td style="padding:12px 0;font-family:var(--f-mono);font-size:18px;color:var(--fg);">variante-builder, pre-flight-check</td></tr><tr style="border-bottom:1px solid var(--rule);background:color-mix(in oklab, var(--accent) 12%, transparent);"><td style="padding:12px 0;font-family:var(--f-mono);color:var(--stone);">6</td><td style="padding:12px 0;font-family:var(--f-display);font-size:28px;">Relatórios</td><td style="padding:12px 0;font-family:var(--f-mono);font-size:18px;color:var(--stone);">ANALYTICS + CRO</td><td style="padding:12px 0;font-family:var(--f-mono);color:var(--accent-2);font-weight:600;">⚠️ descoberto</td></tr><tr style="background:color-mix(in oklab, var(--accent) 12%, transparent);"><td style="padding:12px 0;font-family:var(--f-mono);color:var(--stone);">7</td><td style="padding:12px 0;font-family:var(--f-display);font-size:28px;">Escala</td><td style="padding:12px 0;font-family:var(--f-mono);font-size:18px;color:var(--stone);">TIME</td><td style="padding:12px 0;font-family:var(--f-mono);color:var(--accent-2);font-weight:600;">⚠️ descoberto</td></tr></tbody></table><p style="font-family:var(--f-mono);font-size:20px;color:var(--stone);">Os três descobertos pedem infraestrutura contínua — não uma conversa pontual.</p></div></section>
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 4 — Desktop ou terminal</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="gap:48px;">
+      <h2 style="font-family:var(--f-display);font-size:64px;letter-spacing:-0.02em;">O que se perde</h2>
+      <div class="flex-row gap-64" style="font-family:var(--f-sans);font-size:var(--fs-subtitle);">
+        <div class="flex-col gap-24" style="flex:1;">
+          <p class="mono text-accent" style="font-size:var(--fs-small);">No Desktop</p>
+          <p>Compor com outras ferramentas — pipe, scripts, <span class="mono">gmp-cli</span></p>
+          <p>Rodar sem ninguém na frente — automação, agendamento</p>
+          <p>Rodar fora da sua máquina — servidor, SSH</p>
+        </div>
+        <div style="width:1px;background:var(--rule);"></div>
+        <div class="flex-col gap-24" style="flex:1;">
+          <p class="mono text-accent" style="font-size:var(--fs-small);">No terminal</p>
+          <p>Interface visual — ver o diff do que mudou, navegar os arquivos</p>
+          <p>Curva de entrada — quem nunca abriu terminal trava</p>
+          <p>Várias conversas abertas, lado a lado, e voltar nelas</p>
+        </div>
+      </div>
+      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">
+        Hoje: terminal. Mais acesso, conecta mais coisa, gerencia o Claude in Chrome.
+      </p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
 
-<section class="slide"><div class="slide-main" style="justify-content:center; align-items:center; text-align:center; gap:48px;"><p style="font-family:var(--f-mono);font-size:36px;color:var(--fg);">github.com/lucianfialho/talks-2026<br><span style="color:var(--stone);font-size:26px;">pasta 05-imersao-cro/</span></p><div class="rule-short" style="height:2px;"></div><h2 style="font-family:var(--f-display);font-size:56px;letter-spacing:-0.02em;color:var(--accent);max-width:1300px;line-height:1.3;"> Acesso beta do analytics-copilot: confirme com o facilitador. </h2></div></section>
+<article class="slide noir">
+  <header class="slide-header">
+    <span>Nó 5 — Instalar</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="justify-content:center; gap:32px;">
+      <p class="eyebrow noir-accent">Nó 5</p>
+      <h2 style="font-family:var(--f-display);font-size:104px;line-height:1.1;letter-spacing:-0.02em;">
+        Instalar — e o Claude<br>por dentro
+      </h2>
+      <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--noir-ink-soft);max-width:1200px;">
+        Todo mundo junto. Quem travar, dupla.
+      </p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 5 — Instalar</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="justify-content:center; gap:28px;">
+      <p class="eyebrow accent">Instalar · no terminal</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;width:100%;">
+        <div class="code-wrap">
+          <div class="code-head">mac · Terminal</div>
+          <pre class="code-body" style="font-size:26px;line-height:1.6;">curl -fsSL https://claude.ai/install.sh | bash
+claude</pre>
+        </div>
+        <div class="code-wrap">
+          <div class="code-head">windows · PowerShell</div>
+          <pre class="code-body" style="font-size:26px;line-height:1.6;">irm https://claude.ai/install.ps1 | iex
+claude</pre>
+        </div>
+      </div>
+      <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--stone);max-width:1400px;">
+        O segundo comando abre o login no navegador. Mesma conta Claude Pro da manhã. Sem Node, sem npm.
+      </p>
+      <div class="code-wrap" style="width:100%;">
+        <div class="code-head">depois do login · o kit do curso, nos dois sistemas</div>
+        <pre class="code-body" style="font-size:26px;line-height:1.7;">claude plugin marketplace add lucianfialho/cro-plugin
+claude plugin install cro@cro-plugin
+claude plugin marketplace add anthropics/claude-plugins-official
+claude plugin install skill-creator@claude-plugins-official</pre>
+      </div>
+      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">Quatro linhas, uma vez. O que tem dentro a gente abre no nó 13. Plugin só carrega na próxima sessão: sai e entra de novo.</p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 5 — O Claude por dentro</span>
+    <span>Skills</span>
+  </header>
+  <div class="slide-main" style="gap:36px;">
+    <div style="display:flex;align-items:baseline;gap:20px;">
+      <div style="font-family:var(--f-mono);font-size:72px;font-weight:700;color:var(--accent);">Skills</div>
+      <div style="font-family:var(--f-sans);font-size:var(--fs-body);color:var(--stone);">uma receita: ingredientes e modo de preparo. O Claude aprende uma vez e executa sempre</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;flex:1;align-items:start;">
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);">Estrutura de um skill</div>
+        <div style="background:var(--bg-alt);border-radius:4px;overflow:hidden;">
+          <div style="background:var(--ink);padding:8px 16px;font-family:var(--f-mono);font-size:13px;color:var(--stone-2);">heuristica-morys/SKILL.md</div>
+          <div style="padding:16px 20px;font-family:var(--f-mono);font-size:17px;color:var(--accent);line-height:1.8;">
+            <span style="color:var(--stone-2)">---</span><br>
+            name: heuristica-morys<br>
+            description: Varredura de página<br>
+            &nbsp;&nbsp;nas 7 dimensões de Morys<br>
+            <span style="color:var(--stone-2)">---</span><br><br>
+            <span style="color:#f0eee6;">## Input necessário</span><br>
+            <span style="color:var(--stone-2);">Antes de começar, peça: a URL,</span><br>
+            <span style="color:var(--stone-2);">um print, a conversão desejada...</span>
+          </div>
+        </div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;">É markdown puro. O frontmatter é a etiqueta: nome e quando disparar. O corpo é a receita que o Claude vai seguir.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);">Skills que vamos usar hoje</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:14px 18px;">
+            <div style="font-family:var(--f-mono);font-size:20px;color:var(--accent);">/cro:heuristica-morys</div>
+            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);margin-top:4px;">As 7 dimensões da Taci viradas em receita — onde a página perde</div>
+          </div>
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:14px 18px;">
+            <div style="font-family:var(--f-mono);font-size:20px;color:var(--accent);">/cro:detecta-design-system</div>
+            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);margin-top:4px;">Extrai o DESIGN.md do seu site a partir da URL</div>
+          </div>
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:14px 18px;">
+            <div style="font-family:var(--f-mono);font-size:20px;color:var(--accent);">/skill-creator:skill-creator</div>
+            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);margin-top:4px;">Transforma a descrição do seu processo numa skill</div>
+          </div>
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:14px 18px;">
+            <div style="font-family:var(--f-mono);font-size:20px;color:var(--accent);">/cro:valida-skill-cro</div>
+            <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);margin-top:4px;">Dá nota na skill que você criou e diz o que falta</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 5 — O Claude por dentro</span>
+    <span>Hooks</span>
+  </header>
+  <div class="slide-main" style="gap:36px;">
+    <div style="display:flex;align-items:baseline;gap:20px;">
+      <div style="font-family:var(--f-mono);font-size:72px;font-weight:700;color:var(--accent);">Hooks</div>
+      <div style="font-family:var(--f-sans);font-size:var(--fs-body);color:var(--stone);">guardrails que rodam antes do Claude agir</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;flex:1;align-items:start;">
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);">Momentos disponíveis</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:12px 16px;">
+            <div style="font-family:var(--f-mono);font-size:18px;color:var(--stone);">SessionStart</div>
+            <div style="font-family:var(--f-sans);font-size:18px;color:var(--stone-2);margin-top:2px;">Início ou retomada de sessão</div>
+          </div>
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:12px 16px;">
+            <div style="font-family:var(--f-mono);font-size:18px;color:var(--stone);">UserPromptSubmit</div>
+            <div style="font-family:var(--f-sans);font-size:18px;color:var(--stone-2);margin-top:2px;">Antes do Claude processar sua mensagem</div>
+          </div>
+          <div style="border:2px solid var(--accent);border-radius:4px;padding:12px 16px;background:color-mix(in oklab,var(--accent) 5%,transparent);">
+            <div style="font-family:var(--f-mono);font-size:18px;color:var(--accent);">PreToolUse ← o que importa hoje</div>
+            <div style="font-family:var(--f-sans);font-size:18px;color:var(--stone);margin-top:2px;">Antes de executar qualquer ferramenta (Bash, Edit, Read)</div>
+          </div>
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:12px 16px;">
+            <div style="font-family:var(--f-mono);font-size:18px;color:var(--stone);">PostToolUse</div>
+            <div style="font-family:var(--f-sans);font-size:18px;color:var(--stone-2);margin-top:2px;">Após executar uma ferramenta com sucesso</div>
+          </div>
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:12px 16px;">
+            <div style="font-family:var(--f-mono);font-size:18px;color:var(--stone);">Stop</div>
+            <div style="font-family:var(--f-sans);font-size:18px;color:var(--stone-2);margin-top:2px;">Quando o Claude termina de responder</div>
+          </div>
+        </div>
+        <div style="font-family:var(--f-mono);font-size:14px;color:var(--stone-2);">28 hooks no total — docs.claude.ai/hooks</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="font-family:var(--f-mono);font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);">Três hooks de CRO — a etapa anterior cobrando a conta</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:14px 18px;display:flex;flex-direction:column;gap:6px;">
+            <div style="font-family:var(--f-mono);font-size:17px;color:var(--accent);">sem-plano-sem-hipotese.sh</div>
+            <div style="font-family:var(--f-sans);font-size:18px;color:var(--ink);line-height:1.4;"><span style="color:var(--stone-2);">bloqueia</span> <code style="font-family:var(--f-mono)">/cro:hipotese-estruturada</code></div>
+            <div style="font-family:var(--f-sans);font-size:18px;color:var(--ink);line-height:1.4;"><span style="color:var(--stone-2);">até existir</span> <code style="font-family:var(--f-mono)">CRO.md</code> com "Plano de mensuração"</div>
+          </div>
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:14px 18px;display:flex;flex-direction:column;gap:6px;">
+            <div style="font-family:var(--f-mono);font-size:17px;color:var(--accent);">sem-srm-sem-resultado.sh</div>
+            <div style="font-family:var(--f-sans);font-size:18px;color:var(--ink);line-height:1.4;"><span style="color:var(--stone-2);">bloqueia</span> ler resultado de teste</div>
+            <div style="font-family:var(--f-sans);font-size:18px;color:var(--ink);line-height:1.4;"><span style="color:var(--stone-2);">até existir</span> <code style="font-family:var(--f-mono)">/cro:srm-check</code> 🟢 nesta sessão</div>
+          </div>
+          <div style="border:1px solid var(--rule);border-radius:4px;padding:14px 18px;display:flex;flex-direction:column;gap:6px;">
+            <div style="font-family:var(--f-mono);font-size:17px;color:var(--accent);">sem-design-sem-variante.sh</div>
+            <div style="font-family:var(--f-sans);font-size:18px;color:var(--ink);line-height:1.4;"><span style="color:var(--stone-2);">bloqueia</span> <code style="font-family:var(--f-mono)">/cro:variante-builder</code></div>
+            <div style="font-family:var(--f-sans);font-size:18px;color:var(--ink);line-height:1.4;"><span style="color:var(--stone-2);">até existir</span> <code style="font-family:var(--f-mono)">DESIGN.md</code> do projeto</div>
+          </div>
+        </div>
+        <div style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);line-height:1.5;">Todos <code style="font-family:var(--f-mono)">PreToolUse</code>: rodam antes da ferramenta, saem com erro e uma mensagem dizendo o que falta. Lembra dos 8 itens do pre-flight da Tá? <strong style="color:var(--ink);">Não é prompt. É código.</strong> Não depende de o modelo "lembrar". Pasta <code style="font-family:var(--f-mono)">hooks/</code> pra copiar.</div>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 5 — Instalar</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="gap:48px;">
+      <p class="eyebrow accent">O Claude por dentro · MCP e Claude in Chrome</p>
+      <div class="flex-row gap-64" style="font-family:var(--f-sans);">
+        <div class="flex-col gap-24" style="flex:1;">
+          <h2 style="font-family:var(--f-display);font-size:64px;letter-spacing:-0.02em;">MCP</h2>
+          <p style="font-size:var(--fs-subtitle);line-height:1.35;">A camada que conecta o Claude às suas fontes de dados.<br><span class="text-stone">GA4, Zendesk, planilha. Sem você abrir nada na mão.</span></p>
+        </div>
+        <div style="width:1px;background:var(--rule);"></div>
+        <div class="flex-col gap-24" style="flex:1;">
+          <h2 style="font-family:var(--f-display);font-size:64px;letter-spacing:-0.02em;">Claude in Chrome</h2>
+          <p style="font-size:var(--fs-subtitle);line-height:1.35;">O Claude navega no seu navegador, logado como você.<br><span class="text-stone">Faz a jornada da loja e conta o que viu. Volta no nó 11.</span></p>
+        </div>
+      </div>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 5 — Instalar</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="justify-content:center; gap:40px;">
+      <p class="eyebrow accent">O Claude por dentro · Engenharia de contexto</p>
+      <h2 style="font-family:var(--f-display);font-size:80px;line-height:1.1;letter-spacing:-0.02em;">
+        Engenharia de <span class="text-accent">contexto</span>
+      </h2>
+      <p style="font-family:var(--f-sans);font-size:var(--fs-subtitle);max-width:1400px;line-height:1.35;">
+        O Claude só sabe o que você deu pra ele saber.<br>
+        Contexto em arquivos separados, não num documento gigante.<br>
+        <span class="mono text-accent">CRO.md</span> pra como a loja converte. <span class="mono text-accent">DESIGN.md</span> pra como ela parece.
+      </p>
+      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">
+        Lembra do enriquecimento de contexto lá do Back to Basics? É o mesmo — agora pro Claude.
+      </p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide noir">
+  <header class="slide-header">
+    <span>Nó 6 — Primeira execução</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="justify-content:center; gap:32px;">
+      <p class="eyebrow noir-accent">Nó 6</p>
+      <h2 style="font-family:var(--f-display);font-size:104px;line-height:1.1;letter-spacing:-0.02em;">
+        Rodando pela<br>primeira vez
+      </h2>
+      <p class="mono" style="font-size:var(--fs-subtitle);color:var(--noir-accent);">claude --help</p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 6 — Primeira execução</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="gap:48px;">
+      <p class="eyebrow accent">Dois parâmetros que você vai usar hoje</p>
+      <div class="flex-col gap-24" style="font-family:var(--f-sans);font-size:var(--fs-subtitle);max-width:1500px;">
+        <div class="flex-row gap-40" style="align-items:baseline;">
+          <span class="mono text-accent" style="min-width:420px;">--chrome</span>
+          <span class="text-stone">o Claude navega no seu navegador</span>
+        </div>
+        <div class="flex-row gap-40" style="align-items:baseline;">
+          <span class="mono text-accent" style="min-width:420px;">--resume</span>
+          <span class="text-stone">voltar de onde parou</span>
+        </div>
+      </div>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 6 — Primeira execução</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="gap:48px;">
+      <p class="eyebrow accent">Slash commands · dentro do Claude</p>
+      <div class="flex-col gap-24" style="font-family:var(--f-sans);font-size:var(--fs-subtitle);max-width:1500px;">
+        <div class="flex-row gap-40" style="align-items:baseline;">
+          <span class="mono text-accent" style="min-width:420px;">/login</span>
+          <span class="text-stone">entrar com a conta</span>
+        </div>
+        <div class="flex-row gap-40" style="align-items:baseline;">
+          <span class="mono text-accent" style="min-width:420px;">/model</span>
+          <span class="text-stone">trocar de modelo</span>
+        </div>
+        <div class="flex-row gap-40" style="align-items:baseline;">
+          <span class="mono text-accent" style="min-width:420px;">/effort</span>
+          <span class="text-stone">quanto ele pensa antes de responder</span>
+        </div>
+        <div class="flex-row gap-40" style="align-items:baseline;">
+          <span class="mono text-accent" style="min-width:420px;">/mcp</span>
+          <span class="text-stone">o que está conectado</span>
+        </div>
+        <div class="flex-row gap-40" style="align-items:baseline;">
+          <span class="mono text-accent" style="min-width:420px;">/&lt;nome-da-skill&gt;</span>
+          <span class="text-stone">rodar uma receita</span>
+        </div>
+      </div>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 7 — Escolhendo o modelo</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+      <p class="eyebrow accent">Nó 7 · Escolhendo o modelo</p>
+      <h2 style="font-family:var(--f-display);font-size:56px;letter-spacing:-0.02em;">
+        Começa no Sonnet. <span class="text-stone">Sobe se errou, desce se foi fácil.</span>
+      </h2>
+      <div class="flex-col gap-20" style="font-family:var(--f-sans);font-size:var(--fs-lead);max-width:1600px;">
+        <div class="flex-row gap-40" style="align-items:baseline;">
+          <span class="mono text-accent" style="min-width:160px;">Haiku</span>
+          <span><strong>Volume.</strong> Classificar 500 reclamações do SAC por tema. Barato pra rodar todo dia.</span>
+        </div>
+        <div class="flex-row gap-40" style="align-items:baseline;">
+          <span class="mono text-accent" style="min-width:160px;">Sonnet</span>
+          <span><strong>O dia a dia.</strong> Gerar hipótese, rascunhar copy de variante, resumir relatório de teste.</span>
+        </div>
+        <div class="flex-row gap-40" style="align-items:baseline;">
+          <span class="mono text-accent" style="min-width:160px;">Opus</span>
+          <span><strong>Raciocínio pesado.</strong> Priorizar backlog grande, escrever e revisar uma skill.</span>
+        </div>
+        <div class="flex-row gap-40" style="align-items:baseline;">
+          <span class="mono text-accent" style="min-width:160px;">Fable</span>
+          <span><strong>O topo.</strong> Cruzar várias fontes de uma vez, auditar o plano de mensuração inteiro.</span>
+        </div>
+      </div>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide noir">
+  <header class="slide-header">
+    <span>Nó 8 — Contexto pelo design</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="justify-content:center; gap:32px;">
+      <p class="eyebrow noir-accent">Nó 8</p>
+      <h2 style="font-family:var(--f-display);font-size:104px;line-height:1.1;letter-spacing:-0.02em;">
+        Enriquecer o contexto<br><span class="text-noir-accent">— design</span>
+      </h2>
+      <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--noir-ink-soft);max-width:1200px;">
+        De manhã, contexto pra pessoa decidir. Agora, contexto pro Claude.
+      </p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 8 — Contexto pelo design</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="justify-content:center; gap:40px;">
+      <h2 style="font-family:var(--f-display);font-size:80px;line-height:1.1;letter-spacing:-0.02em;max-width:1500px;">
+        Você pede uma página nova.<br>Volta uma página bonita.<br><span class="text-accent">E não é a sua loja.</span>
+      </h2>
+      <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--stone);max-width:1400px;">
+        Ele nunca viu a sua loja. Desenha a média da internet.<br>
+        Aí você sobe a variante, ela perde, e você anota "a hipótese não funcionou".<br>
+        Testou a hipótese e o visual ao mesmo tempo — e leu como se fosse só a hipótese.
+      </p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 8 — Contexto pelo design</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+      <p class="eyebrow accent">O que resolve</p>
+      <h2 style="font-family:var(--f-display);font-size:72px;letter-spacing:-0.02em;">
+        Um arquivo. <span class="mono text-accent">DESIGN.md</span>
+      </h2>
+      <div class="flex-row gap-64" style="font-family:var(--f-sans);font-size:var(--fs-lead);">
+        <div class="flex-col gap-16" style="flex:1;">
+          <p class="mono text-stone" style="font-size:var(--fs-small);">A metade de cima — os valores</p>
+          <p>Cores em hex. Fontes com tamanho e peso.<br>Espaçamento. Arredondamento.<br>Botão, card, campo de formulário.</p>
+        </div>
+        <div style="width:1px;background:var(--rule);"></div>
+        <div class="flex-col gap-16" style="flex:1;">
+          <p class="mono text-stone" style="font-size:var(--fs-small);">A metade de baixo — o porquê</p>
+          <p>"Esta é a única cor de ação do site. Gastar em dois botões na mesma tela mata a hierarquia."</p>
+        </div>
+      </div>
+      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">
+        Formato aberto, público, com validador. Texto puro — abre no bloco de notas. Você escreve uma vez e serve em qualquer ferramenta.
+      </p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 8 — Contexto pelo design</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="justify-content:center; gap:40px;">
+      <p class="eyebrow accent">Ao vivo · no site de alguém da sala</p>
+      <div class="code-wrap" style="max-width:1500px;">
+        <div class="code-head">claude</div>
+        <pre class="code-body" style="font-size:36px;line-height:1.6;">/cro:detecta-design-system https://www.suaLoja.com.br</pre>
+      </div>
+      <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--stone);max-width:1400px;">
+        Ela mede o que o site renderiza — não o que o CSS declara.<br>
+        O que não achar, marca como <span class="text-accent">não encontrado</span>. Não inventa um vermelho plausível.
+      </p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 8 — Contexto pelo design</span>
+    <span>Dois arquivos, uma loja</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+      <p class="eyebrow accent">Como o Claude lê os dois</p>
+      <div class="flex-row gap-64" style="align-items:flex-start;">
+        <div class="code-wrap" style="flex:1;">
+          <div class="code-head">CLAUDE.md — na pasta da loja</div>
+          <pre class="code-body" style="font-size:30px;line-height:1.7;"># Loja Hering (fictícia)
+
+Contexto de CRO:  @CRO.md
+Design system:    @DESIGN.md</pre>
+        </div>
+        <div class="flex-col gap-24" style="flex:1;font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--stone);">
+          <p><span class="mono text-accent">CRO.md</span> diz <strong style="color:var(--ink);">como a loja converte</strong>. Jornada, o que medir, quem compra, o que o SAC ouve.</p>
+          <p><span class="mono text-accent">DESIGN.md</span> diz <strong style="color:var(--ink);">como a loja parece</strong>. Cores, fontes, botão, o porquê de cada escolha.</p>
+          <p>Abriu o terminal na pasta, rodou <span class="mono">claude</span>: ele já sabe os dois antes da primeira pergunta.</p>
+        </div>
+      </div>
+      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">Lembra do enriquecimento de contexto do nó 3? É isso, em texto puro. O DESIGN.md é spec do Google. O CRO.md é convenção nossa — de hoje.</p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide noir">
+  <header class="slide-header">
+    <span>Nó 9 — Anatomia de uma skill</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="justify-content:center; gap:32px;">
+      <p class="eyebrow noir-accent">Nó 9</p>
+      <h2 style="font-family:var(--f-display);font-size:104px;line-height:1.1;letter-spacing:-0.02em;">
+        Anatomia de<br>uma skill
+      </h2>
+      <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--noir-ink-soft);max-width:1200px;">
+        A receita, parte por parte.
+      </p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 9 — Anatomia de uma skill</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="gap:32px;">
+      <p class="eyebrow accent">As sete partes</p>
+      <div class="flex-col gap-16" style="font-family:var(--f-sans);font-size:var(--fs-lead);max-width:1600px;">
+        <div class="flex-row gap-32" style="align-items:baseline;"><span class="mono text-accent" style="min-width:60px;">01</span><span><strong>Onde mora</strong> — <span class="mono">~/.claude/skills/&lt;nome&gt;/SKILL.md</span>. O nome da pasta vira o comando.</span></div>
+        <div class="flex-row gap-32" style="align-items:baseline;"><span class="mono text-accent" style="min-width:60px;">02</span><span><strong>A etiqueta</strong> — <span class="mono">name</span> e <span class="mono">description</span>. A description é o que faz ela disparar sozinha.</span></div>
+        <div class="flex-row gap-32" style="align-items:baseline;"><span class="mono text-accent" style="min-width:60px;">03</span><span><strong>Ingredientes</strong> — o que ela precisa receber, e o que perguntar antes.</span></div>
+        <div class="flex-row gap-32" style="align-items:baseline;"><span class="mono text-accent" style="min-width:60px;">04</span><span><strong>Modo de preparo</strong> — os passos, em ordem, executáveis. "Analise" não é passo.</span></div>
+        <div class="flex-row gap-32" style="align-items:baseline;"><span class="mono text-accent" style="min-width:60px;">05</span><span><strong>O que ela recusa</strong> — onde para e pede mais informação em vez de inventar.</span></div>
+        <div class="flex-row gap-32" style="align-items:baseline;"><span class="mono text-accent" style="min-width:60px;">06</span><span><strong>Como sai</strong> — formato fixo do output, pra comparar entre rodadas.</span></div>
+        <div class="flex-row gap-32" style="align-items:baseline;"><span class="mono text-accent" style="min-width:60px;">07</span><span><strong>Dissecar uma ao vivo</strong> — agora.</span></div>
+      </div>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 9 — Anatomia de uma skill</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="justify-content:center; gap:40px;">
+      <p class="eyebrow accent">Ao vivo</p>
+      <h2 style="font-family:var(--f-display);font-size:88px;line-height:1.1;letter-spacing:-0.02em;">
+        <span class="mono text-accent">heuristica-morys</span><br>aberta na tela
+      </h2>
+      <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--stone);max-width:1400px;">
+        As 7 dimensões que a Taci apresentou de manhã — viradas em receita.<br>
+        Apontar cada uma das sete partes no arquivo.
+      </p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide noir">
+  <header class="slide-header">
+    <span>Nó 10 — Análise</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="justify-content:center; gap:32px;">
+      <p class="eyebrow noir-accent">Nó 10 · callback na etapa 2 da Taci</p>
+      <h2 style="font-family:var(--f-display);font-size:104px;line-height:1.1;letter-spacing:-0.02em;">
+        Análise
+      </h2>
+      <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--noir-ink-soft);max-width:1200px;">
+        Trazer os dados de comportamento pra dentro da conversa.
+      </p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 10 — Análise</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="justify-content:center; gap:40px;">
+      <p class="eyebrow accent">Ao vivo · gmp-cli</p>
+      <h2 style="font-family:var(--f-display);font-size:72px;line-height:1.1;letter-spacing:-0.02em;max-width:1500px;">
+        O GA4 respondendo<br>dentro do terminal
+      </h2>
+      <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--stone);max-width:1400px;">
+        Lembra do "por que terminal"? É aqui. O Claude puxa o dado, olha o padrão, aponta o problema.<br>
+        Sem exportar planilha, sem abrir dashboard.
+      </p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 10 — Análise</span>
+    <span>Conectividade</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+      <p class="eyebrow accent">O mesmo padrão pra qualquer ferramenta</p>
+      <h2 style="font-family:var(--f-display);font-size:72px;letter-spacing:-0.02em;max-width:1500px;">
+        Tem API? Então o Claude alcança.
+      </h2>
+      <div class="flex-row gap-64" style="font-family:var(--f-sans);font-size:var(--fs-subtitle);">
+        <div class="flex-col gap-16" style="flex:1;">
+          <p class="mono text-stone" style="font-size:var(--fs-small);">Hoje, ao vivo</p>
+          <p>GA4 via <span class="mono text-accent">gmp-cli</span><br>O site via <span class="mono text-accent">Claude in Chrome</span></p>
+        </div>
+        <div style="width:1px;background:var(--rule);"></div>
+        <div class="flex-col gap-16" style="flex:1;">
+          <p class="mono text-stone" style="font-size:var(--fs-small);">As da manhã, mesmo caminho</p>
+          <p class="text-stone">Heatmap e gravação de sessão. Ferramenta de teste A/B. Pesquisa onsite. SAC.<br>MCP quando existe, CLI quando não, e o Claude escreve o conector se precisar.</p>
+        </div>
+      </div>
+      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">A pergunta não é "tem integração com o Claude?". É "tem API?".</p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide noir">
+  <header class="slide-header">
+    <span>Nó 11 — Geração de hipótese</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="justify-content:center; gap:32px;">
+      <p class="eyebrow noir-accent">Nó 11 · callback na etapa 3 da Taci</p>
+      <h2 style="font-family:var(--f-display);font-size:104px;line-height:1.1;letter-spacing:-0.02em;">
+        Geração de<br>hipótese
+      </h2>
+      <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--noir-ink-soft);max-width:1200px;">
+        Lembra do "faça a jornada do seu usuário"? Agora o Claude faz.
+      </p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 11 — Geração de hipótese</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="justify-content:center; gap:40px;">
+      <p class="eyebrow accent">Ao vivo · Claude in Chrome</p>
+      <h2 style="font-family:var(--f-display);font-size:72px;line-height:1.1;letter-spacing:-0.02em;max-width:1500px;">
+        Ele navega o site, faz a jornada,<br>e a heurística roda em cima do que ele viu
+      </h2>
+      <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--stone);max-width:1400px;">
+        Home → produto → carrinho → checkout. As 7 dimensões de Morys em cada tela.<br>
+        Sai: onde a página perde, com evidência — e a hipótese estruturada no template da Taci.
+      </p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+
+<article class="slide noir">
+  <header class="slide-header">
+    <span>Nó 12 — Exercício</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="justify-content:center; gap:32px;">
+      <p class="eyebrow noir-accent">Nó 12</p>
+      <h2 style="font-family:var(--f-display);font-size:104px;line-height:1.1;letter-spacing:-0.02em;">
+        O seu processo<br>vira uma skill
+      </h2>
+      <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--noir-ink-soft);max-width:1200px;">
+        Lembra da receita do nó 9? Agora os ingredientes são o time da sua empresa.
+      </p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 12 — Exercício</span>
+    <span>Passo 1 de 2</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+      <p class="eyebrow accent">Descreva o processo de CRO da sua empresa</p>
+      <div class="flex-row gap-64" style="align-items:flex-start;">
+        <div class="flex-col gap-20" style="flex:1;font-family:var(--f-sans);font-size:var(--fs-lead);">
+          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:260px;font-size:var(--fs-body);">papéis</span><span>quem coleta, quem analisa, quem prioriza, quem sobe o teste</span></div>
+          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:260px;font-size:var(--fs-body);">handoffs</span><span>quem entrega pra quem, em que momento</span></div>
+          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:260px;font-size:var(--fs-body);">entregáveis</span><span>o que sai de cada etapa das 7 da Tá</span></div>
+          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:260px;font-size:var(--fs-body);">fontes</span><span>de onde vem o dado de cada etapa, com nome</span></div>
+        </div>
+        <div class="code-wrap" style="flex:1;">
+          <div class="code-head">claude</div>
+          <pre class="code-body" style="font-size:26px;line-height:1.7;">/skill-creator:skill-creator
+
+Quero uma skill com o processo de CRO
+da minha empresa. Me pergunta o que
+precisar. Papéis: … Handoffs: …</pre>
+        </div>
+      </div>
+      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">Não descreva a ferramenta. Descreva quem faz o quê. Se você travar numa seção, é a mesma lição do CRO.md: ainda não sabe.</p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 12 — Exercício</span>
+    <span>Passo 2 de 2 · validação ao vivo</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+      <p class="eyebrow accent">Você sai sabendo a nota</p>
+      <div class="flex-row gap-64" style="align-items:flex-start;">
+        <div class="code-wrap" style="flex:1;">
+          <div class="code-head">claude</div>
+          <pre class="code-body" style="font-size:26px;line-height:1.7;">/cro:valida-skill-cro
+~/.claude/skills/meu-processo-cro/SKILL.md</pre>
+        </div>
+        <div class="flex-col gap-14" style="flex:1;font-family:var(--f-sans);font-size:var(--fs-subtitle);">
+          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-stone" style="min-width:48px;">1</span><span>Papéis</span></div>
+          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-stone" style="min-width:48px;">2</span><span>Handoffs</span></div>
+          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-stone" style="min-width:48px;">3</span><span>Entregáveis</span></div>
+          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-stone" style="min-width:48px;">4</span><span>Ingredientes — fontes nomeadas</span></div>
+          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-stone" style="min-width:48px;">5</span><span>Modo de preparo — dá pra seguir?</span></div>
+          <p class="mono text-accent" style="font-size:var(--fs-small);margin-top:8px;">0, 1 ou 2 por critério. Nota de 0 a 10. E a pergunta exata que a sua skill não responde.</p>
+        </div>
+      </div>
+      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">Sinal de alerta que ela detecta: passos claríssimos e zero em papéis. Você descreveu uma ferramenta, não o processo.</p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide noir">
+  <header class="slide-header">
+    <span>Nó 13 — Entregável</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="justify-content:center; gap:32px;">
+      <p class="eyebrow noir-accent">Nó 13</p>
+      <h2 style="font-family:var(--f-display);font-size:104px;line-height:1.1;letter-spacing:-0.02em;">
+        Um plugin de CRO<br>pro seu time
+      </h2>
+      <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--noir-ink-soft);max-width:1200px;">
+        Skills por papel. E a sua skill de metodologia plugada nele.
+      </p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 13 — Entregável</span>
+    <span>cro-plugin</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+      <div class="flex-row gap-64" style="align-items:flex-start;">
+        <div class="flex-col gap-24" style="flex:1;">
+          <div class="code-wrap">
+            <div class="code-head">você instalou isso no nó 5</div>
+            <pre class="code-body" style="font-size:24px;line-height:1.7;">claude plugin marketplace add lucianfialho/cro-plugin
+claude plugin install cro@cro-plugin</pre>
+          </div>
+          <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--stone);">Tudo que rodou hoje com <span class="mono">/cro:</span> na frente veio daqui. Grátis, aberto. A pasta <span class="mono">metodologia-exemplo</span> é o encaixe da sua skill.</p>
+        </div>
+        <div class="flex-col gap-14" style="flex:1;font-family:var(--f-sans);font-size:var(--fs-body);">
+          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:180px;">analista</span><span class="mono" style="font-size:var(--fs-small);">heuristica-morys · hipotese-estruturada · ice-score · post-test-segments</span></div>
+          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:180px;">QA</span><span class="mono" style="font-size:var(--fs-small);">pre-flight-check · srm-check</span></div>
+          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:180px;">dev</span><span class="mono" style="font-size:var(--fs-small);">variante-builder · detecta-design-system</span></div>
+          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:180px;">metodologia</span><span class="mono" style="font-size:var(--fs-small);">valida-skill-cro · <strong style="color:var(--ink);">a sua</strong></span></div>
+        </div>
+      </div>
+      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">Mais os três hooks e o template de CRO.md. Tudo na mesma URL.</p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Métricas Boss · 2026</span>
+    <span>Imersão Claude para CRO</span>
+  </header>
+  <div class="slide-main" style="justify-content:center; gap:48px;">
+    <div class="obrigado-title">Obrigado.</div>
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div style="font-family:var(--f-mono);font-size:var(--fs-small);color:var(--stone);letter-spacing:0.04em;">@lucianfialho</div>
+      <div style="font-family:var(--f-mono);font-size:var(--fs-small);color:var(--stone);letter-spacing:0.04em;">metricasboss.com.br</div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+
+<article class="slide noir">
+  <header class="slide-header">
+    <span>Bônus</span>
+    <span></span>
+  </header>
+  <div class="slide-main" style="justify-content:center; gap:32px;">
+      <p class="eyebrow noir-accent">Se sobrou tempo</p>
+      <h2 style="font-family:var(--f-display);font-size:104px;line-height:1.1;letter-spacing:-0.02em;">
+        Bônus
+      </h2>
+      <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--noir-ink-soft);max-width:1300px;">
+        Cinco blocos independentes. Vocês escolhem. O que não couber está no PDF.
+      </p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Bônus — Cowork</span>
+    <span>modular · se der tempo</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+      <p class="eyebrow accent">O mesmo Claude, sem terminal</p>
+      <h2 style="font-family:var(--f-display);font-size:72px;letter-spacing:-0.02em;max-width:1500px;">Cowork: pra quem do time não vai abrir o terminal</h2>
+      <div class="flex-col gap-16" style="font-family:var(--f-sans);font-size:var(--fs-lead);max-width:1500px;">
+        <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:260px;font-size:var(--fs-body);">app de desktop</span><span class="text-stone">pastas, documentos, planilhas. Descreve o resultado, ele executa.</span></div>
+        <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:260px;font-size:var(--fs-body);">mesma conta</span><span class="text-stone">o Pro da manhã. Mesmas skills, mesmo modelo.</span></div>
+        <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:260px;font-size:var(--fs-body);">mesmo contexto</span><span class="text-stone">o CRO.md e o DESIGN.md que você escreveu hoje servem lá também.</span></div>
+        <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:260px;font-size:var(--fs-body);">quando usar</span><span class="text-stone">relatório, organização, análise de arquivo. Terminal quando precisa conectar ferramenta.</span></div>
+      </div>
+      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">Lembra do nó 4? É a outra ponta da escolha. O que você aprendeu hoje vale nas duas.</p>
+
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Bônus — Tarefas agendadas</span>
+    <span>modular · se der tempo</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+      <p class="eyebrow accent">Sem você lembrar</p>
+      <h2 style="font-family:var(--f-display);font-size:72px;letter-spacing:-0.02em;max-width:1500px;">O relatório de segunda que se escreve sozinho</h2>
+      <div class="code-wrap" style="max-width:1500px;">
+        <div class="code-head">claude</div>
+        <pre class="code-body" style="font-size:26px;line-height:1.7;">/loop --cron "0 8 * * MON" "Puxa o GA4 da semana com o gmp-cli,
+compara com a anterior, escreve o resumo em relatorios/semana.md"</pre>
+      </div>
+      <div class="flex-col gap-16" style="font-family:var(--f-sans);font-size:var(--fs-lead);max-width:1500px;">
+        <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:260px;font-size:var(--fs-body);">/loop</span><span class="text-stone">repete num intervalo ou num cron. Roda numa sessão nova, na sua máquina.</span></div>
+        <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:260px;font-size:var(--fs-body);">/schedule</span><span class="text-stone">uma vez, numa data e hora.</span></div>
+        <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:260px;font-size:var(--fs-body);">limite</span><span class="text-stone">a máquina precisa estar ligada. A tarefa expira em 3 dias: agendou, confere.</span></div>
+      </div>
+
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Bônus — Custo</span>
+    <span>modular · se der tempo</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+      <p class="eyebrow accent">Cinco comandos</p>
+      <h2 style="font-family:var(--f-display);font-size:72px;letter-spacing:-0.02em;max-width:1500px;">Custo é contexto: quanto ele carrega, quanto ele pensa</h2>
+      <div class="flex-col gap-16" style="font-family:var(--f-sans);font-size:var(--fs-lead);max-width:1500px;">
+        <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:220px;font-size:var(--fs-body);">/usage</span><span class="text-stone">quanto do seu limite você já gastou nesta janela</span></div>
+        <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:220px;font-size:var(--fs-body);">/model</span><span class="text-stone">Haiku, Sonnet, Opus, Fable. Lembra do nó 7: começa no Sonnet.</span></div>
+        <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:220px;font-size:var(--fs-body);">/effort</span><span class="text-stone">quanto ele raciocina antes de responder. Baixo pra rotina, alto pra decisão.</span></div>
+        <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:220px;font-size:var(--fs-body);">/compact</span><span class="text-stone">resume a conversa e libera espaço sem perder o fio</span></div>
+        <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:220px;font-size:var(--fs-body);">/context</span><span class="text-stone">o que está ocupando a memória de trabalho agora</span></div>
+      </div>
+      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">No plano Pro/Max você não paga por token, você gasta janela de uso. Sessão longa com Opus esgota a janela mais rápido.</p>
+
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Bônus — Memória</span>
+    <span>modular · se der tempo</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+      <p class="eyebrow accent">O que persiste entre sessões</p>
+      <h2 style="font-family:var(--f-display);font-size:72px;letter-spacing:-0.02em;max-width:1500px;">Três memórias, três donos</h2>
+      <div class="flex-col gap-16" style="font-family:var(--f-sans);font-size:var(--fs-lead);max-width:1500px;">
+        <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:300px;font-size:var(--fs-body);">CLAUDE.md</span><span class="text-stone">você escreve. Regras e imports: @CRO.md, @DESIGN.md.</span></div>
+        <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:300px;font-size:var(--fs-body);">memória automática</span><span class="text-stone">o Claude escreve pra ele mesmo, por projeto, em ~/.claude/projects/…/memory. Preferências, decisões, feedback.</span></div>
+        <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:300px;font-size:var(--fs-body);">skills</span><span class="text-stone">o time escreve. Processo que não muda de sessão pra sessão.</span></div>
+      </div>
+      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">Regra prática: se você explicou a mesma coisa duas vezes, isso era pra estar num arquivo.</p>
+
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Bônus — Base do time</span>
+    <span>modular · se der tempo</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+      <p class="eyebrow accent">Ingestão de referências</p>
+      <h2 style="font-family:var(--f-display);font-size:72px;letter-spacing:-0.02em;max-width:1500px;">Links, vídeos e PDFs virando base de conhecimento</h2>
+      <div class="flex-col gap-16" style="font-family:var(--f-sans);font-size:var(--fs-lead);max-width:1500px;">
+        <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:180px;font-size:var(--fs-body);">1 · pasta</span><span class="text-stone"><span class="mono">base/referencias.md</span>, importado no CLAUDE.md</span></div>
+        <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:180px;font-size:var(--fs-body);">2 · skill</span><span class="text-stone"><span class="mono">/ingere-referencia &lt;url&gt;</span>: lê, resume em 10 linhas, registra fonte e data, anexa na base</span></div>
+        <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:180px;font-size:var(--fs-body);">3 · hábito</span><span class="text-stone">achou um artigo bom, joga a URL. O Claude do time inteiro passa a saber.</span></div>
+      </div>
+      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">Você constrói essa skill com o skill-creator em 10 minutos. É a mesma receita do nó 9: ingredientes e modo de preparo.</p>
+
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
 
 </deck-stage>
 </body>
