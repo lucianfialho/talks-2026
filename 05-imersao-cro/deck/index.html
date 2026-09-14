@@ -1152,6 +1152,42 @@ claude plugin install skill-creator@claude-plugins-official</pre>
 <article class="slide">
   <header class="slide-header">
     <span>Nó 5 — Instalar</span>
+    <span>O arquivo que ele sempre lê</span>
+  </header>
+  <div class="slide-main" style="gap:40px;">
+      <p class="eyebrow accent">O Claude por dentro · Engenharia de contexto · CLAUDE.md</p>
+      <h2 style="font-family:var(--f-display);font-size:72px;letter-spacing:-0.02em;">
+        <span class="mono text-accent">CLAUDE.md</span> — a primeira coisa que ele lê, toda sessão
+      </h2>
+      <div class="flex-row gap-64" style="align-items:flex-start;">
+        <div class="code-wrap" style="flex:1;">
+          <div class="code-head">CLAUDE.md — na pasta da loja</div>
+          <pre class="code-body" style="font-size:24px;line-height:1.7;"># Projeto: loja Malha Viva
+
+Tudo aqui é trabalho de CRO: diagnóstico,
+hipótese, variante e leitura de resultado.
+
+Contexto do negócio: @CRO.md
+Contexto visual:     @DESIGN.md</pre>
+        </div>
+        <div class="flex-col gap-16" style="flex:1;font-family:var(--f-sans);font-size:var(--fs-body);">
+          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:150px;font-size:var(--fs-small);">onde</span><span class="text-stone">na pasta onde você abre o terminal. Um em <span class="mono">~/.claude/</span> vale pra tudo.</span></div>
+          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:150px;font-size:var(--fs-small);">o que vai</span><span class="text-stone">quem você é, o que este projeto é, o que ele nunca deve fazer, e os <span class="mono">@imports</span>.</span></div>
+          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:150px;font-size:var(--fs-small);">quando lê</span><span class="text-stone">ao abrir a sessão, antes da sua primeira mensagem. Você não precisa pedir.</span></div>
+          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:150px;font-size:var(--fs-small);">regra</span><span class="text-stone">curto. O detalhe mora nos arquivos importados. Se cresceu, quebra em dois.</span></div>
+        </div>
+      </div>
+      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">Você explicou a mesma coisa duas vezes pro Claude? Era pra estar aqui.</p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 5 — Instalar</span>
     <span>O que você aprendeu antes de aprender</span>
   </header>
   <div class="slide-main" style="gap:40px;">

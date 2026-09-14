@@ -69,7 +69,8 @@
     é a mesma coisa; não existe webhook no Claude Code)
   - **MCPs**
   - **Claude in Chrome** como conceito (a demo fica pro nó 11)
-  - **engenharia de contexto**, `design.md`
+  - **engenharia de contexto** → slide dedicado ao **CLAUDE.md** (onde, o que vai,
+    quando lê, regra "curto + imports") → slide do **CRO.md** → `DESIGN.md` fica pro nó 8
 - (o material que já existe sobre esses conceitos pode ser reaproveitado)
 
 ## 6. Rodando o Claude Code pela primeira vez (`claude --help`)
