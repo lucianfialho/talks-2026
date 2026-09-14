@@ -1,0 +1,91 @@
+<section>
+  <div class="sec-head">
+    <div class="sec-num">Seção 01 · Back to Basics</div>
+    <h2 class="sec-title">Plano de mensuração,<br>o aprofundamento</h2>
+    <div class="sec-sub">É o que precisa estar pronto antes de pensar em teste A/B.</div>
+  </div>
+
+  <p class="lede">Não adianta colocar IA numa operação que está quebrada. Shit in, shit out.</p>
+
+  <h3>Por que isto vem antes de qualquer teste</h3>
+  <p>Um teste A/B só existe porque alguém consegue contar duas coisas: quantas pessoas viram e quantas converteram. Se a contagem está errada, o teste não fica "menos preciso" — ele fica indecifrável. Você vê um número, não consegue explicar, e chuta.</p>
+  <p>A checagem de sempre, antes de tudo: o <code>add_to_cart</code> bate com o carrinho? O <code>purchase</code> bate com a plataforma? Se não bate, o teste nasce morto — e não existe ferramenta que conserte.</p>
+  <p>Essa é também a razão do hook <code>sem-plano-sem-hipotese.sh</code> (seção 4): ele não deixa você gerar hipótese num projeto que ainda não tem plano de mensuração escrito.</p>
+
+  <h3 class="rule">Passo 1 — dividir a jornada em etapas</h3>
+  <p>As etapas são as que <strong>você acabou de percorrer</strong> quando fez a jornada do seu usuário. Entrou no site, procurou o produto, colocou no carrinho, foi até o fim. Cada tela onde o usuário pode desistir é uma etapa.</p>
+  <p>Escreva com o nome que o seu time já usa internamente, não com o nome do relatório da ferramenta. Se internamente vocês dizem "escolha de tamanho", a etapa se chama escolha de tamanho.</p>
+  <div class="card">
+    <div class="card-title">Exemplo de decomposição — loja de moda</div>
+    <p class="mono">1. Descoberta (anúncio, busca, e-mail) · 2. Listagem · 3. Página de produto · 4. Escolha de tamanho · 5. Carrinho · 6. Identificação e frete · 7. Pagamento · 8. Pós-compra</p>
+  </div>
+  <p>Uma forma rápida de checar se a lista está completa: monte o funil de trás para frente. Qual é a macroconversão? Qual é a etapa que antecede ela? E a que antecede essa?</p>
+
+  <h3 class="rule">Passo 2 — um evento por etapa, e onde se lê</h3>
+  <p>Cada etapa precisa de exatamente um evento que diga "aconteceu". Não dois, não meio. E precisa de um lugar onde você lê o número — a ferramenta, o relatório, a tabela.</p>
+  <p>A coluna "Onde mede" é a que mais gente pula, e é a que evita a discussão de terça-feira sobre qual número está certo. Se dois lugares medem a mesma etapa, escolha um como fonte de verdade e anote o outro como conferência.</p>
+
+  <h3 class="rule">Passo 3 — KPI primário e guardrail</h3>
+  <p>O <strong>KPI primário</strong> é o número que decide se o teste ganhou. Um só. O <strong>guardrail</strong> é o número que você não aceita piorar em troca — mesmo que o KPI suba.</p>
+  <p>Sem guardrail, todo teste "ganha": dá para subir add-to-cart aumentando devolução, subir lead baixando qualidade, subir conversão do checkout escondendo o frete. O guardrail é o que impede você de comemorar um estrago.</p>
+  <div class="grid2">
+    <div class="card">
+      <div class="card-title">KPI primário</div>
+      <p>Conversão sessão&#8239;→&#8239;pedido. Decide o teste. Definido antes do Start, não depois de olhar o resultado.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Guardrail</div>
+      <p>Taxa de troca por tamanho. Se subir, o ganho de pedidos não vale — e a decisão vira "investigar", não "implementar".</p>
+    </div>
+  </div>
+
+  <h3 class="rule">Template preenchível</h3>
+  <p>É a mesma tabela da seção 3 do seu <code>CRO.md</code>. Preencha aqui no papel e depois transcreva — ou preencha direto no arquivo, que é onde ele vive.</p>
+  <div class="card soft">
+    <p class="mono" style="margin-bottom:8pt">KPI primário: _______________________ &nbsp;&nbsp; Guardrail: _______________________</p>
+    <table>
+      <thead><tr><th style="width:34%">Etapa</th><th style="width:33%">Evento</th><th style="width:33%">Onde mede</th></tr></thead>
+      <tbody>
+        <tr><td class="blank">&nbsp;</td><td class="blank">&nbsp;</td><td class="blank">&nbsp;</td></tr>
+        <tr><td class="blank">&nbsp;</td><td class="blank">&nbsp;</td><td class="blank">&nbsp;</td></tr>
+        <tr><td class="blank">&nbsp;</td><td class="blank">&nbsp;</td><td class="blank">&nbsp;</td></tr>
+        <tr><td class="blank">&nbsp;</td><td class="blank">&nbsp;</td><td class="blank">&nbsp;</td></tr>
+        <tr><td class="blank">&nbsp;</td><td class="blank">&nbsp;</td><td class="blank">&nbsp;</td></tr>
+        <tr><td class="blank">&nbsp;</td><td class="blank">&nbsp;</td><td class="blank">&nbsp;</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="rule">Um exemplo preenchido — Malha Viva <span class="tag quiet">loja fictícia</span></h3>
+  <p class="mono" style="margin-bottom:6pt">KPI primário: conversão sessão&#8239;→&#8239;pedido &nbsp;·&nbsp; Guardrail: taxa de troca por tamanho</p>
+  <table>
+    <thead><tr><th style="width:34%">Etapa</th><th style="width:33%">Evento</th><th style="width:33%">Onde mede</th></tr></thead>
+    <tbody>
+      <tr><td>Listagem</td><td class="mono">view_item_list</td><td>GA4</td></tr>
+      <tr><td>Página de produto</td><td class="mono">view_item</td><td>GA4</td></tr>
+      <tr><td>Escolha de tamanho</td><td class="mono">select_size (custom)</td><td>GA4 via GTM</td></tr>
+      <tr><td>Carrinho</td><td class="mono">add_to_cart</td><td>GA4 + plataforma</td></tr>
+      <tr><td>Identificação e frete</td><td class="mono">begin_checkout</td><td>GA4</td></tr>
+      <tr><td>Pagamento</td><td class="mono">purchase</td><td>GA4 + backoffice</td></tr>
+      <tr><td>Pós-compra</td><td class="mono">troca_solicitada (custom)</td><td>Backoffice — é o guardrail</td></tr>
+    </tbody>
+  </table>
+  <p>Repare em duas coisas. A última linha existe só para o guardrail: sem ela, você não tem como saber se o teste que subiu pedidos subiu também a devolução. E <code>purchase</code> tem duas fontes de propósito — GA4 decide o teste, o backoffice confere se o GA4 está contando certo.</p>
+
+  <h3 class="rule">Os erros comuns</h3>
+  <div class="card">
+    <div class="card-title">1 · Medir clique em vez de resultado</div>
+    <p>"Cliques no botão de frete" não é etapa da jornada: é reação a um elemento. O usuário pode clicar três vezes porque não entendeu. Meça o que ele completou — chegou na próxima etapa — e use o clique como diagnóstico, nunca como KPI.</p>
+  </div>
+  <div class="card">
+    <div class="card-title">2 · KPI sem guardrail</div>
+    <p>Um número sozinho sempre pode ser melhorado à custa de outro. Se você não consegue nomear o que não pode piorar, você ainda não entendeu o que o teste está trocando.</p>
+  </div>
+  <div class="card">
+    <div class="card-title">3 · Evento sem dono</div>
+    <p>Evento que ninguém mantém quebra na próxima publicação do site e ninguém percebe por três meses. Cada linha da tabela precisa de um nome de pessoa atrás — quem implementa, quem confere que ainda dispara.</p>
+  </div>
+  <div class="callout"><p>Se uma linha da sua tabela não passa nos três, ela não está pronta. Voltar aqui é mais barato que ler um resultado que você não consegue explicar.</p></div>
+
+  <div class="foot">01 · Plano de mensuração — Imersão Claude para CRO</div>
+</section>

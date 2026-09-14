@@ -1,0 +1,67 @@
+<section>
+  <div class="sec-head">
+    <div class="sec-num">Seção 06 · Os cinco blocos</div>
+    <h2 class="sec-title">Bônus por escrito</h2>
+    <div class="sec-sub">O que a gente escolheu na hora — e o que não coube.</div>
+  </div>
+
+  <h3>1 · Cowork — o mesmo Claude, sem terminal</h3>
+  <p>Para quem do time não vai abrir o terminal. É um app de desktop que trabalha em pastas, documentos e planilhas: você descreve o resultado, ele executa.</p>
+  <ul>
+    <li><strong>mesma conta</strong> — o Pro da manhã. Mesmas skills, mesmo modelo.</li>
+    <li><strong>mesmo contexto</strong> — o <code>CRO.md</code> e o <code>DESIGN.md</code> que você escreveu hoje servem lá também.</li>
+    <li><strong>quando usar</strong> — relatório, organização, análise de arquivo. Terminal quando precisa conectar ferramenta.</li>
+  </ul>
+
+  <h3 class="rule">2 · Tarefas agendadas — o relatório que se escreve sozinho</h3>
+  <pre>claude
+<span class="hl">/loop --cron "0 8 * * MON"</span> "Puxa o GA4 da semana com o gmp-cli,
+compara com a anterior, escreve o resumo em relatorios/semana.md"</pre>
+  <ul>
+    <li><code>/loop</code> — repete num intervalo ou num cron. Roda numa sessão nova, na sua máquina.</li>
+    <li><code>/schedule</code> — uma vez, numa data e hora.</li>
+    <li><strong>limite</strong> — a máquina precisa estar ligada. A tarefa expira em 3 dias: agendou, confere.</li>
+  </ul>
+
+  <h3 class="rule">3 · Custo — cinco comandos</h3>
+  <p>Custo é contexto: quanto ele carrega, quanto ele pensa.</p>
+  <table>
+    <thead><tr><th style="width:18%">Comando</th><th>O que faz</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">/usage</td><td>quanto do seu limite você já gastou nesta janela</td></tr>
+      <tr><td class="mono">/model</td><td>Haiku, Sonnet, Opus, Fable. Começa no Sonnet: sobe se errou, desce se foi fácil.</td></tr>
+      <tr><td class="mono">/effort</td><td>quanto ele raciocina antes de responder. Baixo pra rotina, alto pra decisão.</td></tr>
+      <tr><td class="mono">/compact</td><td>resume a conversa e libera espaço sem perder o fio</td></tr>
+      <tr><td class="mono">/context</td><td>o que está ocupando a memória de trabalho agora</td></tr>
+    </tbody>
+  </table>
+  <div class="callout"><p>No plano Pro/Max você não paga por token: você gasta <strong>janela de uso</strong>. Sessão longa com Opus esgota a janela mais rápido.</p></div>
+
+  <h3 class="rule">4 · Memória — três memórias, três donos</h3>
+  <div class="grid3">
+    <div class="card">
+      <div class="card-title">CLAUDE.md</div>
+      <p><strong>Você escreve.</strong> Regras e imports: <span class="mono">@CRO.md</span>, <span class="mono">@DESIGN.md</span>.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Memória automática</div>
+      <p><strong>O Claude escreve</strong> pra ele mesmo, por projeto, em <span class="mono">~/.claude/projects/…/memory</span>. Preferências, decisões, feedback.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Skills</div>
+      <p><strong>O time escreve.</strong> Processo que não muda de sessão pra sessão.</p>
+    </div>
+  </div>
+  <p>Regra prática: se você explicou a mesma coisa duas vezes, isso era pra estar num arquivo.</p>
+
+  <h3 class="rule">5 · Base do time — ingestão de referências</h3>
+  <p>Links, vídeos e PDFs virando base de conhecimento compartilhada:</p>
+  <ol>
+    <li><strong>pasta</strong> — <code>base/referencias.md</code>, importado no CLAUDE.md.</li>
+    <li><strong>skill</strong> — <code>/ingere-referencia &lt;url&gt;</code>: lê, resume em 10 linhas, registra fonte e data, anexa na base.</li>
+    <li><strong>hábito</strong> — achou um artigo bom, joga a URL. O Claude do time inteiro passa a saber.</li>
+  </ol>
+  <p>Essa skill você constrói com o <code>/skill-creator:skill-creator</code> em 10 minutos. É a mesma receita do nó 9: ingredientes e modo de preparo.</p>
+
+  <div class="foot">06 · Bônus — Imersão Claude para CRO</div>
+</section>

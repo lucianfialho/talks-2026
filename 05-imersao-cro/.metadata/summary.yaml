@@ -13,6 +13,8 @@ tags:
   - design-md
   - cro-md
   - contexto-aluno
+  - material-complementar
+  - pdf-impresso
 covers:
   - script.md
   - handout.md
@@ -23,6 +25,7 @@ covers:
   - skills/
   - hooks/
   - aluno/
+  - material-complementar/
 specialist: content
-last_updated: "2026-09-13"
+last_updated: "2026-09-14"
 status: filled

@@ -1,0 +1,58 @@
+<section>
+  <div class="sec-head">
+    <div class="sec-num">Seção 03 · Engenharia de contexto</div>
+    <h2 class="sec-title">CLAUDE.md e CRO.md</h2>
+    <div class="sec-sub">O Claude só sabe o que você deu pra ele saber.</div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="card-title">CLAUDE.md — a porta de entrada</div>
+      <p>A primeira coisa que ele lê, toda sessão, antes da sua primeira mensagem. Diz quem você é, o que este projeto é, o que ele nunca deve fazer — e importa os outros arquivos.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">CRO.md — a loja explicada</div>
+      <p>Convenção do nosso workshop, não spec de mercado. É a loja explicada para quem nunca entrou nela: jornada, mensuração, segmentos, voz do cliente.</p>
+    </div>
+  </div>
+
+  <h3>Como criar os dois, em ordem</h3>
+  <h4>faça agora · dentro da pasta da loja</h4>
+  <pre>claude
+<span class="hl">/init</span>
+<span class="hl">/cro:cro-md</span></pre>
+  <p>O <code>/init</code> olha a pasta, pergunta o que precisar e escreve o <code>CLAUDE.md</code>. Abra o arquivo depois: é isso que ele vai ler toda vez.</p>
+  <p>O <code>/cro:cro-md</code> é a skill do plugin: cria o <code>CRO.md</code> a partir do template e registra <code>@CRO.md</code> dentro do CLAUDE.md que o <code>/init</code> acabou de fazer.</p>
+
+  <h3 class="rule">As 8 seções do CRO.md</h3>
+  <table>
+    <thead><tr><th style="width:5%">#</th><th style="width:26%">Seção</th><th>O que vai nela</th><th style="width:14%">Quando</th></tr></thead>
+    <tbody>
+      <tr><td>01</td><td>Negócio</td><td>Produto, ticket médio e o funil inteiro em uma linha.</td><td>pra casa</td></tr>
+      <tr><td>02</td><td>Jornada em etapas</td><td>As etapas que o usuário percorre, na ordem, com o nome que você usa internamente.</td><td><span class="tag">ao vivo</span></td></tr>
+      <tr><td>03</td><td>Plano de mensuração</td><td>KPI primário, guardrail, e a tabela etapa&#8239;/&#8239;evento&#8239;/&#8239;onde mede da seção 1 deste PDF.</td><td><span class="tag">ao vivo</span></td></tr>
+      <tr><td>04</td><td>Segmentos que importam</td><td>Três ou quatro recortes que se comportam diferente — não demografia genérica.</td><td>pra casa</td></tr>
+      <tr><td>05</td><td>Voz do cliente</td><td>O que o SAC ouve e as objeções que vendas escuta, sempre com a fonte do dado.</td><td><span class="tag">ao vivo</span></td></tr>
+      <tr><td>06</td><td>Perfil demográfico</td><td>Quem <em>já</em> compra, puxado da sua própria base — não o público que você gostaria de ter.</td><td>pra casa</td></tr>
+      <tr><td>07</td><td>Testes e backlog</td><td>Testes já rodados com resultado, e as hipóteses na fila no template da Taciana.</td><td>pra casa</td></tr>
+      <tr><td>08</td><td>Design</td><td>Uma linha só: o contexto visual mora no <code>DESIGN.md</code>.</td><td>pra casa</td></tr>
+    </tbody>
+  </table>
+  <p>Três a gente preencheu junto. As outras cinco já estão no template, com a instrução em comentário e um exemplo preenchido da Malha Viva para você trocar pelo seu.</p>
+  <div class="callout"><p>O CRO.md serve primeiro para <strong>você</strong>: se não consegue escrever a seção, é porque ainda não sabe. Depois serve para o Claude, que lê tudo isso antes de qualquer análise, hipótese ou variante.</p></div>
+
+  <h3 class="rule">Como o <code>@import</code> funciona</h3>
+  <p>Uma linha com <code>@arquivo</code> dentro do CLAUDE.md expande o conteúdo daquele arquivo na abertura da sessão. Você não pede, não cola, não lembra: ele já entra sabendo.</p>
+  <h4>CLAUDE.md — na pasta da loja</h4>
+  <pre># Projeto: loja Malha Viva
+
+Contexto de CRO:   <span class="hl">@CRO.md</span>
+Design system:     <span class="hl">@DESIGN.md</span></pre>
+  <p><code>CRO.md</code> diz <strong>como a loja converte</strong>. <code>DESIGN.md</code> diz <strong>como a loja parece</strong>. Abriu o terminal na pasta, rodou <code>claude</code>: ele já sabe os dois.</p>
+
+  <h3 class="rule">A regra</h3>
+  <p><strong>Curto. O detalhe vai nos importados.</strong> O CLAUDE.md é índice, não enciclopédia: quem você é, o que é o projeto, o que nunca fazer, e os imports. Se ele cresceu, quebre em dois e importe.</p>
+  <p>E o sinal de que faltou contexto: você explicou a mesma coisa duas vezes para o Claude. Era pra estar num arquivo.</p>
+
+  <div class="foot">03 · CLAUDE.md e CRO.md — Imersão Claude para CRO</div>
+</section>

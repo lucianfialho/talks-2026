@@ -1,0 +1,30 @@
+<section>
+  <div class="sec-head">
+    <div class="sec-num">Seção 05 · Saiu do deck, entrou aqui</div>
+    <h2 class="sec-title">Referências de hooks</h2>
+    <div class="sec-sub">Os cinco momentos em que um script pode entrar.</div>
+  </div>
+
+  <p>Um hook é um script seu que o Claude Code executa num momento definido. Ele recebe um JSON no stdin com o contexto (<span class="mono">cwd</span>, <span class="mono">hook_event_name</span>, <span class="mono">tool_name</span>, <span class="mono">tool_input</span>). Para <strong>bloquear</strong>, o script escreve a mensagem no stderr e sai com código 2; sair com 0 deixa passar.</p>
+
+  <table>
+    <thead><tr><th style="width:26%">Evento</th><th>Quando dispara</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">SessionStart</td><td>Início ou retomada de sessão — bom para injetar contexto do dia ou conferir pré-requisitos do projeto.</td></tr>
+      <tr><td class="mono">UserPromptSubmit</td><td>Antes do Claude processar a sua mensagem — dá para acrescentar contexto ou barrar um pedido inteiro.</td></tr>
+      <tr><td class="mono">PreToolUse</td><td>Antes de executar qualquer ferramenta (Bash, Edit, Read) — é onde vivem os três hooks de CRO da seção 4.</td></tr>
+      <tr><td class="mono">PostToolUse</td><td>Após executar uma ferramenta com sucesso — bom para validar o que acabou de ser escrito, rodar lint, registrar log.</td></tr>
+      <tr><td class="mono">Stop</td><td>Quando o Claude termina de responder — bom para notificação, checklist final ou resumo da sessão.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="card">
+    <div class="card-title">Catálogo de hooks prontos</div>
+    <p class="mono">github.com/lucianfialho/awesome-claude-code-hooks</p>
+    <p style="margin-top:5pt">Exemplos organizados por evento, para copiar e adaptar. A documentação oficial completa está em <span class="mono">code.claude.com/docs/en/hooks</span>.</p>
+  </div>
+
+  <div class="callout"><p>A regra para saber se algo deve virar hook: se você precisa que aconteça <strong>sempre</strong>, e não dá para aceitar que o modelo esqueça uma vez, é hook. Se é orientação que admite julgamento, é CLAUDE.md ou skill.</p></div>
+
+  <div class="foot">05 · Referências de hooks — Imersão Claude para CRO</div>
+</section>

@@ -1,0 +1,59 @@
+<section>
+  <div class="sec-head">
+    <div class="sec-num">Seção 04 · Guardrails</div>
+    <h2 class="sec-title">Os três hooks</h2>
+    <div class="sec-sub">Não é prompt. É código — não depende de o modelo lembrar.</div>
+  </div>
+
+  <p>Os três são <code>PreToolUse</code>: rodam antes da ferramenta, e cada um é a etapa anterior cobrando a conta. Eles não são de segurança, são de <strong>processo</strong>: o Claude não consegue pular uma etapa do ciclo porque um script bloqueia.</p>
+
+  <table>
+    <thead><tr><th style="width:32%">Hook</th><th style="width:34%">Bloqueia</th><th>Exige</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="mono">sem-plano-sem-hipotese.sh</td>
+        <td>a skill <code>hipotese-estruturada</code></td>
+        <td><code>CRO.md</code> com a seção "Plano de mensuração" preenchida</td>
+      </tr>
+      <tr>
+        <td class="mono">sem-srm-sem-resultado.sh</td>
+        <td>comandos que leem resultado de teste A/B (<span class="mono">converted</span>, conversão, <span class="mono">lift</span>, <span class="mono">cro-clean.db</span>)</td>
+        <td>a skill <code>srm-check</code> ter dado 🟢 e gravado <span class="mono">.cro/srm-ok</span></td>
+      </tr>
+      <tr>
+        <td class="mono">sem-design-sem-variante.sh</td>
+        <td>a skill <code>variante-builder</code> e a escrita de <span class="mono">variante*.html/.css/.js</span></td>
+        <td><code>DESIGN.md</code> no projeto</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Quando bloqueia, a mensagem diz o que falta e como resolver. Não é sermão, é o caminho de volta.</p>
+
+  <h3 class="rule">Instalar em 3 passos</h3>
+  <p><strong>1.</strong> Copie os três <code>.sh</code> para a pasta de hooks do Claude:</p>
+  <pre>mkdir -p ~/.claude/hooks
+cp 05-imersao-cro/hooks/sem-plano-sem-hipotese.sh  ~/.claude/hooks/
+cp 05-imersao-cro/hooks/sem-srm-sem-resultado.sh   ~/.claude/hooks/
+cp 05-imersao-cro/hooks/sem-design-sem-variante.sh ~/.claude/hooks/</pre>
+  <p><strong>2.</strong> Registre os hooks. Se você <strong>não tem</strong> <code>~/.claude/settings.json</code>, copie o da pasta:</p>
+  <pre>cp 05-imersao-cro/hooks/settings.json ~/.claude/settings.json</pre>
+  <p>Se você <strong>já tem</strong> um <code>settings.json</code>, não sobrescreva: abra os dois e cole os três blocos de dentro de <code>"PreToolUse"</code> no array <code>"PreToolUse"</code> que já existe no seu arquivo. Se o seu não tem <code>"hooks"</code>, cole o objeto <code>"hooks"</code> inteiro.</p>
+  <p><strong>3.</strong> Reinicie o Claude Code. Hooks são lidos na abertura da sessão — se você editar o <code>settings.json</code> com a sessão aberta, o hook antigo continua valendo.</p>
+  <div class="callout"><p><strong>Windows:</strong> funciona no Git Bash, que é o que o Claude Code usa para rodar hooks. Não precisa de <code>jq</code> nem de <code>chmod</code>.</p></div>
+
+  <h3 class="rule">Testar que está funcionando</h3>
+  <p>Sem abrir o Claude, os dez casos de cada hook — bloqueio, liberação e regressão:</p>
+  <pre>bash 05-imersao-cro/hooks/test.sh   <span class="cmt"># deve terminar com FAIL: 0</span></pre>
+  <p>Com o Claude aberto, num diretório vazio, peça <span class="mono">"Rode a skill hipotese-estruturada"</span>. Tem que aparecer <span class="mono">BLOQUEADO pelo hook sem-plano-sem-hipotese</span>. Depois copie o <code>aluno/CRO.md</code> para a pasta, preencha a seção "Plano de mensuração" e peça de novo: passa.</p>
+  <p>O que conta como preenchida: o hook lê da linha <span class="mono">## ... Plano de mensuração ...</span> até o próximo heading e descarta linha em branco, comentário HTML, cabeçalho da tabela e separador. O template recém-copiado, com a tabela vazia, ainda bloqueia — basta uma linha de dado de verdade para liberar.</p>
+
+  <h3 class="rule">Desligar um hook</h3>
+  <ol>
+    <li><strong>Só neste projeto, agora:</strong> crie o arquivo que falta. É a saída pretendida.</li>
+    <li><strong>Temporariamente:</strong> apague o bloco do hook em <code>~/.claude/settings.json</code> e reinicie o Claude Code.</li>
+    <li><strong>De vez:</strong> apague o <code>.sh</code> de <code>~/.claude/hooks/</code> e também o bloco do <code>settings.json</code>.</li>
+  </ol>
+  <p>Para conferir o que está ativo agora, rode <code>/hooks</code> dentro do Claude Code.</p>
+
+  <div class="foot">04 · Hooks — Imersão Claude para CRO</div>
+</section>

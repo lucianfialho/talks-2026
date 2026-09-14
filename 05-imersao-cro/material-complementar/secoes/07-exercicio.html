@@ -1,0 +1,74 @@
+<section>
+  <div class="sec-head">
+    <div class="sec-num">Seção 07 · Nó 12</div>
+    <h2 class="sec-title">O seu processo<br>vira uma skill</h2>
+    <div class="sec-sub">Para terminar em casa, com a nota na mão.</div>
+  </div>
+
+  <p>Uma skill é uma receita: ingredientes e modo de preparo. No nó 9 os ingredientes eram dados de uma página. Aqui os ingredientes são o time da sua empresa.</p>
+
+  <h3>Passo 1 — descrever o processo</h3>
+  <p>Quatro coisas, e nenhuma delas é ferramenta:</p>
+  <div class="grid2">
+    <div class="card"><div class="card-title">Papéis</div><p>Quem coleta, quem analisa, quem prioriza, quem sobe o teste. Com o nome do cargo, não "o time".</p></div>
+    <div class="card"><div class="card-title">Handoffs</div><p>Quem entrega para quem, em que momento. A passagem entre dois papéis.</p></div>
+    <div class="card"><div class="card-title">Entregáveis</div><p>O que sai de cada etapa das 7 do ciclo da Taciana. O artefato, não a intenção.</p></div>
+    <div class="card"><div class="card-title">Fontes</div><p>De onde vem o dado de cada etapa, <strong>com nome</strong>. "GA4, propriedade X", não "os dados da empresa".</p></div>
+  </div>
+
+  <h4>dentro do claude</h4>
+  <pre><span class="hl">/skill-creator:skill-creator</span>
+Quero uma skill com o processo de CRO
+da minha empresa. Me pergunta o que
+precisar. Papéis: … Handoffs: …</pre>
+  <p>Não descreva a ferramenta. Descreva quem faz o quê. Se você travar numa seção, é a mesma lição do CRO.md: ainda não sabe.</p>
+
+  <h3 class="rule">Passo 2 — validar e sair sabendo a nota</h3>
+  <pre><span class="hl">/cro:valida-skill-cro</span>
+~/.claude/skills/meu-processo-cro/SKILL.md</pre>
+  <p>Cada critério recebe <strong>0, 1 ou 2</strong>. A soma é a nota, de 0 a 10. E para cada nota abaixo de 2 vem a pergunta exata que a sua skill não responde — não "está vago".</p>
+
+  <table>
+    <thead><tr><th style="width:6%">#</th><th style="width:26%">Critério</th><th>A pergunta-guia</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Papéis</td><td>A skill nomeia os cargos ou papéis das pessoas envolvidas no processo?</td></tr>
+      <tr><td>2</td><td>Handoffs</td><td>A skill nomeia as passagens entre papéis — quem entrega para quem, e em que momento?</td></tr>
+      <tr><td>3</td><td>Entregáveis</td><td>A skill nomeia o entregável de cada etapa — o que sai de cada handoff?</td></tr>
+      <tr><td>4</td><td>Ingredientes</td><td>A skill diz de onde vem o dado que alimenta cada etapa, com fonte nomeada?</td></tr>
+      <tr><td>5</td><td>Modo de preparo</td><td>A sequência de passos é executável, ou é vaga ("analisar", "otimizar", "melhorar")?</td></tr>
+    </tbody>
+  </table>
+
+  <table>
+    <thead><tr><th style="width:16%">Escala</th><th>O que significa</th></tr></thead>
+    <tbody>
+      <tr><td><strong>0</strong> — ausente</td><td>Não aparece em nenhum lugar da skill.</td></tr>
+      <tr><td><strong>1</strong> — parcial</td><td>Aparece, mas genérico: cita "o time de CRO" sem nomear os cargos, ou "os dados" sem dizer de onde vêm.</td></tr>
+      <tr><td><strong>2</strong> — completo</td><td>Nomeado e específico o suficiente para outra pessoa executar sem perguntar de volta.</td></tr>
+    </tbody>
+  </table>
+
+  <table>
+    <thead><tr><th style="width:16%">Nota final</th><th>Leitura</th></tr></thead>
+    <tbody>
+      <tr><td><strong>8–10</strong></td><td>Descreve um processo executável. Está pronta para virar a skill de execução do time.</td></tr>
+      <tr><td><strong>4–7</strong></td><td>Tem processo real por trás, mas com lacunas que impedem outra pessoa de rodar sem perguntar de volta.</td></tr>
+      <tr><td><strong>0–3</strong></td><td>O que foi descrito ainda não é um processo — ou é a operação de uma ferramenta.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <p><strong>Sinal de alerta — ferramenta em vez de processo.</strong> Passos claríssimos ("abra o relatório X, clique em Y, exporte Z") e zero em Papéis, Handoffs e Entregáveis não é empate: é o sinal de que você descreveu como usar uma ferramenta, não o processo de CRO da sua empresa. O validador diz isso na cara.</p>
+  </div>
+  <p>Ele também não preenche a lacuna por você. Se a skill não diz de onde vem o dado, ele aponta a ausência — não sugere uma fonte plausível. Você tem que sair sabendo o que falta no seu processo, não recebendo um processo inventado.</p>
+
+  <h3 class="rule">Passo 3 — plugar no cro-plugin</h3>
+  <p>A pasta <code>skills/metodologia-exemplo/</code> do plugin é um exemplo genérico — o processo de um time fictício. É o encaixe da sua skill.</p>
+  <ol>
+    <li>Chegue em 8–10 no validador. Abaixo disso, resolva primeiro a pergunta que ele apontou.</li>
+    <li>Substitua o conteúdo de <code>skills/metodologia-exemplo/</code> pela sua skill — ou renomeie a pasta para o nome do seu processo. <strong>A pasta precisa ter o mesmo nome do campo <code>name</code> do frontmatter.</strong></li>
+    <li>Reinstale o plugin. O time inteiro passa a rodar a sua metodologia com um comando.</li>
+  </ol>
+
+  <div class="foot">07 · Exercício do nó 12 — Imersão Claude para CRO</div>
+</section>
