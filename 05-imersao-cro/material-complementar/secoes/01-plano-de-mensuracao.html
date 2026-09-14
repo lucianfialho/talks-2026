@@ -57,17 +57,16 @@
   </div>
 
   <h3 class="rule">Um exemplo preenchido — Malha Viva <span class="tag quiet">loja fictícia</span></h3>
-  <p class="mono" style="margin-bottom:6pt">KPI primário: conversão sessão&#8239;→&#8239;pedido &nbsp;·&nbsp; Guardrail: taxa de troca por tamanho</p>
+  <p class="mono" style="margin-bottom:6pt">KPI primário: conversão sessão&#8239;→&#8239;pedido &nbsp;·&nbsp; Guardrail: devoluções (refund)</p>
   <table>
     <thead><tr><th style="width:34%">Etapa</th><th style="width:33%">Evento</th><th style="width:33%">Onde mede</th></tr></thead>
     <tbody>
-      <tr><td>Listagem</td><td class="mono">view_item_list</td><td>GA4</td></tr>
-      <tr><td>Página de produto</td><td class="mono">view_item</td><td>GA4</td></tr>
-      <tr><td>Escolha de tamanho</td><td class="mono">select_size (custom)</td><td>GA4 via GTM</td></tr>
-      <tr><td>Carrinho</td><td class="mono">add_to_cart</td><td>GA4 + plataforma</td></tr>
-      <tr><td>Identificação e frete</td><td class="mono">begin_checkout</td><td>GA4</td></tr>
-      <tr><td>Pagamento</td><td class="mono">purchase</td><td>GA4 + backoffice</td></tr>
-      <tr><td>Pós-compra</td><td class="mono">troca_solicitada (custom)</td><td>Backoffice — é o guardrail</td></tr>
+      <tr><td>Busca / home</td><td class="mono">view_search_results</td><td>GA4</td></tr>
+      <tr><td>Listagem</td><td class="mono">view_item_list · select_item</td><td>GA4</td></tr>
+      <tr><td>Página de produto</td><td class="mono">view_item · add_to_cart</td><td>GA4</td></tr>
+      <tr><td>Carrinho</td><td class="mono">view_cart</td><td>GA4</td></tr>
+      <tr><td>Checkout</td><td class="mono">begin_checkout · add_shipping_info · add_payment_info · purchase</td><td>GA4 + backoffice</td></tr>
+      <tr><td>Pós-compra</td><td class="mono">refund</td><td>GA4 — é o guardrail</td></tr>
     </tbody>
   </table>
   <p>Repare em duas coisas. A última linha existe só para o guardrail: sem ela, você não tem como saber se o teste que subiu pedidos subiu também a devolução. E <code>purchase</code> tem duas fontes de propósito — GA4 decide o teste, o backoffice confere se o GA4 está contando certo.</p>
