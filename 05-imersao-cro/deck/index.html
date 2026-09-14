@@ -1094,20 +1094,64 @@ claude</pre>
 
 <article class="slide">
   <header class="slide-header">
-    <span>Nó 5 — Instalar</span>
-    <span></span>
+    <span>Nó 5 — O Claude por dentro</span>
+    <span>MCP</span>
   </header>
-  <div class="slide-main" style="gap:48px;">
-      <p class="eyebrow accent">O Claude por dentro · MCP e Claude in Chrome</p>
-      <div class="flex-row gap-64" style="font-family:var(--f-sans);">
-        <div class="flex-col gap-24" style="flex:1;">
-          <h2 style="font-family:var(--f-display);font-size:64px;letter-spacing:-0.02em;">MCP</h2>
-          <p style="font-size:var(--fs-subtitle);line-height:1.35;">A camada que conecta o Claude às suas fontes de dados.<br><span class="text-stone">GA4, Zendesk, planilha. Sem você abrir nada na mão.</span></p>
+  <div class="slide-main" style="gap:32px;">
+      <p class="eyebrow accent">O Claude por dentro · MCP</p>
+      <h2 style="font-family:var(--f-display);font-size:72px;letter-spacing:-0.02em;">
+        <span class="text-accent">MCP</span> — a tomada onde o Claude liga nas suas ferramentas
+      </h2>
+      <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--stone);max-width:1500px;">Sem exportar planilha, sem copiar e colar. Os que valem pra CRO, com fonte oficial:</p>
+      <div style="width:100%;">
+        <div style="display:grid;grid-template-columns:300px 1fr 560px;gap:24px;align-items:baseline;border-top:1px solid var(--rule);padding:14px 0;">
+          <span class="mono text-accent" style="font-size:var(--fs-body);">Google Analytics</span>
+          <span style="font-family:var(--f-sans);font-size:var(--fs-body);color:var(--ink);">GA4 direto na conversa: relatório, funil, tempo real. Oficial do Google.</span>
+          <span class="mono" style="font-size:16px;color:var(--stone);">github.com/googleanalytics/google-analytics-mcp</span>
         </div>
-        <div style="width:1px;background:var(--rule);"></div>
+        <div style="display:grid;grid-template-columns:300px 1fr 560px;gap:24px;align-items:baseline;border-top:1px solid var(--rule);padding:14px 0;">
+          <span class="mono text-accent" style="font-size:var(--fs-body);">Chrome DevTools</span>
+          <span style="font-family:var(--f-sans);font-size:var(--fs-body);color:var(--ink);">performance, DOM, screenshot da página. Oficial do Chrome.</span>
+          <span class="mono" style="font-size:16px;color:var(--stone);">github.com/ChromeDevTools/chrome-devtools-mcp</span>
+        </div>
+        <div style="display:grid;grid-template-columns:300px 1fr 560px;gap:24px;align-items:baseline;border-top:1px solid var(--rule);padding:14px 0;">
+          <span class="mono text-accent" style="font-size:var(--fs-body);">Playwright</span>
+          <span style="font-family:var(--f-sans);font-size:var(--fs-body);color:var(--ink);">navegar, preencher, testar a variante como um usuário. Microsoft.</span>
+          <span class="mono" style="font-size:16px;color:var(--stone);">github.com/microsoft/playwright-mcp</span>
+        </div>
+        <div style="display:grid;grid-template-columns:300px 1fr 560px;gap:24px;align-items:baseline;border-top:1px solid var(--rule);padding:14px 0;">
+          <span class="mono text-accent" style="font-size:var(--fs-body);">Notion</span>
+          <span style="font-family:var(--f-sans);font-size:var(--fs-body);color:var(--ink);">backlog de hipóteses e relatórios onde o time já vive.</span>
+          <span class="mono" style="font-size:16px;color:var(--stone);">github.com/makenotion/notion-mcp-server</span>
+        </div>
+      </div>
+      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">Instala com <span class="text-accent">claude mcp add</span>; o README de cada um tem a linha pronta. Hoje o GA4 vem pelo <span class="text-accent">gmp-cli</span>, que é CLI: mesma ideia, sem servidor.</p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 5 — O Claude por dentro</span>
+    <span>Claude in Chrome</span>
+  </header>
+  <div class="slide-main" style="gap:32px;">
+      <p class="eyebrow accent">O Claude por dentro · Claude in Chrome</p>
+      <div class="flex-row gap-64" style="align-items:center;">
         <div class="flex-col gap-24" style="flex:1;">
-          <h2 style="font-family:var(--f-display);font-size:64px;letter-spacing:-0.02em;">Claude in Chrome</h2>
-          <p style="font-size:var(--fs-subtitle);line-height:1.35;">O Claude navega no seu navegador, logado como você.<br><span class="text-stone">Faz a jornada da loja e conta o que viu. Volta no nó 11.</span></p>
+          <h2 style="font-family:var(--f-display);font-size:72px;line-height:1.05;letter-spacing:-0.02em;">O Claude navega no <span class="text-accent">seu</span> navegador, logado como você</h2>
+          <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--stone);">Faz a jornada da loja, abre o carrinho, lê o checkout, e conta o que viu. É a extensão que o nó 11 usa pra rodar Morys em cima da página real.</p>
+          <div class="code-wrap">
+            <div class="code-head">instalar · Chrome Web Store</div>
+            <pre class="code-body" style="font-size:20px;line-height:1.6;">chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn</pre>
+          </div>
+          <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">Depois: <span class="text-accent">claude --chrome</span> no terminal e ele passa a enxergar as abas.</p>
+        </div>
+        <div style="flex:1.1;">
+          <img src="claude-in-chrome.png" alt="Claude in Chrome" style="width:100%;border-radius:8px;box-shadow:0 12px 40px rgba(0,0,0,0.18);">
         </div>
       </div>
     </div>
