@@ -2059,7 +2059,7 @@ claude plugin install cro@cro-plugin</pre>
           <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:180px;">metodologia</span><span class="mono" style="font-size:var(--fs-small);">valida-skill-cro · <strong style="color:var(--ink);">a sua</strong></span></div>
         </div>
       </div>
-      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">Mais os três hooks e o template de CRO.md. Tudo na mesma URL.</p>
+      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">Mais os três hooks, o template de CRO.md e três sub-agentes por papel, com o <span class="text-accent">/cro:ciclo</span> que encadeia eles. Tudo na mesma URL.</p>
     </div>
   <footer class="slide-footer">
     <span>@lucianfialho</span>
@@ -2097,8 +2097,43 @@ claude plugin install cro@cro-plugin</pre>
         Bônus
       </h2>
       <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--noir-ink-soft);max-width:1300px;">
-        Cinco blocos independentes. Vocês escolhem. O que não couber está no PDF.
+        Seis blocos independentes. Vocês escolhem. O que não couber está no PDF.
       </p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Bônus — Sub-agentes</span>
+    <span>modular · se der tempo</span>
+  </header>
+  <div class="slide-main" style="gap:28px;">
+      <p class="eyebrow accent">Cada papel do time vira um Claude com o próprio contexto</p>
+      <h2 style="font-family:var(--f-display);font-size:72px;letter-spacing:-0.02em;max-width:1600px;">O seu processo de CRO rodando <span class="text-accent">sozinho</span>: <span class="mono" style="font-size:56px;">/cro:ciclo</span></h2>
+      <div style="display:grid;grid-template-columns:1fr 40px 1fr 40px 1fr 40px 1fr;gap:10px;align-items:center;width:100%;">
+        <div style="border:1px solid var(--rule);background:var(--bg-alt);color:var(--ink);border-radius:var(--r-lg);padding:14px 18px;text-align:center;min-width:0;">
+              <div class="mono" style="font-size:20px;">CRO.md + DESIGN.md</div><div style="font-family:var(--f-sans);font-size:16px;color:var(--stone);margin-top:4px;">o brief</div>
+            </div><div style="text-align:center;font-family:var(--f-display);font-size:40px;color:var(--stone);">→</div><div style="border:1px solid var(--noir-bg);background:var(--noir-bg);color:var(--noir-ink);border-radius:var(--r-lg);padding:14px 18px;text-align:center;min-width:0;">
+              <div class="mono" style="font-size:20px;">cro:analista</div><div style="font-family:var(--f-sans);font-size:16px;color:var(--noir-stone);margin-top:4px;">lê o brief · Morys, hipótese, ICE</div>
+            </div><div style="text-align:center;font-family:var(--f-display);font-size:40px;color:var(--stone);">→</div><div style="border:1px solid var(--noir-bg);background:var(--noir-bg);color:var(--noir-ink);border-radius:var(--r-lg);padding:14px 18px;text-align:center;min-width:0;">
+              <div class="mono" style="font-size:20px;">cro:qa</div><div style="font-family:var(--f-sans);font-size:16px;color:var(--noir-stone);margin-top:4px;">lê o brief + analista.md · pre-flight, SRM</div>
+            </div><div style="text-align:center;font-family:var(--f-display);font-size:40px;color:var(--stone);">→</div><div style="border:1px solid var(--noir-bg);background:var(--noir-bg);color:var(--noir-ink);border-radius:var(--r-lg);padding:14px 18px;text-align:center;min-width:0;">
+              <div class="mono" style="font-size:20px;">cro:dev</div><div style="font-family:var(--f-sans);font-size:16px;color:var(--noir-stone);margin-top:4px;">lê o brief + qa.md · variante no DESIGN.md</div>
+            </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 40px 1fr 40px 1fr 40px 1fr;gap:10px;align-items:start;width:100%;font-family:var(--f-mono);font-size:16px;color:var(--stone);text-align:center;">
+        <div></div><div></div><div>relatorios/analista.md</div><div></div><div>relatorios/qa.md</div><div></div><div>relatorios/dev.md</div>
+      </div>
+      <div class="flex-row gap-64" style="font-family:var(--f-sans);font-size:var(--fs-body);color:var(--ink);">
+        <div style="flex:1;"><strong>Um contexto por papel.</strong> O analista nunca vê o que o dev fez. O dev nunca vê a conversa do analista. Cada um lê o brief e devolve um arquivo.</div>
+        <div style="flex:1;"><strong>O orquestrador só lê a conclusão.</strong> Três relatórios curtos, não três conversas inteiras. É por isso que cabe: o contexto não estoura.</div>
+        <div style="flex:1;"><strong>O QA pode dizer não.</strong> "Não pode subir" para o ciclo antes do dev gastar tempo. É o pre-flight da Tá com poder de veto.</div>
+      </div>
+      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">Vem no plugin: <span class="text-accent">agents/analista.md · qa.md · dev.md</span>. A skill de metodologia que você escreveu no nó 12 é o que define quem faz o quê.</p>
     </div>
   <footer class="slide-footer">
     <span>@lucianfialho</span>
