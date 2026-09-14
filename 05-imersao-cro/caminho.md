@@ -173,5 +173,6 @@
 ## Cortes aplicados em 2026-09-13 (pra abrir espaço)
 - Slide de referências de hooks saiu do deck (vai pro PDF)
 - Nó 6 ficou com dois parâmetros (`--chrome`, `--resume`)
-- Nó 4 mantido inteiro (foi desenhado em conjunto)
+- Nó 4: os dois slides "o que se perde" saíram (2026-09-14); fica só o divisor e o Lucian
+  explica de voz que cada um usa como quiser
 - Pendente, decisão do Lucian: instalação como pré-requisito da manhã
