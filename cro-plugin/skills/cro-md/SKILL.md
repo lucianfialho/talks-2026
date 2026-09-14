@@ -9,10 +9,12 @@ description: Cria o CRO.md do projeto (o contexto da loja pro Claude) a partir d
 
 1. Se já existe `CRO.md` no diretório atual, **pare** e diga que ele existe. Não sobrescreva.
 2. Pergunte só uma coisa: **o nome da loja**. Se o usuário não souber ou não quiser, use "minha loja".
-3. Escreva `CRO.md` no diretório atual com o template abaixo, trocando "Malha Viva" pelo nome dado.
+3. Escreva `CRO.md` no diretório atual com o template abaixo, trocando "Malha Viva" pelo nome dado
+   e mudando a primeira linha para `# CRO.md — contexto da loja <nome>`.
    Mantenha os comentários HTML: são as instruções de preenchimento e não entram no contexto.
 4. No `CLAUDE.md` do diretório atual:
-   - se existir e ainda não tiver `@CRO.md`, acrescente ao final: `Contexto do negócio e da mensuração: @CRO.md`
+   - se existir e ainda não tiver `@CRO.md`, acrescente ao final:
+     `Loja: <nome>. Contexto do negócio e da mensuração: @CRO.md`
    - se não existir, crie com o título `# Projeto: <nome da loja>` e essa mesma linha.
 5. Termine dizendo, em 3 linhas: onde o arquivo está, quais 3 seções preenchemos hoje
    (2. Jornada, 3. Plano de mensuração, 5. Voz do cliente) e que o Claude só passa a ler
