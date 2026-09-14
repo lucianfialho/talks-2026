@@ -34,7 +34,7 @@
     reclamações do mês pra achar a principal dor com o site. (IA pra código
     já está muito avançada — dá pra fazer o extrator, ou analisar direto.)
 
-### Fecha o nó: tudo isso cabe num arquivo — `CRO.md`
+### `CRO.md` — apresentado no nó 5, ao lado de "engenharia de contexto" (decisão 2026-09-13)
 > Decisão 2026-09-13. É o CLAUDE.md da loja: o que o aluno aprendeu "antes de
 > aprender" vira contexto pro Claude. Convenção do workshop, não spec de mercado.
 
