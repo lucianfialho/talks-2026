@@ -30,20 +30,21 @@
   <p>Quando bloqueia, a mensagem diz o que falta e como resolver. Não é sermão, é o caminho de volta.</p>
 
   <h3 class="rule">Instalar em 3 passos</h3>
+  <p>Os arquivos estão na pasta <code>hooks/</code> de <code>github.com/lucianfialho/cro-plugin</code>. Baixe pelo botão <strong>Code → Download ZIP</strong>, descompacte, e abra o terminal na pasta descompactada (os comandos abaixo assumem que ela se chama <code>cro-plugin</code>).</p>
   <p><strong>1.</strong> Copie os três <code>.sh</code> para a pasta de hooks do Claude:</p>
   <pre>mkdir -p ~/.claude/hooks
-cp 05-imersao-cro/hooks/sem-plano-sem-hipotese.sh  ~/.claude/hooks/
-cp 05-imersao-cro/hooks/sem-srm-sem-resultado.sh   ~/.claude/hooks/
-cp 05-imersao-cro/hooks/sem-design-sem-variante.sh ~/.claude/hooks/</pre>
+cp cro-plugin/hooks/sem-plano-sem-hipotese.sh  ~/.claude/hooks/
+cp cro-plugin/hooks/sem-srm-sem-resultado.sh   ~/.claude/hooks/
+cp cro-plugin/hooks/sem-design-sem-variante.sh ~/.claude/hooks/</pre>
   <p><strong>2.</strong> Registre os hooks. Se você <strong>não tem</strong> <code>~/.claude/settings.json</code>, copie o da pasta:</p>
-  <pre>cp 05-imersao-cro/hooks/settings.json ~/.claude/settings.json</pre>
+  <pre>cp cro-plugin/hooks/settings.json ~/.claude/settings.json</pre>
   <p>Se você <strong>já tem</strong> um <code>settings.json</code>, não sobrescreva: abra os dois e cole os três blocos de dentro de <code>"PreToolUse"</code> no array <code>"PreToolUse"</code> que já existe no seu arquivo. Se o seu não tem <code>"hooks"</code>, cole o objeto <code>"hooks"</code> inteiro.</p>
   <p><strong>3.</strong> Reinicie o Claude Code. Hooks são lidos na abertura da sessão — se você editar o <code>settings.json</code> com a sessão aberta, o hook antigo continua valendo.</p>
   <div class="callout"><p><strong>Windows:</strong> funciona no Git Bash, que é o que o Claude Code usa para rodar hooks. Não precisa de <code>jq</code> nem de <code>chmod</code>.</p></div>
 
   <h3 class="rule">Testar que está funcionando</h3>
   <p>Sem abrir o Claude, os dez casos de cada hook — bloqueio, liberação e regressão:</p>
-  <pre>bash 05-imersao-cro/hooks/test.sh   <span class="cmt"># deve terminar com FAIL: 0</span></pre>
+  <pre>bash cro-plugin/hooks/test.sh   <span class="cmt"># deve terminar com FAIL: 0</span></pre>
   <p>Com o Claude aberto, num diretório vazio, peça <span class="mono">"Rode a skill hipotese-estruturada"</span>. Tem que aparecer <span class="mono">BLOQUEADO pelo hook sem-plano-sem-hipotese</span>. Depois copie o <code>aluno/CRO.md</code> para a pasta, preencha a seção "Plano de mensuração" e peça de novo: passa.</p>
   <p>O que conta como preenchida: o hook lê da linha <span class="mono">## ... Plano de mensuração ...</span> até o próximo heading e descarta linha em branco, comentário HTML, cabeçalho da tabela e separador. O template recém-copiado, com a tabela vazia, ainda bloqueia — basta uma linha de dado de verdade para liberar.</p>
 
