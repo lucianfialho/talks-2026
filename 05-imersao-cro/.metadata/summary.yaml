@@ -9,6 +9,7 @@ tags:
   - plugin-skill-creator
   - handout-sync
   - hooks-pretooluse
+  - hooks-userpromptsubmit
   - design-system
   - design-md
   - cro-md
