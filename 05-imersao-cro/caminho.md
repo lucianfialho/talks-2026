@@ -133,4 +133,33 @@
   que ele viu (não é gravação de sessão; é ele percorrendo)
 - Aplicar **Morys** (`heuristica-morys`)
 
-## 12. ( … )
+## 12. Exercício — o seu processo vira uma skill
+> Promessa da landing: "descrever o processo de CRO da sua empresa — papéis, handoffs
+> e entregáveis — e transformá-lo em uma Skill de metodologia". Callback no nó 9.
+
+- Passo 1: o aluno descreve papéis, handoffs, entregáveis e fontes; `/skill-creator` gera
+- Passo 2: `/valida-skill-cro` dá nota 0–10 em 5 critérios e a pergunta que a skill não responde
+- ~20–25 min. Só cabe se a instalação virar pré-requisito da manhã (combinar com o Messina)
+
+## 13. Entregável — cro-plugin
+> Promessa da landing: "plugin gratuito de CRO com Skills por papel (analista, QA, dev)
+> e a sua Skill de metodologia plugada nele".
+
+- `claude plugin marketplace add lucianfialho/cro-plugin` + `claude plugin install`
+- analista · QA · dev · metodologia (valida-skill-cro + a do aluno no slot `metodologia-exemplo`)
+- Repositório público ainda precisa ser criado (checklist em `cro-plugin/CHECKLIST-publicar.md`)
+
+## Obrigado
+
+## Bônus — modulares, escolhidos na hora (o que não couber vai pro PDF)
+1. Cowork — o mesmo Claude sem terminal, mesma conta, mesmas skills
+2. Tarefas agendadas — `/loop --cron` e `/schedule`; roda na máquina, expira em 3 dias
+3. Custo — `/usage` `/model` `/effort` `/compact` `/context`
+4. Memória — CLAUDE.md (você), memória automática (o Claude), skills (o time)
+5. Base do time — skill de ingestão de links/vídeos/PDFs numa base importada no CLAUDE.md
+
+## Cortes aplicados em 2026-09-13 (pra abrir espaço)
+- Slide de referências de hooks saiu do deck (vai pro PDF)
+- Nó 6 ficou com dois parâmetros (`--chrome`, `--resume`)
+- Nó 4 mantido inteiro (foi desenhado em conjunto)
+- Pendente, decisão do Lucian: instalação como pré-requisito da manhã
