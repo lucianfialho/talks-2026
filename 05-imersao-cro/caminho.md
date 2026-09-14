@@ -72,8 +72,10 @@
   - **engenharia de contexto** → slide dedicado ao **CLAUDE.md** (onde, o que vai,
     quando lê, regra "curto + imports") → slide do **CRO.md** → `DESIGN.md` fica pro nó 8
   - **Faça agora, em sequência** (decisão 2026-09-13: "eles vão rodando as coisas nessa parte"):
-    `mkdir minha-loja` → `cd` → `claude` → `/init` (cria o CLAUDE.md) → `/cro:cro-md`
-    (skill do plugin: escreve o CRO.md do template e registra `@CRO.md` no CLAUDE.md)
+    1/3 `mkdir minha-loja` → `cd` → instala os dois plugins (cro-plugin e skill-creator)
+    2/3 `claude` → `/init` (cria o CLAUDE.md)
+    3/3 `/cro:cro-md` (skill do plugin: escreve o CRO.md do template e registra `@CRO.md`)
+    O slide de instalação volta a ser só instalar + login.
 - (o material que já existe sobre esses conceitos pode ser reaproveitado)
 
 ## 6. Rodando o Claude Code pela primeira vez (`claude --help`)
