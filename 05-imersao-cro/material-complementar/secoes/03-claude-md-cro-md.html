@@ -19,10 +19,9 @@
   <h3>Como criar os dois, em ordem</h3>
   <h4>faça agora · dentro da pasta da loja</h4>
   <pre>claude
-<span class="hl">/init</span>
 <span class="hl">/cro:cro-md</span></pre>
-  <p>O <code>/init</code> olha a pasta, pergunta o que precisar e escreve o <code>CLAUDE.md</code>. Abra o arquivo depois: é isso que ele vai ler toda vez.</p>
-  <p>O <code>/cro:cro-md</code> é a skill do plugin: cria o <code>CRO.md</code> a partir do template e registra <code>@CRO.md</code> dentro do CLAUDE.md que o <code>/init</code> acabou de fazer.</p>
+  <p>O <code>/cro:cro-md</code> é a skill do plugin: pergunta o nome da loja, cria o <code>CRO.md</code> a partir do template e escreve o <code>CLAUDE.md</code> com a linha <code>@CRO.md</code>. Se o CLAUDE.md já existe, só acrescenta a linha. Abra o CLAUDE.md depois: é isso que ele vai ler toda vez.</p>
+  <p>E o <code>/init</code>? É o comando nativo que escreve o CLAUDE.md sozinho <em>num projeto de código</em>: ele lê o repositório e documenta comandos e arquitetura. Numa pasta vazia, escreve em inglês sobre software que não existe. Por isso no workshop a skill faz esse papel.</p>
 
   <h3 class="rule">As 8 seções do CRO.md</h3>
   <table>
