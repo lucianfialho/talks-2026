@@ -8,7 +8,7 @@
 - Quem aqui usa ou já usou o Claude Code?
 - Quem aqui usa o Claude Code no terminal?
 
-## 2. Apresentação
+## ~~2. Apresentação~~ — slide removido (2026-09-14)
 
 ## 3. Back to Basics
 
