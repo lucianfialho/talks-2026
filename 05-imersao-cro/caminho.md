@@ -78,7 +78,7 @@
     quando lê, regra "curto + imports") → slide do **CRO.md** → `DESIGN.md` fica pro nó 8
   - **Faça agora, em sequência** (decisão 2026-09-13: "eles vão rodando as coisas nessa parte"):
     1/3 `mkdir minha-loja` → `cd` → instala os dois plugins (cro-plugin e skill-creator)
-    2/3 `claude` → `/cro:cro-md` (skill do plugin: escreve CLAUDE.md + CRO.md do template)
+    2/3 `claude` → `/cro-ai-day:cro-md` (skill do plugin: escreve CLAUDE.md + CRO.md do template)
     3/3 preencher as 3 seções ao vivo. `/init` é só falado: numa pasta vazia ele escreve
         um CLAUDE.md em inglês sobre software (testado 2026-09-14), então não roda.
     O slide de instalação volta a ser só instalar + login.
