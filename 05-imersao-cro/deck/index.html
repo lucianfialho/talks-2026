@@ -808,6 +808,62 @@ h1, h2, h3, .display, [style*="--f-display"] { font-weight: 500; letter-spacing:
 <article class="slide">
   <header class="slide-header">
     <span>Nó 3 — Back to Basics</span>
+    <span>Exemplo · Magalu</span>
+  </header>
+  <div class="slide-main" style="gap:28px;">
+      <p class="eyebrow accent">Plano de mensuração · a jornada que você acabou de fazer</p>
+      <h2 style="font-family:var(--f-display);font-size:72px;letter-spacing:-0.02em;">Um evento por etapa. Nomes que o GA4 já entende.</h2>
+      <div style="width:100%;">
+        <div style="display:grid;grid-template-columns:1.1fr 1.5fr 0.9fr;gap:24px;padding:0 0 8px;font-family:var(--f-mono);font-size:16px;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);">
+          <span>Etapa</span><span>Evento</span><span>Onde mede</span>
+        </div>
+          <div style="display:grid;grid-template-columns:1.1fr 1.5fr 0.9fr;gap:24px;padding:12px 0;border-top:1px solid var(--rule);align-items:baseline;">
+            <span style="font-family:var(--f-sans);font-size:var(--fs-body);color:var(--ink);">Busca / home</span>
+            <span class="mono" style="font-size:22px;color:var(--accent);">view_search_results</span>
+            <span style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">GA4</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1.1fr 1.5fr 0.9fr;gap:24px;padding:12px 0;border-top:1px solid var(--rule);align-items:baseline;">
+            <span style="font-family:var(--f-sans);font-size:var(--fs-body);color:var(--ink);">Listagem</span>
+            <span class="mono" style="font-size:22px;color:var(--accent);">view_item_list · select_item</span>
+            <span style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">GA4</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1.1fr 1.5fr 0.9fr;gap:24px;padding:12px 0;border-top:1px solid var(--rule);align-items:baseline;">
+            <span style="font-family:var(--f-sans);font-size:var(--fs-body);color:var(--ink);">Página de produto</span>
+            <span class="mono" style="font-size:22px;color:var(--accent);">view_item</span>
+            <span style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">GA4</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1.1fr 1.5fr 0.9fr;gap:24px;padding:12px 0;border-top:1px solid var(--rule);align-items:baseline;">
+            <span style="font-family:var(--f-sans);font-size:var(--fs-body);color:var(--ink);">Carrinho</span>
+            <span class="mono" style="font-size:22px;color:var(--accent);">add_to_cart · view_cart</span>
+            <span style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">GA4</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1.1fr 1.5fr 0.9fr;gap:24px;padding:12px 0;border-top:1px solid var(--rule);align-items:baseline;">
+            <span style="font-family:var(--f-sans);font-size:var(--fs-body);color:var(--ink);">Identificação e frete</span>
+            <span class="mono" style="font-size:22px;color:var(--accent);">begin_checkout · add_shipping_info</span>
+            <span style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">GA4</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1.1fr 1.5fr 0.9fr;gap:24px;padding:12px 0;border-top:1px solid var(--rule);align-items:baseline;">
+            <span style="font-family:var(--f-sans);font-size:var(--fs-body);color:var(--ink);">Pagamento</span>
+            <span class="mono" style="font-size:22px;color:var(--accent);">add_payment_info · purchase</span>
+            <span style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">GA4 + backoffice</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1.1fr 1.5fr 0.9fr;gap:24px;padding:12px 0;border-top:1px solid var(--rule);align-items:baseline;">
+            <span style="font-family:var(--f-sans);font-size:var(--fs-body);color:var(--ink);">Pós-compra</span>
+            <span class="mono" style="font-size:22px;color:var(--accent);">devolucao_solicitada (custom)</span>
+            <span style="font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Backoffice · guardrail</span>
+          </div>
+      </div>
+      <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">KPI primário: conversão sessão → pedido. Guardrail: devolução. Os nomes são os eventos padrão de e-commerce do GA4; a Magalu é só o exemplo da jornada, não o plano dela.</p>
+    </div>
+  <footer class="slide-footer">
+    <span>@lucianfialho</span>
+    <span></span>
+  </footer>
+</article>
+
+<article class="slide">
+  <header class="slide-header">
+    <span>Nó 3 — Back to Basics</span>
     <span></span>
   </header>
   <div class="slide-main" style="justify-content:center; gap:40px;">
