@@ -2,6 +2,11 @@
 
 > Desenhado em conjunto, 13/09. Só entra aqui o que o Lucian desenhou ou aprovou.
 
+> **Numeração no deck (2026-09-14):** nós 1 e 2 saíram, o deck renumerou de 1 a 9:
+> 1 Back to Basics · 2 Desktop ou terminal · 3 Instalar + O Claude por dentro · 4 Primeira
+> execução · 5 Escolhendo o modelo · 6 Contexto pelo design · 7 Análise · 8 Geração de
+> hipótese · 9 Entregável. Os títulos abaixo mantêm a numeração original do desenho.
+
 ## ~~1. Pesquisa qualitativa~~ — slides removidos (2026-09-14); se quiser, faz de voz
 
 - Quem aqui usa ou já usou o Claude?
