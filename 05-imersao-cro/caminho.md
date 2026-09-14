@@ -71,6 +71,9 @@
   - **Claude in Chrome** como conceito (a demo fica pro nó 11)
   - **engenharia de contexto** → slide dedicado ao **CLAUDE.md** (onde, o que vai,
     quando lê, regra "curto + imports") → slide do **CRO.md** → `DESIGN.md` fica pro nó 8
+  - **Faça agora, em sequência** (decisão 2026-09-13: "eles vão rodando as coisas nessa parte"):
+    `mkdir minha-loja` → `cd` → `claude` → `/init` (cria o CLAUDE.md) → `/cro:cro-md`
+    (skill do plugin: escreve o CRO.md do template e registra `@CRO.md` no CLAUDE.md)
 - (o material que já existe sobre esses conceitos pode ser reaproveitado)
 
 ## 6. Rodando o Claude Code pela primeira vez (`claude --help`)

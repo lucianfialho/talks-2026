@@ -1161,14 +1161,12 @@ claude plugin install skill-creator@claude-plugins-official</pre>
       </h2>
       <div class="flex-row gap-64" style="align-items:flex-start;">
         <div class="code-wrap" style="flex:1;">
-          <div class="code-head">CLAUDE.md — na pasta da loja</div>
-          <pre class="code-body" style="font-size:24px;line-height:1.7;"># Projeto: loja Malha Viva
-
-Tudo aqui é trabalho de CRO: diagnóstico,
-hipótese, variante e leitura de resultado.
-
-Contexto do negócio: @CRO.md
-Contexto visual:     @DESIGN.md</pre>
+          <div class="code-head">faça agora · mac e windows</div>
+          <pre class="code-body" style="font-size:24px;line-height:1.7;">mkdir minha-loja
+cd minha-loja
+claude
+/init</pre>
+          <div style="padding:12px 20px;font-family:var(--f-sans);font-size:var(--fs-small);color:var(--stone);">Ele olha a pasta, pergunta o que precisa e escreve o <span class="mono">CLAUDE.md</span>. Abre o arquivo: é isso que ele vai ler toda vez.</div>
         </div>
         <div class="flex-col gap-16" style="flex:1;font-family:var(--f-sans);font-size:var(--fs-body);">
           <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:150px;font-size:var(--fs-small);">onde</span><span class="text-stone">na pasta onde você abre o terminal. Um em <span class="mono">~/.claude/</span> vale pra tudo.</span></div>
@@ -1234,6 +1232,11 @@ Contexto visual:     @DESIGN.md</pre>
           <p>Primeiro serve pra <strong style="color:var(--ink);">você</strong>: se não consegue escrever a seção, é porque ainda não sabe.</p>
           <p>Depois serve pro <strong style="color:var(--ink);">Claude</strong>: é o que ele lê antes de qualquer análise, hipótese ou variante.</p>
           <p class="mono" style="font-size:var(--fs-small);">Três seções a gente preenche hoje. As outras cinco vão no template.</p>
+          <div class="code-wrap">
+            <div class="code-head">faça agora</div>
+            <pre class="code-body" style="font-size:24px;line-height:1.7;">/cro:cro-md</pre>
+          </div>
+          <p class="mono" style="font-size:var(--fs-small);color:var(--stone);">Cria o CRO.md com o template e registra <span class="text-accent">@CRO.md</span> no CLAUDE.md que o /init acabou de fazer.</p>
         </div>
       </div>
     </div>
@@ -1772,6 +1775,7 @@ claude plugin install cro@cro-plugin</pre>
           <p style="font-family:var(--f-sans);font-size:var(--fs-lead);color:var(--stone);">Tudo que rodou hoje com <span class="mono">/cro:</span> na frente veio daqui. Grátis, aberto. A pasta <span class="mono">metodologia-exemplo</span> é o encaixe da sua skill.</p>
         </div>
         <div class="flex-col gap-14" style="flex:1;font-family:var(--f-sans);font-size:var(--fs-body);">
+          <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:180px;">setup</span><span class="mono" style="font-size:var(--fs-small);">cro-md</span></div>
           <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:180px;">analista</span><span class="mono" style="font-size:var(--fs-small);">heuristica-morys · hipotese-estruturada · ice-score · post-test-segments</span></div>
           <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:180px;">QA</span><span class="mono" style="font-size:var(--fs-small);">pre-flight-check · srm-check</span></div>
           <div class="flex-row gap-24" style="align-items:baseline;"><span class="mono text-accent" style="min-width:180px;">dev</span><span class="mono" style="font-size:var(--fs-small);">variante-builder · detecta-design-system</span></div>
