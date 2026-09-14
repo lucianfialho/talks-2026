@@ -1,29 +1,37 @@
 /* ── Google Fonts ───────────────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
-/* ── Tokens — Variação A (Editorial Warm) ──────────────────────────────── */
+/* ── Tokens — mapeados de DESIGN.md (claude.com) ──────────────────────── */
 :root {
-  --bg:         #F5F1EB;
-  --bg-alt:     #EDE7DD;
-  --ink:        #1A1915;
-  --ink-soft:   #3A3833;
-  --stone:      #6B6963;
-  --stone-2:    #A8A59E;
-  --rule:       #D9D3C7;
-  --accent:     #CC785C;
-  --accent-2:   #8A4A36;
-  --fg:         #1A1915;
+  --bg:         #faf9f5;   /* colors.canvas */
+  --bg-alt:     #efe9de;   /* colors.surface-card */
+  --bg-soft:    #f5f0e8;   /* colors.surface-soft */
+  --ink:        #141413;   /* colors.ink */
+  --ink-soft:   #3d3d3a;   /* colors.body */
+  --stone:      #6c6a64;   /* colors.muted */
+  --stone-2:    #8e8b82;   /* colors.muted-soft */
+  --rule:       #e6dfd8;   /* colors.hairline */
+  --accent:     #cc785c;   /* colors.primary */
+  --accent-2:   #a9583e;   /* colors.primary-active */
+  --fg:         #141413;
 
-  /* Variação B */
-  --noir-bg:       #13120F;
-  --noir-bg-alt:   #1E1C17;
-  --noir-ink:      #F5F1EB;
-  --noir-ink-soft: #C8C2B5;
-  --noir-stone:    #8A867C;
-  --noir-rule:     #2B2923;
-  --noir-accent:   #E68A6C;
+  /* Superfícies escuras — colors.surface-dark* */
+  --noir-bg:       #181715;
+  --noir-bg-alt:   #252320;
+  --noir-bg-soft:  #1f1e1b;
+  --noir-ink:      #faf9f5;   /* colors.on-dark */
+  --noir-ink-soft: #d6d2ca;
+  --noir-stone:    #a09d96;   /* colors.on-dark-soft */
+  --noir-rule:     #2f2d29;
+  --noir-accent:   #cc785c;
 
-  /* Typography scale */
+  /* Raios — rounded.* */
+  --r-md:   8px;
+  --r-lg:   12px;
+  --r-xl:   16px;
+  --r-pill: 9999px;
+
+  /* Typography scale (web ×2.5 para 1920×1080) */
   --fs-hero:     180px;
   --fs-display:  120px;
   --fs-title:    80px;
@@ -38,9 +46,9 @@
   --pad-y-top:  100px;
   --pad-y-bot:   90px;
 
-  /* Families */
-  --f-display: 'Instrument Serif', Georgia, serif;
-  --f-sans:    'Inter Tight', system-ui, sans-serif;
+  /* Families — substitutos documentados no DESIGN.md */
+  --f-display: 'Cormorant Garamond', 'Tiempos Headline', Garamond, 'Times New Roman', serif;
+  --f-sans:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --f-mono:    'JetBrains Mono', monospace;
 }
 
@@ -49,7 +57,7 @@
 
 /* ── Body / stage ──────────────────────────────────────────────────────── */
 html, body {
-  background: #0B0B09;
+  background: #181715;
   font-family: var(--f-sans);
   -webkit-font-smoothing: antialiased;
 }
@@ -216,13 +224,12 @@ deck-stage {
 
 /* ── Code block ─────────────────────────────────────────────────────────── */
 .code-wrap {
-  border-radius: 4px;
+  border-radius: var(--r-lg);
   overflow: hidden;
-  box-shadow: 0 24px 48px -20px rgba(0,0,0,0.25);
 }
 .code-head {
-  background: #0B0B09;
-  color: var(--stone-2);
+  background: var(--noir-bg-alt);
+  color: var(--noir-stone);
   font-family: var(--f-mono);
   font-size: 18px;
   font-weight: 500;
@@ -234,8 +241,8 @@ deck-stage {
   align-items: center;
 }
 .code-body {
-  background: var(--ink);
-  color: var(--bg);
+  background: var(--noir-bg);
+  color: var(--noir-ink);
   font-family: var(--f-mono);
   font-size: 24px;
   line-height: 1.6;
@@ -255,7 +262,7 @@ deck-stage {
 .diagram { display: flex; align-items: center; gap: 0; }
 .diagram-node {
   border: 1px solid currentColor;
-  border-radius: 2px;
+  border-radius: var(--r-md);
   padding: 18px 26px;
   font-family: var(--f-mono);
   font-size: 22px;
