@@ -65,9 +65,10 @@
   (**Claude in Chrome**)
 - Conceitos básicos, em cima de como o Claude Code funciona:
   - o que é uma **skill**
-  - o que é um **hook**
-  - o que é um **webhook**
+  - o que é um **hook** (na live de julho saiu como "web hook" na transcrição —
+    é a mesma coisa; não existe webhook no Claude Code)
   - **MCPs**
+  - **Claude in Chrome** como conceito (a demo fica pro nó 11)
   - **engenharia de contexto**, `design.md`
 - (o material que já existe sobre esses conceitos pode ser reaproveitado)
 
